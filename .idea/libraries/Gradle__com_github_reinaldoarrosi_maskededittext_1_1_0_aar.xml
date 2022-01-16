@@ -1,14 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.reinaldoarrosi:maskededittext:1.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/maskededittext-1.1.0.aar/0df4bacca4773bffd905120b6754a224/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/maskededittext-1.1.0.aar/0df4bacca4773bffd905120b6754a224/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/221420cc27563f1dc897634881a2efba/maskededittext-1.1.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/221420cc27563f1dc897634881a2efba/maskededittext-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/221420cc27563f1dc897634881a2efba/maskededittext-1.1.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c977190c21627297a8e6912a45ad4624/jetified-maskededittext-1.1.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c977190c21627297a8e6912a45ad4624/jetified-maskededittext-1.1.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c977190c21627297a8e6912a45ad4624/jetified-maskededittext-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c977190c21627297a8e6912a45ad4624/jetified-maskededittext-1.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c977190c21627297a8e6912a45ad4624/jetified-maskededittext-1.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.reinaldoarrosi/maskededittext/1.1.0/e931fff6d1307c0dd0582ae45c726bfdf0f056e4/maskededittext-1.1.0-javadoc.jar!/" />

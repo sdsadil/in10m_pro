@@ -1,15 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/485434fed97e02a2e3a259d0c15cb14c/jetified-viewpagerdotsindicator-3.0.3/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/485434fed97e02a2e3a259d0c15cb14c/jetified-viewpagerdotsindicator-3.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/485434fed97e02a2e3a259d0c15cb14c/jetified-viewpagerdotsindicator-3.0.3/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7e6a5e6f544e8e74f0d43068c4ad134e/jetified-viewpagerdotsindicator-3.0.3/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7e6a5e6f544e8e74f0d43068c4ad134e/jetified-viewpagerdotsindicator-3.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7e6a5e6f544e8e74f0d43068c4ad134e/jetified-viewpagerdotsindicator-3.0.3/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b3e820750838fd4257b60eb74c275b6/jetified-viewpagerdotsindicator-3.0.3/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b3e820750838fd4257b60eb74c275b6/jetified-viewpagerdotsindicator-3.0.3/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b3e820750838fd4257b60eb74c275b6/jetified-viewpagerdotsindicator-3.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b3e820750838fd4257b60eb74c275b6/jetified-viewpagerdotsindicator-3.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b3e820750838fd4257b60eb74c275b6/jetified-viewpagerdotsindicator-3.0.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tbuonomo.andrui/viewpagerdotsindicator/3.0.3/1b500d80aa19932fec03365ca257a95617396e8/viewpagerdotsindicator-3.0.3-javadoc.jar!/" />

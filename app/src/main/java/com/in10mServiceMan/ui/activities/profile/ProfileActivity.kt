@@ -1,10 +1,8 @@
 package com.in10mServiceMan.ui.activities.profile
 
-import android.Manifest
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -20,19 +18,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import android.telephony.PhoneNumberFormattingTextWatcher
-import android.view.MotionEvent
 import android.view.View
-import android.widget.TextView
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.profile_services.ProfileServices
 import com.in10mServiceMan.ui.activities.services.ServicesActivity
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity
-import com.in10mServiceMan.ui.adapter.ServicemanSelectedServiceAdapter
 import com.in10mServiceMan.ui.apis.AmazonUploadTask
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.ui.interfaces.EditTextValuePass
@@ -346,8 +338,8 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     }
 
     private fun getPreServices() {
-        LoginAPI.TOkenn = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + LoginAPI.TOkenn, SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
+        LoginAPI.Token = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + LoginAPI.Token, SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
             .toInt())
         homeCall.enqueue(object : Callback<ServicesResponse> {
             override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {

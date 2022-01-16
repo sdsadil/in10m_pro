@@ -1,17 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-installations-interop:17.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-installations-interop-17.0.0.aar/31564f19cbfb28d68e368c3fd673d3a7/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-installations-interop-17.0.0.aar/e354fee6906340b707d17b4589a5e56e/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64ffac95bea0342f92080fe342960bbb/firebase-installations-interop-17.0.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64ffac95bea0342f92080fe342960bbb/firebase-installations-interop-17.0.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64ffac95bea0342f92080fe342960bbb/firebase-installations-interop-17.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/64ffac95bea0342f92080fe342960bbb/jetified-firebase-installations-interop-17.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9de5e78ed14641bd1b1fd60b1f065ca1/jetified-firebase-installations-interop-17.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5237e542380bf3b286bb90044d131dcd/jetified-firebase-installations-interop-17.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d66a54b25460b80ef32b9c4eec6e56bb/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d66a54b25460b80ef32b9c4eec6e56bb/jetified-firebase-installations-interop-17.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d66a54b25460b80ef32b9c4eec6e56bb/jetified-firebase-installations-interop-17.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d66a54b25460b80ef32b9c4eec6e56bb/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-installations-interop/17.0.0/ac6ab4866e0eefc2f4aa88b449b5c615939c3545/firebase-installations-interop-17.0.0-javadoc.jar!/" />

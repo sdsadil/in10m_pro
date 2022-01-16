@@ -1,16 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.Kshitij-Jain:IndicatorView:1.25@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/IndicatorView-1.25.aar/842969506e39e89a6a35f452f43e8181/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/IndicatorView-1.25.aar/842969506e39e89a6a35f452f43e8181/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f90889244fa1ebcdbeb46878ed54b48b/jetified-IndicatorView-1.25/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f90889244fa1ebcdbeb46878ed54b48b/jetified-IndicatorView-1.25/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f90889244fa1ebcdbeb46878ed54b48b/jetified-IndicatorView-1.25/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0edc4063ab2fce36fb6ce49f75d3ee12/jetified-IndicatorView-1.25/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0edc4063ab2fce36fb6ce49f75d3ee12/jetified-IndicatorView-1.25/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0edc4063ab2fce36fb6ce49f75d3ee12/jetified-IndicatorView-1.25/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a83716f81492d2f2efab1fd07d5eb336/jetified-IndicatorView-1.25/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a83716f81492d2f2efab1fd07d5eb336/jetified-IndicatorView-1.25/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a83716f81492d2f2efab1fd07d5eb336/jetified-IndicatorView-1.25/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a83716f81492d2f2efab1fd07d5eb336/jetified-IndicatorView-1.25/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />

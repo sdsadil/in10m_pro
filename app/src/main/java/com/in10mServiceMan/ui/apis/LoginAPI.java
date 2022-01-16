@@ -35,7 +35,6 @@ import com.in10mServiceMan.ui.activities.company_pros.active.active_API.ActiveRe
 import com.in10mServiceMan.ui.activities.company_pros.serviceman_details_API.ServicemanDetailsResponse;
 import com.in10mServiceMan.ui.activities.company_registration.ServiceProviderAddResponse;
 import com.in10mServiceMan.ui.activities.contact_us.ContactResponse;
-import com.in10mServiceMan.ui.activities.my_bookings.CompanyServiceHistoryResponse;
 import com.in10mServiceMan.ui.activities.my_bookings.ServiceHistoryResponse;
 import com.in10mServiceMan.ui.activities.my_bookings.invoice_details_API.InvoiceDetailsResponse;
 import com.in10mServiceMan.ui.activities.payment.PaymentInitilizeResponse;
@@ -68,7 +67,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -88,18 +86,18 @@ public class LoginAPI {
     public static final String UserImage = "http://www.in10m.com/in10m/public/serviceprovider/api/get_servicemen_image/";//+phonenumber  //test
     public static LoginService loginService = null;
 
-    public static String TOkenn = "";
+    public static String Token = "";
 
     private static int isTokenSet = 0;
 
     public void setPublicAccessToken(String token) {
-        TOkenn = token;
+        Token = token;
         isTokenSet = 1;
         loginService = null;
     }
 
     public String getPublicAccessToken() {
-        return TOkenn;
+        return Token;
     }
 
     public static LoginService loginUser() {
@@ -140,7 +138,7 @@ public class LoginAPI {
 
                 // Request customization: add request headers
                 Request.Builder requestBuilder = original.newBuilder()
-                        .header("Authorization", "Bearer " + TOkenn); // <-- this is the important line
+                        .header("Authorization", "Bearer " + Token); // <-- this is the important line
 
                 Request request = requestBuilder.build();
                 return chain.proceed(request);
@@ -157,7 +155,7 @@ public class LoginAPI {
     }
 
     public void clearToken() {
-        TOkenn = "";
+        Token = "";
         isTokenSet = 0;
     }
 

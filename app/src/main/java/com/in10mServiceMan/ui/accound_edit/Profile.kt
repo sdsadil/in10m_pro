@@ -356,8 +356,8 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     private fun getPreServices() {
-        LoginAPI.TOkenn = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + LoginAPI.TOkenn, SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
+        LoginAPI.Token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + LoginAPI.Token, SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
             .toInt())
         homeCall.enqueue(object : Callback<ServicesResponse> {
             override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {

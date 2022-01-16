@@ -1,17 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-gestures:0.5.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47afa4840880f0b8ececa6e3048b31b1/jetified-mapbox-android-gestures-0.5.1/annotations.zip!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86f8593595b838bdadf9e62eb29f119b/jetified-mapbox-android-gestures-0.5.1/annotations.zip!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c114bc9f2310e601682ea536875e52e3/jetified-mapbox-android-gestures-0.5.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47afa4840880f0b8ececa6e3048b31b1/jetified-mapbox-android-gestures-0.5.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47afa4840880f0b8ececa6e3048b31b1/jetified-mapbox-android-gestures-0.5.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47afa4840880f0b8ececa6e3048b31b1/jetified-mapbox-android-gestures-0.5.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86f8593595b838bdadf9e62eb29f119b/jetified-mapbox-android-gestures-0.5.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86f8593595b838bdadf9e62eb29f119b/jetified-mapbox-android-gestures-0.5.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/86f8593595b838bdadf9e62eb29f119b/jetified-mapbox-android-gestures-0.5.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c114bc9f2310e601682ea536875e52e3/jetified-mapbox-android-gestures-0.5.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c114bc9f2310e601682ea536875e52e3/jetified-mapbox-android-gestures-0.5.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c114bc9f2310e601682ea536875e52e3/jetified-mapbox-android-gestures-0.5.1/AndroidManifest.xml" />
