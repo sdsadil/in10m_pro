@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.invite_friends.InviteFriendsActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar_transparent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/status_bar_height"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/top_margin_translucent"
+        android:background="@drawable/top_corner_white_card"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="30dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleInviteTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:text="@string/when_a_friend_rides_with_your_code_you_earn"
+                android:textColor="@color/normalGreyText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_star"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/titleInviteTV"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleInviteTV"
+                android:textColor="@color/colorPrimary"
+                android:text="KD "
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:textSize="36sp"
+                android:letterSpacing="0.05"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/referalCodeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amountTV"
+                android:text="Referral code : 1234WAG"
+                android:fontFamily="@font/diavlo_bold"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="30dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/shareViaTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/referalCodeTV"
+                android:text="@string/share_via"
+                android:textSize="12sp"
+                android:fontFamily="@font/diavlo_bold"
+                android:textColor="@color/darkText"
+                android:layout_marginTop="30dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:background="@color/lineBg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/shareViaTV"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/facebookTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shareViaTV"
+                android:layout_marginTop="10dp"
+                android:text="@string/facebook"
+                android:fontFamily="@font/diavlo_bold"
+                android:textColor="@color/primary_text_selector"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_question_mark"
+                app:layout_constraintTop_toTopOf="@+id/facebookTV"
+                app:layout_constraintBottom_toBottomOf="@+id/facebookTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:background="@color/lineBg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/facebookTV"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/twitterTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facebookTV"
+                android:layout_marginTop="10dp"
+                android:text="@string/twitter"
+                android:fontFamily="@font/diavlo_bold"
+                android:textColor="@color/primary_text_selector"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_question_mark"
+                app:layout_constraintTop_toTopOf="@+id/twitterTV"
+                app:layout_constraintBottom_toBottomOf="@+id/twitterTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:background="@color/lineBg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/twitterTV"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/whatsappTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/twitterTV"
+                android:layout_marginTop="10dp"
+                android:text="@string/whatsapp"
+                android:fontFamily="@font/diavlo_bold"
+                android:textColor="@color/primary_text_selector"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_question_mark"
+                app:layout_constraintTop_toTopOf="@+id/whatsappTV"
+                app:layout_constraintBottom_toBottomOf="@+id/whatsappTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"/>
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:background="@color/lineBg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/whatsappTV"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/smsTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/whatsappTV"
+                android:layout_marginTop="10dp"
+                android:text="@string/sms"
+                android:fontFamily="@font/diavlo_bold"
+                android:textColor="@color/primary_text_selector"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_question_mark"
+                app:layout_constraintTop_toTopOf="@+id/smsTV"
+                app:layout_constraintBottom_toBottomOf="@+id/smsTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

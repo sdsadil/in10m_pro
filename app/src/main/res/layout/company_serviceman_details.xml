@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/companyServicemanHeaderCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/companyServiceIconIV"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/round"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/companyServiceCloseIV"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/ic_close_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/companyServiceIconIV"
+            app:layout_constraintTop_toTopOf="@+id/companyServiceIconIV" />
+
+        <TextView
+            android:id="@+id/companyServiceNameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="PLUMBING"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/companyServiceCloseIV"
+            app:layout_constraintBottom_toBottomOf="@+id/companyServiceIconIV"
+            app:layout_constraintStart_toEndOf="@+id/companyServiceIconIV"
+            app:layout_constraintTop_toTopOf="@+id/companyServiceIconIV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/companyServicemanDetailsRVCL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/companyServicemanHeaderCL">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailsEntryFirstAdapterCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/companyServicemanFullNameTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorLight"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="4dp"
+                android:theme="@style/EditTextHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyServicemanFullNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLight"
+                    android:fontFamily="@font/diavlo_book"
+                    android:hint="FULL NAME"
+                    android:inputType="textPersonName"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="8dp"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/companyServicemanEmailTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorLight"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="4dp"
+                android:theme="@style/EditTextHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/companyServicemanFullNameTIL">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyServicemanEmailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLight"
+                    android:fontFamily="@font/diavlo_book"
+                    android:hint="EMAIL"
+                    android:inputType="textEmailAddress"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="8dp"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/companyServicemanMobileTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorLight"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="4dp"
+                android:theme="@style/EditTextHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/companyServicemanEmailTIL">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyServicemanMobileET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLight"
+                    android:fontFamily="@font/diavlo_book"
+                    android:hint="MOBILE NUMBER"
+                    android:inputType="phone"
+                    android:paddingTop="4dp"
+                    android:maxLength="10"
+                    android:paddingBottom="8dp"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/diavlo_book"
+                android:text="YEARS OF EXPERIENCE"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/companyServicemanExperienceET"
+                app:layout_constraintStart_toStartOf="@+id/companyServicemanMobileTIL"
+                app:layout_constraintTop_toTopOf="@+id/companyServicemanExperienceET" />
+
+            <EditText
+                android:id="@+id/companyServicemanExperienceET"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:inputType="number"
+                android:background="@color/editTextBg"
+                android:fontFamily="@font/diavlo_book"
+                android:paddingStart="@dimen/_10sdp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/companyServicemanMobileTIL"
+                app:layout_constraintTop_toBottomOf="@+id/companyServicemanMobileTIL" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/CSManEntryDetailsRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:nestedScrollingEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/companyServicemanFooterCL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="@id/companyServicemanDetailsRVCL"
+        app:layout_constraintStart_toStartOf="@+id/companyServicemanDetailsRVCL"
+        app:layout_constraintTop_toBottomOf="@+id/companyServicemanDetailsRVCL">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/companyServicemanAddUserTV"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/editTextBg"
+            android:drawableEnd="@drawable/ic_add_black_24dp"
+            android:fontFamily="@font/diavlo_book"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:text="SAVE &amp; ADD ANOTHER"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

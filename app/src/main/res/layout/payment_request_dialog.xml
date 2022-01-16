@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/paymentRequestHeadingTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:fontFamily="@font/aller_lt"
+            android:text="Payment Requested"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.Holo.ProgressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimaryDark"
+            android:indeterminateTintMode="src_atop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paymentRequestHeadingTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/waitingMessageTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:fontFamily="@font/aller_lt"
+            android:gravity="center"
+            android:text="Waiting for the Homeowner to process...."
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+        <View
+            android:id="@+id/lineViewSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="#d8d8d8"
+            app:layout_constraintTop_toBottomOf="@+id/waitingMessageTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/serviceHeaderAmountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/aller_rg"
+            android:gravity="center"
+            android:text="@string/service_cost"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/waitingMessageTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/serviceAmountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="34dp"
+            android:fontFamily="@font/aller_rg"
+            android:gravity="center"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/waitingMessageTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/in10mHeaderAmountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/aller_rg"
+            android:gravity="center"
+            android:text="@string/in10m_charges"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/serviceHeaderAmountTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/in10mAmountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="34dp"
+            android:fontFamily="@font/aller_rg"
+            android:gravity="center"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/serviceHeaderAmountTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TotalAmountTV"
+            app:fontFamily="@font/avenir_heavy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/aller_rg"
+            android:gravity="center"
+            android:text="Total Amount"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/in10mHeaderAmountTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/AmountTV"
+            app:fontFamily="@font/avenir_heavy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="34dp"
+            android:fontFamily="@font/aller_rg"
+            android:gravity="center"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/in10mHeaderAmountTV" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="@+id/lineViewSeparator"
+            app:layout_constraintStart_toStartOf="@+id/lineViewSeparator"
+            app:layout_constraintTop_toBottomOf="@+id/AmountTV">
+
+            <TextView
+                android:id="@+id/paymentCancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorLight"
+                android:fontFamily="@font/diavlo_bold"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="CANCEL"
+                android:textColor="#E76464" />
+
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/paymentEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:padding="@dimen/_10sdp"
+                android:background="@color/colorPrimaryDark"
+                android:text="EDIT"
+                android:gravity="center"
+                android:drawableStart="@drawable/icon_green_pencil_small"
+                android:layout_gravity="center"
+                android:textColor="@color/colorLight" />-->
+
+            <LinearLayout
+                android:id="@+id/paymentEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/default_background"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:src="@drawable/icon_green_pencil_small" />
+
+                <TextView
+                    android:id="@+id/EnterBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="0dp"
+                    android:background="@drawable/default_background"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/diavlo_book"
+                    android:padding="@dimen/_8sdp"
+                    android:text="EDIT"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_text_selector"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

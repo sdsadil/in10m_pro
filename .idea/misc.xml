@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_invoice.xml" value="0.536" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_map_tracking.xml" value="0.18432971014492755" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_my_booking.xml" value="0.23550724637681159" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/confirm_payment_dialog.xml" value="0.24003623188405798" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/home_bottom_buttons.xml" value="0.264" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/popup_service_estimate.xml" value="0.2421875" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/activity_about.xml" value="0.1" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/activity_my_account_edit.xml" value="0.1" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/fragment_active.xml" value="0.1" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/fragment_create_online_payment_account.xml" value="0.1921875" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/fragment_estimates.xml" value="0.1" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/fragment_signup_company_details.xml" value="0.1921875" />
+        <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/fragment_verify_mobile.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

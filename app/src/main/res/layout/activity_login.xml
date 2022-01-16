@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.sign_in.LoginActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/loginTextTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="38dp"
+        android:fontFamily="@font/aller_rg"
+        android:text="@string/login_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTextTV" />
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usernameLoginTIL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="@dimen/_200sdp"
+        android:layout_marginEnd="38dp"
+        android:background="@color/colorLight"
+        android:focusableInTouchMode="true"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="4dp"
+        android:theme="@style/EditTextHint"
+        app:layout_constraintEnd_toEndOf="@+id/loginTextTV"
+        app:layout_constraintStart_toStartOf="@+id/loginTextTV"
+        app:layout_constraintTop_toTopOf="parent">-->
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/usernameLoginET"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="@dimen/_200sdp"
+            android:layout_marginEnd="38dp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:longClickable="false"
+            android:gravity="center_vertical"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="USER NAME"
+            android:inputType="textEmailAddress"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:textCursorDrawable="@null"
+            android:textAppearance="@style/EditTextHint"
+            app:layout_constraintEnd_toEndOf="@+id/loginTextTV"
+            app:layout_constraintStart_toStartOf="@+id/loginTextTV"
+            app:layout_constraintTop_toTopOf="parent" />
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLoginTIL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="38dp"
+        android:background="@color/colorLight"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="4dp"
+        android:theme="@style/EditTextHint"
+        app:layout_constraintEnd_toEndOf="@+id/usernameLoginET"
+        app:layout_constraintStart_toStartOf="@+id/usernameLoginET"
+        app:layout_constraintTop_toBottomOf="@+id/usernameLoginET">-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/usernameLoginET"
+        app:layout_constraintStart_toStartOf="@+id/usernameLoginET"
+        app:layout_constraintTop_toBottomOf="@+id/usernameLoginET"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordLoginET"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="38dp"
+            android:hint="PASSWORD"
+            android:longClickable="false"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="38dp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:textCursorDrawable="@null"
+            android:inputType="textPassword"
+            android:textAllCaps="true"
+            android:textSize="14sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/passwordLoginET"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="38dp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:textCursorDrawable="@null"
+            android:hint="PASSWORD"
+            android:inputType="textPassword"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/usernameLoginET"
+            app:layout_constraintStart_toStartOf="@+id/usernameLoginET"
+            app:layout_constraintTop_toBottomOf="@+id/usernameLoginET"/>-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <LinearLayout
+        android:id="@+id/loginClickLL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/default_background"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@id/usernameLoginET"
+        app:layout_constraintStart_toStartOf="@+id/usernameLoginET"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordLayout">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"
+            android:focusable="false"
+            android:src="@drawable/greenarrowirght" />
+
+        <TextView
+            android:id="@+id/EnterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"
+            android:background="#0000"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/diavlo_book"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textAllCaps="true"
+            android:textColor="@color/white_text_selector"
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/forgotPassTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/diavlo_light"
+        android:gravity="center"
+        android:text="@string/forgot_password"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@id/loginClickLL"
+        app:layout_constraintStart_toStartOf="@+id/loginClickLL"
+        app:layout_constraintTop_toBottomOf="@+id/loginClickLL" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@id/forgotPassTV"
+        app:layout_constraintStart_toStartOf="@+id/forgotPassTV"
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassTV" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/newUserTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/aller_lt"
+        android:gravity="center"
+        android:text="@string/for_new_user"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@id/forgotPassTV"
+        app:layout_constraintStart_toStartOf="@+id/forgotPassTV"
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassTV" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/registerHereTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/aller_lt"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/forgotPassTV"
+        app:layout_constraintStart_toStartOf="@+id/forgotPassTV"
+        app:layout_constraintTop_toBottomOf="@+id/newUserTV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.in10mServiceMan.ui.activities.set_up_profile.SetUpProfileActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar_center_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/parentSV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp">
+
+            <ImageView
+                android:id="@+id/logoIV"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_wagon_logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:letterSpacing=".2"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoIV" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/phoneNumberET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_phone"
+                android:fontFamily="@font/diavlo_bold"
+                android:hint="@string/phone_number"
+                android:inputType="number"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:focusable="false"
+                android:textIsSelectable="false"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                android:text="9876543210"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appNameTV" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/nameET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_name"
+                android:fontFamily="@font/diavlo_bold"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/emailET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_email"
+                android:fontFamily="@font/diavlo_bold"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameET" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/referalET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_referal"
+                android:fontFamily="@font/diavlo_bold"
+                android:hint="@string/referal_promo"
+                android:inputType="number"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailET" />
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/completeProfileBT"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@color/lightBlueBg"
+                android:text="@string/complete_profile"
+                android:letterSpacing="0.2"
+                android:textColor="@color/grey_text_selector"
+                android:fontFamily="@font/diavlo_bold"
+                app:layout_constraintTop_toBottomOf="@+id/referalET"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

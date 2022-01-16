@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.in10mServiceMan">
+
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission
+        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+        android:protectionLevel="signature" />
+
+    <application
+        android:name=".utils.in10mApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher1"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher1"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activities.signup.SignUpTermsConditions"></activity>
+        <activity android:name=".ui.activities.company_pros.CompanyProsDetails" />
+        <activity android:name=".ui.activities.company_pros.CompanyPros" />
+        <activity android:name=".ui.accound_edit.MyAccountEdit" />
+        <activity
+            android:name=".ui.activities.create_online_account.CreateOnlinePaymentAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activities.termsandcondition.TermsAndCondition" />
+        <activity
+            android:name=".ui.activities.my_bookings.CompanyServiceHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.rating.ReviewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.rating.CustomerRating"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.payment.InvoiceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.company_registration.CompanySignupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.earnings.EarningsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.company_registration.CompanyResourceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.signup.ProfileSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.signup.EstimationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.signup.AccountType"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.services.AvailableServices"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.sign_in.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.signup.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.select_language.SelectLanguage"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.activities.intro.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.my_bookings.service_history.ServiceHistoryActivity"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".ui.activities.sign_in.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".ui.activities.set_up_profile.SetUpProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.activities.home.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.vehicle_details.VehicleDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".ui.activities.on_going_trips.OnGoingTripsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".ui.activities.my_bookings.MyBookingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ui.activities.invite_friends.InviteFriendsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".ui.activities.settings.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ui.activities.about.AboutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ui.activities.fare_details.FareDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".ui.activities.select_location.SelectLocationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.enter_location.EnterLocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.item_details.ItemDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.activities.add_card.AddCardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent"
+            android:windowSoftInputMode="stateHidden" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <!--
+<meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="872fcf8a48bf0781d78cafe0d70a308bcae53520" />
+        -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="3d4091c805f9fa54b15cc6bc154e42d482077be4" />
+
+        <service android:name=".ui.activities.SinchService" />
+
+        <activity
+            android:name=".ui.activities.services.ServicesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.sub_services.SubServicesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.confirm_address.ConfirmAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.tracking_map.MapTrackingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.profile.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.activities.enter_mobile_no.EnterPhoneNumberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.otp_verification.OtpVerificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.basic_details.UserBasicDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.service_man_details.ServiceManDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activities.select_service.SelectServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.select_service.SelectSubServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.profile.ProfileCompletedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.serviceman_home.ServiceManHomePageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.profile.MyAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.privacy_policy.PrivacyPolicyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ui.activities.contact_us.ContactUs"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".ui.activities.IncomingCallScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity
+            android:name=".ui.activities.CallScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity android:name=".ui.activities.profile_services.ProfileServices" />
+    </application>
+
+</manifest>

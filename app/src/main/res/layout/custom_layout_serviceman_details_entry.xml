@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/companyServicemanFullNameET"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="FULL NAME"
+            android:theme="@style/EditTextHint"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="20dp"
+            android:inputType="textPersonName"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/companyServicemanEmailET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorLight"
+        android:fontFamily="@font/diavlo_book"
+        android:hint="EMAIL"
+        android:inputType="textEmailAddress"
+        android:theme="@style/EditTextHint"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="4dp"
+        android:layout_marginTop="8dp"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyServicemanFullNameET" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/companyServicemanMobileET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorLight"
+        android:fontFamily="@font/diavlo_book"
+        android:hint="MOBILE NUMBER"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:theme="@style/EditTextHint"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="4dp"
+        android:layout_marginTop="8dp"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyServicemanEmailET" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/diavlo_book"
+        android:text="YEARS OF EXPERIENCE"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/companyServicemanExperienceET"
+        app:layout_constraintStart_toStartOf="@+id/companyServicemanMobileET"
+        app:layout_constraintTop_toTopOf="@+id/companyServicemanExperienceET" />
+
+    <EditText
+        android:id="@+id/companyServicemanExperienceET"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/editTextBg"
+        android:fontFamily="@font/diavlo_book"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingStart="@dimen/_10sdp"
+        android:textCursorDrawable="@null"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/companyServicemanMobileET"
+        app:layout_constraintTop_toBottomOf="@+id/companyServicemanMobileET" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/companyServicemanFooterCL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyServicemanExperienceET">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/companyServicemanAddUserTwoTV"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/editTextBg"
+            android:drawableEnd="@drawable/ic_add_black_24dp"
+            android:fontFamily="@font/diavlo_book"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:text="ADD ANOTHER"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

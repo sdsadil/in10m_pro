@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/topLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.activities.select_location.SelectLocationActivity">
+
+
+    <ImageView
+        android:id="@+id/backIV"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:foreground="?attr/selectableItemBackground"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topCL"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backIV"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/greenOvalIV"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            app:layout_constraintTop_toTopOf="@+id/fromLocationET"
+            app:layout_constraintBottom_toBottomOf="@+id/fromLocationET"
+            android:src="@drawable/oval_bg_green"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <View
+            android:id="@+id/ovalDividerView"
+            android:layout_width="0.5dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@+id/greenOvalIV"
+            app:layout_constraintEnd_toEndOf="@+id/greenOvalIV"
+            app:layout_constraintTop_toBottomOf="@+id/greenOvalIV"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/primaryOvalIV"
+            android:background="@color/grey200"
+            />
+
+        <ImageView
+            android:id="@+id/primaryOvalIV"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            app:layout_constraintTop_toTopOf="@+id/toLocationET"
+            app:layout_constraintBottom_toBottomOf="@+id/toLocationET"
+            android:src="@drawable/oval_bg_primary"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fromLocationET"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/et_light_blue_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="40dp"
+            android:textSize="13sp"
+            android:textColor="@color/darkText"
+            android:textCursorDrawable="@null"
+            android:paddingStart="5dp"
+            android:paddingEnd="3dp"
+            android:layout_marginEnd="15dp"
+            android:transitionName="@string/pickup_location_transition"
+            android:fontFamily="@font/diavlo_bold"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/toLocationET"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/et_bg"
+            android:fontFamily="@font/diavlo_bold"
+            android:paddingEnd="3dp"
+            android:paddingStart="5dp"
+            android:textColor="@color/darkText"
+            android:textCursorDrawable="@null"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/fromLocationET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fromLocationET"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/grey200"
+        app:layout_constraintTop_toBottomOf="@+id/topCL"
+        android:layout_marginTop="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/locationRV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/topCL"
+        android:layout_marginTop="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"></androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

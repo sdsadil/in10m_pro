@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ad_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_60sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cons_bg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/tvItem"/>
+
+        <View
+            android:id="@+id/colorView"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/cons_bg"
+            app:layout_constraintStart_toStartOf="@id/cons_bg"
+            app:layout_constraintTop_toTopOf="@+id/cons_bg">
+
+        </View>
+
+        <ImageView
+            android:id="@+id/serviceIconIV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/icon_plumbing"
+            app:layout_constraintBottom_toBottomOf="@+id/cons_bg"
+            app:layout_constraintStart_toStartOf="@+id/cons_bg"
+            app:layout_constraintTop_toTopOf="@+id/cons_bg" />
+
+        <TextView
+            android:id="@+id/tvItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/diavlo_bold"
+            android:paddingEnd="20dp"
+            android:text="Water purification / Softening/cleaning"
+            android:textAllCaps="true"
+            android:textColor="@color/greyShade"
+            android:textSize="14sp"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@id/cons_bg"
+            app:layout_constraintStart_toEndOf="@+id/serviceIconIV"
+            app:layout_constraintTop_toTopOf="@id/cons_bg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

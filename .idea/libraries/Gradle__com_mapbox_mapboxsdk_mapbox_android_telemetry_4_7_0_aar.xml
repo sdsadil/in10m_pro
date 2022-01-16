@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-telemetry:4.7.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-telemetry-4.7.0.aar/18e27eb70fd24635f47e4ad16bd09b70/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mapbox-android-telemetry-4.7.0.aar/5d249556368939fe03a4e39c03133d80/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a9cc1e39bc3d4d170fa8dcb88ff3f00d/mapbox-android-telemetry-4.7.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ccb21b39882e34d886b44e60181b1766/jetified-mapbox-android-telemetry-4.7.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ccb21b39882e34d886b44e60181b1766/jetified-mapbox-android-telemetry-4.7.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ccb21b39882e34d886b44e60181b1766/jetified-mapbox-android-telemetry-4.7.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09eb9a71fb10d0891c73403a0dc79427/jetified-mapbox-android-telemetry-4.7.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4db571d805f312549c7fcb53bd559585/jetified-mapbox-android-telemetry-4.7.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5e23f84d3e6fc8faafb1993e2e757aec/jetified-mapbox-android-telemetry-4.7.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/20406f82eebc42ee4e4b02a55a9f4041/jetified-mapbox-android-telemetry-4.7.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/20406f82eebc42ee4e4b02a55a9f4041/jetified-mapbox-android-telemetry-4.7.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/20406f82eebc42ee4e4b02a55a9f4041/jetified-mapbox-android-telemetry-4.7.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aec0f5dd4cbf6138b9adb630982d8ffe/jetified-mapbox-android-telemetry-4.7.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aec0f5dd4cbf6138b9adb630982d8ffe/jetified-mapbox-android-telemetry-4.7.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aec0f5dd4cbf6138b9adb630982d8ffe/jetified-mapbox-android-telemetry-4.7.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-telemetry/4.7.0/7298fdff2af07f718f7d0a61752a3ceb3477324e/mapbox-android-telemetry-4.7.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-telemetry/4.7.0/afdabdc555366eed191f31ca2cde24a4ab0bd734/mapbox-android-telemetry-4.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

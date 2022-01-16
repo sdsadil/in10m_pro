@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.item_details.ItemDetailsActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar_transparent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/status_bar_height"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/top_margin_translucent"
+        android:background="@drawable/top_corner_white_card"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:descendantFocusability="beforeDescendants">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/quickInfoTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:text="@string/quick_info"
+                android:textColor="@color/darkText"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quickInfoTV" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/itemNameET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_item_name"
+                android:fontFamily="@font/diavlo_bold"
+                android:gravity="center_vertical"
+                android:hint="@string/item_name"
+                android:inputType="textPersonName"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/darkText"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quickInfoTV" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/valueItemET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_kd"
+                android:fontFamily="@font/diavlo_bold"
+                android:gravity="center_vertical"
+                android:hint="@string/value_of_the_item"
+                android:inputType="textPersonName"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/darkText"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toStartOf="@+id/cameraIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemNameET" />
+
+            <ImageView
+                android:id="@+id/cameraIV"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/et_bg"
+                android:padding="10dp"
+                android:src="@drawable/ic_camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/valueItemET"
+                app:layout_constraintTop_toTopOf="@+id/valueItemET" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/imageRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/valueItemET"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                ></androidx.recyclerview.widget.RecyclerView>
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/instructionsET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_instructions"
+                android:fontFamily="@font/diavlo_bold"
+                android:gravity="center_vertical"
+                android:hint="@string/instructions"
+                android:inputType="textPersonName"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/darkText"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageRV" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/howBigTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:text="@string/how_big_is_it"
+                android:textColor="@color/darkText"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instructionsET" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/howBigTV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemSizeRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/howBigTV"></androidx.recyclerview.widget.RecyclerView>
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_info"
+                app:layout_constraintBottom_toBottomOf="@+id/itemDescTV"
+                app:layout_constraintEnd_toStartOf="@+id/itemDescTV"
+                app:layout_constraintTop_toTopOf="@id/itemDescTV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemDescTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Fits in a shoebox"
+                android:textColor="@color/darkText"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemSizeRV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemSizeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="L40 x W20"
+                android:textColor="@color/normalGreyText"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemDescTV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemWeightTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Max 4kg"
+                android:textColor="@color/normalGreyText"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemSizeTV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/handleDescTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/how_would_you_like_to_handle_it"
+                android:gravity="center"
+                android:textColor="@color/darkText"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemWeightTV" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/handleDescTV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/handleOptionsRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/handleDescTV"></androidx.recyclerview.widget.RecyclerView>
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/grey200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/handleOptionsRV" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/receiverNameET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_receiver_name"
+                android:fontFamily="@font/diavlo_bold"
+                android:gravity="center_vertical"
+                android:hint="@string/receiver_name"
+                android:inputType="textPersonName"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/darkText"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/handleOptionsRV" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/receiverNumberET"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/et_bg"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_receiver_number"
+                android:fontFamily="@font/diavlo_bold"
+                android:gravity="center_vertical"
+                android:hint="@string/receiver_number"
+                android:inputType="textPersonName"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/darkText"
+                android:textColorHint="@color/darkGreyText"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/receiverNameET" />
+
+
+            <com.in10mServiceMan.ui.custom_views.WagonButton
+                android:id="@+id/confirmCL"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                app:button_text="@string/confirm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/receiverNumberET" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

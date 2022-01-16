@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aller_rg</item>
+        <item>@font/aller_lt</item>
+        <item>@font/diavlo_bold</item>
+        <item>@font/diavlo_book</item>
+        <item>@font/diavlo_light</item>
+    </array>
+</resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingBottom="@dimen/_15sdp"
+    android:layout_marginBottom="1dp"
+    >
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/serviceManIV"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/user_dummy_avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ServiceManName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aller_rg"
+        android:text="Customer name"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/serviceManIV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/totalBookingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/aller_lt"
+        android:text="Total Bookings : 100"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/ServiceManName"
+        app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
+
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/ServiceManName"
+        app:layout_constraintTop_toBottomOf="@+id/ServiceManName">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/tumbsupgray" />
+
+        <TextView
+            android:id="@+id/thumbsUpTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-4dp"
+            android:layout_marginEnd="5dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="4"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/serviceManIV"
+            app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="1dp"
+            android:visibility="gone">
+
+        </View>
+
+        <ImageView
+
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/tumbsdowngray" />
+
+        <TextView
+            android:id="@+id/thumbsDownTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-4dp"
+            android:layout_marginEnd="5dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="4"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/serviceManIV"
+            app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aller_lt"
+        android:text="Total Amount : 500"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/totalBookingTV"
+        app:layout_constraintTop_toTopOf="@+id/totalBookingTV" />
+
+
+    <TextView
+        android:id="@+id/textViewTIME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/aller_rg"
+        android:text="KD 0.0"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/ServiceManName" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:alpha="0.3"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </View>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

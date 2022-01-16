@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.payment.InvoiceActivity">
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:background="@drawable/ic_arrow_back_black_24dp"
+        android:foregroundGravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/invoiceTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/invoiceTV" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/invoiceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/aller_lt"
+        android:gravity="center"
+        android:text="Invoice"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/paymentSelectionCL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invoiceTV">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CashPayCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/selectRoundIVCash"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/unselect_radio_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/textview_background"
+                android:fontFamily="@font/diavlo_light"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/cash_payment_invoice"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/selectRoundIVCash"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/OnlinePayCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/CashPayCL"
+            app:layout_constraintTop_toBottomOf="@+id/CashPayCL">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/selectRoundIVOnlineOnly"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/select_radio_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/textview_background"
+                android:fontFamily="@font/diavlo_light"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/online_payment_invoice"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/selectRoundIVOnlineOnly"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/EnableOnlineCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/CashPayCL"
+            app:layout_constraintTop_toBottomOf="@+id/CashPayCL">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/diavlo_light"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="OR"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_create_online_account"
+                app:layout_constraintStart_toStartOf="@+id/lbl_create_online_account"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lbl_create_online_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/textview_background"
+                android:fontFamily="@font/diavlo_light"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/online_payment_enable"
+                android:textColor="@color/greenyBlue"
+                android:textSize="14dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_or" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/workDescriptionET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/textview_background"
+        android:drawableTint="@android:color/transparent"
+        android:fontFamily="@font/aller_lt"
+        android:gravity="start|top"
+        android:hint="Work description"
+        android:inputType="textMultiLine"
+        android:minLines="5"
+        android:padding="@dimen/_10sdp"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/feePayDescriptionET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/textview_background"
+        android:drawableStart="@drawable/doller_two"
+        android:fontFamily="@font/aller_lt"
+        android:hint="Fee"
+        android:inputType="numberDecimal"
+        android:maxLength="6"
+        android:padding="@dimen/_10sdp"
+        android:singleLine="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textCursorDrawable="@null"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/workDescriptionET" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/infoToUserTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/diavlo_light"
+        android:text="@string/info_to_user_invoice"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/feePayDescriptionET"
+        app:layout_constraintStart_toStartOf="@+id/feePayDescriptionET"
+        app:layout_constraintTop_toBottomOf="@+id/feePayDescriptionET" />
+
+    <LinearLayout
+        android:id="@+id/submitClickLL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/default_background"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoToUserTV">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"
+            android:focusable="false"
+            android:src="@drawable/greenarrowirght" />
+
+        <TextView
+            android:id="@+id/EnterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/default_background"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/diavlo_book"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/submit"
+            android:textAllCaps="true"
+            android:textColor="@color/white_text_selector"
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/customerCancelQuoteMessageTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/aller_rg"
+        android:gravity="center"
+        android:text="Customer asked for a re-quote"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/submitClickLL" />
+</androidx.constraintlayout.widget.ConstraintLayout>

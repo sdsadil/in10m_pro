@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.apl-devs:appintro:v4.2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appintro-v4.2.0.aar/78a69e02e18a766b2c2220a9918335c9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appintro-v4.2.0.aar/78a69e02e18a766b2c2220a9918335c9/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f1e9f58bb4d7a6d7064a79fc4f787013/jetified-appintro-v4.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f1e9f58bb4d7a6d7064a79fc4f787013/jetified-appintro-v4.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f1e9f58bb4d7a6d7064a79fc4f787013/jetified-appintro-v4.2.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a23780a2160b7326c082ed33a49f422a/jetified-appintro-v4.2.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a23780a2160b7326c082ed33a49f422a/jetified-appintro-v4.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a23780a2160b7326c082ed33a49f422a/jetified-appintro-v4.2.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3d9b52d984afd8016277d5bdb91d720/jetified-appintro-v4.2.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3d9b52d984afd8016277d5bdb91d720/jetified-appintro-v4.2.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3d9b52d984afd8016277d5bdb91d720/jetified-appintro-v4.2.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.apl-devs/appintro/v4.2.0/50de936c9b6fc205bccbc671b1175b15a0b9a752/appintro-v4.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

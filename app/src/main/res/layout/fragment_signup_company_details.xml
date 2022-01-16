@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/personalDetailsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/aller_rg"
+            android:text="@string/enter_personal_details"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/personalDetailsLegal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="@string/legal_name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@+id/personalDetailsHeader"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsHeader" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:theme="@style/EditTextHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsLegal"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="5dp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsLastName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:theme="@style/EditTextHint"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsFirstName"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/personalDetailsCaution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="@string/enter_your_name_exactly"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="8sp"
+            app:layout_constraintLeft_toLeftOf="@+id/personalDetailsLastName"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastName" />
+
+        <TextView
+            android:id="@+id/personalDetailsdob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="@string/date_of_birth"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@+id/personalDetailsCaution"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCaution" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personalDetailsDOB1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@color/colorLight"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="4dp"
+            android:theme="@style/CalendarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsdob">
+
+            <TextView
+                android:id="@+id/personalDetailsLastDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorLight"
+                android:drawableEnd="@drawable/dropdown_arrow"
+                android:fontFamily="@font/diavlo_book"
+                android:gravity="center_vertical"
+                android:hint="@string/date_of_birth_caps"
+                android:inputType="date"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:textAllCaps="true"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv11" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/personalDetailsCompanyDetailsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="@string/company_details"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintLeft_toLeftOf="@+id/personalDetailsDOB1"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsDOB1" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsCompanyET"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/company_name"
+            android:inputType="text"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAllCaps="true"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="14sp"
+            android:theme="@style/EditTextHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyDetailsTV"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/personalDetailsHomeAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/aller_rg"
+            android:text="@string/company_address"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@+id/personalDetailsDOB1"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsLastStreetAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/street_address"
+            android:inputType="text"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:theme="@style/EditTextHint"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsLastSuite"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/suite"
+            android:inputType="text"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:theme="@style/EditTextHint"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastStreetAddress" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsStreetAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/city"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:theme="@style/EditTextHint"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastSuite" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/txt_view_state"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/gradient_spinner"
+            android:hint="@string/state"
+            android:paddingStart="8dp"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@+id/personalDetailsStreetAddress"
+            app:layout_constraintRight_toRightOf="@+id/personalDetailsStreetAddress"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsStreetAddress" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/personalDetailsZip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorLight"
+            android:fontFamily="@font/diavlo_book"
+            android:hint="@string/zip_code"
+            android:inputType="number"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:theme="@style/EditTextHint"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="true"
+            android:maxLength="5"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_view_state" />
+
+        <ImageView
+            android:id="@+id/signUpPhaseDetailsOkTickIV"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/darktickbubble"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsZip" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+

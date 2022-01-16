@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:animateLayoutChanges="true"
+    tools:context=".ui.activities.select_service.SelectSubServiceActivity">
+
+    <ImageView
+        android:id="@+id/button_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:elevation="3dp"
+        android:padding="@dimen/_10sdp"
+        android:foregroundGravity="center"
+        android:src="@drawable/ic_back"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <ImageView
+            android:id="@+id/imgServiceIcon"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:src="@drawable/icon_plumbing"/>
+
+        <TextView
+            android:id="@+id/txtViewServiceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plumbing_text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/diavlo_bold"
+            android:textSize="@dimen/_20sdp"/>
+
+        <TextView
+            android:id="@+id/txtViewSelectSubServices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_sub_service"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/aller_lt"
+            android:textSize="@dimen/_15sdp"
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSubService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/et_bg"
+        android:layout_above="@+id/img_view_done_services"/>
+
+    <ImageView
+    android:id="@+id/img_view_done_services"
+    android:layout_width="@dimen/_50sdp"
+    android:layout_height="@dimen/_50sdp"
+    android:src="@drawable/darktickbubble"
+    android:layout_gravity="center"
+    android:layout_above="@+id/view"
+    android:layout_centerHorizontal="true"/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="3dp"
+        android:alpha=".5"
+        android:layout_gravity="center"
+        android:background="@color/greenyBlue"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_10sdp"/>
+
+
+</RelativeLayout>
