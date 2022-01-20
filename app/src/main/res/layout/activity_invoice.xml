@@ -134,7 +134,6 @@
                 android:text="OR"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12dp"
-                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/lbl_create_online_account"
                 app:layout_constraintStart_toStartOf="@+id/lbl_create_online_account"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -152,7 +151,6 @@
                 android:text="@string/online_payment_enable"
                 android:textColor="@color/greenyBlue"
                 android:textSize="14dp"
-                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_or" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -186,7 +184,6 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/textview_background"
-        android:drawableStart="@drawable/doller_two"
         android:fontFamily="@font/aller_lt"
         android:hint="Fee"
         android:inputType="numberDecimal"

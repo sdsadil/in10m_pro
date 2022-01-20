@@ -251,6 +251,7 @@
 
     <string name="enter_your_contact_details">Enter your contact details</string>
     <string name="email_address">EMAIL ADDRESS</string>
+    <string name="email_address1">EMAIL ADDRESS (Optional)</string>
     <string name="mobile">MOBILE NUMBER</string>
     <string name="password">PASSWORD</string>
     <string name="atlest_characters">*Must be at least 8 characters</string>

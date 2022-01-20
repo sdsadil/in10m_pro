@@ -102,6 +102,8 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
             }
         }
         view.enterButtonCertificates.setOnClickListener {
+//            isCertificateAvailable = "0"
+//            mSelectedStateID = ""
             mListener!!.toNextFragmentFive(isCertificateAvailable, mSelectedStateID)
 
         }

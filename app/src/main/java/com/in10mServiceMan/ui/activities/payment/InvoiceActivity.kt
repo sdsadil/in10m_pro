@@ -34,7 +34,8 @@ class InvoiceActivity : In10mBaseActivity() {
     var customerId = ""
     var serviceId = ""
     var paymentSelected = "1"
-//    var paymentSelected = "2"
+
+    //    var paymentSelected = "2"
     lateinit var mDatabase: DatabaseReference
     lateinit var dbServiceMan: DatabaseReference
     var isNodeAvailable: Boolean = false
@@ -43,21 +44,23 @@ class InvoiceActivity : In10mBaseActivity() {
     var totalAmount: String = ""
     var workDescription: String = ""
     var isRequote: Boolean = false
-    var tripCharge:Double=0.0
+    var tripCharge: Double = 0.0
     var request: PaymentRequestClass = PaymentRequestClass()
 
     override fun onResume() {
         super.onResume()
-        Log.e("Invoice Activity","onResume")
+        Log.e("Invoice Activity", "onResume")
 
         setOnlinVisibility()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("Invoice Activity","onCreate")
+        Log.e("Invoice Activity", "onCreate")
         setContentView(R.layout.activity_invoice)
         val userid =
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")?.toInt()
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")
+                ?.toInt()
 
         backButton.setOnClickListener {
             finish()
@@ -66,7 +69,7 @@ class InvoiceActivity : In10mBaseActivity() {
         if (intent.extras != null) {
             bookingId = intent.getStringExtra("bookingId").toString()
             customerId = intent.getStringExtra("customerId").toString()
-            tripCharge = intent.getDoubleExtra("tripCharge",0.0)
+            tripCharge = intent.getDoubleExtra("tripCharge", 0.0)
             serviceId = intent.getStringExtra("serviceId").toString()
         }
         Log.i("booking / customer", "$bookingId $customerId")
@@ -92,14 +95,21 @@ class InvoiceActivity : In10mBaseActivity() {
             paymentSelected = "1"
         }
         EnableOnlineCL.setOnClickListener {
-            startActivity(Intent(this@InvoiceActivity, CreateOnlinePaymentAccountActivity::class.java))
+            startActivity(
+                Intent(
+                    this@InvoiceActivity,
+                    CreateOnlinePaymentAccountActivity::class.java
+                )
+            )
         }
-        if(tripCharge>0.0){
+        if (tripCharge > 0.0) {
             feePayDescriptionET.setText(tripCharge.toString())
         }
         submitClickLL.setOnClickListener {
 
-            if (feePayDescriptionET.text.toString().trim().isNotEmpty() && feePayDescriptionET.text.toString().trim().toDouble() != 0.0)
+            if (feePayDescriptionET.text.toString().trim()
+                    .isNotEmpty() && feePayDescriptionET.text.toString().trim().toDouble() != 0.0
+            )
                 makePaymentInitialize()
             else
                 ShowToast("Enter fee amount")
@@ -123,17 +133,29 @@ class InvoiceActivity : In10mBaseActivity() {
                         mAlertDialog?.cancel()
                         isRequote = true
                         customerCancelQuoteMessageTV.visibility = View.VISIBLE
-                        Toast.makeText(this@InvoiceActivity,"Customer has requested for a re-quote. Please update amount and generate new invoice",Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@InvoiceActivity,
+                            "Customer has requested for a re-quote. Please update amount and generate new invoice",
+                            Toast.LENGTH_LONG
+                        ).show()
                     } else if (data.pay_status == true) {
                         if (paymentSelected == "2") {
                             mAlertDialog?.cancel()
                             //mDatabase.child(bookingId).setValue(null)
-                            displayAlertDialogConfirmation(totalAmount, "Received by online payment", true)
+                            displayAlertDialogConfirmation(
+                                totalAmount,
+                                "Received by online payment",
+                                true
+                            )
 
                         } else if (paymentSelected == "1") {
                             mAlertDialog?.cancel()
                             //mDatabase.child(bookingId).setValue(null)
-                            displayAlertDialogConfirmation(totalAmount, "Received by cash payment", false)
+                            displayAlertDialogConfirmation(
+                                totalAmount,
+                                "Received by cash payment",
+                                false
+                            )
 
                         }
                     }
@@ -174,8 +196,8 @@ class InvoiceActivity : In10mBaseActivity() {
         val serviceTv = mDialogView.findViewById(R.id.serviceAmountTV) as AppCompatTextView
         val in10mTv = mDialogView.findViewById(R.id.in10mAmountTV) as AppCompatTextView
         val amountTv = mDialogView.findViewById(R.id.AmountTV) as AppCompatTextView
-       // if (data.contains("."))
-            amountTv.text = getFormattedAmt(request.total_amount)
+        // if (data.contains("."))
+        amountTv.text = getFormattedAmt(request.total_amount)
 //        else
 //            amountTv.text = "$$data.00"
         serviceTv.text = getFormattedAmt(request.service_amount.toString())
@@ -194,12 +216,13 @@ class InvoiceActivity : In10mBaseActivity() {
             isRequote = true
         }
     }
-    private fun getFormattedAmt(amt:String?):String{
-        val myAmt= amt ?: "0.00"
+
+    private fun getFormattedAmt(amt: String?): String {
+        val myAmt = amt ?: "0.00"
         return if (myAmt.contains("."))
-            "$$myAmt"
+            "KD $myAmt"
         else
-            "$$myAmt.00"
+            "KD $myAmt.000"
     }
 
     private fun displayAlertDialogConfirmation(amount: String, text: String, isOnlinePay: Boolean) {
@@ -227,9 +250,14 @@ class InvoiceActivity : In10mBaseActivity() {
             mAlertDialogConfirm!!.cancel()
             mDatabase.child(bookingId).removeValue()//.setValue(null)
             dbServiceMan.child(bookingId).removeValue()
-            startActivity(Intent(this@InvoiceActivity, CustomerRating::class.java).putExtra("bookingId", bookingId)
+            startActivity(
+                Intent(this@InvoiceActivity, CustomerRating::class.java).putExtra(
+                    "bookingId",
+                    bookingId
+                )
                     .putExtra("customerId", customerId)
-                    .putExtra("serviceId", serviceId))
+                    .putExtra("serviceId", serviceId)
+            )
             finish()
         }
     }
@@ -237,7 +265,8 @@ class InvoiceActivity : In10mBaseActivity() {
 
     private fun makePaymentInitialize() {
         showProgressDialog("")
-        val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val header =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val userId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
         val bookingID = bookingId
         totalAmount = feePayDescriptionET.text.toString().trim()
@@ -245,10 +274,14 @@ class InvoiceActivity : In10mBaseActivity() {
 
         val paymentType = paymentSelected
 
-        val callServiceProviders = LoginAPI.loginUser().paymentInitilize(header, bookingID, totalAmount, paymentType, userId, workDescription)
+        val callServiceProviders = LoginAPI.loginUser()
+            .paymentInitilize(header, bookingID, totalAmount, paymentType, userId, workDescription)
 
         callServiceProviders.enqueue(object : Callback<PaymentInitilizeResponse> {
-            override fun onResponse(call: Call<PaymentInitilizeResponse>, response: Response<PaymentInitilizeResponse>) {
+            override fun onResponse(
+                call: Call<PaymentInitilizeResponse>,
+                response: Response<PaymentInitilizeResponse>
+            ) {
                 destroyDialog()
                 if (response.isSuccessful) {
                     Log.i("code", response.code().toString())
@@ -265,13 +298,14 @@ class InvoiceActivity : In10mBaseActivity() {
                             request.fee_percent = response.body()!!.data!!.feePercent!!
                         else
                             request.fee_percent = ""
-                       // request.total_amount = totalAmount
+                        // request.total_amount = totalAmount
                         request.customer_id = customerId
                         request.pay_status = false
                         request.accepted_status = true
                         request.editing_status = false
                         if (response.body()!!.data!!.serviceFee != null)
-                            request.service_amount = response.body()!!.data!!.servicemanServiceAmount
+                            request.service_amount =
+                                response.body()!!.data!!.servicemanServiceAmount
                         else
                             request.service_amount = 0.0
                         request.payment_type = paymentType.toInt()
@@ -291,8 +325,7 @@ class InvoiceActivity : In10mBaseActivity() {
                         if (response.body()!!.data!!.totalAmount != null) {
                             request.total_amount = response.body()!!.data!!.totalAmount.toString()
                             totalAmount = response.body()!!.data!!.totalAmount.toString()
-                        }
-                            else
+                        } else
                             request.total_amount = ""
 
                         Log.d("request class", request.toString())
@@ -326,15 +359,20 @@ class InvoiceActivity : In10mBaseActivity() {
         })
     }
 
-    private fun setOnlinVisibility(){
-        if(SharedPreferencesHelper.getInt(this,Constants.SharedPrefs.User.SM_PAYMENT_TYPE,0) == 2) {
+    private fun setOnlinVisibility() {
+        if (SharedPreferencesHelper.getInt(
+                this,
+                Constants.SharedPrefs.User.SM_PAYMENT_TYPE,
+                0
+            ) == 2
+        ) {
 //            EnableOnlineCL.visibility = View.INVISIBLE
             EnableOnlineCL.visibility = View.GONE
             OnlinePayCL.visibility = View.VISIBLE
-        }else{
+        } else {
 //            EnableOnlineCL.visibility = View.VISIBLE
-            EnableOnlineCL.visibility =  View.GONE
-            OnlinePayCL.visibility = View.INVISIBLE
+            EnableOnlineCL.visibility = View.GONE
+            OnlinePayCL.visibility = View.GONE
         }
     }
 

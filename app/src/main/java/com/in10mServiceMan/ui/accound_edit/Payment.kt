@@ -32,7 +32,7 @@ import retrofit2.Response
 class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
     override fun onUpdatePaymentCompleted(mPost: UpdatePaymentResponse) {
         destroyDialog()
-        if (mPost.status == 1)  {
+        if (mPost.status == 1) {
             showToast("Payment Updated")
         }
     }
@@ -44,23 +44,22 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
 
     override fun onCheckStripeCompleted(mPost: CheckStripeResponse) {
         destroyDialog()
-        if (mPost.status == 1)  {
-            if (mPost.stripe_account == 1)  {
+        if (mPost.status == 1) {
+            if (mPost.stripe_account == 1) {
                 view!!.createAccount.visibility = View.GONE
                 cash = true
                 online = true
                 view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
                 view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
-            }
-            else    {
-                view!!.createAccount.visibility = View.VISIBLE
+            } else {
+//                view!!.createAccount.visibility = View.VISIBLE
+                view!!.createAccount.visibility = View.GONE
                 cash = true
                 online = false
                 view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
                 view!!.selectRoundIVOnline.setImageResource(R.drawable.unselect_radio_one)
             }
-        }
-        else    {
+        } else {
             showToast("Something went wrong")
         }
     }
@@ -86,13 +85,16 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
     val addressDetailsCL = view!!.findViewById(R.id.paymentSectionAddressDetailsCL) as ConstraintLayout
     val debitAndBankDetailsCL = view!!.findViewById(R.id.accountPaymentDetailsCL) as ConstraintLayout*/
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_payment, container, false)
         mContext = this.context
 
-        val mServiceManId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+        val mServiceManId =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
         showProgressDialog("")
         if (mServiceManId != null) {
             mCheckStripePresenter.checkStripe(mServiceManId)
@@ -107,19 +109,17 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
                 view.selectRoundIVCashOnly.setImageResource(R.drawable.unselect_radio_one)
                 view.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
                 paymentType = 3
-            }
-            else if (!cash && online)   {
+            } else if (!cash && online) {
                 cash = true
                 online = true
                 view.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
                 view.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
                 paymentType = 2
-            }
-            else if (cash && !online)   {
+            } else if (cash && !online) {
                 showToast("Select atleast 1 payment option")
             }
         }
-
+        view.OnlineAndCashCL.visibility = View.GONE
         view.OnlineAndCashCL.setOnClickListener {
             if (cash && online) {
                 cash = true
@@ -127,15 +127,13 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
                 view.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
                 view.selectRoundIVOnline.setImageResource(R.drawable.unselect_radio_one)
                 paymentType = 1
-            }
-            else if (cash && !online)    {
+            } else if (cash && !online) {
                 cash = true
                 online = true
                 view.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
                 view.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
                 paymentType = 2
-            }
-            else if (!cash && online)   {
+            } else if (!cash && online) {
                 showToast("Select atleast 1 payment option")
             }
         }
@@ -149,7 +147,10 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
             if (!cash && !online) {
                 showToast("Select atleast 1 payment option")
             } else {
-                mUpdatePaymentPresenter.updatePayment(mServiceManId!!.toInt(), paymentType.toString())
+                mUpdatePaymentPresenter.updatePayment(
+                    mServiceManId!!.toInt(),
+                    paymentType.toString()
+                )
             }
         }
 
@@ -158,23 +159,37 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
 
     fun apiCall() {
         var isLoggedIn = false //localStorage(context).isLoggedIn
-        isLoggedIn = !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "").isNullOrEmpty()
+        isLoggedIn =
+            !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+                .isNullOrEmpty()
 
         if (isLoggedIn) {
-            myUserId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
+            myUserId = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!
                 .toInt()//localStorage(this@ProfileActivity).loggedInUser.customerId
             header =
-                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+                SharedPreferencesHelper.getString(
+                    activity,
+                    Constants.SharedPrefs.User.AUTH_TOKEN,
+                    ""
+                )
                     .toString()
 
-            val callServiceProviders = LoginAPI.loginUser().checkStripAccount(header, myUserId.toString())
+            val callServiceProviders =
+                LoginAPI.loginUser().checkStripAccount(header, myUserId.toString())
             callServiceProviders.enqueue(object : Callback<CheckStripeAccount> {
-                override fun onResponse(call: Call<CheckStripeAccount>, response: Response<CheckStripeAccount>) {
+                override fun onResponse(
+                    call: Call<CheckStripeAccount>,
+                    response: Response<CheckStripeAccount>
+                ) {
                     if (response.isSuccessful) {
-                        if (response.body()!!.stripeAccount() == "0")   {
+                        if (response.body()!!.stripeAccount() == "0") {
                             view!!.createAccount.visibility = View.VISIBLE
-                        }
-                        else    {
+                            view!!.createAccount.visibility = View.GONE
+                        } else {
                             view!!.createAccount.visibility = View.GONE
                         }
                     } else {
@@ -272,7 +287,7 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
     }
 
     override fun onResume() {
-        if (Constants.GlobalSettings.fromPayment)   {
+        if (Constants.GlobalSettings.fromPayment) {
             Constants.GlobalSettings.fromPayment = false
             view!!.createAccount.visibility = View.GONE
             cash = true

@@ -30,25 +30,41 @@ class SignupContactFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_signup_contact, container, false)
 
         view.enterButton.setOnClickListener {
-            if (!isValidEmail(view.contactDetailsEmail.text.toString()))//view.contactDetailsEmail.text.toString().trim().isEmpty()
+           /* if (!isValidEmail(view.contactDetailsEmail.text.toString()))//view.contactDetailsEmail.text.toString().trim().isEmpty()
             {
                 showToast("Please enter Valid e-mail address")
-            } else if (view.contactDetailsMobile.text.toString().trim().isEmpty() && view.contactDetailsMobile.text.toString().length != 10) {
+            } else */if (view.contactDetailsMobile.text.toString().trim()
+                    .isEmpty() && view.contactDetailsMobile.text.toString().length != 8
+            ) {
                 showToast("Please enter Valid Mobile number")
             } else if (view.contactDetailsPassword.text.toString().trim().isEmpty()) {
                 showToast("Please enter the Password ")
             } else if (view.contactDetailsPassword.text!!.length < 8) {
                 showToast("Password must be atleast 8 characters")
             } else {
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.EMAIL, view.contactDetailsEmail.text.toString())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.MOBILE_NUMBER, view.contactDetailsMobile.text.toString())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.PASSWORD, view.contactDetailsPassword.text.toString())
+                SharedPreferencesHelper.putString(
+                    this.context!!,
+                    Constants.SharedPrefs.User.EMAIL,
+                    view.contactDetailsEmail.text.toString()
+                )
+                SharedPreferencesHelper.putString(
+                    this.context!!,
+                    Constants.SharedPrefs.User.MOBILE_NUMBER,
+                    view.contactDetailsMobile.text.toString()
+                )
+                SharedPreferencesHelper.putString(
+                    this.context!!,
+                    Constants.SharedPrefs.User.PASSWORD,
+                    view.contactDetailsPassword.text.toString()
+                )
 
                 mListener?.toNextFragmentTwo()
             }

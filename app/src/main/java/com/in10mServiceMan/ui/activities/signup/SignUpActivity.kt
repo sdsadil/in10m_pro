@@ -18,6 +18,7 @@ import com.in10mServiceMan.Models.RequestVerifyOTP
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
 import com.in10mServiceMan.ui.activities.BaseActivity
+import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
 import com.in10mServiceMan.ui.activities.sign_in.ILoginView
 import com.in10mServiceMan.ui.activities.sign_in.LinkSendResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginPresenter
@@ -52,24 +53,74 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
     }
 
     override fun onStepThreeCompleted(mData: SignupThreeResponse) {
+        destroyDialog()
+        if (mData.status == 1) {
+            val gson = Gson()
+            val res = gson.toJson(mData?.data)
+            SharedPreferencesHelper.putString(
+                this,
+                Constants.SharedPrefs.User.PROFILE_PICTURE,
+                mData?.data?.image!!
+            )
+            SharedPreferencesHelper.putString(
+                this,
+                Constants.SharedPrefs.User.LEVEL_THREE_DATA,
+                res
+            )
 
+            if (SharedPreferencesHelper.getInt(
+                    this,
+                    Constants.SharedPrefs.User.PERSON_TYPE,
+                    2
+                ) == 2
+            ) {
+                startActivity(Intent(this, ProfileSuccessActivity::class.java))
+            } else if (SharedPreferencesHelper.getInt(
+                    this,
+                    Constants.SharedPrefs.User.PERSON_TYPE,
+                    3
+                ) == 3
+            ) {
+                startActivity(Intent(this, CompanyResourceActivity::class.java))
+            }
+        } else {
+            ShowToast(mData?.message)
+        }
     }
 
     override fun toNextFragmentSix() {
+        val userID =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+        val userEmail =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
 
+        mPresenter.signupLevelThreeDirectCash(
+            userID.toString(),
+            userEmail.toString(), "1", "", "1"
+        )
     }
 
     override fun toNextFragmentFive(certificateStatus: String, stateId: String) {
         val header =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         showProgressDialog("")
-        mPresenter.signupLevelTwo(
+
+
+        /*mPresenter.signupLevelTwo(
             "Bearer $header",
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
                 .toString(),
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
                 .toString(),
             stateId, certificateStatus
+        ) */
+        mPresenter . signupLevelTwo (
+                "Bearer $header",
+        SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+            .toString(),
+        SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
+            .toString(),
+        "", "0"
         )
     }
 
@@ -140,7 +191,19 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
 
     override fun toNextFragmentFour(imageUri: String) {
         SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, imageUri)
-        signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
+//        signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
+
+        val header =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        showProgressDialog("")
+        mPresenter . signupLevelTwo (
+            "Bearer $header",
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
+                .toString(),
+            "", "0"
+        )
     }
 
     override fun toNextFragmentThree(otp: String) {
@@ -277,8 +340,8 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
         adapter.addFragment(SignupDetailsFragment.newInstance(this), "1")
         adapter.addFragment(SignupContactFragment.newInstance(this), "2")
         adapter.addFragment(ProfilePictureFragment.newInstance(this), "3")
-        adapter.addFragment(CertificationDetailsFragment.newInstance(this), "4")
-        adapter.addFragment(PaymentTypeFragment.newInstance(this), "5")
+//        adapter.addFragment(CertificationDetailsFragment.newInstance(this), "4")
+        adapter.addFragment(PaymentTypeFragment.newInstance(this), "4")
         signUpPhaseViewPager.adapter = adapter
         signUpPhaseViewPagerIndicator.setDotsClickable(false)
         signUpPhaseViewPagerIndicator.setViewPager(signUpPhaseViewPager)

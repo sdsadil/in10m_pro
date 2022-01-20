@@ -22,6 +22,7 @@ import com.in10mServiceMan.Models.CustomerCompleteProfile
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
+import com.in10mServiceMan.ui.activities.services.AvailableServices
 import com.in10mServiceMan.ui.activities.signup.AccountType
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
@@ -29,6 +30,7 @@ import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
+import kotlinx.android.synthetic.main.activity_account_type.*
 
 
 class LoginActivity : BaseActivity(), ILoginView {
@@ -164,6 +166,8 @@ class LoginActivity : BaseActivity(), ILoginView {
     private var user: Int = 1
     private var companyId: String? = null
     private val mPresenter = LoginPresenter(this)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -174,6 +178,9 @@ class LoginActivity : BaseActivity(), ILoginView {
         }
         registerHereTV.setOnClickListener {
             startActivity(Intent(this@LoginActivity, AccountType::class.java))
+//            SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "1")
+//            SharedPreferencesHelper.putInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
+//            startActivity(Intent(this, AvailableServices::class.java))
         }
         loginClickLL.setOnClickListener {
             if (!isValidEmail(usernameLoginET.text!!)) {
