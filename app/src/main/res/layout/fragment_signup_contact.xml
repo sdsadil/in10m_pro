@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         android:background="@color/colorLight"
         android:fontFamily="@font/diavlo_book"
-        android:hint="@string/email_address1"
+        android:hint="@string/email_address"
         android:inputType="textEmailAddress"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="20dp"
