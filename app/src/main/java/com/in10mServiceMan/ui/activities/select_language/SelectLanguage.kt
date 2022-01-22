@@ -13,9 +13,10 @@ import com.in10mServiceMan.ui.activities.intro.IntroActivity
 import com.in10mServiceMan.ui.activities.profile.ProfileActivity
 import com.in10mServiceMan.ui.activities.services.ServicesActivity
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import kotlinx.android.synthetic.main.activity_select_language.*
 
-class SelectLanguage : AppCompatActivity(),LanguagesAdapter.SelectedLanguageCallback {
+class SelectLanguage : In10mBaseActivity(),LanguagesAdapter.SelectedLanguageCallback {
     override fun ChoosenLanguage(item: LanguageItem) {
         selectedLanguage=item
     }

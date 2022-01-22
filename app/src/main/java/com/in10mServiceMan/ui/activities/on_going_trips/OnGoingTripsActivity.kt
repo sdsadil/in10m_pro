@@ -1,7 +1,7 @@
 package com.in10mServiceMan.ui.activities.on_going_trips
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_on_going_trips.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*
 
 
-class OnGoingTripsActivity : AppCompatActivity() {
+class OnGoingTripsActivity : In10mBaseActivity() {
 
     private var onGoingTripsAdapter = OnGoingTripsAdapter()
 

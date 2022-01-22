@@ -273,6 +273,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun settings() {
         /*slidingRootNav?.closeMenu(true)
         handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)*/
+        languageChangeDialogView()
     }
 
     override fun contactUs() {

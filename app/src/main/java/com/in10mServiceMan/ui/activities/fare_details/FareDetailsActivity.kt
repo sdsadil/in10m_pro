@@ -1,7 +1,7 @@
 package com.in10mServiceMan.ui.activities.fare_details
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
 import com.in10mServiceMan.R
@@ -9,7 +9,7 @@ import com.in10mServiceMan.ui.fragments.fare_details.FareDetailsFragment
 import kotlinx.android.synthetic.main.activity_fare_details.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*
 
-class FareDetailsActivity : AppCompatActivity() {
+class FareDetailsActivity : In10mBaseActivity() {
 
     private lateinit var fareDetailsPagerAdapter: FareDetailsPagerAdapter
 

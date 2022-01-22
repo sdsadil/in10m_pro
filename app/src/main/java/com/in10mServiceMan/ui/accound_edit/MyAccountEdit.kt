@@ -2,14 +2,14 @@ package com.in10mServiceMan.ui.accound_edit
 
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.my_bookings.service_history.adapter.ServiceHistoryViewpagerAdapter
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_my_account_edit.*
 
-class MyAccountEdit : AppCompatActivity() {
+class MyAccountEdit : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

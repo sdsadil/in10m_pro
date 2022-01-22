@@ -1,13 +1,12 @@
 package com.in10mServiceMan.ui.activities.settings
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.enter_mobile_no.EnterPhoneNumberActivity
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*

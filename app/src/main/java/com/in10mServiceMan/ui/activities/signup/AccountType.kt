@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.services.AvailableServices
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_account_type.*
 
-class AccountType : AppCompatActivity() {
+class AccountType : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

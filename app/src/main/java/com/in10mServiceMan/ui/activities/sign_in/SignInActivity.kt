@@ -9,8 +9,9 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.set_up_profile.SetUpProfileActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.app_bar_center_title.*
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

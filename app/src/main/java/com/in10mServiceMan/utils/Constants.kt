@@ -73,6 +73,7 @@ class Constants {
                 const val EXPIRY_YEAR = "expiry_year"
                 const val CARD_NUMBER = "card_number"
                 const val PAYMENT_TYPE = "payment_type"
+                const val IS_LANG_ARB = "isLangArb"
                 const val FREE_ESTIMATE = "free_estimate"
 
                 const val LEVEL_THREE_DATA = "level_three_data"

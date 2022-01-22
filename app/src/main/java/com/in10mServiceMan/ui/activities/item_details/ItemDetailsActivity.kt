@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
@@ -20,7 +20,7 @@ import com.in10mServiceMan.utils.ImageFetcher
 import kotlinx.android.synthetic.main.activity_item_details.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*
 
-class ItemDetailsActivity : AppCompatActivity(), ImageFetcher.OnImageAddedCallback {
+class ItemDetailsActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback {
 
     var permissions = arrayOf(
         Manifest.permission.CAMERA,

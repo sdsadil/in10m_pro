@@ -26,12 +26,13 @@ import com.in10mServiceMan.ui.activities.sign_in.LoginResponse
 import com.in10mServiceMan.ui.activities.splash.SplashActivity
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfaceOne,
+class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentInterfaceOne,
     SignupContactFragment.NextFragmentInterfaceTwo, ISignupview,
     VerifyMobileFragment.NextFragmentInterfaceThree,
     ProfilePictureFragment.NextFragmentInterfaceFour,

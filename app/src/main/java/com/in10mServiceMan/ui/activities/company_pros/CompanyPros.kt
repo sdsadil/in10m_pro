@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.company_pros
 
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.company_pros.Inactive.InActive
@@ -9,7 +9,7 @@ import com.in10mServiceMan.ui.activities.company_pros.pending.Pending
 import com.in10mServiceMan.ui.activities.my_bookings.service_history.adapter.ServiceHistoryViewpagerAdapter
 import kotlinx.android.synthetic.main.activity_company_pros.*
 
-class CompanyPros : AppCompatActivity() {
+class CompanyPros : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

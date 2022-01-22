@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.in10mServiceMan.ui.base.In10mBaseActivity;
 
 import com.in10mServiceMan.Models.CompleteProfile;
 import com.in10mServiceMan.R;
@@ -16,7 +16,7 @@ import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity;
 import com.in10mServiceMan.utils.localStorage;
 import com.squareup.picasso.Picasso;
 
-public class ProfileCompletedActivity extends AppCompatActivity {
+public class ProfileCompletedActivity extends In10mBaseActivity {
 
     ImageView imgStartService;
 

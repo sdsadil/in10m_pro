@@ -1,9 +1,14 @@
 package com.in10mServiceMan.ui.activities;
 
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.content.pm.PackageManager;
@@ -14,12 +19,19 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.in10mServiceMan.R;
+import com.in10mServiceMan.utils.Constants;
 import com.in10mServiceMan.utils.LoadingDialog;
+import com.in10mServiceMan.utils.SharedPreferencesHelper;
+
+import java.util.Locale;
+import java.util.Objects;
 
 
 public abstract class BaseActivity extends AppCompatActivity implements ServiceConnection {
@@ -27,6 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
     LoadingDialog mProgressDialog;
     static Context mContext;
     private SinchService.SinchServiceInterface mSinchServiceInterface;
+//    private SharedPreferencesHelper sharedPreferencesHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
 
         mContext = this;
         mProgressDialog = new LoadingDialog(this);
+        setLangFunc();
     }
 
     public void hideKeyboard() {
@@ -163,6 +177,65 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
 
     public void ShowToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void languageChangeDialogView() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.language_popup);
+        final Window window = dialog.getWindow();
+        Objects.requireNonNull(window).setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        LinearLayout llEnglish_LangPopUpLay = dialog.findViewById(R.id.llEnglish_LangPopUpLay);
+        LinearLayout llArabic_LangPopUpLay = dialog.findViewById(R.id.llArabic_LangPopUpLay);
+
+
+        llEnglish_LangPopUpLay.setOnClickListener(v -> {
+            SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, false);
+
+            setLanguage(this, "en");
+            dialog.dismiss();
+
+            finish();
+            overridePendingTransition(0, 0);
+            startActivity(getIntent());
+            overridePendingTransition(0, 0);
+        });
+        llArabic_LangPopUpLay.setOnClickListener(v -> {
+            SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, true);
+
+            setLanguage(this, "ar");
+            dialog.dismiss();
+
+            finish();
+            overridePendingTransition(0, 0);
+            startActivity(getIntent());
+            overridePendingTransition(0, 0);
+        });
+        dialog.show();
+    }
+
+    public void setLangFunc() {
+        boolean isLangArabic = SharedPreferencesHelper.INSTANCE.getBoolean(mContext,
+                Constants.SharedPrefs.User.IS_LANG_ARB, false);
+        if (isLangArabic) {
+            setLanguage(this, "ar");
+        } else {
+            setLanguage(this, "en");
+        }
+    }
+
+    public void setLanguage(Context c, String lang) {
+        Locale localeNew = new Locale(lang);
+        Locale.setDefault(localeNew);
+
+        Resources res = c.getResources();
+        Configuration newConfig = new Configuration(res.getConfiguration());
+        newConfig.locale = localeNew;
+        newConfig.setLayoutDirection(localeNew);
+        res.updateConfiguration(newConfig, res.getDisplayMetrics());
+        newConfig.setLocale(localeNew);
+        c.createConfigurationContext(newConfig);
     }
 
 }

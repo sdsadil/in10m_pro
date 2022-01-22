@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.about
 
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 
 import android.view.MenuItem
@@ -11,7 +11,7 @@ import com.in10mServiceMan.ui.apis.LoginAPI
 import kotlinx.android.synthetic.main.activity_about.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

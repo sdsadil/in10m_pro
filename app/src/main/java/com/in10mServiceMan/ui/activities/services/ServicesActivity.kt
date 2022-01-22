@@ -12,18 +12,20 @@ import com.google.gson.reflect.TypeToken
 import com.in10mServiceMan.Models.HomeService
 import com.in10mServiceMan.Models.Service
 import com.in10mServiceMan.R
+import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.home.NavigationAdapter
 import com.in10mServiceMan.ui.activities.my_bookings.MyBookingsActivity
 import com.in10mServiceMan.ui.activities.profile.ProfileActivity
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import kotlinx.android.synthetic.main.activity_services.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ServicesActivity : AppCompatActivity(), NavigationAdapter.NavigationCallbacks, ServicesAdapter.SelectedServiceCallback {
+class ServicesActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks, ServicesAdapter.SelectedServiceCallback {
     override fun companyPros() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -100,6 +102,7 @@ class ServicesActivity : AppCompatActivity(), NavigationAdapter.NavigationCallba
     override fun settings() {
         // slidingRootNav?.closeMenu(true)
         // handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)
+        languageChangeDialogView()
     }
 
     override fun contactUs() {

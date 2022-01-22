@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.in10mServiceMan.ui.base.In10mBaseActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +19,7 @@ import com.in10mServiceMan.ui.listener.RemoveServiceExperienceListener;
 
 import java.util.ArrayList;
 
-public class MyAccountActivity extends AppCompatActivity implements RemoveServiceExperienceListener {
+public class MyAccountActivity extends In10mBaseActivity implements RemoveServiceExperienceListener {
 
     private ArrayList<ServicemanSelectedServiceModel> selectedServiceModelArrayList;
     private LinearLayoutManager linearLayoutManager;

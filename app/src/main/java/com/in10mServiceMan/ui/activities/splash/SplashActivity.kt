@@ -12,10 +12,11 @@ import com.in10mServiceMan.utils.localStorage
 import com.in10mServiceMan.ui.activities.enter_mobile_no.EnterPhoneNumberActivity
 import com.in10mServiceMan.ui.activities.intro.IntroActivity
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : In10mBaseActivity() {
 
     var isLoggedIn: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {

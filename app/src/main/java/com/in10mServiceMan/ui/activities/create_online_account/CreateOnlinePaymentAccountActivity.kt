@@ -1,7 +1,7 @@
 package com.in10mServiceMan.ui.activities.create_online_account
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.util.Log
@@ -11,7 +11,7 @@ import com.in10mServiceMan.ui.activities.payment.InvoiceActivity
 import com.in10mServiceMan.utils.Constants
 import kotlinx.android.synthetic.main.activity_create_online_payment_account.*
 
-class CreateOnlinePaymentAccountActivity : AppCompatActivity() {
+class CreateOnlinePaymentAccountActivity : In10mBaseActivity() {
 
     var bookingId = ""
     var customerId = ""

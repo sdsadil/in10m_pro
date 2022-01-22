@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.company_pros
 
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View

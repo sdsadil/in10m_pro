@@ -27,12 +27,13 @@ import com.in10mServiceMan.Models.SubService
 import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.home.HomeActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_sub_services.*
 import kotlinx.android.synthetic.main.item_services.view.*
 
-class SubServicesActivity : AppCompatActivity(),SubServicesAdapter.SelectedSubServiceCallback {
+class SubServicesActivity : In10mBaseActivity(),SubServicesAdapter.SelectedSubServiceCallback {
 
   /*  override fun onMapReady(googleMap: GoogleMap?) {
         googleMap ?: return

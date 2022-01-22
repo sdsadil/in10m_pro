@@ -2,7 +2,6 @@ package com.in10mServiceMan.ui.activities.intro
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.in10mServiceMan.R
 import android.os.Build

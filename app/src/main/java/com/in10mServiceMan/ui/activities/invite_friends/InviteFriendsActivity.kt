@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.invite_friends
 
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
@@ -8,7 +8,7 @@ import com.in10mServiceMan.R
 import kotlinx.android.synthetic.main.activity_invite_friends.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*
 
-class InviteFriendsActivity : AppCompatActivity() {
+class InviteFriendsActivity : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

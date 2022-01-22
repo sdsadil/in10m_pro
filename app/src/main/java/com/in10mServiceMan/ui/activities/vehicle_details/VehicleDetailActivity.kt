@@ -6,11 +6,12 @@ import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
 import com.in10mServiceMan.R
 import com.in10mServiceMan.db.WagonItem
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.WKey
 import kotlinx.android.synthetic.main.activity_vehicle_detail.*
 import kotlinx.android.synthetic.main.app_bar_transparent.*
 
-class VehicleDetailActivity : AppCompatActivity() {
+class VehicleDetailActivity : In10mBaseActivity() {
 
 
     private lateinit var wagonItem: WagonItem

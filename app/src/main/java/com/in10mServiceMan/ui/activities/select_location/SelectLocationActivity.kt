@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.enter_location.EnterLocationActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.RequestCode
 import kotlinx.android.synthetic.main.activity_select_location.*
 
 
-class SelectLocationActivity : AppCompatActivity(), SelectLocationAdapter.SelectLocationCallbacks {
+class SelectLocationActivity : In10mBaseActivity(), SelectLocationAdapter.SelectLocationCallbacks {
 
     override fun onLocationSelected() {
 

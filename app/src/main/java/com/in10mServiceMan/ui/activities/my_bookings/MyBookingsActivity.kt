@@ -1,7 +1,7 @@
 package com.in10mServiceMan.ui.activities.my_bookings
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
@@ -10,7 +10,6 @@ import com.in10mServiceMan.Models.BookingHistoryResponse
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.ui.fragments.past_bookings.BookingsAdapter
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper

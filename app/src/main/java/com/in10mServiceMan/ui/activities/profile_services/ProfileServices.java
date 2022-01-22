@@ -24,6 +24,7 @@ import com.in10mServiceMan.ui.activities.services.ServicesActivity;
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity;
 import com.in10mServiceMan.ui.adapter.ServicemanSelectedServiceAdapter;
 import com.in10mServiceMan.ui.apis.LoginAPI;
+import com.in10mServiceMan.ui.base.In10mBaseActivity;
 import com.in10mServiceMan.ui.interfaces.EditTextValuePass;
 import com.in10mServiceMan.ui.listener.EditSubServicesListener;
 import com.in10mServiceMan.ui.listener.RemoveServiceExperienceListener;
@@ -37,7 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfileServices extends AppCompatActivity implements RemoveServiceExperienceListener, EditTextValuePass, EditSubServicesListener {
+public class ProfileServices extends In10mBaseActivity implements RemoveServiceExperienceListener, EditTextValuePass, EditSubServicesListener {
 
 
     private ServicemanSelectedServiceAdapter servicemanSelectedServiceAdapter;

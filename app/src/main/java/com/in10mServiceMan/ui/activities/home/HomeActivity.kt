@@ -9,7 +9,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.FragmentTransaction
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
@@ -25,6 +24,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 
 import com.in10mServiceMan.R
 import com.in10mServiceMan.db.Dummy
@@ -42,9 +42,9 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 import kotlinx.android.synthetic.main.activity_home_main.*
 import kotlinx.android.synthetic.main.drawyer_layout.*
 
-
-class HomeActivity : AppCompatActivity(), NavigationAdapter.NavigationCallbacks, OnMapReadyCallback,
-        GoogleMap.OnMarkerClickListener, Mapss.RouteStatus, SelectServiceManAdapter.SelectServiceManCallBack, ServiceManCallBack {
+class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks, OnMapReadyCallback,
+    GoogleMap.OnMarkerClickListener, Mapss.RouteStatus,
+    SelectServiceManAdapter.SelectServiceManCallBack, ServiceManCallBack {
 
     var permissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -95,6 +95,7 @@ class HomeActivity : AppCompatActivity(), NavigationAdapter.NavigationCallbacks,
     override fun settings() {
         // slidingRootNav?.closeMenu(true)
         // handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)
+        languageChangeDialogView()
     }
 
     override fun contactUs() {
@@ -105,13 +106,19 @@ class HomeActivity : AppCompatActivity(), NavigationAdapter.NavigationCallbacks,
     override fun myAccount() {
 
         slidingRootNav?.closeMenu(true)
-        handler.postDelayed({ startActivity(Intent(this, ProfileActivity::class.java)) }, navigationDelay)
+        handler.postDelayed(
+            { startActivity(Intent(this, ProfileActivity::class.java)) },
+            navigationDelay
+        )
     }
 
     override fun myBookings() {
 
         slidingRootNav?.closeMenu(true)
-        handler.postDelayed({ startActivity(Intent(this, MyBookingsActivity::class.java)) }, navigationDelay)
+        handler.postDelayed(
+            { startActivity(Intent(this, MyBookingsActivity::class.java)) },
+            navigationDelay
+        )
     }
 
     private var slidingRootNav: SlidingRootNav? = null
@@ -175,7 +182,11 @@ class HomeActivity : AppCompatActivity(), NavigationAdapter.NavigationCallbacks,
 
         centerGPSIV.setOnClickListener {
             if (map != null) {
-                map!!.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, mZoomLevel), 1000, null)
+                map!!.animateCamera(
+                    CameraUpdateFactory.newLatLngZoom(userLocation, mZoomLevel),
+                    1000,
+                    null
+                )
             }
         }
 
@@ -230,27 +241,29 @@ class HomeActivity : AppCompatActivity(), NavigationAdapter.NavigationCallbacks,
 
 
     private fun initDrawer(savedInstanceState: Bundle?) {
-        val navigationView: View = LayoutInflater.from(this).inflate(R.layout.drawyer_layout, null, false);
+        val navigationView: View =
+            LayoutInflater.from(this).inflate(R.layout.drawyer_layout, null, false);
 
 
         slidingRootNav = SlidingRootNavBuilder(this)
-                .withMenuOpened(false)
-                .withContentClickableWhenMenuOpened(false)
-                .withSavedState(savedInstanceState)
-                .withMenuView(navigationView)
+            .withMenuOpened(false)
+            .withContentClickableWhenMenuOpened(false)
+            .withSavedState(savedInstanceState)
+            .withMenuView(navigationView)
 
-                // .withDragDistance(140) //Horizontal translation of a view. Default == 180dp
-                // .withRootViewScale(0.7f) //Content view's scale will be interpolated between 1f and 0.7f. Default == 0.65f;
-                // .withRootViewElevation(10) //Content view's elevation will be interpolated between 0 and 10dp. Default == 8.
-                //  .withRootViewYTranslation(4) //Content view's translationY will be interpolated between 0 and 4. Default == 0
+            // .withDragDistance(140) //Horizontal translation of a view. Default == 180dp
+            // .withRootViewScale(0.7f) //Content view's scale will be interpolated between 1f and 0.7f. Default == 0.65f;
+            // .withRootViewElevation(10) //Content view's elevation will be interpolated between 0 and 10dp. Default == 8.
+            //  .withRootViewYTranslation(4) //Content view's translationY will be interpolated between 0 and 4. Default == 0
 
-                .inject()
+            .inject()
 
         slidingRootNav?.layout?.setOnTouchListener { v, event ->
 
             if (event.action == MotionEvent.ACTION_DOWN) {
                 if (slidingRootNav != null &&
-                        slidingRootNav!!.isMenuOpened) {
+                    slidingRootNav!!.isMenuOpened
+                ) {
                     slidingRootNav?.closeMenu(true)
                 } else {
                     slidingRootNav?.openMenu(true)

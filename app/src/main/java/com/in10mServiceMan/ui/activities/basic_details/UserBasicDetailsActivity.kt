@@ -2,7 +2,7 @@ package com.in10mServiceMan.ui.activities.basic_details
 
 import android.content.Context
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import com.in10mServiceMan.R.id.view_pager_user_details
 import kotlinx.android.synthetic.main.activity_intro.*
 import kotlinx.android.synthetic.main.activity_user_basic_details.*
 
-class UserBasicDetailsActivity : AppCompatActivity() {
+class UserBasicDetailsActivity : In10mBaseActivity() {
 
     var number = IntArray(3)
     val layouts: IntArray = intArrayOf(R.layout.user_basic_details_screen,R.layout.your_service_and_experiences_screen,R.layout.upload_profile_screen);

@@ -6,7 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,7 @@ import android.content.pm.PackageManager
 
 import android.os.Build
 
-class ConfirmAddressActivity : AppCompatActivity(), OnMapReadyCallback {
+class ConfirmAddressActivity : In10mBaseActivity(), OnMapReadyCallback {
     var permissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION

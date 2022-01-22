@@ -1,7 +1,7 @@
 package com.in10mServiceMan.ui.activities.privacy_policy
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import android.view.View
 import com.in10mServiceMan.R
@@ -13,7 +13,6 @@ import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.IPrivacyPolicyVi
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.PolicyAndTermsResponse
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.PrivacyPolicyPresenter
 import com.in10mServiceMan.ui.apis.LoginAPI
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 

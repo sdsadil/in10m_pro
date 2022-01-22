@@ -2,7 +2,7 @@ package com.in10mServiceMan.ui.activities.enter_mobile_no
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson

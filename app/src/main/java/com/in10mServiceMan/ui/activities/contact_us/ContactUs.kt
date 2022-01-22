@@ -1,7 +1,7 @@
 package com.in10mServiceMan.ui.activities.contact_us
 
 import android.Manifest
-import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.util.Log
@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.apis.LoginAPI
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_contact_us.*

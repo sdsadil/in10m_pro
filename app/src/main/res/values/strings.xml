@@ -53,7 +53,7 @@
         <item>@string/about</item>
         <item>@string/privacy</item>
         <item>@string/contact</item>
-        <item>@string/settings</item>
+        <item>@string/language</item>
         <item>@string/log_out</item>
     </string-array>
 
@@ -65,7 +65,7 @@
         <item>@string/about</item>
         <item>@string/privacy</item>
         <item>@string/contact</item>
-        <item>@string/settings</item>
+        <item>@string/language</item>
         <item>@string/log_out</item>
     </string-array>
 
@@ -387,4 +387,6 @@
     <string name="enter_your_password1">Please enter your password</string>
     <string name="enter_your_password2">Password must be at least 8 characters</string>
     <string name="enter_the_received_OTP">Enter the received OTP</string>
+    <string name="arabic">عربى</string>
+    <string name="english">English</string>
 </resources>
