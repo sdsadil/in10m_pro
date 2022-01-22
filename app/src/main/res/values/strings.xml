@@ -84,7 +84,7 @@
     <string name="language">Language</string>
     <string name="push_notifications">Push Notifications</string>
     <string name="about_wagon">About Wagon</string>
-    <string name="rate_us_in_app_store">Rate us in App Store</string>
+    <string name="rate_us_in_app_store">Rate us in Play Store</string>
     <string name="like_us_on_facebook">Like us on Facebook</string>
     <string name="follow_us_on_twitter">Follow us on Twitter</string>
     <string name="legal">Legal</string>
@@ -260,7 +260,7 @@
     <string name="mobile_verification">Mobile No. Verification</string>
     <string name="code">4 digits code has been sent to the mobile number 0000000000</string>
     <string name="enter_code">Enter code received here</string>
-    <string name="policy">By clicking to “VERIFY”, I agree to  the Terms of Use and Privacy Policy </string>
+    <string name="policy">By clicking to “VERIFY”, I agree to the Terms of Use and Privacy Policy </string>
     <string name="verify_caps">VERIFY</string>
 
     <string name="profile_picture">Add profile picture</string>
@@ -288,7 +288,7 @@
     <string name="select_services_offered">Select services you offer</string>
     <string name="certification_details_heading">Certification details</string>
     <string name="certification_details_information">Are you certified for all or some of the services you offer?</string>
-    <string name="payment_heading">How would you like to get paid?</string>
+    <string name="payment_heading">Are you certified for all or some of the services you offer?</string>
     <string name="cash_payment">CASH</string>
     <string name="online_payment">ONLINE</string>
     <string name="bank_account_pay">BANK ACCOUNT</string>
@@ -325,4 +325,37 @@
     <string name="provide_estimate">PROVIDE ESTIMATE</string>
     <string name="estimate_description">Enter Work Scope</string>
     <string name="work_scope_and_estimate">Work Scope and Estimate</string>
+    <string name="privacy_updated"><![CDATA[Privacy & Policy Updated]]></string>
+    <string name="desc_privacy_updated"><![CDATA[Would you like to review Privacy & Policy now?]]></string>
+    <string name="terms_updated"><![CDATA[Terms & Conditions Updated]]></string>
+    <string name="desc_terms_updated"><![CDATA[Would you like to review Terms & Conditions now?]]></string>
+    <string name="desc_logout">Do you want to Logout?</string>
+    <string name="invalid_booking_data">Invalid booking data received</string>
+    <string name="work_status">Work Status</string>
+    <string name="you_have_reached">You have reached</string>
+    <string name="enter_price_estimate">Enter price Estimate</string>
+    <string name="please_wait_while_homeowner_confirms_your_estimate">Please wait while homeowner confirms your estimate</string>
+    <string name="please_enter_work_scope">Please enter work scope</string>
+    <string name="Please_enter_price_estimate">Please enter price estimate</string>
+    <string name="home_owner_rejected_the_estimate">Home owner rejected the estimate</string>
+    <string name="job_in_progress">Job in progress</string>
+    <string name="Hello">Hello</string>
+    <string name="overall">Overall</string>
+    <string name="value_for_money">Value for money</string>
+    <string name="knowledge">Knowledge</string>
+    <string name="no_reviews_found">No Reviews Found</string>
+    <string name="are_you_sure_to_cancel_the_booking">Are you sure to cancel the booking?</string>
+    <string name="today">Today</string>
+    <string name="this_month">This Month</string>
+    <string name="this_year">This Year</string>
+    <string name="leads_deals">Leads/Deals</string>
+    <string name="you_have_a_new_service_request_from">You have a new service request from</string>
+    <string name="service">Service</string>
+    <string name="elapsed_time">Elapsed Time</string>
+    <string name="accept">Accept</string>
+    <string name="call">Call</string>
+    <string name="my_account">My Account</string>
+    <string name="please_select_some_services_first">Please select some services first.</string>
+    <string name="services_updated_successfully">Services updated successfully.</string>
+    <string name="something_went_wrong">Something went wrong.. Please try again later.</string>
 </resources>

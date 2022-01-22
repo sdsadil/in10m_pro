@@ -44,7 +44,6 @@ import com.in10mServiceMan.ui.activities.company_pros.CompanyPros
 import com.in10mServiceMan.ui.activities.contact_us.ContactUs
 import com.in10mServiceMan.ui.activities.earnings.EarningsActivity
 import com.in10mServiceMan.ui.activities.home.NavigationAdapter
-import com.in10mServiceMan.ui.activities.my_bookings.CompanyServiceHistoryActivity
 import com.in10mServiceMan.ui.activities.my_bookings.service_history.ServiceHistoryActivity
 import com.in10mServiceMan.ui.activities.payment.InvoiceActivity
 import com.in10mServiceMan.ui.activities.privacy_policy.PrivacyPolicyActivity
@@ -53,7 +52,6 @@ import com.in10mServiceMan.ui.activities.rating.ReviewsActivity
 import com.in10mServiceMan.ui.activities.rating.ReviewsResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
 import com.in10mServiceMan.ui.activities.termsandcondition.TermsAndCondition
-import com.in10mServiceMan.ui.adapter.CustomInfoWindowGoogleMap
 import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.ui.complete_profile_api.CompleteProfilePresenter
@@ -115,15 +113,15 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
             if (mPost.data.privacy_policy_accept == 0) {
                 bannerCard_HO.visibility = View.VISIBLE
-                header_HO.text = "Privacy & Policy Updated"
-                subHeader_HO.text = "Would you like to review Privacy & Policy now?"
+                header_HO.text = resources.getString(R.string.privacy_updated)
+                subHeader_HO.text = resources.getString(R.string.desc_privacy_updated)
                 yes_HO.setOnClickListener {
                     openactivity(PrivacyPolicyActivity())
                 }
             } else if (mPost.data.terms_condition_accept == 0) {
                 bannerCard_HO.visibility = View.VISIBLE
-                header_HO.text = "Terms & Conditions Updated"
-                subHeader_HO.text = "Would you like to review Terms & Conditions now?"
+                header_HO.text = resources.getString(R.string.terms_updated)
+                subHeader_HO.text = resources.getString(R.string.desc_terms_updated)
                 yes_HO.setOnClickListener {
                     openactivity(TermsAndCondition())
                 }
@@ -312,15 +310,15 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         try {
             val builder =
                 android.app.AlertDialog.Builder(this@MapTrackingActivity, R.style.AlertDialogDanger)
-            builder.setTitle("Logout")
-            builder.setMessage("Do you want to Logout?")
+            builder.setTitle(resources.getString(R.string.log_out))
+            builder.setMessage(resources.getString(R.string.desc_logout))
             builder.setPositiveButton(
-                "Log out"
+                resources.getString(R.string.log_out)
             ) { dialog, which ->
                 mLogoutWithChangeStatus()
             }
             builder.setNegativeButton(
-                "Cancel"
+                resources.getString(R.string.cancel)
             ) { dialog, which ->
                 dialog.cancel()
             }
@@ -605,7 +603,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 if (request == null) {
                                     Toast.makeText(
                                         this@MapTrackingActivity,
-                                        "Invalid booking data received",
+                                        resources.getString(R.string.invalid_booking_data),
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     it.ref.setValue(null)
@@ -971,10 +969,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         var userType =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
         if (userType == 3) {
-            ServiceManName.text = "Services Completed"
+            ServiceManName.text = resources.getString(R.string.services_completed)
             //DutyChangeImage.visibility = View.GONE
         } else {
-            ServiceManName.text = "Work Status"
+            ServiceManName.text = resources.getString(R.string.work_status)
         }
         if (userType == 3) {
             val callServiceProviders = LoginAPI.loginUser().getFinishedJobCount(userid)
@@ -1230,72 +1228,72 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     }
 
     private fun updateToArrived(showMsg: Boolean = true) {
-      /*  if (distance(
-                userLocation.latitude,
-                userLocation.longitude,
-                destinationLocation.latitude,
-                destinationLocation.longitude
-            ) < 0.1
-        ) {*/ // if distance < 0.1 in miles
+        /*  if (distance(
+                  userLocation.latitude,
+                  userLocation.longitude,
+                  destinationLocation.latitude,
+                  destinationLocation.longitude
+              ) < 0.1
+          ) {*/ // if distance < 0.1 in miles
 
-            /*request!!.status = BookingStatus.Arrived.toString()
-            Log.d("Called", "Updating =" + Gson().toJson(request))
-            bookingAccpted = true
-            mDatabaseCustomer.child("status").setValue(BookingStatus.Arrived.toString())
+        /*request!!.status = BookingStatus.Arrived.toString()
+        Log.d("Called", "Updating =" + Gson().toJson(request))
+        bookingAccpted = true
+        mDatabaseCustomer.child("status").setValue(BookingStatus.Arrived.toString())
 
-            mDatabase.child(bookingId.toString()).setValue(request)*/
-            if (showMsg) {
-                showProgressDialog("")
-                // Toast.makeText(this@MapTrackingActivity, "You have arrived", Toast.LENGTH_SHORT).show()
-                val loc = UpdateBookingStatus()
-                loc.id = bookingId
-                loc.status = BookingStatus.Arrived.toString()
+        mDatabase.child(bookingId.toString()).setValue(request)*/
+        if (showMsg) {
+            showProgressDialog("")
+            // Toast.makeText(this@MapTrackingActivity, "You have arrived", Toast.LENGTH_SHORT).show()
+            val loc = UpdateBookingStatus()
+            loc.id = bookingId
+            loc.status = BookingStatus.Arrived.toString()
 
-                val callServiceProviders = LoginAPI.loginUser().updateBookingStatus(loc)
-                callServiceProviders.enqueue(object : Callback<Void> {
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        destroyDialog()
-                        if (response.isSuccessful) {
-                            imgBtnNavigate.visibility = View.GONE
-                            ServiceManNameTOP.text = "You have reached"
-                            linearLayout5.visibility = View.GONE
-                            linearLayout_Estimate.visibility = View.GONE
-                            linearLayout6.visibility = View.VISIBLE
-                            btnCancel.text = getString(R.string.cancel)
+            val callServiceProviders = LoginAPI.loginUser().updateBookingStatus(loc)
+            callServiceProviders.enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    destroyDialog()
+                    if (response.isSuccessful) {
+                        imgBtnNavigate.visibility = View.GONE
+                        ServiceManNameTOP.text = resources.getString(R.string.you_have_reached)
+                        linearLayout5.visibility = View.GONE
+                        linearLayout_Estimate.visibility = View.GONE
+                        linearLayout6.visibility = View.VISIBLE
+                        btnCancel.text = getString(R.string.cancel)
 
-                            btnStartService.setOnActiveListener {
-                                updateTOStart()
-                            }
-                            request!!.status = BookingStatus.Arrived.toString()
-                            Log.d("Called", "Updating =" + Gson().toJson(request))
-                            bookingAccpted = true
-                            mDatabaseCustomer.child("status")
-                                .setValue(BookingStatus.Arrived.toString())
-
-                            mDatabase.child(bookingId.toString()).child("status")
-                                .setValue(BookingStatus.Arrived.toString())
+                        btnStartService.setOnActiveListener {
+                            updateTOStart()
                         }
-                    }
+                        request!!.status = BookingStatus.Arrived.toString()
+                        Log.d("Called", "Updating =" + Gson().toJson(request))
+                        bookingAccpted = true
+                        mDatabaseCustomer.child("status")
+                            .setValue(BookingStatus.Arrived.toString())
 
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                        destroyDialog()
+                        mDatabase.child(bookingId.toString()).child("status")
+                            .setValue(BookingStatus.Arrived.toString())
                     }
-                })
-            }
-            /*ServiceManNameTOP.text = "You have reached"
-            linearLayout5.visibility = View.GONE
-            linearLayout6.visibility = View.VISIBLE
-            imgBtnNavigate.visibility = View.GONE
-            btnCancel.text = getString(R.string.cancel)*/
+                }
 
-            linearLayout_Estimate.setOnClickListener {
-                askEstimate()
-            }
-            /* linearLayout6.setOnClickListener {
-                // status update to service started
-                // make one more status id to start service ans record start time as well
-                updateTOStart()
-            }*/
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    destroyDialog()
+                }
+            })
+        }
+        /*ServiceManNameTOP.text = "You have reached"
+        linearLayout5.visibility = View.GONE
+        linearLayout6.visibility = View.VISIBLE
+        imgBtnNavigate.visibility = View.GONE
+        btnCancel.text = getString(R.string.cancel)*/
+
+        linearLayout_Estimate.setOnClickListener {
+            askEstimate()
+        }
+        /* linearLayout6.setOnClickListener {
+            // status update to service started
+            // make one more status id to start service ans record start time as well
+            updateTOStart()
+        }*/
         /*} else {
 
             val alertDialog: AlertDialog.Builder =
@@ -1342,14 +1340,14 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 scope.isEmpty() -> {
                     Toast.makeText(
                         this@MapTrackingActivity,
-                        "Please Enter Work Scope",
+                        resources.getString(R.string.please_enter_work_scope),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 amt.isEmpty() -> {
                     Toast.makeText(
                         this@MapTrackingActivity,
-                        "Please Enter price Estimate",
+                        resources.getString(R.string.Please_enter_price_estimate),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -1415,7 +1413,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             }
         } else if (!acceptStatus && freeEstimate == 0) {
             // pay charge of the trip
-            ShowToast("Home owner rejected the estimate")
+            ShowToast(resources.getString(R.string.home_owner_rejected_the_estimate))
             serviceDone1()
         } else if (!acceptStatus && freeEstimate == 1) {
             canceledByTheCustomer(true)
@@ -1452,7 +1450,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     destroyDialog()
                     if (response.isSuccessful) {
-                        ServiceManNameTOP.text = "Job in progress"
+                        ServiceManNameTOP.text = resources.getString(R.string.job_in_progress)
                         linearLayout6.visibility = View.GONE
                         linearLayout7.visibility = View.VISIBLE
                         imgBtnNavigate.visibility = View.GONE
@@ -1620,7 +1618,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         freezCurrentLocation = false
                         loadDashboardCount()
                         val user = localStorage(this@MapTrackingActivity).completeCustomer
-                        if (user != null) ServiceManNameTOP.text = "Hello " + user.name
+                        if (user != null) ServiceManNameTOP.text = resources.getString(R.string.Hello)+" " + user.name
                         selectedCV.visibility = View.VISIBLE
 
                         lvBtnBookNow1.visibility = View.VISIBLE
@@ -1694,7 +1692,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             ConstraintLayout.LayoutParams.MATCH_PARENT
         )
         Picasso.get().load(request?.customer_image).placeholder(R.drawable.dummy_user).fit()
-            .into(dialog.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.serviceManIVP))
+            .into(dialog.findViewById<CircleImageView>(R.id.serviceManIVP))
 
         dialog.findViewById<TextView>(R.id.ServiceRequestorName).text = customerProfile.name
         dialog.findViewById<TextView>(R.id.thumbsUpTVR).text =
@@ -2020,7 +2018,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 slidingRootNav?.closeMenu(true)
                                 Toast.makeText(
                                     this@MapTrackingActivity,
-                                    "No Reviews Found",
+                                    resources.getString(R.string.no_reviews_found),
                                     Toast.LENGTH_LONG
                                 ).show()
                                 Log.d("Status", "Empty")
@@ -2426,11 +2424,11 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     private fun showAlertDutyChangeAfterWorkAccepted() {
         var builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setMessage("Are you sure to cancel the booking?")
-        builder.setPositiveButton("Yes") { dialog, which ->
+        builder.setMessage(resources.getString(R.string.are_you_sure_to_cancel_the_booking))
+        builder.setPositiveButton(resources.getString(R.string.yes)) { dialog, which ->
             RequestCanceled()
         }
-        builder.setNegativeButton("No") { dialog, which ->
+        builder.setNegativeButton(resources.getString(R.string.no)) { dialog, which ->
             dialog.dismiss()
         }
         val alert: AlertDialog = builder.create()

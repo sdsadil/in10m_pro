@@ -18,16 +18,13 @@ import com.in10mServiceMan.Models.HomeService;
 import com.in10mServiceMan.Models.RequestLinkServiceWithServiceMan;
 import com.in10mServiceMan.Models.ResponseServiceWithSubService;
 import com.in10mServiceMan.Models.Service;
-import com.in10mServiceMan.Models.SubService;
 import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.services.ServicesActivity;
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity;
 import com.in10mServiceMan.ui.adapter.ServicemanSelectedServiceAdapter;
 import com.in10mServiceMan.ui.apis.LoginAPI;
-import com.in10mServiceMan.ui.fragments.service_man_details_fragments.ServicemanServiceDetailsFragmentListener;
 import com.in10mServiceMan.ui.interfaces.EditTextValuePass;
-import com.in10mServiceMan.ui.interfaces.OnDataPass;
 import com.in10mServiceMan.ui.listener.EditSubServicesListener;
 import com.in10mServiceMan.ui.listener.RemoveServiceExperienceListener;
 import com.in10mServiceMan.utils.LoadingDialog;
@@ -97,7 +94,7 @@ public class ProfileServices extends AppCompatActivity implements RemoveServiceE
                 }
                 callApiTOLinkServicesAndSubService(serviceWithServiceMEN);
             } else {
-                Toast.makeText(ProfileServices.this, "please select some services first.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileServices.this, getString(R.string.please_select_some_services_first), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -205,7 +202,7 @@ public class ProfileServices extends AppCompatActivity implements RemoveServiceE
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
-                Toast.makeText(ProfileServices.this, "Services updated successfully.", Toast.LENGTH_LONG).show();
+                Toast.makeText(ProfileServices.this, getResources().getString(R.string.services_updated_successfully), Toast.LENGTH_LONG).show();
                 finish();
                 // dataPasser.onDataPass(1);
                 if (response.isSuccessful()) {
@@ -222,7 +219,7 @@ public class ProfileServices extends AppCompatActivity implements RemoveServiceE
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.i("eeeLINKerror", t.getMessage());
-                Toast.makeText(ProfileServices.this, "Something went wrong.. Please try again later.", Toast.LENGTH_LONG).show();
+                Toast.makeText(ProfileServices.this, getResources().getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
                 // dataPasser.onDataPass(1);
             }
         });

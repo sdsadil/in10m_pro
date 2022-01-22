@@ -11,6 +11,8 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_login.xml" value="0.536" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_map_tracking.xml" value="0.18432971014492755" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_my_booking.xml" value="0.23550724637681159" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_profile_page.xml" value="0.17119565217391305" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_profile_services.xml" value="0.21920289855072464" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_profile_success.xml" value="0.21920289855072464" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_sign_up.xml" value="0.2421875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/confirm_payment_dialog.xml" value="0.24003623188405798" />
@@ -28,6 +30,7 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/home_bottom_buttons.xml" value="0.264" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/payment_request_dialog.xml" value="0.21920289855072464" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/popup_online_pricing.xml" value="0.21920289855072464" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/popup_review.xml" value="0.264" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/popup_service_estimate.xml" value="0.2421875" />
         <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/activity_about.xml" value="0.1" />
         <entry key="..\:/Project/Retrofit/1/Kwt/in10m_pro/app/src/main/res/layout/activity_my_account_edit.xml" value="0.1" />
