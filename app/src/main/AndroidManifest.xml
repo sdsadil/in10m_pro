@@ -36,10 +36,18 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.signup.SignUpTermsConditions"></activity>
-        <activity android:name=".ui.activities.company_pros.CompanyProsDetails" />
-        <activity android:name=".ui.activities.company_pros.CompanyPros" />
-        <activity android:name=".ui.accound_edit.MyAccountEdit" />
+        <activity
+            android:name=".ui.activities.signup.SignUpTermsConditions"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.company_pros.CompanyProsDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.company_pros.CompanyPros"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.accound_edit.MyAccountEdit"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.create_online_account.CreateOnlinePaymentAccountActivity"
             android:screenOrientation="portrait" />
@@ -87,6 +95,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.select_language.SelectLanguage"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
@@ -265,7 +274,9 @@
             android:name=".ui.activities.CallScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
-        <activity android:name=".ui.activities.profile_services.ProfileServices" />
+        <activity
+            android:name=".ui.activities.profile_services.ProfileServices"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

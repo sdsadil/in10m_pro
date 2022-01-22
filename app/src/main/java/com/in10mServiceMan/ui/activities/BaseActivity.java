@@ -205,6 +205,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
             SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, true);
 
             setLanguage(this, "ar");
+//            setLanguage(this, "en");
             dialog.dismiss();
 
             finish();

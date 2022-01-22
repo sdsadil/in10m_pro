@@ -8,55 +8,56 @@
 
     <LinearLayout
         android:id="@+id/Lview"
-        android:layout_width="@dimen/_150sdp"
+        android:layout_width="@dimen/_200sdp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/serviceManIV"
             android:layout_width="66dp"
             android:layout_height="66dp"
-            android:layout_marginTop="110dp"
-            android:src="@drawable/dummy_user"
-            android:layout_gravity="center_horizontal"
-            />
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/dummy_user" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/userNameTVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/diavlo_bold"
-            android:text="Guest User"
+            android:gravity="center"
+            android:text="@string/guest_user"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/thumbsContentLL"
             android:layout_width="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/tumbsupgray"
-                />
+                android:layout_height="match_parent"
+                android:src="@drawable/tumbsupgray" />
+
             <TextView
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
                 android:id="@+id/thumbsUpTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="-4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:fontFamily="@font/aller_rg"
+                android:gravity="center"
                 android:text="0"
                 android:textColor="@color/colorLight"
                 android:textSize="18dp"
@@ -64,65 +65,60 @@
                 app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
             <View
-                android:visibility="invisible"
                 android:layout_width="5dp"
-                android:layout_height="1dp">
+                android:layout_height="1dp"
+                android:visibility="gone">
 
             </View>
 
             <ImageView
 
                 android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/tumbsdowngray"
-                />
+                android:layout_height="match_parent"
+                android:src="@drawable/tumbsdowngray" />
+
             <TextView
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
                 android:id="@+id/thumbsDownTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="-4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:fontFamily="@font/aller_rg"
+                android:gravity="center"
                 android:text="0"
                 android:textColor="@color/colorLight"
                 android:textSize="18dp"
                 app:layout_constraintStart_toEndOf="@+id/serviceManIV"
                 app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
-        </LinearLayout>
 
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/navigationRV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="@dimen/_40sdp"
-
             android:layout_gravity="center_horizontal"
-            >
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            tools:listitem="@layout/navigation_list_item"/>
 
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <Space
+        <androidx.legacy.widget.Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/termsandConditionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/aller_rg"
-            android:textColor="@android:color/white"
+            android:gravity="center"
             android:text="@string/terms_and_conditions"
-            android:layout_gravity="center_horizontal"
-              />
-
+            android:textColor="@android:color/white" />
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

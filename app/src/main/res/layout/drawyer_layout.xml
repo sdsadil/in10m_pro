@@ -11,13 +11,15 @@
         android:layout_width="@dimen/_200sdp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/serviceManIV"
             android:layout_width="66dp"
             android:layout_height="66dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="80dp"
             android:src="@drawable/dummy_user" />
 
@@ -25,10 +27,11 @@
             android:id="@+id/userNameTVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/diavlo_bold"
-            android:text="Guest User"
+            android:gravity="center"
+            android:text="@string/guest_user"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -37,7 +40,7 @@
             android:id="@+id/thumbsContentLL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:orientation="horizontal">
 
@@ -50,13 +53,14 @@
                 android:id="@+id/thumbsUpTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/aller_rg"
-                android:text="0"
+                android:gravity="center"
+                android:text="@string/_0"
                 android:textColor="@color/colorLight"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/serviceManIV"
                 app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
@@ -77,45 +81,43 @@
                 android:id="@+id/thumbsDownTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/aller_rg"
-                android:text="0"
+                android:gravity="center"
+                android:text="@string/_0"
                 android:textColor="@color/colorLight"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/serviceManIV"
                 app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
 
         </LinearLayout>
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/navigationRV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            tools:itemCount="6"
+            tools:listitem="@layout/navigation_list_item"/>
 
-            android:layout_marginTop="24dp">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <Space
+        <androidx.legacy.widget.Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
-
         <TextView
             android:id="@+id/termsandConditionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/aller_rg"
+            android:gravity="center"
             android:text="@string/terms_and_conditions"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

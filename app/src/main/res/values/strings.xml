@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">in10m Pro</string><!--In10Min Service Man-->
     <string name="google_maps_key">AIzaSyA1oJ2nAVOpAVJGvop7tBcv1GBJCp0vgBY</string>
-    <string name="calling_app_key">50ccf3af-5f40-4731-9b5d-10b5b56a4b40</string>
-    <string name="calling_app_secret">CxIAwF+cR0Gr71n8muNXIg==</string>
-    <string name="calling_env_host">clientapi.sinch.com</string>
+    <string name="calling_app_key" translatable="false">50ccf3af-5f40-4731-9b5d-10b5b56a4b40</string>
+    <string name="calling_app_secret" translatable="false">CxIAwF+cR0Gr71n8muNXIg==</string>
+    <string name="calling_env_host" translatable="false">clientapi.sinch.com</string>
     <string name="phone_number">Phone Number</string>
     <string name="sign_in">SIGN IN</string>
     <string name="otp_help">We have sent 6 digit OTP to the number 09876 54321</string>
@@ -389,4 +389,6 @@
     <string name="enter_the_received_OTP">Enter the received OTP</string>
     <string name="arabic">عربى</string>
     <string name="english">English</string>
+    <string name="guest_user">Guest User</string>
+    <string name="_0">0</string>
 </resources>

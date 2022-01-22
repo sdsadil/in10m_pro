@@ -7,15 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@android:color/white</item>
-
+        <item name="android:fontFamily">@font/diavlo_book</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
-
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-
         <item name="colorControlNormal">@color/greenyBlue</item>
         <item name="colorControlActivated">@color/starActive</item>
-
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
