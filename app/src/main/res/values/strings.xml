@@ -258,7 +258,7 @@
     <string name="enters">ENTER</string>
 
     <string name="mobile_verification">Mobile No. Verification</string>
-    <string name="code">4 digits code has been sent to the mobile number 0000000000</string>
+    <string name="code">4 digits code has been sent to the mobile number </string>
     <string name="enter_code">Enter code received here</string>
     <string name="policy">By clicking to “VERIFY”, I agree to the Terms of Use and Privacy Policy </string>
     <string name="verify_caps">VERIFY</string>
@@ -326,6 +326,7 @@
     <string name="provide_estimate">PROVIDE ESTIMATE</string>
     <string name="estimate_description">Enter Work Scope</string>
     <string name="work_scope_and_estimate">Work Scope and Estimate</string>
+
     <string name="privacy_updated"><![CDATA[Privacy & Policy Updated]]></string>
     <string name="desc_privacy_updated"><![CDATA[Would you like to review Privacy & Policy now?]]></string>
     <string name="terms_updated"><![CDATA[Terms & Conditions Updated]]></string>
@@ -359,7 +360,7 @@
     <string name="services_updated_successfully">Services updated successfully.</string>
     <string name="something_went_wrong">Something went wrong.. Please try again later.</string>
     <string name="enter_the_name">Enter the name</string>
-    <string name="enter_valid_mobile_number">Enter valid mobile number</string>
+    <string name="enter_valid_mobile_number">Please enter valid mobile number</string>
     <string name="please_select_a_dob">Please select a DOB</string>
     <string name="enter_valid_email_address">Enter a valid email address</string>
     <string name="male">Male</string>
@@ -374,4 +375,16 @@
     <string name="contact_us">Contact Us</string>
     <string name="or">or</string>
     <string name="your_query_successfully">Your query added successfully</string>
+    <string name="please_enter_name">Please enter name</string>
+    <string name="please_enter_last_name">Please enter last name</string>
+    <string name="select_your_dob">Select your DOB</string>
+    <string name="age_must_be_greater_than">Age must be greater than 13</string>
+    <string name="please_enter_street_address">Please enter street address</string>
+    <string name="please_enter_apartment_number">Please enter apartment number</string>
+    <string name="please_enter_your_city">Please enter your city</string>
+    <string name="please_select_your_state">Please select your state</string>
+    <string name="please_enter_valid_zipcode">Please enter valid zipcode</string>
+    <string name="enter_your_password1">Please enter your password</string>
+    <string name="enter_your_password2">Password must be at least 8 characters</string>
+    <string name="enter_the_received_OTP">Enter the received OTP</string>
 </resources>

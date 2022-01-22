@@ -69,7 +69,7 @@ class VerifyMobileFragment : BaseFragment() {
             ""
         )
         view.mobileDescription.text =
-            "4 digits code has been sent to the mobile number " + replaceCentreFour(
+            getString(R.string.code) + replaceCentreFour(
                 mobile.toString()
             )
 
@@ -94,7 +94,7 @@ class VerifyMobileFragment : BaseFragment() {
             otpText =
                 otpET1.text.toString() + otpET2.text.toString() + otpET3.text.toString() + otpET4.text.toString()
             if (otpText.length < 4) {
-                Toast.makeText(this.context, "Enter the received OTP", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, resources.getString(R.string.enter_the_received_OTP), Toast.LENGTH_SHORT).show()
             } else {
                 /* if(view.enterCode.text.toString() == otp) {
                      mListener?.toNextFragmentThree(view.enterCode.text.toString())

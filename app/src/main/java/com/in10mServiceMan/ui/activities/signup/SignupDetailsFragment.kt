@@ -45,9 +45,13 @@ import kotlin.collections.ArrayList
 
 
 class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedListener,
-        GoogleApiClient.ConnectionCallbacks {
+    GoogleApiClient.ConnectionCallbacks {
     override fun onConnectionFailed(p0: ConnectionResult) {
-        Toast.makeText(this.context, "Google Places API connection failed with error code:" + p0.errorCode, Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            this.context,
+            "Google Places API connection failed with error code:" + p0.errorCode,
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     override fun onConnected(p0: Bundle?) {
@@ -71,7 +75,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     private var mPlaceArrayAdapter: PlaceArrayAdapter? = null
     private var mStatesList: List<State?>? = null
     var filter: AutocompleteFilter? = null
-    private val BOUNDS_MOUNTAIN_VIEW = LatLngBounds(LatLng(37.398160, -122.180831), LatLng(37.430610, -121.972090))
+    private val BOUNDS_MOUNTAIN_VIEW =
+        LatLngBounds(LatLng(37.398160, -122.180831), LatLng(37.430610, -121.972090))
     val GOOGLE_API_CLIENT_ID = 0
 
     companion object {
@@ -83,8 +88,10 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_signup_details, container, false)
         filter = AutocompleteFilter.Builder().setCountry("US").build()
@@ -101,7 +108,12 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         var myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
 
         myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
                 if (mStatesList != null) {
                     /*state = mStatesList!![position]!!.name!!*/
                     state = myTypeSpinner.selectedItem.toString()
@@ -113,36 +125,83 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         }
         view.signUpPhaseDetailsOkTickIV.setOnClickListener {
 
-            if (view.personalDetailsFirstName.text.toString().trim().isEmpty()) {
-                ShowToast("Please enter name")
-            } else if (view.personalDetailsLastName.text.toString().trim().isEmpty()) {
-                ShowToast("Please enter last name")
-            } else if (view.personalDetailsLastDOB.text.toString().trim().isEmpty()) {
-                ShowToast("Select Your DOB")
-            } else if (ageCalculator(view.personalDetailsLastDOB.text.toString())<13) {
-                ShowToast("Age must be greater than 13")
-            } else if (view.personalDetailsLastStreetAddress.text.toString().trim().isEmpty()) {
-                ShowToast("Please enter Street Address")
-            } else if (view.personalDetailsLastSuite.text.toString().trim().isEmpty()) {
-                ShowToast("Please enter Apartment number")
-            } else if (view.personalDetailsStreetAddress.text.toString().trim().isEmpty()) {
-                ShowToast("Please enter your city")
-            } else if (state.isEmpty()) {
-                ShowToast("Please select your state")
-            } else if (view.personalDetailsZip.text.toString().trim().length !=5 ) {
-                ShowToast("Please enter valid zipcode")
-            } else {
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.FIRST_NAME, view.personalDetailsFirstName.text.toString().trim())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.LAST_NAME, view.personalDetailsLastName.text.toString().trim())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.STREET, view.personalDetailsLastStreetAddress.text.toString().trim())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.SUITE, view.personalDetailsLastSuite.text.toString().trim())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.CITY, view.personalDetailsStreetAddress.text.toString().trim())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.STATE, state)
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.ZIPCODE, view.personalDetailsZip.text.toString().trim())
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.COUNTRY, country)
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.COUNTRY_CODE, "+1")//country_id
+            when {
+                view.personalDetailsFirstName.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_name))
+                }
+                view.personalDetailsLastName.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_last_name))
+                }
+                view.personalDetailsLastDOB.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.select_your_dob))
+                }
+                ageCalculator(view.personalDetailsLastDOB.text.toString()) < 13 -> {
+                    ShowToast(resources.getString(R.string.age_must_be_greater_than))
+                }
+                view.personalDetailsLastStreetAddress.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_street_address))
+                }
+                view.personalDetailsLastSuite.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_apartment_number))
+                }
+                view.personalDetailsStreetAddress.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_your_city))
+                }
+                state.isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_select_your_state))
+                }
+                view.personalDetailsZip.text.toString().trim().length != 5 -> {
+                    ShowToast(resources.getString(R.string.please_enter_valid_zipcode))
+                }
+                else -> {
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.FIRST_NAME,
+                        view.personalDetailsFirstName.text.toString().trim()
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.LAST_NAME,
+                        view.personalDetailsLastName.text.toString().trim()
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.STREET,
+                        view.personalDetailsLastStreetAddress.text.toString().trim()
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.SUITE,
+                        view.personalDetailsLastSuite.text.toString().trim()
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.CITY,
+                        view.personalDetailsStreetAddress.text.toString().trim()
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.STATE,
+                        state
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.ZIPCODE,
+                        view.personalDetailsZip.text.toString().trim()
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.COUNTRY,
+                        country
+                    )
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.COUNTRY_CODE,
+                        "+1"
+                    )//country_id
 
-                displayAlertDialog()
+                    displayAlertDialog()
+                }
             }
         }
         view.personalDetailsLastDOB.setOnClickListener()
@@ -152,13 +211,25 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             val startDateMonth = cal.get(Calendar.MONTH)
             val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
 
-            val dpd_startdate = DatePickerDialog(this.context!!, R.style.CalendarThemeOne, DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
-                val month = mmonth + 1
+            val dpd_startdate = DatePickerDialog(
+                this.context!!,
+                R.style.CalendarThemeOne,
+                DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
+                    val month = mmonth + 1
 
-                view.personalDetailsLastDOB.text = "$month-$mdayOfMonth-$myear"//"$myear-$month-$mdayOfMonth"
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.DATE_OF_BIRTH, "$myear-$month-$mdayOfMonth")
+                    view.personalDetailsLastDOB.text =
+                        "$month-$mdayOfMonth-$myear"//"$myear-$month-$mdayOfMonth"
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.DATE_OF_BIRTH,
+                        "$myear-$month-$mdayOfMonth"
+                    )
 
-            }, startDateYear, startDateMonth, startDateDay)
+                },
+                startDateYear,
+                startDateMonth,
+                startDateDay
+            )
             // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
             dpd_startdate.show()
         }
@@ -195,7 +266,10 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     val mUpdatePlaceDetailsCallback = object : ResultCallback<PlaceBuffer> {
         override fun onResult(places: PlaceBuffer) {
             if (!places.status.isSuccess) {
-                Log.e("Location", ("Place query did not complete. Error: " + places.status.toString()))
+                Log.e(
+                    "Location",
+                    ("Place query did not complete. Error: " + places.status.toString())
+                )
                 return
             }
             // Selecting the first object buffer.
@@ -207,7 +281,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     }
 
     private fun displayAlertDialog() {
-        val mDialogView = LayoutInflater.from(this.context).inflate(R.layout.custom_alert_confirm_dialog, null)
+        val mDialogView =
+            LayoutInflater.from(this.context).inflate(R.layout.custom_alert_confirm_dialog, null)
         val mBuilder = AlertDialog.Builder(this.context!!).setView(mDialogView)
         val mAlertDialog = mBuilder.show()
         mAlertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -225,7 +300,10 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     private fun getStates() {
         val homeCall = LoginAPI.loginUser().states
         homeCall.enqueue(object : Callback<StatesResponse> {
-            override fun onResponse(call: Call<StatesResponse>, response: Response<StatesResponse>) {
+            override fun onResponse(
+                call: Call<StatesResponse>,
+                response: Response<StatesResponse>
+            ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
                 } else {
@@ -267,7 +345,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun ageCalculator(date: String):Int {
+    private fun ageCalculator(date: String): Int {
         val s = date
         val sdf = SimpleDateFormat("MM-dd-yyyy")
         val d = sdf.parse(s)
@@ -280,9 +358,9 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         val now1 = LocalDate.now()
         val diff1 = Period.between(l1, now1)
         val age = diff1.years
-        val months =diff1.months
-        val days=diff1.days
-        Log.d("age" , "$age $months $days")
+        val months = diff1.months
+        val days = diff1.days
+        Log.d("age", "$age $months $days")
         return age
     }
 }

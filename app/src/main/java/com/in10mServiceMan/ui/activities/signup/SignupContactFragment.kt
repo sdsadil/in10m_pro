@@ -40,15 +40,15 @@ class SignupContactFragment : Fragment() {
         view.enterButton.setOnClickListener {
             if (!isValidEmail(view.contactDetailsEmail.text.toString()))//view.contactDetailsEmail.text.toString().trim().isEmpty()
             {
-                showToast("Please enter Valid e-mail address")
+                showToast(resources.getString(R.string.please_enter_valid_email))
             } else if (view.contactDetailsMobile.text.toString().trim()
                     .isEmpty() && view.contactDetailsMobile.text.toString().length != 8
             ) {
-                showToast("Please enter Valid Mobile number")
+                showToast(resources.getString(R.string.enter_valid_mobile_number))
             } else if (view.contactDetailsPassword.text.toString().trim().isEmpty()) {
-                showToast("Please enter the Password ")
+                showToast(resources.getString(R.string.enter_your_password1))
             } else if (view.contactDetailsPassword.text!!.length < 8) {
-                showToast("Password must be atleast 8 characters")
+                showToast(resources.getString(R.string.enter_your_password2))
             } else {
                 SharedPreferencesHelper.putString(
                     this.context!!,
