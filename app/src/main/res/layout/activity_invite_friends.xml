@@ -15,8 +15,7 @@
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -50,190 +49,190 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/ic_star"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/titleInviteTV"/>
+                app:layout_constraintTop_toBottomOf="@+id/titleInviteTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/amountTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleInviteTV"
-                android:textColor="@color/colorPrimary"
-                android:text="KD "
-                android:gravity="center"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/diavlo_bold"
+                android:gravity="center"
+                android:letterSpacing="0.05"
+                android:text="KD "
+                android:textColor="@color/colorPrimary"
                 android:textSize="36sp"
-                android:letterSpacing="0.05"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleInviteTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/referalCodeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:text="@string/referral_code_1234wag"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/amountTV"
-                android:text="Referral code : 1234WAG"
-                android:fontFamily="@font/diavlo_bold"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="30dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/amountTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/shareViaTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/diavlo_bold"
+                android:text="@string/share_via"
+                android:textColor="@color/darkText"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/referalCodeTV"
-                android:text="@string/share_via"
-                android:textSize="12sp"
-                android:fontFamily="@font/diavlo_bold"
-                android:textColor="@color/darkText"
-                android:layout_marginTop="30dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/referalCodeTV" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:background="@color/lineBg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/shareViaTV"/>
+                android:layout_marginEnd="30dp"
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shareViaTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/facebookTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/shareViaTV"
                 android:layout_marginTop="10dp"
-                android:text="@string/facebook"
+                android:clickable="true"
                 android:fontFamily="@font/diavlo_bold"
-                android:textColor="@color/primary_text_selector"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
-                android:clickable="true"/>
+                android:text="@string/facebook"
+                android:textColor="@color/primary_text_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shareViaTV" />
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_marginEnd="30dp"
                 android:src="@drawable/ic_question_mark"
-                app:layout_constraintTop_toTopOf="@+id/facebookTV"
                 app:layout_constraintBottom_toBottomOf="@+id/facebookTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="30dp"/>
+                app:layout_constraintTop_toTopOf="@+id/facebookTV" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:background="@color/lineBg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/facebookTV"/>
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facebookTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/twitterTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facebookTV"
                 android:layout_marginTop="10dp"
-                android:text="@string/twitter"
+                android:clickable="true"
                 android:fontFamily="@font/diavlo_bold"
-                android:textColor="@color/primary_text_selector"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
-                android:clickable="true"/>
+                android:text="@string/twitter"
+                android:textColor="@color/primary_text_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facebookTV" />
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_marginEnd="30dp"
                 android:src="@drawable/ic_question_mark"
-                app:layout_constraintTop_toTopOf="@+id/twitterTV"
                 app:layout_constraintBottom_toBottomOf="@+id/twitterTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="30dp"/>
+                app:layout_constraintTop_toTopOf="@+id/twitterTV" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:background="@color/lineBg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/twitterTV"/>
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/twitterTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/whatsappTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/twitterTV"
                 android:layout_marginTop="10dp"
-                android:text="@string/whatsapp"
+                android:clickable="true"
                 android:fontFamily="@font/diavlo_bold"
-                android:textColor="@color/primary_text_selector"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
-                android:clickable="true"/>
+                android:text="@string/whatsapp"
+                android:textColor="@color/primary_text_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/twitterTV" />
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_marginEnd="30dp"
                 android:src="@drawable/ic_question_mark"
-                app:layout_constraintTop_toTopOf="@+id/whatsappTV"
                 app:layout_constraintBottom_toBottomOf="@+id/whatsappTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="30dp"/>
+                app:layout_constraintTop_toTopOf="@+id/whatsappTV" />
 
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:background="@color/lineBg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/whatsappTV"/>
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/whatsappTV" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/smsTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/whatsappTV"
                 android:layout_marginTop="10dp"
-                android:text="@string/sms"
+                android:clickable="true"
                 android:fontFamily="@font/diavlo_bold"
-                android:textColor="@color/primary_text_selector"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
-                android:clickable="true"/>
+                android:text="@string/sms"
+                android:textColor="@color/primary_text_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/whatsappTV" />
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_marginEnd="30dp"
                 android:src="@drawable/ic_question_mark"
-                app:layout_constraintTop_toTopOf="@+id/smsTV"
                 app:layout_constraintBottom_toBottomOf="@+id/smsTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="30dp"/>
+                app:layout_constraintTop_toTopOf="@+id/smsTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

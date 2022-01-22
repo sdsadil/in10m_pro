@@ -42,7 +42,8 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
-class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, RemoveServiceExperienceListener, EditTextValuePass, EditSubServicesListener, IProfileView {
+class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
+    RemoveServiceExperienceListener, EditTextValuePass, EditSubServicesListener, IProfileView {
     override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
         if (metaData.status == 1) {
             localStorage(this).saveCompleteCustomer(metaData.data)
@@ -53,13 +54,17 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     override fun onProfileUpdated(mData: CustomerCompleteProfileAfterUpdate) {
         destroyDialog()
         if (mData.status == 1) {
-            val mAuthToken = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val mServiceManId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+            val mAuthToken =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            val mServiceManId =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
 
             if (imageUri.isNotEmpty()) {
                 showProgressDialog("")
-                mPresenter.updateProfilePicture(mAuthToken.toString(),
-                    mServiceManId.toString(), imageUri)
+                mPresenter.updateProfilePicture(
+                    mAuthToken.toString(),
+                    mServiceManId.toString(), imageUri
+                )
             } else {
                 mPresenter.getCompleteProfile(mServiceManId.toString())
             }
@@ -71,7 +76,8 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     override fun onDPUpdated(mData: ImageUpdateResponse) {
         destroyDialog()
         if (mData.status == 1) {
-            val mServiceManId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+            val mServiceManId =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
             mPresenter.getCompleteProfile(mServiceManId.toString())
             ShowToast(mData?.message)
         }
@@ -109,22 +115,26 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
 
     override fun onEditClick(position: Int, serviceWithSubService: ServiceWithSubService?) {
         showProgressDialog("")
-        LoginAPI.loginUser()!!.getServiceDetails(serviceWithSubService?.service?.serviceId!!).enqueue(object : Callback<ResponseServiceWithSubService> {
-            override fun onResponse(call: Call<ResponseServiceWithSubService>, response: Response<ResponseServiceWithSubService>) {
-                destroyDialog()
-                if (response.isSuccessful && (if (response.body() != null) response.body()!!.data.size else 0) > 0) {
-                    val json = Gson().toJson(response.body()!!.data[0])
-                    val intent = Intent(this@ProfileActivity, SubServicesActivity::class.java)
-                    intent.putExtra("service", json)
-                    startActivityForResult(intent, REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES)
+        LoginAPI.loginUser()!!.getServiceDetails(serviceWithSubService?.service?.serviceId!!)
+            .enqueue(object : Callback<ResponseServiceWithSubService> {
+                override fun onResponse(
+                    call: Call<ResponseServiceWithSubService>,
+                    response: Response<ResponseServiceWithSubService>
+                ) {
+                    destroyDialog()
+                    if (response.isSuccessful && (if (response.body() != null) response.body()!!.data.size else 0) > 0) {
+                        val json = Gson().toJson(response.body()!!.data[0])
+                        val intent = Intent(this@ProfileActivity, SubServicesActivity::class.java)
+                        intent.putExtra("service", json)
+                        startActivityForResult(intent, REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES)
+                    }
+
                 }
 
-            }
-
-            override fun onFailure(call: Call<ResponseServiceWithSubService>, t: Throwable) {
-                destroyDialog()
-            }
-        })
+                override fun onFailure(call: Call<ResponseServiceWithSubService>, t: Throwable) {
+                    destroyDialog()
+                }
+            })
     }
 
     private fun getServiceWithId(serviceId: Int): Service? {
@@ -147,7 +157,8 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
 
     override fun onImageAdded(path: String, requestCode: Int) {
         mImageUploadPath = path
-        PicassoCache.getPicassoInstance(this@ProfileActivity).load(File(mImageUploadPath)).fit().into(serviceManProfile)
+        PicassoCache.getPicassoInstance(this@ProfileActivity).load(File(mImageUploadPath)).fit()
+            .into(serviceManProfile)
 
         if (mImageUploadPath != null && mImageUploadPath!!.isNotEmpty()) {
             showProgressDialog("")
@@ -159,22 +170,34 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     private fun uploadImages(mFilePath: String?, mName: String, mEmail: String) {
         if (mFilePath != null) {
 
-            var mAmazonUploadTask = AmazonUploadTask(arrayListOf(mFilePath), object : AmazonUploadTask.AmazonUploadTaskListener {
-                override fun uploadTaskProgress(mCurrentUploadIndex: Int, mSize: Int) {
+            var mAmazonUploadTask = AmazonUploadTask(
+                arrayListOf(mFilePath),
+                object : AmazonUploadTask.AmazonUploadTaskListener {
+                    override fun uploadTaskProgress(mCurrentUploadIndex: Int, mSize: Int) {
 
-                }
+                    }
 
-                override fun uploadTaskFailed(mMessage: String) {
-                    destroyDialog()
-                    Toast.makeText(this@ProfileActivity, "Failed to upload images", Toast.LENGTH_SHORT).show()
-                }
+                    override fun uploadTaskFailed(mMessage: String) {
+                        destroyDialog()
+                        Toast.makeText(
+                            this@ProfileActivity,
+                            "Failed to upload images",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
 
-                override fun uploadTaskSuccess(mUrlList: ArrayList<String>, mUrlHashMap: HashMap<String, String>) {
-                    destroyDialog()
-                    mImageUploadPath = mUrlList.get(0)
-                    rq.serviceproviderImage = mImageUploadPath
-                }
-            }, Constants.Bucket.USER_FOLDER, mEmail)
+                    override fun uploadTaskSuccess(
+                        mUrlList: ArrayList<String>,
+                        mUrlHashMap: HashMap<String, String>
+                    ) {
+                        destroyDialog()
+                        mImageUploadPath = mUrlList.get(0)
+                        rq.serviceproviderImage = mImageUploadPath
+                    }
+                },
+                Constants.Bucket.USER_FOLDER,
+                mEmail
+            )
             mAmazonUploadTask.execute()
         }
     }
@@ -208,7 +231,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
             emailET.isEnabled = true
         }
 
-       /*Crashlytics.getInstance().crash()*/
+        /*Crashlytics.getInstance().crash()*/
         loadProfile()
         getPreServices()
 
@@ -220,8 +243,10 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
         }
         btnSaveProfile.setOnClickListener {
 
-            val mAuthToken = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val mServiceManId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+            val mAuthToken =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            val mServiceManId =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
 
             /*edt_age1.setOnTouchListener(object: View.OnTouchListener {
                override fun onTouch(v:View, event:MotionEvent):Boolean {
@@ -253,13 +278,20 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
                 val startDateMonth = cal.get(Calendar.MONTH)
                 val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
 
-                val dpd_startdate = DatePickerDialog(this@ProfileActivity, R.style.CalendarThemeOne, DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
-                    val month = mmonth + 1
+                val dpd_startdate = DatePickerDialog(
+                    this@ProfileActivity,
+                    R.style.CalendarThemeOne,
+                    DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
+                        val month = mmonth + 1
 
-                    edt_age.setText("$month-$mdayOfMonth-$myear")//"$myear-$month-$mdayOfMonth"
+                        edt_age.setText("$month-$mdayOfMonth-$myear")//"$myear-$month-$mdayOfMonth"
 
 
-                }, startDateYear, startDateMonth, startDateDay)
+                    },
+                    startDateYear,
+                    startDateMonth,
+                    startDateDay
+                )
                 // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
                 dpd_startdate.show()
             }
@@ -269,16 +301,17 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
             val fullname = fullnameET.text.toString().trim()
             val dob = getFormattedDateRequest(edt_age.text.toString().trim())
             if (fullname.isEmpty()) {
-                ShowToast("Enter the name")
+                ShowToast(resources.getString(R.string.enter_the_name))
             } else if (mobile.isEmpty() || mobile.length != 10) {
-                ShowToast("Enter valid mobile number")
+                ShowToast(resources.getString(R.string.enter_valid_mobile_number))
             } else if (dob.isEmpty()) {
-                ShowToast("Please select a DOB")
+                ShowToast(resources.getString(R.string.please_select_a_dob))
             } else if (!isValidEmail(email)) {
-                ShowToast("Enter a valid email address")
+                ShowToast(resources.getString(R.string.enter_valid_email_address))
             } else {
 
-                rq.serviceproviderId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")
+                rq.serviceproviderId =
+                    SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")
                 rq.serviceproviderName = fullname
                 rq.serviceproviderMobile = mobile
                 rq.serviceproviderCountryCode = "+1"
@@ -289,7 +322,8 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
                 rq.serviceproviderStreetName = profile.streetName
                 rq.serviceproviderPincode = profile.pincode
                 rq.serviceproviderWorkingAs = profile.workingAs
-                rq.serviceproviderExperience = profile.experience//edit_text_total_eperiance.text.toString()
+                rq.serviceproviderExperience =
+                    profile.experience//edit_text_total_eperiance.text.toString()
                 rq.serviceproviderDob = dob
                 rq.serviceproviderCity = profile.city
                 rq.serviceproviderCountry = profile.country
@@ -308,17 +342,26 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
         }
         initAmazonAWS()
         btnChangeImage.setOnClickListener {
-            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).setFixAspectRatio(true).setOutputCompressQuality(50).start(this@ProfileActivity)
+            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).setFixAspectRatio(true)
+                .setOutputCompressQuality(50).start(this@ProfileActivity)
         }
         autocomplete_choose_service.setOnClickListener { v ->
-            val intentStartServiceSelection = Intent(this@ProfileActivity, ServicesActivity::class.java)
-            startActivityForResult(intentStartServiceSelection, REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES)
+            val intentStartServiceSelection =
+                Intent(this@ProfileActivity, ServicesActivity::class.java)
+            startActivityForResult(
+                intentStartServiceSelection,
+                REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES
+            )
         }
 
         choose_service.setOnClickListener { v ->
 
-            val intentStartServiceSelection = Intent(this@ProfileActivity, ServicesActivity::class.java)
-            startActivityForResult(intentStartServiceSelection, REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES)
+            val intentStartServiceSelection =
+                Intent(this@ProfileActivity, ServicesActivity::class.java)
+            startActivityForResult(
+                intentStartServiceSelection,
+                REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES
+            )
             //startActivityForResult(REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES,new Intent(mContext,SelectServiceActivity.class));
         }
 /*
@@ -338,11 +381,18 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     }
 
     private fun getPreServices() {
-        LoginAPI.Token = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + LoginAPI.Token, SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
-            .toInt())
+        LoginAPI.Token =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience(
+            "Bearer " + LoginAPI.Token,
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
+                .toInt()
+        )
         homeCall.enqueue(object : Callback<ServicesResponse> {
-            override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {
+            override fun onResponse(
+                call: Call<ServicesResponse>,
+                response: Response<ServicesResponse>
+            ) {
                 if (response.isSuccessful) {
                     bindOfferedServiceRecyclerView(response.body()!!)
                 } else {
@@ -361,30 +411,31 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     }
 
     private fun loadExistingServices() {
-        LoginAPI.loginUser()!!.getExistingServiceDetails(myUserId).enqueue(object : Callback<HomeService> {
-            override fun onResponse(call: Call<HomeService>, response: Response<HomeService>) {
-                if (response.isSuccessful && response.body() != null && response.body()!!.data != null && response.body()!!.data.size > 0) {
-                    for (service in response.body()!!.data) {
-                        /*val serviceWithSubService = ServiceWithSubService()
-                        serviceWithSubService.service = service
-                        serviceWithSubService.subServices = service.subService
-                        if (service.subService.size > 0)
-                            serviceWithSubService.experience = Integer.parseInt(service.subService[0].createdAt)
-                        serviceWithSubServices.add(serviceWithSubService)*/
-                        val serviceWithSubService = Service()
-                        serviceWithSubService.subService = service.subService
-                        /*if (service.subService.size > 0)
-                            serviceWithSubService.experience = Integer.parseInt(service.subService[0].createdAt)*/
-                        serviceWithSubServices.add(serviceWithSubService)
+        LoginAPI.loginUser()!!.getExistingServiceDetails(myUserId)
+            .enqueue(object : Callback<HomeService> {
+                override fun onResponse(call: Call<HomeService>, response: Response<HomeService>) {
+                    if (response.isSuccessful && response.body() != null && response.body()!!.data != null && response.body()!!.data.size > 0) {
+                        for (service in response.body()!!.data) {
+                            /*val serviceWithSubService = ServiceWithSubService()
+                            serviceWithSubService.service = service
+                            serviceWithSubService.subServices = service.subService
+                            if (service.subService.size > 0)
+                                serviceWithSubService.experience = Integer.parseInt(service.subService[0].createdAt)
+                            serviceWithSubServices.add(serviceWithSubService)*/
+                            val serviceWithSubService = Service()
+                            serviceWithSubService.subService = service.subService
+                            /*if (service.subService.size > 0)
+                                serviceWithSubService.experience = Integer.parseInt(service.subService[0].createdAt)*/
+                            serviceWithSubServices.add(serviceWithSubService)
+                        }
+                        loadServicemanExperience()
                     }
-                    loadServicemanExperience()
                 }
-            }
 
-            override fun onFailure(call: Call<HomeService>, t: Throwable) {
+                override fun onFailure(call: Call<HomeService>, t: Throwable) {
 
-            }
-        })
+                }
+            })
     }
 
     private fun saveServices() {
@@ -458,7 +509,8 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
 
         if (requestCode == REQUEST_CODE_SELECTION_SERVICES_SUBSERVICES && resultCode == Activity.RESULT_OK) {
             if (data?.getStringExtra("service") != null) {
-                val serviceWithSubService = Gson().fromJson(data.getStringExtra("service"), Service::class.java)
+                val serviceWithSubService =
+                    Gson().fromJson(data.getStringExtra("service"), Service::class.java)
                 if (!checkIfAlreadyExist(serviceWithSubService)) {
                     serviceWithSubServices.add(serviceWithSubService)
                 }
@@ -505,7 +557,10 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
 
     private fun initAmazonAWS() {
         AWSMobileClient.getInstance().initialize(this) {
-            Log.d("eeeYourMainActivity", "AWSMobileClient is instantiated and you are connected to AWS!")
+            Log.d(
+                "eeeYourMainActivity",
+                "AWSMobileClient is instantiated and you are connected to AWS!"
+            )
         }.execute()
     }
 
@@ -516,22 +571,30 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     private fun loadProfile() {
         /*val isLoggedIn = localStorage(this@ProfileActivity).isLoggedIn*/
         var isLoggedIn = false //localStorage(context).isLoggedIn
-        isLoggedIn = !SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "").isNullOrEmpty()
+        isLoggedIn =
+            !SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+                .isNullOrEmpty()
 
         if (isLoggedIn) {
-            myUserId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
-                .toInt()//localStorage(this@ProfileActivity).loggedInUser.customerId
+            myUserId =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
+                    .toInt()//localStorage(this@ProfileActivity).loggedInUser.customerId
 
             val callServiceProviders = LoginAPI.loginUser().getCompleteProfile(myUserId)
             callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
-                override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
+                override fun onResponse(
+                    call: Call<CustomerCompleteProfile>,
+                    response: Response<CustomerCompleteProfile>
+                ) {
                     if (response.isSuccessful) {
                         val data = response.body()
                         if (data!!.data != null) {
                             profile = data.data
 
                             rq.serviceproviderExperience = profile.experience
-                            if (profile.experience != null) edit_text_total_eperiance.setText(profile.experience.toString())
+                            if (profile.experience != null) edit_text_total_eperiance.setText(
+                                profile.experience.toString()
+                            )
                             rq.serviceproviderWorkingAs = profile.workingAs
                             txt_view_working_as.text = profile.workingAs
                             rq.serviceproviderId = profile.id!!.toString()
@@ -544,7 +607,11 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
                             rq.serviceproviderCountryCode = profile.countryCode
                             rq.serviceproviderEmail = profile.email
                             rq.serviceproviderGender = profile.gender
-                            if (profile.gender == "M") txt_view_gender.text = "Male" else txt_view_gender.text = "Female"
+                            if (profile.gender == "M") txt_view_gender.text =
+                                resources.getString(R.string.male) else txt_view_gender.text =
+                                resources.getString(
+                                    R.string.female
+                                )
                             rq.serviceproviderAddress1 = profile.address1
                             rq.serviceproviderAdddress2 = profile.adddress2
                             rq.serviceproviderCity = profile.city
@@ -553,7 +620,8 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
                             rq.serviceproviderLatitude = profile.latitude
                             rq.serviceproviderLongitude = profile.longitude
 
-                            rq.serviceproviderImage = if (profile.image.isEmpty()) "http://35.180.58.90/development/in10m/in10m/public/images/users/default_user_avatar.png" else profile.image
+                            rq.serviceproviderImage =
+                                if (profile.image.isEmpty()) "http://35.180.58.90/development/in10m/in10m/public/images/users/default_user_avatar.png" else profile.image
 
                             //rq.setServiceproviderImage(profile.image)
                             rq.serviceproviderRating = profile.rating
@@ -577,16 +645,16 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
                             txt_view_working_as.text = profile.workingAs
 
                             Picasso.get().load(profile.image) // web image url
-                                    .fit().centerInside()
-                                    .rotate(0f)                    //if you want to rotate by 90 degrees give 90f
-                                    .error(R.drawable.dummy_user)
-                                    .placeholder(R.drawable.dummy_user)
-                                    .into(serviceManProfile)
+                                .fit().centerInside()
+                                .rotate(0f)                    //if you want to rotate by 90 degrees give 90f
+                                .error(R.drawable.dummy_user)
+                                .placeholder(R.drawable.dummy_user)
+                                .into(serviceManProfile)
 
                             txt_view_gender.setOnClickListener { view -> CreateAlertDialogWithRadioButtonGroup() }
                         }
                     } else {
-                        Showtoast("Error in loading Complete profile")
+                        Showtoast(resources.getString(R.string.error_in_loading))
                     }
                 }
 
@@ -623,20 +691,23 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     fun CreateAlertDialogWithRadioButtonGroup() {
         // Toast.makeText(getActivity(),"hereDROPDOWN",Toast.LENGTH_SHORT).show();
 
-        val values = arrayOf<CharSequence>(" Male", " Female ")
+        val values = arrayOf<CharSequence>(
+            resources.getString(R.string.male),
+            resources.getString(R.string.female)
+        )
 
         val builder = AlertDialog.Builder(this)
 
-        builder.setTitle("Select Your Gender")
+        builder.setTitle(resources.getString(R.string.select_your_gender))
 
         builder.setSingleChoiceItems(values, -1) { dialog, item ->
             when (item) {
                 0 -> {
-                    txt_view_gender.text = "Male"
+                    txt_view_gender.text = resources.getString(R.string.male)
 
                 }
                 1 -> {
-                    txt_view_gender.text = "Female"
+                    txt_view_gender.text = resources.getString(R.string.female)
 
                 }
             }
@@ -702,7 +773,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
     }
 
     override fun onBackPressed() {
-        if (btnSaveProfile.visibility == View.VISIBLE)  {
+        if (btnSaveProfile.visibility == View.VISIBLE) {
             btnEditProfile.visibility = View.VISIBLE
             btnSaveProfile.visibility = View.GONE
             btnChangeImage.visibility = View.GONE
@@ -710,8 +781,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback, 
             mobileET.isEnabled = false
             edt_age.isEnabled = false
             emailET.isEnabled = false
-        }
-        else {
+        } else {
             super.onBackPressed()
         }
     }

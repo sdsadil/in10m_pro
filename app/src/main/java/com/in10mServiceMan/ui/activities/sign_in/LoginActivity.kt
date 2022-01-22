@@ -155,10 +155,10 @@ class LoginActivity : BaseActivity(), ILoginView {
     }
 
     override fun onResetLinkSend(mResposne: LinkSendResponse) {
-        if (mResposne?.status == 1) {
-            showToast(mResposne?.message!!)
+        if (mResposne.status == 1) {
+            showToast(mResposne.message!!)
         } else {
-            showToast("Something went wrong!!")
+            showToast(resources.getString(R.string.something_went_wrong))
         }
     }
 
@@ -172,7 +172,7 @@ class LoginActivity : BaseActivity(), ILoginView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        registerHereTV.text = Html.fromHtml("<u>Register here</u>")
+        registerHereTV.text = Html.fromHtml(resources.getString(R.string.register_here_html))
         forgotPassTV.setOnClickListener {
             displayAlertDialog()
         }
@@ -184,9 +184,9 @@ class LoginActivity : BaseActivity(), ILoginView {
         }
         loginClickLL.setOnClickListener {
             if (!isValidEmail(usernameLoginET.text!!)) {
-                ShowToast("Enter your username")
+                ShowToast(resources.getString(R.string.enter_your_username))
             } else if (passwordLoginET.text!!.isEmpty()) {
-                ShowToast("Enter your password")
+                ShowToast(resources.getString(R.string.enter_your_password))
             } else {
                 showProgressDialog("")
                 mPresenter.userLogin(usernameLoginET.text.toString(), passwordLoginET.text.toString())
@@ -207,7 +207,7 @@ class LoginActivity : BaseActivity(), ILoginView {
             if (isValidEmail(email.text.toString())) {
                 mPresenter.sendResetLink(email.text.toString())
             } else {
-                showToast("Enter valid Email address")
+                showToast(resources.getString(R.string.enter_valid_email_address))
             }
             mAlertDialog.cancel()
         }

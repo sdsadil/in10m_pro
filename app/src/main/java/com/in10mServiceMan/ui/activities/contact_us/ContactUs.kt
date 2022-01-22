@@ -57,11 +57,11 @@ class ContactUs : In10mBaseActivity() {
                 if (response.isSuccessful)
                     if (response.body()?.status == 1) {
                         finish()
-                        ShowToast("Your query added successfully")
+                        ShowToast(resources.getString(R.string.your_query_successfully))
                         Log.i("duty response", response.body().toString())
                     } else {
                         Log.e("Duty change error", Gson().toJson(response.errorBody()).toString())
-                        ShowToast("Something went wrong.")
+                        ShowToast(resources.getString(R.string.something_went_wrong))
                     }
             }
 

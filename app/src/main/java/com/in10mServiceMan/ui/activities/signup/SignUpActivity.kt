@@ -56,11 +56,11 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
         destroyDialog()
         if (mData.status == 1) {
             val gson = Gson()
-            val res = gson.toJson(mData?.data)
+            val res = gson.toJson(mData.data)
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.PROFILE_PICTURE,
-                mData?.data?.image!!
+                mData.data?.image!!
             )
             SharedPreferencesHelper.putString(
                 this,
@@ -114,13 +114,13 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
                 .toString(),
             stateId, certificateStatus
         ) */
-        mPresenter . signupLevelTwo (
-                "Bearer $header",
-        SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
-            .toString(),
-        SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
-            .toString(),
-        "", "0"
+        mPresenter.signupLevelTwo(
+            "Bearer $header",
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
+                .toString(),
+            "", "0"
         )
     }
 
@@ -129,17 +129,17 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
         destroyDialog()
         Log.d("Response sign-up two", Gson().toJson(mData).toString())
         if (mData.status == 1) {
-            if (mData?.data?.imageUrl != null)
+            if (mData.data?.imageUrl != null)
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.PROFILE_PICTURE,
-                    mData?.data?.imageUrl!!
+                    mData.data.imageUrl
                 )
-            if (mData?.data?.address1?.isNotEmpty()!!) {
+            if (mData.data?.address1?.isNotEmpty()!!) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ADDRESS_ONE,
-                    mData?.data?.address1
+                    mData.data.address1
                 )
                 Constants.GlobalSettings.streetName = mData?.data?.address1
             }
@@ -196,7 +196,7 @@ class SignUpActivity : BaseActivity(), SignupDetailsFragment.NextFragmentInterfa
         val header =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         showProgressDialog("")
-        mPresenter . signupLevelTwo (
+        mPresenter.signupLevelTwo(
             "Bearer $header",
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
                 .toString(),
