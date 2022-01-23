@@ -45,7 +45,7 @@ class ProfilePictureFragment : Fragment() {
         }
         view.profilePictureOkButton.setOnClickListener {
             if (imageUri.isEmpty()) {
-                Toast.makeText(this.context, "Please select an Image", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, getString(R.string.please_select_an_image), Toast.LENGTH_SHORT).show()
             } else {
                 mListener?.toNextFragmentFour(imageUri)
             }

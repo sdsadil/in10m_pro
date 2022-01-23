@@ -341,7 +341,7 @@
     <string name="Please_enter_price_estimate">Please enter price estimate</string>
     <string name="home_owner_rejected_the_estimate">Home owner rejected the estimate</string>
     <string name="job_in_progress">Job in progress</string>
-    <string name="Hello">Hello</string>
+    <string name="hello">Hello</string>
     <string name="overall">Overall</string>
     <string name="value_for_money">Value for money</string>
     <string name="knowledge">Knowledge</string>
@@ -391,4 +391,9 @@
     <string name="english">English</string>
     <string name="guest_user">Guest User</string>
     <string name="_0">0</string>
+    <string name="fee">Fee</string>
+    <string name="work_description">Work description</string>
+    <string name="invoice">Invoice</string>
+    <string name="you_are_on_the_way">You are on the way</string>
+    <string name="please_select_an_image">Please select an Image</string>
 </resources>

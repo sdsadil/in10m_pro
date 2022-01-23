@@ -111,22 +111,26 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 Constants.GlobalSettings.termsConditions = true
             }
 
-            if (mPost.data.privacy_policy_accept == 0) {
-                bannerCard_HO.visibility = View.VISIBLE
-                header_HO.text = resources.getString(R.string.privacy_updated)
-                subHeader_HO.text = resources.getString(R.string.desc_privacy_updated)
-                yes_HO.setOnClickListener {
-                    openactivity(PrivacyPolicyActivity())
+            when {
+                mPost.data.privacy_policy_accept == 0 -> {
+                    bannerCard_HO.visibility = View.VISIBLE
+                    header_HO.text = resources.getString(R.string.privacy_updated)
+                    subHeader_HO.text = resources.getString(R.string.desc_privacy_updated)
+                    yes_HO.setOnClickListener {
+                        openactivity(PrivacyPolicyActivity())
+                    }
                 }
-            } else if (mPost.data.terms_condition_accept == 0) {
-                bannerCard_HO.visibility = View.VISIBLE
-                header_HO.text = resources.getString(R.string.terms_updated)
-                subHeader_HO.text = resources.getString(R.string.desc_terms_updated)
-                yes_HO.setOnClickListener {
-                    openactivity(TermsAndCondition())
+                mPost.data.terms_condition_accept == 0 -> {
+                    bannerCard_HO.visibility = View.VISIBLE
+                    header_HO.text = resources.getString(R.string.terms_updated)
+                    subHeader_HO.text = resources.getString(R.string.desc_terms_updated)
+                    yes_HO.setOnClickListener {
+                        openactivity(TermsAndCondition())
+                    }
                 }
-            } else {
-                bannerCard_HO.visibility = View.GONE
+                else -> {
+                    bannerCard_HO.visibility = View.GONE
+                }
             }
         }
     }
@@ -511,7 +515,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         val mapFragment = SupportMapFragment.newInstance()
 
         fm.beginTransaction().replace(R.id.mapContainer, mapFragment).commit()
-        mapFragment?.getMapAsync(this@MapTrackingActivity)
+        mapFragment.getMapAsync(this@MapTrackingActivity)
 
         initDrawer(savedInstanceState)
 
@@ -558,7 +562,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 */
         DutyChangeImage.setOnClickListener {
             vibratePhone()
-            var mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.beyond_doubt)
+            val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.beyond_doubt)
             mediaPlayer?.start()
             //if (!bookingAccpted) {
             if (currentWorkStatus != BookingStatus.Accepted || currentWorkStatus != BookingStatus.Arrived ||
@@ -676,17 +680,9 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 canceledByTheCustomer()
                             }
                         }
-                        if (currentStatus == 0) {
-                        }
                     }
 
-                } else {
-                    // if(bookingId!=0 && !isJobDone){
-                    //   canceledByTheCustomer()
-                    //  }
-                    // Log.d("eeeDATA", "no booking")
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -699,7 +695,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         updateDeviceIdOnServer()
         changeStatusOfServiceMan()
 
-        var userType =
+        val userType =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
         if (userType == 3) {
             showCompanyServiceman()
@@ -725,7 +721,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 val custREQ = p0.getValue(firebaseRequestModel::class.java)
                 try {
                     destinationLocation =
-                        LatLng(custREQ?.latitude!!.toDouble(), custREQ?.longitute!!.toDouble())
+                        LatLng(custREQ?.latitude!!.toDouble(), custREQ.longitute!!.toDouble())
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -770,8 +766,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             Picasso.get().load(serviceWithSUbServices.serviceIcon)
                                 .placeholder(R.drawable.icon_plumbing).into(imgServiceIcon)
                         }
-                    } else {
-                        Log.i("eeeeServiceData", Gson().toJson(response.errorBody()!!.string()))
                     }
                 }
 
@@ -813,7 +807,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         freezCurrentLocation = false
         loadDashboardCount()
         val user = localStorage(this).completeCustomer
-        if (user != null) ServiceManNameTOP.text = "Hello " + user.name
+        if (user != null) ServiceManNameTOP.text = (resources.getString(R.string.hello) + " " +  user.name)
         selectedCV.visibility = View.VISIBLE
 
         lvBtnBookNow1.visibility = View.VISIBLE
@@ -840,17 +834,15 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 if (response.isSuccessful) {
                     customerProfile = response.body()!!.data!![0]
                     var cName = ""
-                    if (customerProfile!!.lastname != null)
-                        cName = customerProfile!!.name + " " + customerProfile!!.lastname
+                    if (customerProfile.lastname != null)
+                        cName = customerProfile.name + " " + customerProfile.lastname
                     else
-                        cName = customerProfile!!.name
+                        cName = customerProfile.name
                     requestorName.text = cName
 
-                    if (customerProfile?.image != null && customerProfile?.image.isNotEmpty())
-                        Picasso.get().load(customerProfile!!.image)
+                    if (customerProfile.image != null && customerProfile.image.isNotEmpty())
+                        Picasso.get().load(customerProfile.image)
                             .placeholder(R.drawable.dummy_user).fit().into(serviceManIVR)
-                } else {
-                    Log.i("Error in customer load", Gson().toJson(response.errorBody()!!.string()))
                 }
             }
 
@@ -878,7 +870,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             } catch (ex: java.lang.Exception) {
                             }
                         }
-                    } else {
                     }
                 }
 
@@ -906,8 +897,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
                     if (cData != null)
                         setDataToMarker(cData)
-                } else {
-                    Log.i("eeeecount", Gson().toJson(response.errorBody()!!.string()))
                 }
             }
 
@@ -935,7 +924,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_c))
                 markerOptions.position
 
-                var mInfo: InfoWindowData = InfoWindowData()
+                val mInfo = InfoWindowData()
                 mInfo.image = cData[i]?.image
                 mInfo.name = cData[i]?.name
                 if (!cData[i]?.services.isNullOrEmpty())
@@ -967,7 +956,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     private fun loadDashboardCount() {
 
-        var userType =
+        val userType =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
         if (userType == 3) {
             ServiceManName.text = resources.getString(R.string.services_completed)
@@ -988,9 +977,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         countTodayTV.text = getCountVal(cData!!.jobsDay!!)
                         countMonthTV.text = getCountVal(cData.jobsMonth!!)
                         countYearTV.text = getCountVal(cData.jobsYear!!)
-
-                    } else {
-                        Log.i("eeeecount", Gson().toJson(response.errorBody()!!.string()))
                     }
                 }
 
@@ -1011,9 +997,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         countTodayTV.text = getCountVal(cData!!.dateWise)
                         countMonthTV.text = getCountVal(cData.monthWise)
                         countYearTV.text = getCountVal(cData.yearWise)
-
-                    } else {
-                        Log.i("eeeecount", Gson().toJson(response.errorBody()!!.string()))
                     }
                 }
 
@@ -1188,7 +1171,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             tv1111.visibility = View.GONE
                             closeCV.visibility = View.GONE
                             linearLayout5.visibility = View.VISIBLE
-                            ServiceManNameTOP.text = "You are on the way"
+                            ServiceManNameTOP.text = getString(R.string.you_are_on_the_way)
                             imgBtnNavigate.visibility = View.VISIBLE
                             btnCancel.text = getString(R.string.cancel)
 
@@ -1619,7 +1602,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         freezCurrentLocation = false
                         loadDashboardCount()
                         val user = localStorage(this@MapTrackingActivity).completeCustomer
-                        if (user != null) ServiceManNameTOP.text = resources.getString(R.string.Hello)+" " + user.name
+                        if (user != null) ServiceManNameTOP.text = (resources.getString(R.string.hello) + " " + user.name)
                         selectedCV.visibility = View.VISIBLE
 
                         lvBtnBookNow1.visibility = View.VISIBLE
@@ -1634,8 +1617,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         ElapsedTimerTV.visibility = View.GONE
                         //changeStatusOfServiceMan()
                         map?.clear()
-                    } else {
-                        Log.i("eeeERRB", Gson().toJson(response.errorBody()?.string()))
                     }
                 }
 
@@ -2031,11 +2012,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 )
                                 Log.d("Status", "Not Empty")
                             }
-                        } else {
-                            Log.d("error Response", response.message())
                         }
-                    } else {
-                        Log.d("error Response", response.message())
                     }
                 }
 

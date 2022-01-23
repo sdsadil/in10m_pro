@@ -68,10 +68,7 @@ class VerifyMobileFragment : BaseFragment() {
             Constants.SharedPrefs.User.MOBILE_NUMBER,
             ""
         )
-        view.mobileDescription.text =
-            getString(R.string.code) + replaceCentreFour(
-                mobile.toString()
-            )
+        view.mobileDescription.text = (getString(R.string.code) + replaceCentreFour(mobile.toString()))
 
 //        view.termsOfUseTV.text = Html.fromHtml("By clicking to “VERIFY”, I agree to the <font color=#4A90E2><u> Terms of Use </u></font> and <font color=#4A90E2><u>Privacy Policy</u></font> ")
         view.termsOfUseTV.text =
@@ -82,10 +79,10 @@ class VerifyMobileFragment : BaseFragment() {
             mListener?.termsAndConditions()
         }
 
-        val otpET1: AppCompatEditText = view.findViewById<AppCompatEditText>(R.id.et_otp1)
-        val otpET2: AppCompatEditText = view.findViewById<AppCompatEditText>(R.id.et_otp2)
-        val otpET3: AppCompatEditText = view.findViewById<AppCompatEditText>(R.id.et_otp3)
-        val otpET4: AppCompatEditText = view.findViewById<AppCompatEditText>(R.id.et_otp4)
+        val otpET1 = view.findViewById<AppCompatEditText>(R.id.et_otp1)
+        val otpET2 = view.findViewById<AppCompatEditText>(R.id.et_otp2)
+        val otpET3 = view.findViewById<AppCompatEditText>(R.id.et_otp3)
+        val otpET4 = view.findViewById<AppCompatEditText>(R.id.et_otp4)
         var otpText: String = ""
 
         GenericOtpTextWatcher.handleOtpTextWatcher(otpET1, otpET2, otpET3, otpET4)
@@ -94,7 +91,11 @@ class VerifyMobileFragment : BaseFragment() {
             otpText =
                 otpET1.text.toString() + otpET2.text.toString() + otpET3.text.toString() + otpET4.text.toString()
             if (otpText.length < 4) {
-                Toast.makeText(this.context, resources.getString(R.string.enter_the_received_OTP), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this.context,
+                    resources.getString(R.string.enter_the_received_OTP),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 /* if(view.enterCode.text.toString() == otp) {
                      mListener?.toNextFragmentThree(view.enterCode.text.toString())
@@ -165,8 +166,6 @@ class VerifyMobileFragment : BaseFragment() {
                         Toast.makeText(context, response.body()?.message!!, Toast.LENGTH_SHORT)
                             .show();
                     }
-                } else {
-
                 }
             }
 

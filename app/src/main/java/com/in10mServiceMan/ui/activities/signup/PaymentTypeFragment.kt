@@ -28,7 +28,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PaymentTypeFragment : Fragment(){
+class PaymentTypeFragment : Fragment() {
 
     interface NextFragmentInterfaceSix {
         fun toNextFragmentSix()
@@ -474,7 +474,11 @@ class PaymentTypeFragment : Fragment(){
             } else {
 //                startActivity(Intent(mContext!!, EstimationActivity::class.java))
                 Constants.GlobalSettings.isFreeEstimate = true
-                SharedPreferencesHelper.putString(activity, Constants.SharedPrefs.User.FREE_ESTIMATE, "1")
+                SharedPreferencesHelper.putString(
+                    activity,
+                    Constants.SharedPrefs.User.FREE_ESTIMATE,
+                    "1"
+                )
 
                 mListener?.toNextFragmentSix()
 
@@ -512,10 +516,6 @@ class PaymentTypeFragment : Fragment(){
         } else {
             view.AccountDetailsZipET.setText(Constants.GlobalSettings.zipCode)
         }*/
-
-
-
-
         return view
     }
 
@@ -528,8 +528,6 @@ class PaymentTypeFragment : Fragment(){
             ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
-                } else {
-
                 }
             }
 
@@ -554,11 +552,11 @@ class PaymentTypeFragment : Fragment(){
         } else {
             mPreSelectedState = Constants.GlobalSettings.stateName
         }
-        var pos: Int = 0
-        mStatesList = body?.data?.states
-        country = body?.data?.countryCode!!
-        country_id = body?.data?.countryId.toString()
-        var myStateList: ArrayList<String>? = ArrayList()
+        var pos = 0
+        mStatesList = body.data?.states
+        country = body.data?.countryCode!!
+        country_id = body.data.countryId.toString()
+        val myStateList: ArrayList<String>? = ArrayList()
         if (mStatesList?.size!! > 0) {
             for (i in 0 until mStatesList!!.size) {
                 myStateList?.add(mStatesList?.get(i)?.name!!)

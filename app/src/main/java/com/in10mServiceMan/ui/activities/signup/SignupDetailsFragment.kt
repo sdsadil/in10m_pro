@@ -214,7 +214,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             val dpd_startdate = DatePickerDialog(
                 this.context!!,
                 R.style.CalendarThemeOne,
-                DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
+                { v, myear, mmonth, mdayOfMonth ->
                     val month = mmonth + 1
 
                     view.personalDetailsLastDOB.text =
@@ -253,14 +253,6 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
 
 
         return view
-    }
-
-    val mAutocompleteClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-        val item = mPlaceArrayAdapter?.getItem(position)
-        val placeId = item?.placeId.toString()
-
-        val placeResult = Places.GeoDataApi.getPlaceById(mGoogleApiClient!!, placeId)
-        placeResult.setResultCallback(mUpdatePlaceDetailsCallback)
     }
 
     val mUpdatePlaceDetailsCallback = object : ResultCallback<PlaceBuffer> {
@@ -306,8 +298,6 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
-                } else {
-
                 }
             }
 

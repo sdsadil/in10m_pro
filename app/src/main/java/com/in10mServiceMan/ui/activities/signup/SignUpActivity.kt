@@ -1,45 +1,105 @@
 package com.in10mServiceMan.ui.activities.signup
 
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.in10mServiceMan.Models.CustomerCompleteProfile
-import com.in10mServiceMan.Models.RequestVerifyOTP
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
-import com.in10mServiceMan.ui.activities.sign_in.ILoginView
-import com.in10mServiceMan.ui.activities.sign_in.LinkSendResponse
-import com.in10mServiceMan.ui.activities.sign_in.LoginPresenter
-import com.in10mServiceMan.ui.activities.sign_in.LoginResponse
 import com.in10mServiceMan.ui.activities.splash.SplashActivity
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
-import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentInterfaceOne,
-    SignupContactFragment.NextFragmentInterfaceTwo, ISignupview,
+class SignUpActivity : In10mBaseActivity(), ISignupview,
+    SignupDetailsFragment.NextFragmentInterfaceOne,
+    SignupContactFragment.NextFragmentInterfaceTwo,
     VerifyMobileFragment.NextFragmentInterfaceThree,
     ProfilePictureFragment.NextFragmentInterfaceFour,
     CertificationDetailsFragment.NextFragmentInterfaceFive,
     PaymentTypeFragment.NextFragmentInterfaceSix {
+
+    val mPresenter = SignupPresenter(this)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_sign_up)
+        formViewpagerAdapter()
+
+        if (intent.extras != null) {
+            when {
+                intent.getStringExtra("step") == "1" -> {
+                    signUpPhaseViewPager.currentItem = 2
+                }
+                intent.getStringExtra("step") == "2" -> {
+                    signUpPhaseViewPager.currentItem = 4
+                }
+                intent.getStringExtra("step") == "3" -> {
+                    startActivity(Intent(this, MapTrackingActivity::class.java))
+                }
+            }
+
+        }
+    }
+
+    private fun formViewpagerAdapter() {
+        val adapter = SignupViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(SignupDetailsFragment.newInstance(this), "1")
+        adapter.addFragment(SignupContactFragment.newInstance(this), "2")
+        adapter.addFragment(ProfilePictureFragment.newInstance(this), "3")
+//        adapter.addFragment(CertificationDetailsFragment.newInstance(this), "4")
+        adapter.addFragment(PaymentTypeFragment.newInstance(this), "4")
+        signUpPhaseViewPager.adapter = adapter
+        signUpPhaseViewPagerIndicator.setDotsClickable(false)
+        signUpPhaseViewPagerIndicator.setViewPager(signUpPhaseViewPager)
+        signUpPhaseViewPagerIndicator.isEnabled = false
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        if (fragment.isAdded)
+            transaction.show(fragment)
+        else {
+            transaction.replace(R.id.signUpPhaseContainer, fragment)
+            transaction.commit()
+        }
+    }
+
+    override fun onBackPressed() {
+        if (signUpPhaseViewPager.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            BackButtonHandler(this).onClick()
+            return
+        }
+    }
+
+    private fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun removeFragment() {
+        supportFragmentManager.beginTransaction()
+            .remove(supportFragmentManager.findFragmentById(R.id.signUpPhaseContainer)!!).commit()
+    }
+
+    private fun openActivity(activity: Activity) {
+        val intent = Intent(activity, activity::class.java)
+        startActivity(intent)
+    }
+
     override fun termsAndConditions() {
-        openactivity(SplashActivity())
+        openActivity(SplashActivity())
     }
 
     override fun onNumberVerified(mData: SignupOneResponse) {
@@ -85,7 +145,7 @@ class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentIn
                 startActivity(Intent(this, CompanyResourceActivity::class.java))
             }
         } else {
-            ShowToast(mData?.message)
+            ShowToast(mData.message)
         }
     }
 
@@ -125,7 +185,7 @@ class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentIn
         )
     }
 
-
+    @SuppressLint("LogNotTimber")
     override fun onProfilePictureUpdated(mData: SignupstepTwoResponse) {
         destroyDialog()
         Log.d("Response sign-up two", Gson().toJson(mData).toString())
@@ -142,51 +202,51 @@ class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentIn
                     Constants.SharedPrefs.User.SM_ADDRESS_ONE,
                     mData.data.address1
                 )
-                Constants.GlobalSettings.streetName = mData?.data?.address1
+                Constants.GlobalSettings.streetName = mData.data.address1
             }
-            if (mData?.data?.address2?.isNotEmpty()!!) {
+            if (mData.data.address2?.isNotEmpty()!!) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ADDRESS_TWO,
-                    mData?.data?.address2
+                    mData.data.address2
                 )
-                Constants.GlobalSettings.aptNo = mData?.data?.address2
+                Constants.GlobalSettings.aptNo = mData.data.address2
             }
-            if (mData?.data?.streetName != null) {
+            if (mData.data.streetName != null) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_STREET_NAME,
-                    mData?.data?.streetName
+                    mData.data.streetName
                 )
             }
-            if (mData?.data?.city?.isNotEmpty()!!) {
+            if (mData.data.city?.isNotEmpty()!!) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_CITY,
-                    mData?.data?.city
+                    mData.data.city
                 )
-                Constants.GlobalSettings.cityName = mData?.data?.city
+                Constants.GlobalSettings.cityName = mData.data.city
             }
-            if (mData?.data?.state?.isNotEmpty()!!) {
+            if (mData.data.state?.isNotEmpty()!!) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_STATE,
-                    mData?.data?.state
+                    mData.data.state
                 )
-                Constants.GlobalSettings.stateName = mData?.data?.state
+                Constants.GlobalSettings.stateName = mData.data.state
             }
-            if (mData?.data?.zipcode?.isNotEmpty()!!) {
+            if (mData.data.zipcode?.isNotEmpty()!!) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ZIP_CODE,
-                    mData?.data?.zipcode
+                    mData.data.zipcode
                 )
-                Constants.GlobalSettings.zipCode = mData?.data?.zipcode
+                Constants.GlobalSettings.zipCode = mData.data.zipcode
             }
 
             signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
         } else {
-            ShowToast(mData?.message)
+            ShowToast(mData.message)
         }
     }
 
@@ -231,31 +291,31 @@ class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentIn
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.AUTH_TOKEN,
-                mResponse?.data!![0]?.apiToken!!
+                mResponse.data!![0]?.apiToken!!
             )
-            LoginAPI().publicAccessToken = mResponse?.data!![0]?.apiToken!!
+            LoginAPI().publicAccessToken = mResponse.data[0]?.apiToken!!
 
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.USER_ID,
-                mResponse?.data!![0]?.customerData!![0]?.customerId.toString()
+                mResponse.data[0]?.customerData!![0]?.customerId.toString()
             )
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.EMAIL,
-                mResponse?.data!![0]?.customerData!![0]?.customerEmail.toString()
+                mResponse.data[0]?.customerData!![0]?.customerEmail.toString()
             )
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.MOBILE_NUMBER,
-                mResponse?.data!![0]?.customerData!![0]?.customerMobile.toString()
+                mResponse.data[0]?.customerData!![0]?.customerMobile.toString()
             )
 
             //VerifyMobileFragment().arguments = bundle
             openFragment(
                 VerifyMobileFragment.newInstance(
                     this,
-                    mResponse?.data!![0]?.customerData!![0]?.otp.toString()
+                    mResponse.data[0]?.customerData!![0]?.otp.toString()
                 )
             )
         } else {
@@ -316,92 +376,4 @@ class SignUpActivity : In10mBaseActivity(), SignupDetailsFragment.NextFragmentIn
         signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
     }
 
-    val mPresenter = SignupPresenter(this)
-    val mRegistrationStep: String = ""
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-        formViewpagerAdapter()
-
-        if (intent.extras != null) {
-            if (intent.getStringExtra("step") == "1") {
-                signUpPhaseViewPager.currentItem = 2
-            } else if (intent.getStringExtra("step") == "2") {
-                signUpPhaseViewPager.currentItem = 4
-            } else if (intent.getStringExtra("step") == "3") {
-                startActivity(Intent(this, MapTrackingActivity::class.java))
-            }
-
-        }
-    }
-
-    private fun formViewpagerAdapter() {
-        val adapter = SignupViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(SignupDetailsFragment.newInstance(this), "1")
-        adapter.addFragment(SignupContactFragment.newInstance(this), "2")
-        adapter.addFragment(ProfilePictureFragment.newInstance(this), "3")
-//        adapter.addFragment(CertificationDetailsFragment.newInstance(this), "4")
-        adapter.addFragment(PaymentTypeFragment.newInstance(this), "4")
-        signUpPhaseViewPager.adapter = adapter
-        signUpPhaseViewPagerIndicator.setDotsClickable(false)
-        signUpPhaseViewPagerIndicator.setViewPager(signUpPhaseViewPager)
-        signUpPhaseViewPagerIndicator.isEnabled = false
-    }
-
-    private fun openFragmentWithBack(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (fragment.isAdded)
-            transaction.show(fragment)
-        else {
-            transaction.replace(R.id.signUpPhaseContainer, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-    }
-
-    private fun openFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        if (fragment.isAdded)
-            transaction.show(fragment)
-        else {
-            transaction.replace(R.id.signUpPhaseContainer, fragment)
-            transaction.commit()
-        }
-    }
-
-    override fun onBackPressed() {
-        /*when {
-            signUpPhaseViewPager.currentItem == 4 -> signUpPhaseViewPager.currentItem =
-                    signUpPhaseViewPager.currentItem - 1
-            signUpPhaseViewPager.currentItem == 3 -> signUpPhaseViewPager.currentItem =
-                    signUpPhaseViewPager.currentItem - 1
-            signUpPhaseViewPager.currentItem == 2 -> signUpPhaseViewPager.currentItem =
-                    signUpPhaseViewPager.currentItem - 1
-            signUpPhaseViewPager.currentItem == 1 -> signUpPhaseViewPager.currentItem =
-                    signUpPhaseViewPager.currentItem - 1
-            signUpPhaseViewPager.currentItem == 0 -> super.onBackPressed()
-        }*/
-        if (signUpPhaseViewPager.currentItem == 0) {
-            super.onBackPressed()
-        } else {
-            BackButtonHandler(this).onClick()
-            return
-        }
-    }
-
-    private fun showToast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun removeFragment() {
-        supportFragmentManager.beginTransaction()
-            .remove(supportFragmentManager.findFragmentById(R.id.signUpPhaseContainer)!!).commit()
-    }
-
-    fun openactivity(activity: Activity) {
-        val intent = Intent(activity, activity::class.java)
-        startActivity(intent)
-    }
 }

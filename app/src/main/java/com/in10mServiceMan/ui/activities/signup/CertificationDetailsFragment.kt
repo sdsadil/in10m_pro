@@ -54,8 +54,10 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_certification_details, container, false)
 
@@ -84,8 +86,8 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
 
         myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
-                    parent: AdapterView<*>, view: View,
-                    position: Int, id: Long
+                parent: AdapterView<*>, view: View,
+                position: Int, id: Long
             ) {
                 if (mStatesList != null) {
 
@@ -113,11 +115,12 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
     private fun getStates() {
         val homeCall = LoginAPI.loginUser().states
         homeCall.enqueue(object : Callback<StatesResponse> {
-            override fun onResponse(call: Call<StatesResponse>, response: Response<StatesResponse>) {
+            override fun onResponse(
+                call: Call<StatesResponse>,
+                response: Response<StatesResponse>
+            ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
-                } else {
-
                 }
             }
 
@@ -129,15 +132,24 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
 
     private fun getServiceManServices() {
 
-        val header = SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeader("Bearer $header", SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.USER_ID, "0")!!
-            .toInt())
+        val header = SharedPreferencesHelper.getString(
+            this.context,
+            Constants.SharedPrefs.User.AUTH_TOKEN,
+            ""
+        )
+        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeader(
+            "Bearer $header",
+            SharedPreferencesHelper.getString(
+                this.context,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!
+                .toInt()
+        )
         homeCall.enqueue(object : Callback<HomeService> {
             override fun onResponse(call: Call<HomeService>, response: Response<HomeService>) {
                 if (response.isSuccessful) {
                     bindRecyclerData(response.body()!!)
-                } else {
-                    Log.d("error", "Error")
                 }
             }
 
@@ -148,21 +160,19 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
     }
 
     fun bindData(body: StatesResponse) {
-        mStatesList = body?.data?.states
-        country = body?.data?.countryCode!!
-        country_id = body?.data?.countryId.toString()
-        var myStateList: ArrayList<String>? = ArrayList()
+        mStatesList = body.data?.states
+        country = body.data?.countryCode!!
+        country_id = body.data.countryId.toString()
+        val myStateList: ArrayList<String> = ArrayList()
         if (mStatesList?.size!! > 0) {
             for (i in 0 until mStatesList!!.size) {
-                myStateList?.add(mStatesList?.get(i)?.name!!)
+                myStateList.add(mStatesList?.get(i)?.name!!)
             }
         }
         /*val adapter = ArrayAdapter(this.context, R.layout.custom_state_spinner_list, myStateList)//android.R.layout.simple_list_item_1
         availableStateSpinner.adapter = adapter*/
         val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)
-        if (myStateList != null) {
-            adapter.addAll(myStateList)
-        }
+        adapter.addAll(myStateList)
         adapter.add("STATE")
         availableStateSpinner.adapter = adapter
         availableStateSpinner.setSelection(adapter.count)
@@ -183,7 +193,8 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
 
     private fun bindRecyclerData(body: HomeService?) {
 
-        offeredServicesRV.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+        offeredServicesRV.layoutManager =
+            LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         offeredServicesRV.adapter = OfferedServiceAdapter(this.context!!, this, body)
     }
 }
