@@ -18,7 +18,7 @@
             android:layout_marginTop="35dp"
             android:layout_marginEnd="38dp"
             android:fontFamily="@font/aller_rg"
-            android:text="@string/payment_heading"
+            android:text="@string/payment_type_accepted"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent" />
