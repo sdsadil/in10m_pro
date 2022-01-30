@@ -2,10 +2,9 @@ package com.in10mServiceMan.ui.activities.profile
 
 import android.util.Log
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.CustomerCompleteProfile
-import com.in10mServiceMan.Models.CustomerCompleteProfileAfterUpdate
-import com.in10mServiceMan.Models.RequestUpdateServiceMan
-import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
+import com.in10mServiceMan.models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
+import com.in10mServiceMan.models.RequestUpdateServiceMan
 import com.in10mServiceMan.ui.apis.LoginAPI
 import okhttp3.MediaType
 import okhttp3.MultipartBody

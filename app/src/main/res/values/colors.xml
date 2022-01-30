@@ -82,5 +82,5 @@
     </array>
 
     <color name="confirmation_background">#979797</color>
-
+    <color name="colorBlack">#000000</color>
 </resources>

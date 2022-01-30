@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.sign_in
 
-import com.in10mServiceMan.Models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfile
 
 class LoginPresenter(val view: ILoginView) : ILoginInteractor, ILoginInteractorListener {
     override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {

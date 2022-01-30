@@ -1,8 +1,8 @@
 package com.in10mServiceMan.ui.activities.profile
 
-import com.in10mServiceMan.Models.CustomerCompleteProfile
-import com.in10mServiceMan.Models.CustomerCompleteProfileAfterUpdate
-import com.in10mServiceMan.Models.RequestUpdateServiceMan
+import com.in10mServiceMan.models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
+import com.in10mServiceMan.models.RequestUpdateServiceMan
 
 class ProfilePresenter(val view: IProfileView) : IProfileInteractor, IProfileInteractorListener {
     override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {

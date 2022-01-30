@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.HomeService
-import com.in10mServiceMan.Models.Service
+import com.in10mServiceMan.models.HomeService
+import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity

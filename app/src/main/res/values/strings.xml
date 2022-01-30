@@ -397,4 +397,19 @@
     <string name="you_are_on_the_way">You are on the way</string>
     <string name="please_select_an_image">Please select an Image</string>
     <string name="payment_type_accepted">Payment type accepted</string>
+    <string name="area_name">Area</string>
+    <string name="street">Street</string>
+    <string name="building_no">Building</string>
+    <string name="address_type">Address Type</string>
+    <string name="floor_no">Floor</string>
+    <string name="apartment_no">Apartment</string>
+    <string name="office_no">Office</string>
+    <string name="avenue">Avenue</string>
+    <string name="governorate">Governorate</string>
+    <string name="house">House</string>
+    <string name="house_no">House No</string>
+    <string name="apartment">Apartment</string>
+    <string name="office">Office</string>
+    <string name="block">Block</string>
+    <string name="ok">Ok</string>
 </resources>

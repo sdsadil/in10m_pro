@@ -8,14 +8,13 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import com.in10mServiceMan.Models.Service
-import com.in10mServiceMan.Models.ViewModels.CompanyServiceman
-import com.in10mServiceMan.Models.ViewModels.CompanyServices
+import com.in10mServiceMan.models.Service
+import com.in10mServiceMan.models.viewmodels.CompanyServiceman
+import com.in10mServiceMan.models.viewmodels.CompanyServices
 import com.in10mServiceMan.R
 import kotlinx.android.synthetic.main.company_serviceman_details.view.*
 

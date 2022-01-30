@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.in10mServiceMan.Models.HomeService
-import com.in10mServiceMan.Models.Service
+import com.in10mServiceMan.models.HomeService
+import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.utils.Constants

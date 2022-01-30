@@ -8,10 +8,8 @@ import android.widget.TextView;
 
 import com.in10mServiceMan.ui.base.In10mBaseActivity;
 
-import com.in10mServiceMan.Models.CompleteProfile;
+import com.in10mServiceMan.models.CompleteProfile;
 import com.in10mServiceMan.R;
-import com.in10mServiceMan.ui.activities.home.HomeActivity;
-import com.in10mServiceMan.ui.activities.serviceman_home.ServiceManHomePageActivity;
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity;
 import com.in10mServiceMan.utils.localStorage;
 import com.squareup.picasso.Picasso;

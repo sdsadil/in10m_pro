@@ -31,9 +31,9 @@ import com.google.android.gms.maps.model.*
 import com.google.firebase.database.*
 import com.google.gson.Gson
 import com.google.gson.JsonElement
-import com.in10mServiceMan.Enums.BookingStatus
-import com.in10mServiceMan.Models.*
-import com.in10mServiceMan.Models.ViewModels.CommonApiResponse
+import com.in10mServiceMan.enums.BookingStatus
+import com.in10mServiceMan.models.*
+import com.in10mServiceMan.models.viewmodels.CommonApiResponse
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
 import com.in10mServiceMan.ui.activities.CallScreenActivity

@@ -1,16 +1,12 @@
 package com.in10mServiceMan.ui.activities.company_registration
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import android.util.Log
-import android.widget.Toast
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
 import com.in10mServiceMan.ui.activities.BaseActivity
@@ -24,7 +20,6 @@ import com.in10mServiceMan.ui.activities.signup.SignupViewPagerAdapter
 import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage

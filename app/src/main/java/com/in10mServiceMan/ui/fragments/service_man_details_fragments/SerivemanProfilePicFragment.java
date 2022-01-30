@@ -1,12 +1,10 @@
 package com.in10mServiceMan.ui.fragments.service_man_details_fragments;
 
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,39 +14,16 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
-import com.google.gson.Gson;
-import com.in10mServiceMan.Models.CompleteProfile;
-import com.in10mServiceMan.Models.CustomerCompleteProfileAfterUpdate;
-import com.in10mServiceMan.Models.RequestUpdateServiceMan;
+import com.in10mServiceMan.models.CompleteProfile;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.profile.ProfileCompletedActivity;
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity;
-import com.in10mServiceMan.ui.apis.AmazonUploadTask;
-import com.in10mServiceMan.ui.apis.LoginAPI;
 import com.in10mServiceMan.ui.interfaces.ImageViewPass;
 import com.in10mServiceMan.ui.interfaces.OnDataPass;
 import com.in10mServiceMan.ui.interfaces.OnDataStringPass;
-import com.in10mServiceMan.utils.Constants;
-import com.in10mServiceMan.utils.ImageFetcher;
-import com.in10mServiceMan.utils.LoadingDialog;
-import com.in10mServiceMan.utils.PicassoCache;
 import com.in10mServiceMan.utils.localStorage;
 ;
 import com.squareup.picasso.Picasso;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class SerivemanProfilePicFragment extends Fragment implements View.OnClickListener,OnDataStringPass {

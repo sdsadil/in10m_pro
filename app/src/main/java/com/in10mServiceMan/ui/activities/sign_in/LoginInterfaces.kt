@@ -1,7 +1,6 @@
 package com.in10mServiceMan.ui.activities.sign_in
 
-import com.in10mServiceMan.Models.CustomerCompleteProfile
-import java.sql.DatabaseMetaData
+import com.in10mServiceMan.models.CustomerCompleteProfile
 
 interface ILoginView {
     fun onLoginCompleted(mResponse:LoginResponse)

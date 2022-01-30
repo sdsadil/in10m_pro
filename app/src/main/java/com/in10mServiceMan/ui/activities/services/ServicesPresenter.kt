@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.services
 
-import com.in10mServiceMan.Models.HomeService
+import com.in10mServiceMan.models.HomeService
 
 class ServicesPresenter(val view:IServicesView): IServicesInteractor, IServicesInteractorListener {
     override fun onServiceCompleted(mData: HomeService) {

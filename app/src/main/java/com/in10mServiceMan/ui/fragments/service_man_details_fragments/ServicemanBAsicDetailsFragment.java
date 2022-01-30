@@ -17,11 +17,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
-import com.in10mServiceMan.Models.CompleteProfile;
-import com.in10mServiceMan.Models.CustomerCompleteProfile;
-import com.in10mServiceMan.Models.CustomerCompleteProfileAfterUpdate;
-import com.in10mServiceMan.Models.CustomerUser;
-import com.in10mServiceMan.Models.RequestUpdateServiceMan;
+import com.in10mServiceMan.models.CompleteProfile;
+import com.in10mServiceMan.models.CustomerCompleteProfile;
+import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate;
+import com.in10mServiceMan.models.CustomerUser;
+import com.in10mServiceMan.models.RequestUpdateServiceMan;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.apis.LoginAPI;
 import com.in10mServiceMan.ui.interfaces.OnDataPass;

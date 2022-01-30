@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.in10mServiceMan.Models.CompleteProfile;
-import com.in10mServiceMan.Models.CustomerUser;
+import com.in10mServiceMan.models.CompleteProfile;
+import com.in10mServiceMan.models.CustomerUser;
 
 import static android.content.Context.MODE_PRIVATE;
 

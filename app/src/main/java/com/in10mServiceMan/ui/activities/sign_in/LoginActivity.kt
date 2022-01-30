@@ -18,15 +18,12 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.ui.activities.BaseActivity
-import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
-import com.in10mServiceMan.ui.activities.services.AvailableServices
 import com.in10mServiceMan.ui.activities.signup.AccountType
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage

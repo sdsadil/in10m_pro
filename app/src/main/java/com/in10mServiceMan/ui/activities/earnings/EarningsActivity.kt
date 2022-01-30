@@ -4,7 +4,7 @@ package com.in10mServiceMan.ui.activities.earnings
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.in10mServiceMan.Models.EarningsResponse
+import com.in10mServiceMan.models.EarningsResponse
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.ui.base.In10mBaseActivity

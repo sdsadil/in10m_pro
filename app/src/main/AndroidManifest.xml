@@ -38,71 +38,93 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activities.signup.SignUpTermsConditions"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.company_pros.CompanyProsDetails"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.company_pros.CompanyPros"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.accound_edit.MyAccountEdit"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.create_online_account.CreateOnlinePaymentAccountActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activities.termsandcondition.TermsAndCondition" />
+        <activity android:name=".ui.activities.termsandcondition.TermsAndCondition"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.my_bookings.CompanyServiceHistoryActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.rating.ReviewsActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.rating.CustomerRating"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.payment.InvoiceActivity"
+            android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.company_registration.CompanySignupActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.earnings.EarningsActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.company_registration.CompanyResourceActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.signup.ProfileSuccessActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.signup.EstimationActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.signup.AccountType"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.services.AvailableServices"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.sign_in.LoginActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activities.signup.SignUpActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.select_language.SelectLanguage"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ui.activities.intro.IntroActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.my_bookings.service_history.ServiceHistoryActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
 
         <provider
@@ -125,61 +147,75 @@
 
         <activity
             android:name=".ui.activities.sign_in.SignInActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".ui.activities.set_up_profile.SetUpProfileActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ui.activities.home.HomeActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.vehicle_details.VehicleDetailActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name=".ui.activities.on_going_trips.OnGoingTripsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name=".ui.activities.my_bookings.MyBookingsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.activities.invite_friends.InviteFriendsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name=".ui.activities.settings.SettingsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.activities.about.AboutActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.activities.fare_details.FareDetailsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name=".ui.activities.select_location.SelectLocationActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activities.enter_location.EnterLocationActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activities.item_details.ItemDetailsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.activities.add_card.AddCardActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent"
             android:windowSoftInputMode="stateHidden" />
@@ -199,27 +235,34 @@
             android:name="io.fabric.ApiKey"
             android:value="3d4091c805f9fa54b15cc6bc154e42d482077be4" />
 
-        <service android:name=".ui.activities.SinchService" />
+        <service android:name=".ui.activities.SinchService"
+            android:exported="true" />
 
         <activity
             android:name=".ui.activities.services.ServicesActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.sub_services.SubServicesActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.confirm_address.ConfirmAddressActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.tracking_map.MapTrackingActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.profile.ProfileActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ui.activities.enter_mobile_no.EnterPhoneNumberActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.splash.SplashActivity"
@@ -233,49 +276,62 @@
         </activity>
         <activity
             android:name=".ui.activities.otp_verification.OtpVerificationActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.basic_details.UserBasicDetailsActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.service_man_details.ServiceManDetailsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.activities.select_service.SelectServiceActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.select_service.SelectSubServiceActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.profile.ProfileCompletedActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.serviceman_home.ServiceManHomePageActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.profile.MyAccountActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.privacy_policy.PrivacyPolicyActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.activities.contact_us.ContactUs"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".ui.activities.IncomingCallScreenActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name=".ui.activities.CallScreenActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent" />
         <activity
             android:name=".ui.activities.profile_services.ProfileServices"
+            android:exported="true"
             android:screenOrientation="portrait" />
     </application>
 

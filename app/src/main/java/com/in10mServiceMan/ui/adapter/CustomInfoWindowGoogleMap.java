@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
-import com.in10mServiceMan.Models.InfoWindowData;
+import com.in10mServiceMan.models.InfoWindowData;
 
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.utils.Constants;

@@ -2,17 +2,15 @@ package com.in10mServiceMan.ui.activities.services
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.in10mServiceMan.Models.HomeService
-import com.in10mServiceMan.Models.Service
+import com.in10mServiceMan.models.HomeService
+import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.home.NavigationAdapter
 import com.in10mServiceMan.ui.activities.my_bookings.MyBookingsActivity
 import com.in10mServiceMan.ui.activities.profile.ProfileActivity

@@ -3,6 +3,7 @@ package com.in10mServiceMan.ui.activities.signup
 
 import android.app.Activity
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -11,11 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AlertDialog
 import android.text.Editable
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.common.ConnectionResult
@@ -123,6 +124,11 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             override fun onNothingSelected(parent: AdapterView<*>) {
             }
         }
+
+        view.tvAddressType_SignUpProfLay.setOnClickListener {
+            openAddressTypePopUp()
+        }
+
         view.signUpPhaseDetailsOkTickIV.setOnClickListener {
 
             when {
@@ -352,5 +358,66 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         val days = diff1.days
         Log.d("age", "$age $months $days")
         return age
+    }
+
+    var addressType = "1"
+
+    private fun openAddressTypePopUp() {
+        val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val window = dialog.window
+        dialog.setContentView(R.layout.addresstype_popup)
+        val wlp = window.attributes
+        wlp.gravity = Gravity.CENTER
+        wlp.flags = WindowManager.LayoutParams.FLAG_BLUR_BEHIND
+        window.attributes = wlp
+        Objects.requireNonNull(window).setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.MATCH_PARENT
+        )
+        //        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        val rg_AddressTypePopUp = dialog.findViewById<RadioGroup>(R.id.rg_AddressTypePopUp)
+        val ivClose_AddressPopUp: AppCompatImageView =
+            dialog.findViewById(R.id.ivClose_AddressPopUp)
+        val btnContinue_AddressPopUp: AppCompatButton =
+            dialog.findViewById(R.id.btnContinue_AddressPopUp)
+        rg_AddressTypePopUp.setOnCheckedChangeListener { group: RadioGroup?, checkedId: Int ->
+            if (checkedId == R.id.rbHouse_AddressTypePopUp) {
+                etBuildingNo_SignUpProfLay.setText("")
+                etFloorNo_SignUpProfLay.setText("")
+                etAptOffNo_SignUpProfLay.setText("")
+                etAvenue_SignUpProfLay.setText("")
+                addressType = "1"
+                tvAddressType_SignUpProfLay.setText(context!!.resources.getString(R.string.house))
+                etBuildingNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.house_no))
+                etFloorNo_SignUpProfLay.setVisibility(View.GONE)
+                etAptOffNo_SignUpProfLay.setVisibility(View.GONE)
+            } else if (checkedId == R.id.rbApartment_AddressTypePopUp) {
+                etBuildingNo_SignUpProfLay.setText("")
+                etFloorNo_SignUpProfLay.setText("")
+                etAptOffNo_SignUpProfLay.setText("")
+                etAvenue_SignUpProfLay.setText("")
+                addressType = "2"
+                tvAddressType_SignUpProfLay.setText(context!!.resources.getString(R.string.apartment))
+                etBuildingNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.building_no))
+                etAptOffNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.apartment))
+                etFloorNo_SignUpProfLay.setVisibility(View.VISIBLE)
+                etAptOffNo_SignUpProfLay.setVisibility(View.VISIBLE)
+            } else if (checkedId == R.id.rbOffice_AddressTypePopUp) {
+                etBuildingNo_SignUpProfLay.setText("")
+                etFloorNo_SignUpProfLay.setText("")
+                etAptOffNo_SignUpProfLay.setText("")
+                etAvenue_SignUpProfLay.setText("")
+                addressType = "3"
+                tvAddressType_SignUpProfLay.setText(context!!.resources.getString(R.string.office))
+                etBuildingNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.building_no))
+                etAptOffNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.office_no))
+                etFloorNo_SignUpProfLay.setVisibility(View.VISIBLE)
+                etAptOffNo_SignUpProfLay.setVisibility(View.VISIBLE)
+            }
+        }
+        ivClose_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        btnContinue_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        dialog.show()
     }
 }

@@ -1,7 +1,6 @@
 package com.in10mServiceMan.ui.activities.sign_in
 
-import android.widget.Toast
-import com.in10mServiceMan.Models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.ui.apis.LoginAPI
 import retrofit2.Call
 import retrofit2.Callback

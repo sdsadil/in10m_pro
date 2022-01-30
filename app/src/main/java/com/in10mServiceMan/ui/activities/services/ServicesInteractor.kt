@@ -1,6 +1,6 @@
 package com.in10mServiceMan.ui.activities.services
 
-import com.in10mServiceMan.Models.HomeService
+import com.in10mServiceMan.models.HomeService
 import com.in10mServiceMan.ui.apis.LoginAPI
 import retrofit2.Call
 import retrofit2.Callback

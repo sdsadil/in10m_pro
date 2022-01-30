@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.*
+import com.in10mServiceMan.models.*
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
@@ -20,7 +20,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import com.amazonaws.mobile.client.AWSMobileClient
-import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService
+import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
 import com.in10mServiceMan.ui.activities.profile_services.ProfileServices
 import com.in10mServiceMan.ui.activities.services.ServicesActivity
 import com.in10mServiceMan.ui.activities.services.ServicesResponse

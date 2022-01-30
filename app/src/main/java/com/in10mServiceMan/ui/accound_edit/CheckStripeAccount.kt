@@ -2,7 +2,6 @@ package com.in10mServiceMan.ui.accound_edit
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.in10mServiceMan.Models.ServiceMan
 
 class CheckStripeAccount {
     @SerializedName("status")

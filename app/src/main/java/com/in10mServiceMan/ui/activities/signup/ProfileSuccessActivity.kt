@@ -1,9 +1,8 @@
 package com.in10mServiceMan.ui.activities.signup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.in10mServiceMan.Models.CustomerCompleteProfile
+import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.sign_in.ILoginView

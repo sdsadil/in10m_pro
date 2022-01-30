@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.in10mServiceMan.Models.SubService
+import com.in10mServiceMan.models.SubService
 import com.in10mServiceMan.R
 
 

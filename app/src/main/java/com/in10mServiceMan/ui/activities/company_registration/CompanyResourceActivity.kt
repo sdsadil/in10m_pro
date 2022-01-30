@@ -6,12 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.HomeService
-import com.in10mServiceMan.Models.Service
-import com.in10mServiceMan.Models.ViewModels.CompanyServiceman
-import com.in10mServiceMan.Models.ViewModels.CompanyServices
+import com.in10mServiceMan.models.HomeService
+import com.in10mServiceMan.models.Service
+import com.in10mServiceMan.models.viewmodels.CompanyServices
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.signup.ProfileSuccessActivity
 import com.in10mServiceMan.ui.adapter.CompanyServimanDetailsAdapter
 import com.in10mServiceMan.ui.apis.LoginAPI

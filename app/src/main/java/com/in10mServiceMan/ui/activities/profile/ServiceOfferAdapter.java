@@ -9,40 +9,18 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.in10mServiceMan.Models.RequestRemoveSubServicesModel;
-import com.in10mServiceMan.Models.Service;
-import com.in10mServiceMan.Models.SubService;
-import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService;
 import com.in10mServiceMan.R;
-import com.in10mServiceMan.ui.activities.model_classes.ServicemanSelectedServiceModel;
 import com.in10mServiceMan.ui.activities.services.ServiceData;
-import com.in10mServiceMan.ui.activities.services.ServicesResponse;
-import com.in10mServiceMan.ui.apis.LoginAPI;
-import com.in10mServiceMan.ui.interfaces.EditTextValuePass;
-import com.in10mServiceMan.ui.listener.EditSubServicesListener;
-import com.in10mServiceMan.ui.listener.RemoveServiceExperienceListener;
 import com.in10mServiceMan.utils.localStorage;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ServiceOfferAdapter extends RecyclerView.Adapter<ServiceOfferAdapter.ServiceOfferAdapterViewHolder> {
 

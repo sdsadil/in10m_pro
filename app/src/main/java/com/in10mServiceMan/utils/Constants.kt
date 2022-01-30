@@ -1,8 +1,6 @@
 package com.in10mServiceMan.utils
 
-import androidx.multidex.BuildConfig.FLAVOR
-import com.in10mServiceMan.BuildConfig
-import com.in10mServiceMan.Models.CompanyServimenRequest
+import com.in10mServiceMan.models.CompanyServimenRequest
 
 
 /**

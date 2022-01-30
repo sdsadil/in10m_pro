@@ -1,28 +1,24 @@
 package com.in10mServiceMan.ui.fragments.service_man_details_fragments;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.in10mServiceMan.Models.HomeService;
-import com.in10mServiceMan.Models.RequestLinkServiceWithServiceMan;
-import com.in10mServiceMan.Models.ResponseServiceWithSubService;
-import com.in10mServiceMan.Models.Service;
-import com.in10mServiceMan.Models.SubService;
-import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService;
+import com.in10mServiceMan.models.HomeService;
+import com.in10mServiceMan.models.RequestLinkServiceWithServiceMan;
+import com.in10mServiceMan.models.ResponseServiceWithSubService;
+import com.in10mServiceMan.models.Service;
+import com.in10mServiceMan.models.SubService;
+import com.in10mServiceMan.models.viewmodels.ServiceWithSubService;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity;
 import com.in10mServiceMan.ui.activities.services.ServicesActivity;

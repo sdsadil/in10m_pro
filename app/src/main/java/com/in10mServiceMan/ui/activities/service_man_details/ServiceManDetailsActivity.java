@@ -1,37 +1,21 @@
 package com.in10mServiceMan.ui.activities.service_man_details;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Build;
-import android.os.Looper;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.SettingsClient;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.gson.Gson;
-import com.in10mServiceMan.Models.CompleteProfile;
-import com.in10mServiceMan.Models.CustomerCompleteProfileAfterUpdate;
-import com.in10mServiceMan.Models.RequestUpdateServiceMan;
+import com.in10mServiceMan.models.CompleteProfile;
+import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate;
+import com.in10mServiceMan.models.RequestUpdateServiceMan;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.BackButtonHandler;
 import com.in10mServiceMan.ui.apis.AmazonUploadTask;
@@ -41,7 +25,6 @@ import com.in10mServiceMan.ui.fragments.service_man_details_fragments.Serviceman
 import com.in10mServiceMan.ui.fragments.service_man_details_fragments.ServicemanServiceDetailsFragmentListener;
 import com.in10mServiceMan.ui.interfaces.ImageViewPass;
 import com.in10mServiceMan.ui.interfaces.OnDataPass;
-import com.in10mServiceMan.ui.interfaces.OnDataStringPass;
 import com.in10mServiceMan.utils.ImageFetcher;
 import com.in10mServiceMan.utils.LoadingDialog;
 import com.in10mServiceMan.utils.PicassoCache;
@@ -54,7 +37,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;

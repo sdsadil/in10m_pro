@@ -13,7 +13,7 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.*
+import com.in10mServiceMan.models.*
 import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.utils.localStorage
 import retrofit2.Call
@@ -21,7 +21,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.in10mServiceMan.R.id.*
 import com.in10mServiceMan.ui.accound_edit.MyAccountEdit
-import com.in10mServiceMan.ui.activities.profile.ProfileActivity
 import com.in10mServiceMan.ui.activities.rating.ReviewsActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper

@@ -1,32 +1,17 @@
 package com.in10mServiceMan.ui.activities.sub_services
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Intent
-import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.in10mServiceMan.Models.Service
-import com.in10mServiceMan.Models.SubService
-import com.in10mServiceMan.Models.ViewModels.ServiceWithSubService
+import com.in10mServiceMan.models.Service
+import com.in10mServiceMan.models.SubService
+import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.home.HomeActivity
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 
 import com.squareup.picasso.Picasso

@@ -2,12 +2,11 @@ package com.in10mServiceMan.ui.activities.enter_mobile_no
 
 import android.content.Intent
 import android.os.Bundle
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.util.Log
 import android.widget.Toast
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.RequestVerifyMobile
-import com.in10mServiceMan.Models.ResponseVerifyMobile
+import com.in10mServiceMan.models.RequestVerifyMobile
+import com.in10mServiceMan.models.ResponseVerifyMobile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.otp_verification.OtpVerificationActivity

@@ -7,7 +7,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.in10mServiceMan.Models.ViewModels.CompanyServiceman
+import com.in10mServiceMan.models.viewmodels.CompanyServiceman
 import com.in10mServiceMan.R
 import kotlinx.android.synthetic.main.custom_layout_serviceman_details_entry.view.*
 

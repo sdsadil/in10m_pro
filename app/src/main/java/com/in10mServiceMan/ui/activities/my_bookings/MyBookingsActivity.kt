@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.google.gson.Gson
-import com.in10mServiceMan.Models.BookingHistoryResponse
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.ui.fragments.past_bookings.BookingsAdapter
 import com.in10mServiceMan.utils.Constants

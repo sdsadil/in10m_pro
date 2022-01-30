@@ -3,9 +3,9 @@ package com.in10mServiceMan.ui.activities.otp_verification
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.in10mServiceMan.Models.CustomerCompleteProfile
-import com.in10mServiceMan.Models.RequestVerifyOTP
-import com.in10mServiceMan.Models.ResponseVerifyMobile
+import com.in10mServiceMan.models.CustomerCompleteProfile
+import com.in10mServiceMan.models.RequestVerifyOTP
+import com.in10mServiceMan.models.ResponseVerifyMobile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity
