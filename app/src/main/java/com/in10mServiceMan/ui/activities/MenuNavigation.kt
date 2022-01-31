@@ -14,7 +14,7 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
 import com.in10mServiceMan.models.*
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.localStorage
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,7 +39,7 @@ class MenuNavigation(val context: Context, val handler: Handler) {
             val userId = SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()//localStorage(context).loggedInUser.customerId
 
-            val callServicProviders = LoginAPI.loginUser().getCompleteProfile(userId)
+            val callServicProviders = APIClient.getApiInterface().getCompleteProfile(userId)
             callServicProviders.enqueue(object : Callback<CustomerCompleteProfile> {
                 override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
                     if (response.isSuccessful) {
@@ -140,7 +140,7 @@ class MenuNavigation(val context: Context, val handler: Handler) {
         val mobilenumberVal = mobileNumber.text
         if (!mobilenumberVal.isNullOrEmpty()) {
 
-            val loginAPI = LoginAPI()
+            val loginAPI = APIClient()
 
             loginAPI.clearToken()
 
@@ -148,7 +148,7 @@ class MenuNavigation(val context: Context, val handler: Handler) {
             var requestVerifyMobile = RequestVerifyMobile()
             requestVerifyMobile.code = "91"
             requestVerifyMobile.mobile = mobilenumberVal.toString();
-            val callServicProviders = LoginAPI.loginUser().postVerifyMobile(requestVerifyMobile)
+            val callServicProviders = APIClient.getApiInterface().postVerifyMobile(requestVerifyMobile)
             callServicProviders.enqueue(object : Callback<ResponseVerifyMobile> {
                 override fun onResponse(call: Call<ResponseVerifyMobile>, response: Response<ResponseVerifyMobile>) {
                     if (response.isSuccessful) {
@@ -222,7 +222,7 @@ class MenuNavigation(val context: Context, val handler: Handler) {
         if (!otpText.isNullOrBlank()) {
             dialog.dismiss()
 
-            val loginAPI = LoginAPI()
+            val loginAPI = APIClient()
 
             loginAPI.publicAccessToken = data.data[0].apiToken
 
@@ -235,7 +235,7 @@ class MenuNavigation(val context: Context, val handler: Handler) {
             requestVerifyMobile.name = "User"
             requestVerifyMobile.otp = otpText.toString()
 
-            val callServicProviders = LoginAPI.loginUser().postOtpMobile(requestVerifyMobile)
+            val callServicProviders = APIClient.getApiInterface().postOtpMobile(requestVerifyMobile)
             callServicProviders.enqueue(object : Callback<ResponseVerifyMobile> {
                 override fun onResponse(call: Call<ResponseVerifyMobile>, response: Response<ResponseVerifyMobile>) {
 

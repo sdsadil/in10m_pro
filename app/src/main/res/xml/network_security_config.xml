@@ -3,5 +3,6 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">3.81.20.120</domain>
         <domain includeSubdomains="true">www.in10m.com</domain>
+        <domain includeSubdomains="true">34.224.101.230</domain>
     </domain-config>
 </network-security-config>

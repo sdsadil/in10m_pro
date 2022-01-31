@@ -2,17 +2,12 @@ package com.in10mServiceMan.ui.activities;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import com.in10mServiceMan.ui.base.In10mBaseActivity;
+
 import androidx.core.app.ActivityCompat;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +24,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.in10mServiceMan.ui.apis.LoginAPI.UserImage;
+import static com.in10mServiceMan.ui.apis.APIClient.UserImage;
 
 public class IncomingCallScreenActivity extends BaseActivity {
 

@@ -1,13 +1,13 @@
 package com.in10mServiceMan.ui.accound_edit.AddService
 
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ServiceInteractor(var listener: IServiceInteractorListener): IServiceInteractor {
     override fun services(mServicemanId: Int, mService: String) {
-        LoginAPI.loginUser().addNewServiceman(mServicemanId, mService).enqueue(object : Callback<ServiceResponse> {
+        APIClient.getApiInterface().addNewServiceman(mServicemanId, mService).enqueue(object : Callback<ServiceResponse> {
             override fun onFailure(call: Call<ServiceResponse>?, t: Throwable?) {
                 listener.onServiceFailed("Something went wrong")
             }

@@ -20,7 +20,7 @@ import com.in10mServiceMan.ui.activities.my_bookings.ServiceHistoryResponse
 import com.in10mServiceMan.ui.activities.my_bookings.invoice_details_API.IInvoiceDetailsView
 import com.in10mServiceMan.ui.activities.my_bookings.invoice_details_API.InvoiceDetailsPresenter
 import com.in10mServiceMan.ui.activities.my_bookings.invoice_details_API.InvoiceDetailsResponse
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.fragments.past_bookings.BookingsAdapter
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -93,7 +93,7 @@ class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetail
             val header = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
             val userId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
-            val callServiceProviders = LoginAPI.loginUser().getServiceHistory("Bearer $header", userId, "6", 150, 1)//user.customerId
+            val callServiceProviders = APIClient.getApiInterface().getServiceHistory("Bearer $header", userId, "6", 150, 1)//user.customerId
             callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
                 override fun onResponse(call: Call<ServiceHistoryResponse>, response: Response<ServiceHistoryResponse>) {
                     destroyDialog()

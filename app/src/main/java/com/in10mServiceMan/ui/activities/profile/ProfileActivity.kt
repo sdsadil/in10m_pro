@@ -10,7 +10,7 @@ import com.google.gson.Gson
 import com.in10mServiceMan.models.*
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile_page.*
 import retrofit2.Call
@@ -115,7 +115,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
 
     override fun onEditClick(position: Int, serviceWithSubService: ServiceWithSubService?) {
         showProgressDialog("")
-        LoginAPI.loginUser()!!.getServiceDetails(serviceWithSubService?.service?.serviceId!!)
+        APIClient.getApiInterface()!!.getServiceDetails(serviceWithSubService?.service?.serviceId!!)
             .enqueue(object : Callback<ResponseServiceWithSubService> {
                 override fun onResponse(
                     call: Call<ResponseServiceWithSubService>,
@@ -381,10 +381,10 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun getPreServices() {
-        LoginAPI.Token =
+        APIClient.Token =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience(
-            "Bearer " + LoginAPI.Token,
+        val homeCall = APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
+            "Bearer " + APIClient.Token,
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
         )
@@ -411,7 +411,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun loadExistingServices() {
-        LoginAPI.loginUser()!!.getExistingServiceDetails(myUserId)
+        APIClient.getApiInterface()!!.getExistingServiceDetails(myUserId)
             .enqueue(object : Callback<HomeService> {
                 override fun onResponse(call: Call<HomeService>, response: Response<HomeService>) {
                     if (response.isSuccessful && response.body() != null && response.body()!!.data != null && response.body()!!.data.size > 0) {
@@ -468,7 +468,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun callApiTOLinkServicesAndSubService(servicemanBodyModel: java.util.ArrayList<RequestLinkServiceWithServiceMan>) {
-        val loginServiceInterface = LoginAPI.loginUser()
+        val loginServiceInterface = APIClient.getApiInterface()
 
         Log.i("eeeLINK", Gson().toJson(servicemanBodyModel))
 
@@ -580,7 +580,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
                 SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
                     .toInt()//localStorage(this@ProfileActivity).loggedInUser.customerId
 
-            val callServiceProviders = LoginAPI.loginUser().getCompleteProfile(myUserId)
+            val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(myUserId)
             callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
                 override fun onResponse(
                     call: Call<CustomerCompleteProfile>,

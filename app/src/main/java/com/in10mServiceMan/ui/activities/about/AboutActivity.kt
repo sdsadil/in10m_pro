@@ -3,13 +3,11 @@ package com.in10mServiceMan.ui.activities.about
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 
-import android.view.MenuItem
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import kotlinx.android.synthetic.main.activity_about.*
-import kotlinx.android.synthetic.main.app_bar_transparent.*
 
 class AboutActivity : In10mBaseActivity() {
 
@@ -21,7 +19,7 @@ class AboutActivity : In10mBaseActivity() {
             finish()
         }
         aboutAppWV.settings.javaScriptEnabled = true
-        aboutAppWV.loadUrl(LoginAPI.aboutUs)
+        aboutAppWV.loadUrl(APIClient.aboutUs)
         aboutAppWV.webViewClient = myWebViewClient()
     }
     inner class myWebViewClient : WebViewClient() {

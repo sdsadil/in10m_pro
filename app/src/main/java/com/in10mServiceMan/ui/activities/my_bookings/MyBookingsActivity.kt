@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import com.google.gson.Gson
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.fragments.past_bookings.BookingsAdapter
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -42,7 +42,7 @@ class MyBookingsActivity : In10mBaseActivity(), BookingHistoryInterface {
             val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
             val userId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
-            val callServiceProviders = LoginAPI.loginUser().getServiceHistory("Bearer $header", userId, "5",150, 1)//user.customerId
+            val callServiceProviders = APIClient.getApiInterface().getServiceHistory("Bearer $header", userId, "5",150, 1)//user.customerId
             callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
                 override fun onResponse(call: Call<ServiceHistoryResponse>, response: Response<ServiceHistoryResponse>) {
                     Log.i("response data", Gson().toJson(response.body()).toString())

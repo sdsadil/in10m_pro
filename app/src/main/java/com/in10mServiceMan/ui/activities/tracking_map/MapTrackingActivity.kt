@@ -52,7 +52,7 @@ import com.in10mServiceMan.ui.activities.rating.ReviewsActivity
 import com.in10mServiceMan.ui.activities.rating.ReviewsResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
 import com.in10mServiceMan.ui.activities.termsandcondition.TermsAndCondition
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.ui.complete_profile_api.CompleteProfilePresenter
 import com.in10mServiceMan.ui.complete_profile_api.CompleteProfileResponse
@@ -217,7 +217,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         requestUpdateDeviceUser.status = 1
         requestUpdateDeviceUser.deviceId = userId
 
-        val callServiceProviders = LoginAPI.loginUser().saveDeviceId(requestUpdateDeviceUser)
+        val callServiceProviders = APIClient.getApiInterface().saveDeviceId(requestUpdateDeviceUser)
         callServiceProviders.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful)
@@ -754,7 +754,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
         }
         if (serviceID != 0) {
-            val callServicProviders = LoginAPI.loginUser().getServiceDetails(serviceID)
+            val callServicProviders = APIClient.getApiInterface().getServiceDetails(serviceID)
             callServicProviders.enqueue(object : Callback<ResponseServiceWithSubService> {
                 override fun onResponse(
                     call: Call<ResponseServiceWithSubService>,
@@ -825,7 +825,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     var customerProfile = CompleteProfile()
     private fun loadCustomerProfile(custId: String?) {
 
-        val callServiceProviders = LoginAPI.loginUser().getCustomerProfile(custId!!.toInt())
+        val callServiceProviders = APIClient.getApiInterface().getCustomerProfile(custId!!.toInt())
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfileAfterUpdate> {
             override fun onResponse(
                 call: Call<CustomerCompleteProfileAfterUpdate>,
@@ -852,7 +852,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         })
 
 
-        LoginAPI.loginUser().getCompleteProfile(userid)
+        APIClient.getApiInterface().getCompleteProfile(userid)
             .enqueue(object : Callback<CustomerCompleteProfile> {
                 override fun onResponse(
                     call: Call<CustomerCompleteProfile>,
@@ -886,7 +886,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         val compId =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_COMPANY_NAME, 0)
         val callServiceProviders =
-            LoginAPI.loginUser().getServicemanLocation(header, userid.toString(), compId.toString())
+            APIClient.getApiInterface().getServicemanLocation(header, userid.toString(), compId.toString())
         callServiceProviders.enqueue(object : Callback<CompanyServicemanLocationResponse> {
             override fun onResponse(
                 call: Call<CompanyServicemanLocationResponse>,
@@ -965,7 +965,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             ServiceManName.text = resources.getString(R.string.work_status)
         }
         if (userType == 3) {
-            val callServiceProviders = LoginAPI.loginUser().getFinishedJobCount(userid)
+            val callServiceProviders = APIClient.getApiInterface().getFinishedJobCount(userid)
             callServiceProviders.enqueue(object : Callback<CompanyHomeCountResponse> {
                 override fun onResponse(
                     call: Call<CompanyHomeCountResponse>,
@@ -985,7 +985,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 }
             })
         } else {
-            val callServicProviders = LoginAPI.loginUser().getCountDashBoard(userid)
+            val callServicProviders = APIClient.getApiInterface().getCountDashBoard(userid)
             callServicProviders.enqueue(object : Callback<HomeCountResponse> {
                 override fun onResponse(
                     call: Call<HomeCountResponse>,
@@ -1110,7 +1110,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             loc.id = bookingId
             loc.status = BookingStatus.Servicemen_Canceled.toString()
 
-            val callServicProviders = LoginAPI.loginUser().updateBookingStatus(loc)
+            val callServicProviders = APIClient.getApiInterface().updateBookingStatus(loc)
             callServicProviders.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     destroyDialog()
@@ -1160,7 +1160,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
                 Log.d("eeeSTupdate", "Updating =" + Gson().toJson(loc))
 
-                val callServiceProviders = LoginAPI.loginUser().updateBookingStatus(loc)
+                val callServiceProviders = APIClient.getApiInterface().updateBookingStatus(loc)
                 callServiceProviders.enqueue(object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
                         destroyDialog()
@@ -1233,7 +1233,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             loc.id = bookingId
             loc.status = BookingStatus.Arrived.toString()
 
-            val callServiceProviders = LoginAPI.loginUser().updateBookingStatus(loc)
+            val callServiceProviders = APIClient.getApiInterface().updateBookingStatus(loc)
             callServiceProviders.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     destroyDialog()
@@ -1429,7 +1429,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             loc.id = bookingId
             loc.status = BookingStatus.Ongoing.toString()
 
-            val callServiceProviders = LoginAPI.loginUser().updateBookingStatus(loc)
+            val callServiceProviders = APIClient.getApiInterface().updateBookingStatus(loc)
             callServiceProviders.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     destroyDialog()
@@ -1563,7 +1563,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             loc.status = BookingStatus.Complete.toString()
 
             myBookingId = bookingId.toString()
-            val callServicProviders = LoginAPI.loginUser().updateBookingStatus(loc)
+            val callServicProviders = APIClient.getApiInterface().updateBookingStatus(loc)
 
             callServicProviders.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -1755,7 +1755,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
                 Log.i("eeeREVIE", Gson().toJson(rm))
 
-                val callServicProviders = LoginAPI.loginUser().updateReview(rm)
+                val callServicProviders = APIClient.getApiInterface().updateReview(rm)
                 callServicProviders.enqueue(object : Callback<JsonElement> {
                     override fun onResponse(
                         call: Call<JsonElement>,
@@ -1822,7 +1822,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         loc.id = userid
         loc.workingStatus = currentStatus.toString()
 
-        val callServiceProviders = LoginAPI.loginUser().updateServiceWorkingStatus(loc)
+        val callServiceProviders = APIClient.getApiInterface().updateServiceWorkingStatus(loc)
         callServiceProviders.enqueue(object : Callback<JsonElement> {
             override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
                 if (response.isSuccessful) {
@@ -1844,7 +1844,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         loc.id = userid
         loc.workingStatus = currentStatus.toString()
 
-        val callServiceProviders = LoginAPI.loginUser().updateServiceWorkingStatusWithHeader(loc)
+        val callServiceProviders = APIClient.getApiInterface().updateServiceWorkingStatusWithHeader(loc)
         callServiceProviders.enqueue(object : Callback<CommonApiResponse> {
             override fun onResponse(
                 call: Call<CommonApiResponse>,
@@ -1902,7 +1902,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         loc.latitude = lat
         loc.longitude = lon
 
-        val callServiceProviders = LoginAPI.loginUser().updateServiceManLocation(loc)
+        val callServiceProviders = APIClient.getApiInterface().updateServiceManLocation(loc)
         callServiceProviders.enqueue(object : Callback<JsonElement> {
             override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
                 if (response.isSuccessful)
@@ -1986,7 +1986,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
             val header =
                 SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val callServiceProviders = LoginAPI.loginUser().getOwnReviews("Bearer $header", userId)
+            val callServiceProviders = APIClient.getApiInterface().getOwnReviews("Bearer $header", userId)
             callServiceProviders.enqueue(object : Callback<ReviewsResponse> {
                 override fun onResponse(
                     call: Call<ReviewsResponse>,

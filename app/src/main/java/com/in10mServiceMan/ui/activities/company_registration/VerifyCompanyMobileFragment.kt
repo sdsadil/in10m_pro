@@ -2,7 +2,6 @@ package com.in10mServiceMan.ui.activities.company_registration
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.AppCompatEditText
 import android.text.Html
 import android.text.method.LinkMovementMethod
@@ -15,7 +14,7 @@ import com.in10m.ui.activities.BaseFragment
 
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.signup.SignupOneResponse
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.GenericOtpTextWatcher
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -100,7 +99,7 @@ class VerifyCompanyMobileFragment : BaseFragment() {
 
     private fun verifyMobile(header: String, otp: String, email: String, mobile: String) {
 
-        val request = LoginAPI.loginUser().verifyOtp("Bearer $header", otp, mobile, email)
+        val request = APIClient.getApiInterface().verifyOtp("Bearer $header", otp, mobile, email)
         request.enqueue(object : Callback<SignupOneResponse> {
             override fun onResponse(call: Call<SignupOneResponse>, response: Response<SignupOneResponse>) {
                 destroyDialog()
@@ -108,7 +107,7 @@ class VerifyCompanyMobileFragment : BaseFragment() {
                     Log.d("response ", response.body().toString())
                     if (response.body()?.status == 1) {
                         SharedPreferencesHelper.putString(context, Constants.SharedPrefs.User.AUTH_TOKEN, response.body()?.data!![0]?.apiToken!!)
-                        LoginAPI().publicAccessToken = response.body()?.data!![0]?.apiToken!!
+                        APIClient().publicAccessToken = response.body()?.data!![0]?.apiToken!!
 
                         mListener?.toNextFragmentThree("")
                     } else {

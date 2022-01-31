@@ -19,7 +19,7 @@ import com.in10mServiceMan.ui.activities.signup.SignupThreeResponse
 import com.in10mServiceMan.ui.activities.signup.SignupViewPagerAdapter
 import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
@@ -75,7 +75,7 @@ class CompanySignupActivity : BaseActivity(), ICompanySignupView,
                 Constants.SharedPrefs.User.AUTH_TOKEN,
                 mResponse?.data!![0]?.apiToken!!
             )
-            LoginAPI().publicAccessToken = mResponse?.data!![0]?.apiToken!!
+            APIClient().publicAccessToken = mResponse?.data!![0]?.apiToken!!
 
             SharedPreferencesHelper.putString(
                 this,

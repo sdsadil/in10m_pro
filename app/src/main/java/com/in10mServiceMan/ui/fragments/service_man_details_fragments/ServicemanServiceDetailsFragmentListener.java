@@ -24,7 +24,8 @@ import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsAc
 import com.in10mServiceMan.ui.activities.services.ServicesActivity;
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity;
 import com.in10mServiceMan.ui.adapter.ServicemanSelectedServiceAdapter;
-import com.in10mServiceMan.ui.apis.LoginAPI;
+import com.in10mServiceMan.ui.apis.APIClient;
+import com.in10mServiceMan.ui.apis.ApiInterface;
 import com.in10mServiceMan.ui.interfaces.EditTextValuePass;
 import com.in10mServiceMan.ui.interfaces.OnDataPass;
 import com.in10mServiceMan.ui.listener.EditSubServicesListener;
@@ -129,7 +130,7 @@ public class ServicemanServiceDetailsFragmentListener extends Fragment implement
     }
 
     private void loadExistingServices() {
-        LoginAPI.loginUser().getExistingServiceDetails(Integer.parseInt(UserId)).enqueue(new Callback<HomeService>() {
+        APIClient.getApiInterface().getExistingServiceDetails(Integer.parseInt(UserId)).enqueue(new Callback<HomeService>() {
             @Override
             public void onResponse(Call<HomeService> call, Response<HomeService> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().getData() != null && response.body().getData().size() > 0) {
@@ -235,7 +236,7 @@ public class ServicemanServiceDetailsFragmentListener extends Fragment implement
     }
 
     void callApiTOLinkServicesAndSubService(ArrayList<RequestLinkServiceWithServiceMan> servicemanBodyModel) {
-        LoginAPI.LoginService loginServiceInterface = LoginAPI.loginUser();
+        ApiInterface loginServiceInterface = APIClient.getApiInterface();
 
         Call<Void> call = loginServiceInterface.linkServiceAndSubService(servicemanBodyModel);
         call.enqueue(new Callback<Void>() {
@@ -327,7 +328,7 @@ public class ServicemanServiceDetailsFragmentListener extends Fragment implement
     public void onEditClick(int position, ServiceWithSubService serviceWithSubService) {
 
         loadingDialog.showProgressDialog("");
-        LoginAPI.loginUser().getServiceDetails(serviceWithSubService.getService().getServiceId()).enqueue(new Callback<ResponseServiceWithSubService>() {
+        APIClient.getApiInterface().getServiceDetails(serviceWithSubService.getService().getServiceId()).enqueue(new Callback<ResponseServiceWithSubService>() {
             @Override
             public void onResponse(Call<ResponseServiceWithSubService> call, Response<ResponseServiceWithSubService> response) {
                 loadingDialog.destroyDialog();

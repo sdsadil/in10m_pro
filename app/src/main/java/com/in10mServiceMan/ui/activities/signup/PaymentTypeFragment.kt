@@ -8,16 +8,14 @@ import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.AppCompatSpinner
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.spinnerAdapter
@@ -520,7 +518,7 @@ class PaymentTypeFragment : Fragment() {
     }
 
     private fun getStates() {
-        val homeCall = LoginAPI.loginUser().states
+        val homeCall = APIClient.getApiInterface().states
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(
                 call: Call<StatesResponse>,

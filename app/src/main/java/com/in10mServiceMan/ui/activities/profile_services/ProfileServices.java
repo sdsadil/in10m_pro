@@ -22,7 +22,8 @@ import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.services.ServicesActivity;
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity;
 import com.in10mServiceMan.ui.adapter.ServicemanSelectedServiceAdapter;
-import com.in10mServiceMan.ui.apis.LoginAPI;
+import com.in10mServiceMan.ui.apis.APIClient;
+import com.in10mServiceMan.ui.apis.ApiInterface;
 import com.in10mServiceMan.ui.base.In10mBaseActivity;
 import com.in10mServiceMan.ui.interfaces.EditTextValuePass;
 import com.in10mServiceMan.ui.listener.EditSubServicesListener;
@@ -120,7 +121,7 @@ public class ProfileServices extends In10mBaseActivity implements RemoveServiceE
     }
 
     private void loadExistingServices() {
-        LoginAPI.loginUser().getExistingServiceDetails(Integer.parseInt(UserId)).enqueue(new Callback<HomeService>() {
+        APIClient.getApiInterface().getExistingServiceDetails(Integer.parseInt(UserId)).enqueue(new Callback<HomeService>() {
             @Override
             public void onResponse(Call<HomeService> call, Response<HomeService> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().getData() != null && response.body().getData().size() > 0) {
@@ -193,7 +194,7 @@ public class ProfileServices extends In10mBaseActivity implements RemoveServiceE
     }
 
     void callApiTOLinkServicesAndSubService(ArrayList<RequestLinkServiceWithServiceMan> servicemanBodyModel) {
-        LoginAPI.LoginService loginServiceInterface = LoginAPI.loginUser();
+        ApiInterface loginServiceInterface = APIClient.getApiInterface();
 
         Log.i("eeeLINK", new Gson().toJson(servicemanBodyModel));
 
@@ -271,7 +272,7 @@ public class ProfileServices extends In10mBaseActivity implements RemoveServiceE
     public void onEditClick(int position, ServiceWithSubService serviceWithSubService) {
 
         loadingDialog.showProgressDialog("");
-        LoginAPI.loginUser().getServiceDetails(serviceWithSubService.getService().getServiceId()).enqueue(new Callback<ResponseServiceWithSubService>() {
+        APIClient.getApiInterface().getServiceDetails(serviceWithSubService.getService().getServiceId()).enqueue(new Callback<ResponseServiceWithSubService>() {
             @Override
             public void onResponse(Call<ResponseServiceWithSubService> call, Response<ResponseServiceWithSubService> response) {
                 loadingDialog.destroyDialog();

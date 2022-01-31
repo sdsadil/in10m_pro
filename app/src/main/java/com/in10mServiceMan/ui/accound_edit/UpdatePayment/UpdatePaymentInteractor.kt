@@ -1,13 +1,13 @@
 package com.in10mServiceMan.ui.accound_edit.UpdatePayment
 
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class UpdatePaymentInteractor(var listener: IUpdatePaymentInteractorListener): IUpdatePaymentInteractor {
     override fun updatePayment(mServicemanId: Int, mPaymentMethod: String) {
-        LoginAPI.loginUser().updatePayment(mServicemanId, mPaymentMethod).enqueue(object : Callback<UpdatePaymentResponse> {
+        APIClient.getApiInterface().updatePayment(mServicemanId, mPaymentMethod).enqueue(object : Callback<UpdatePaymentResponse> {
             override fun onFailure(call: Call<UpdatePaymentResponse>?, t: Throwable?) {
                 listener.onUpdatePaymentFailed("Something went wrong")
             }

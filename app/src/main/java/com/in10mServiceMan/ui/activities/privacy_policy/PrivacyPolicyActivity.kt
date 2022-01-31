@@ -12,7 +12,7 @@ import android.widget.Toast
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.IPrivacyPolicyView
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.PolicyAndTermsResponse
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.PrivacyPolicyPresenter
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 
@@ -40,7 +40,7 @@ class PrivacyPolicyActivity : In10mBaseActivity(), IPrivacyPolicyView {
             finish()
         }
         privacyPolicyWV.settings.javaScriptEnabled = true
-        privacyPolicyWV.loadUrl("https://docs.google.com/viewer?embedded=true&url=" + LoginAPI.privacyPolicy)
+        privacyPolicyWV.loadUrl("https://docs.google.com/viewer?embedded=true&url=" + APIClient.privacyPolicy)
         privacyPolicyWV.webViewClient = myWebViewClient()
 
         if (Constants.GlobalSettings.privacyPolicy) {

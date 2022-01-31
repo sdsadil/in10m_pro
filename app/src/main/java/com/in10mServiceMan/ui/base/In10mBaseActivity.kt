@@ -4,14 +4,13 @@ package com.in10mServiceMan.ui.base
 import android.os.Bundle
 import com.in10mServiceMan.ui.activities.BaseActivity
 
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater.from
-import android.widget.Button
 import android.widget.TextView
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
@@ -49,7 +48,7 @@ open class In10mBaseActivity : BaseActivity(), IBaseView {
 
     override fun onResume() {
         super.onResume()
-        if (!LoginAPI().publicAccessToken.isNullOrEmpty()) {
+        if (!APIClient().publicAccessToken.isNullOrEmpty()) {
             val userId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
             val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
 

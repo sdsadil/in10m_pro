@@ -15,7 +15,7 @@ import com.google.gson.Gson
 import com.in10m.ui.activities.BaseFragment
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.signup.*
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.spinnerAdapter
@@ -246,7 +246,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
         if (Constants.GlobalSettings.isBankAccount && !Constants.GlobalSettings.isDebitCard) {
 
 
-            Log.i("Account Creation Bank", "Tocken :" + "Bearer " + LoginAPI.Token + "\n" +
+            Log.i("Account Creation Bank", "Tocken :" + "Bearer " + APIClient.Token + "\n" +
                     "User ID: " + userID + "\n" +
                     "Email :" + userEmail + "\n" +
                     "Fee Estimation: " + "" + "\n" +
@@ -264,7 +264,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
                     "Zipcode: " + zip)
 
             showProgressDialog("")
-            val request = LoginAPI.loginUser().createOnlinePaymentAccountBank("Bearer " + LoginAPI.Token, userID, userEmail, "", "", "1", accountNo, routinNo, ssn, "2", street, house, city, state, country, zip)
+            val request = APIClient.getApiInterface().createOnlinePaymentAccountBank("Bearer " + APIClient.Token, userID, userEmail, "", "", "1", accountNo, routinNo, ssn, "2", street, house, city, state, country, zip)
             request.enqueue(object : Callback<SignupThreeResponse> {
                 override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                     processResponse(response)
@@ -278,7 +278,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
         } else {
 
 
-            Log.i("Account Creation Card", "Tocken :" + "Bearer " + LoginAPI.Token + "\n" +
+            Log.i("Account Creation Card", "Tocken :" + "Bearer " + APIClient.Token + "\n" +
                     "User ID: " + userID + "\n" +
                     "Email :" + userEmail + "\n" +
                     "Fee Estimation: " + "" + "\n" +
@@ -297,7 +297,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
                     "Zipcode: " + zip)
 
             showProgressDialog("")
-            val request = LoginAPI.loginUser().createOnlinePaymentAccountCard("Bearer " + LoginAPI.Token, userID, userEmail, "", "", "2", expiryMonth, expiryYear, cardNo, "2", street, house, city, state, country, ssn, zip)
+            val request = APIClient.getApiInterface().createOnlinePaymentAccountCard("Bearer " + APIClient.Token, userID, userEmail, "", "", "2", expiryMonth, expiryYear, cardNo, "2", street, house, city, state, country, ssn, zip)
             request.enqueue(object : Callback<SignupThreeResponse> {
                 override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                     processResponse(response)
@@ -331,7 +331,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
     }
 
     private fun getStates() {
-        val homeCall = LoginAPI.loginUser().states
+        val homeCall = APIClient.getApiInterface().states
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(call: Call<StatesResponse>, response: Response<StatesResponse>) {
                 if (response.isSuccessful) {

@@ -12,7 +12,7 @@ import com.in10mServiceMan.models.viewmodels.CompanyServices
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.signup.ProfileSuccessActivity
 import com.in10mServiceMan.ui.adapter.CompanyServimanDetailsAdapter
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -72,7 +72,7 @@ class CompanyResourceActivity : In10mBaseActivity(), CompanyServimanDetailsAdapt
         val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")
-                ?.let { LoginAPI.loginUser().getExistingServiceDetailsWithHeader("Bearer $header", it.toInt()) }
+                ?.let { APIClient.getApiInterface().getExistingServiceDetailsWithHeader("Bearer $header", it.toInt()) }
         homeCall?.enqueue(object : Callback<HomeService> {
             override fun onResponse(call: Call<HomeService>, response: Response<HomeService>) {
                 if (response.isSuccessful) {
@@ -110,7 +110,7 @@ class CompanyResourceActivity : In10mBaseActivity(), CompanyServimanDetailsAdapt
             //Log.d("total data ", Constants.SharedPrefs.User.totalStringRequest)
             val service = "[{\"service_id\":$serId,\"users\":" + Constants.SharedPrefs.User.totalStringRequest + "}]"
             Log.d("service", service)
-            val homeCall = LoginAPI.loginUser().addServicemanExtra("Bearer $header", SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0"), service)
+            val homeCall = APIClient.getApiInterface().addServicemanExtra("Bearer $header", SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0"), service)
             homeCall.enqueue(object : Callback<ServiceProviderAddResponse> {
                 override fun onResponse(call: Call<ServiceProviderAddResponse>, response: Response<ServiceProviderAddResponse>) {
                     destroyDialog()
@@ -131,7 +131,7 @@ class CompanyResourceActivity : In10mBaseActivity(), CompanyServimanDetailsAdapt
             })
         }
         else    {
-            val homeCall = LoginAPI.loginUser().addServiceman("Bearer $header", SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0"), Constants.SharedPrefs.User.totalStringRequest)
+            val homeCall = APIClient.getApiInterface().addServiceman("Bearer $header", SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0"), Constants.SharedPrefs.User.totalStringRequest)
             homeCall.enqueue(object : Callback<ServiceProviderAddResponse> {
                 override fun onResponse(call: Call<ServiceProviderAddResponse>, response: Response<ServiceProviderAddResponse>) {
                     destroyDialog()

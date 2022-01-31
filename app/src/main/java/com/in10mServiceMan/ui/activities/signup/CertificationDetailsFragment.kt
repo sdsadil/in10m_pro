@@ -12,7 +12,7 @@ import android.widget.*
 import com.in10mServiceMan.models.HomeService
 import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.spinnerAdapter
@@ -113,7 +113,7 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
     }
 
     private fun getStates() {
-        val homeCall = LoginAPI.loginUser().states
+        val homeCall = APIClient.getApiInterface().states
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(
                 call: Call<StatesResponse>,
@@ -137,7 +137,7 @@ class CertificationDetailsFragment : Fragment(), OfferedServiceAdapter.SelectedS
             Constants.SharedPrefs.User.AUTH_TOKEN,
             ""
         )
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeader(
+        val homeCall = APIClient.getApiInterface().getExistingServiceDetailsWithHeader(
             "Bearer $header",
             SharedPreferencesHelper.getString(
                 this.context,

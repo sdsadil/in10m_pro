@@ -23,7 +23,7 @@ import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
 import com.in10mServiceMan.ui.activities.signup.AccountType
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
@@ -197,7 +197,7 @@ class LoginActivity : BaseActivity(), ILoginView {
                 mResponse?.data!![0]?.customerData!![0]?.registrationStep.toString()
             )
 
-            LoginAPI().publicAccessToken = mResponse?.data!![0]?.apiToken!!.toString()
+            APIClient().publicAccessToken = mResponse?.data!![0]?.apiToken!!.toString()
 
             SharedPreferencesHelper.putString(
                 this,

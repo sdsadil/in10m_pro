@@ -19,7 +19,7 @@ import com.in10mServiceMan.models.RequestUpdateServiceMan;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.BackButtonHandler;
 import com.in10mServiceMan.ui.apis.AmazonUploadTask;
-import com.in10mServiceMan.ui.apis.LoginAPI;
+import com.in10mServiceMan.ui.apis.APIClient;
 import com.in10mServiceMan.ui.fragments.service_man_details_fragments.SerivemanProfilePicFragment;
 import com.in10mServiceMan.ui.fragments.service_man_details_fragments.ServicemanBAsicDetailsFragment;
 import com.in10mServiceMan.ui.fragments.service_man_details_fragments.ServicemanServiceDetailsFragmentListener;
@@ -217,7 +217,7 @@ public class ServiceManDetailsActivity extends AppCompatActivity implements OnDa
 
         Log.i("eeeeUPDATEimage", new Gson().toJson(rq));
 
-        Call<CustomerCompleteProfileAfterUpdate> call = LoginAPI.loginUser().updateServiceManProfile(rq);
+        Call<CustomerCompleteProfileAfterUpdate> call = APIClient.getApiInterface().updateServiceManProfile(rq);
 
         call.enqueue(new Callback<CustomerCompleteProfileAfterUpdate>() {
             @Override

@@ -1,14 +1,12 @@
 package com.in10mServiceMan.ui.activities.contact_us
 
-import android.Manifest
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.util.Log
-import android.widget.Toast
 import com.google.gson.Gson
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_contact_us.*
@@ -49,7 +47,7 @@ class ContactUs : In10mBaseActivity() {
         val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
 
         showProgressDialog("")
-        val callServiceProviders = LoginAPI.loginUser().putQueries(header, description, userName, userId)
+        val callServiceProviders = APIClient.getApiInterface().putQueries(header, description, userName, userId)
         callServiceProviders.enqueue(object : Callback<ContactResponse> {
             override fun onResponse(call: Call<ContactResponse>, response: Response<ContactResponse>) {
                 destroyDialog()

@@ -15,7 +15,7 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.AvailableServices
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.fragment_services.view.*
@@ -45,10 +45,10 @@ class Services : BaseFragment() {
     }
 
     private fun getPreServices() {
-        LoginAPI.Token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        APIClient.Token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")
-                ?.let { LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + LoginAPI.Token, it.toInt()) }
+                ?.let { APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + APIClient.Token, it.toInt()) }
         homeCall?.enqueue(object : Callback<ServicesResponse> {
             override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {
                 if (response.isSuccessful) {

@@ -16,7 +16,7 @@ import com.google.gson.Gson
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.create_online_account.CreateOnlinePaymentAccountActivity
 import com.in10mServiceMan.ui.activities.rating.CustomerRating
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -274,7 +274,7 @@ class InvoiceActivity : In10mBaseActivity() {
 
         val paymentType = paymentSelected
 
-        val callServiceProviders = LoginAPI.loginUser()
+        val callServiceProviders = APIClient.getApiInterface()
             .paymentInitilize(header, bookingID, totalAmount, paymentType, userId, workDescription)
 
         callServiceProviders.enqueue(object : Callback<PaymentInitilizeResponse> {

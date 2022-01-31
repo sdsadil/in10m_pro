@@ -15,7 +15,7 @@ import com.in10mServiceMan.ui.activities.home.NavigationAdapter
 import com.in10mServiceMan.ui.activities.my_bookings.MyBookingsActivity
 import com.in10mServiceMan.ui.activities.profile.ProfileActivity
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import kotlinx.android.synthetic.main.activity_services.*
@@ -205,7 +205,7 @@ class ServicesActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallba
 
 
     private fun setServiceList() {
-        val homeCall = LoginAPI.loginUser().services
+        val homeCall = APIClient.getApiInterface().services
         homeCall.enqueue(object : Callback<HomeService> {
             override fun onResponse(call: Call<HomeService>, response: Response<HomeService>) {
                 if (response.isSuccessful) {

@@ -10,7 +10,7 @@ import com.in10mServiceMan.models.ResponseVerifyMobile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.otp_verification.OtpVerificationActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import kotlinx.android.synthetic.main.activity_your_mobile_no.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,14 +34,14 @@ class EnterPhoneNumberActivity : BaseActivity() {
                 } else {
 
                     showProgressDialog("")
-                    val loginAPI = LoginAPI()
+                    val loginAPI = APIClient()
 
                     loginAPI.clearToken()
                     // call api to verify mobile
                     var requestVerifyMobile = RequestVerifyMobile()
                     requestVerifyMobile.code = "91"
                     requestVerifyMobile.mobile = mobilenumberVal.toString()
-                    val callServicProviders = LoginAPI.loginUser().postVerifyMobile(requestVerifyMobile)
+                    val callServicProviders = APIClient.getApiInterface().postVerifyMobile(requestVerifyMobile)
                     callServicProviders.enqueue(object : Callback<ResponseVerifyMobile> {
                         override fun onResponse(call: Call<ResponseVerifyMobile>, response: Response<ResponseVerifyMobile>) {
                             destroyDialog()

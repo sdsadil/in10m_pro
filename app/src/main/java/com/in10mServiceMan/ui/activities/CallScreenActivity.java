@@ -1,14 +1,10 @@
 package com.in10mServiceMan.ui.activities;
 
 import android.media.AudioManager;
-import com.in10mServiceMan.ui.base.In10mBaseActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.in10mServiceMan.R;
 
@@ -25,8 +21,6 @@ import com.sinch.android.rtc.calling.CallListener;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static com.in10mServiceMan.ui.apis.LoginAPI.UserImage;
 
 public class CallScreenActivity extends BaseActivity {
 

@@ -1,14 +1,14 @@
 package com.in10mServiceMan.ui.activities.sign_in
 
 import com.in10mServiceMan.models.CustomerCompleteProfile
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LoginInteractor(var listener: ILoginInteractorListener) : ILoginInteractor {
     override fun getCompleteProfile(userId: String) {
-        val callServiceProviders = LoginAPI.loginUser().getCompleteProfile(userId.toInt())
+        val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(userId.toInt())
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
             override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
                 if (response.isSuccessful) {
@@ -29,7 +29,7 @@ class LoginInteractor(var listener: ILoginInteractorListener) : ILoginInteractor
     }
 
     override fun sendResetLink(email: String) {
-        val homeCall = LoginAPI.loginUser().sendResetPasswordLink(email)
+        val homeCall = APIClient.getApiInterface().sendResetPasswordLink(email)
         homeCall.enqueue(object : Callback<LinkSendResponse> {
             override fun onResponse(call: Call<LinkSendResponse>, response: Response<LinkSendResponse>) {
                 if (response.isSuccessful) {
@@ -46,7 +46,7 @@ class LoginInteractor(var listener: ILoginInteractorListener) : ILoginInteractor
     }
 
     override fun userLogin(email: String, password: String) {
-        val homeCall = LoginAPI.loginUser().userLogin(email, password)
+        val homeCall = APIClient.getApiInterface().userLogin(email, password)
         homeCall.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {

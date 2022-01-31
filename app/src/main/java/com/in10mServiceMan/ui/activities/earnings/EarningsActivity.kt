@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import com.in10mServiceMan.models.EarningsResponse
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -65,7 +65,7 @@ class EarningsActivity : In10mBaseActivity() {
                 .toInt()
         }
 
-        val homeCall = LoginAPI.loginUser().getServicemanEarnings("Bearer $header", userId.toString())
+        val homeCall = APIClient.getApiInterface().getServicemanEarnings("Bearer $header", userId.toString())
         homeCall.enqueue(object : Callback<EarningsResponse> {
             override fun onResponse(call: Call<EarningsResponse>, response: Response<EarningsResponse>) {
                 if (response.isSuccessful) {

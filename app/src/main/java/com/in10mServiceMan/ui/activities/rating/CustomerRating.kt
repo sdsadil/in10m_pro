@@ -6,7 +6,7 @@ import com.google.gson.JsonElement
 import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
 import com.in10mServiceMan.models.RequestReviewModel
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -78,7 +78,7 @@ class CustomerRating : In10mBaseActivity() {
             */
 
             showProgressDialog("")
-            val callServicProviders = LoginAPI.loginUser().updateReview(rm)
+            val callServicProviders = APIClient.getApiInterface().updateReview(rm)
             callServicProviders.enqueue(object : Callback<JsonElement> {
                 override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
                     destroyDialog()
@@ -117,7 +117,7 @@ class CustomerRating : In10mBaseActivity() {
 
     private fun loadCustomerProfile(custId: String?) {
         showProgressDialog("")
-        val callServicProviders = LoginAPI.loginUser().getCustomerProfile(custId!!.toInt())
+        val callServicProviders = APIClient.getApiInterface().getCustomerProfile(custId!!.toInt())
         callServicProviders.enqueue(object : Callback<CustomerCompleteProfileAfterUpdate> {
             override fun onResponse(call: Call<CustomerCompleteProfileAfterUpdate>, response: Response<CustomerCompleteProfileAfterUpdate>) {
                 destroyDialog()

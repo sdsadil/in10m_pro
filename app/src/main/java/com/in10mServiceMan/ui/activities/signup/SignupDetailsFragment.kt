@@ -1,7 +1,6 @@
 package com.in10mServiceMan.ui.activities.signup
 
 
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.graphics.Color
@@ -10,7 +9,6 @@ import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AlertDialog
-import android.text.Editable
 import android.util.Log
 import android.view.*
 import android.widget.*
@@ -24,12 +22,11 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResultCallback
 import com.google.android.gms.location.places.AutocompleteFilter
 import com.google.android.gms.location.places.PlaceBuffer
-import com.google.android.gms.location.places.Places
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.spinnerAdapter
@@ -296,7 +293,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     }
 
     private fun getStates() {
-        val homeCall = LoginAPI.loginUser().states
+        val homeCall = APIClient.getApiInterface().states
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(
                 call: Call<StatesResponse>,

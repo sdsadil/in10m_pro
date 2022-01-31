@@ -5,8 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -36,7 +35,7 @@ class ReviewsActivity : In10mBaseActivity() {
     private fun initRV() {
         val userId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
         val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val callServiceProviders = LoginAPI.loginUser().getOwnReviews("Bearer $header", userId)
+        val callServiceProviders = APIClient.getApiInterface().getOwnReviews("Bearer $header", userId)
         callServiceProviders.enqueue(object : Callback<ReviewsResponse> {
             override fun onResponse(call: Call<ReviewsResponse>, response: Response<ReviewsResponse>) {
                 destroyDialog()

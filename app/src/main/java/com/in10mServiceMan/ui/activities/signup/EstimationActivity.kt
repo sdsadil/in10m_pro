@@ -6,7 +6,7 @@ import android.view.View
 import com.google.gson.Gson
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -70,7 +70,7 @@ class EstimationActivity : In10mBaseActivity(), ISignupview {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_estimation)
-        LoginAPI.Token =
+        APIClient.Token =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
 
         FreeEstimateCL.setOnClickListener {

@@ -28,7 +28,7 @@ import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
 import com.in10mServiceMan.ui.activities.signup.State
 import com.in10mServiceMan.ui.activities.signup.StatesResponse
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
@@ -36,12 +36,6 @@ import com.in10mServiceMan.utils.spinnerAdapter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
-import kotlinx.android.synthetic.main.fragment_signup_details.*
-import kotlinx.android.synthetic.main.fragment_signup_details.etAptOffNo_SignUpProfLay
-import kotlinx.android.synthetic.main.fragment_signup_details.etAvenue_SignUpProfLay
-import kotlinx.android.synthetic.main.fragment_signup_details.etBuildingNo_SignUpProfLay
-import kotlinx.android.synthetic.main.fragment_signup_details.etFloorNo_SignUpProfLay
-import kotlinx.android.synthetic.main.fragment_signup_details.tvAddressType_SignUpProfLay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -279,7 +273,7 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     private fun getStates() {
-        val homeCall = LoginAPI.loginUser().states
+        val homeCall = APIClient.getApiInterface().states
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(
                 call: Call<StatesResponse>,
@@ -328,7 +322,7 @@ class Profile : BaseFragment(), IProfileView {
                 "0"
             )!!
                 .toInt()//localStorage(this@ProfileActivity).loggedInUser.customerId
-            val callServiceProviders = LoginAPI.loginUser().getCompleteProfile(myUserId)
+            val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(myUserId)
             callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
                 override fun onResponse(
                     call: Call<CustomerCompleteProfile>,
@@ -412,10 +406,10 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     private fun getPreServices() {
-        LoginAPI.Token =
+        APIClient.Token =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val homeCall = LoginAPI.loginUser().getExistingServiceDetailsWithHeaderAndExperience(
-            "Bearer " + LoginAPI.Token,
+        val homeCall = APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
+            "Bearer " + APIClient.Token,
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
         )

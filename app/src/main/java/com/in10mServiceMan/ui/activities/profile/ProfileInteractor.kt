@@ -5,7 +5,7 @@ import com.google.gson.Gson
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
 import com.in10mServiceMan.models.RequestUpdateServiceMan
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -17,7 +17,7 @@ import java.io.File
 class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInteractor {
     override fun getCompleteProfile(userId: String) {
 
-        val callServiceProviders = LoginAPI.loginUser().getCompleteProfile(userId.toInt())
+        val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(userId.toInt())
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
             override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
                 if (response.isSuccessful) {
@@ -37,7 +37,7 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
     }
 
     override fun updateProfile(header: String, request: RequestUpdateServiceMan) {
-        val callServiceProviders = LoginAPI.loginUser().updateServiceManProfile(request)
+        val callServiceProviders = APIClient.getApiInterface().updateServiceManProfile(request)
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfileAfterUpdate> {
             override fun onResponse(call: Call<CustomerCompleteProfileAfterUpdate>, response: Response<CustomerCompleteProfileAfterUpdate>) {
                 Log.e("eeee", Gson().toJson(response))
@@ -57,7 +57,7 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
         val reqFile = RequestBody.create(MediaType.parse("image/*"), file)
         body = MultipartBody.Part.createFormData("profile_picture", file.name, reqFile)
 
-        val profilePicRequest = LoginAPI.loginUser().UpdateServiceManProfilePicture("Bearer $header", serviceManIdBody, body)
+        val profilePicRequest = APIClient.getApiInterface().UpdateServiceManProfilePicture("Bearer $header", serviceManIdBody, body)
         profilePicRequest.enqueue(object : Callback<ImageUpdateResponse> {
             override fun onResponse(call: Call<ImageUpdateResponse>, response: Response<ImageUpdateResponse>) {
                 if (response.isSuccessful) {

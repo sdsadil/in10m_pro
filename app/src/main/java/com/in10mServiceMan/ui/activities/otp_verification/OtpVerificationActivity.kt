@@ -10,7 +10,7 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.LoadingDialog
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_otp_verification.*
@@ -63,7 +63,7 @@ class OtpVerificationActivity : BaseActivity() {
 
             // Log.i("eee112", mobile)
 
-            val loginAPI = LoginAPI()
+            val loginAPI = APIClient()
 
             val requestVerifyMobile = RequestVerifyOTP()
             requestVerifyMobile.code = "91"
@@ -71,7 +71,7 @@ class OtpVerificationActivity : BaseActivity() {
             requestVerifyMobile.name = ""
             requestVerifyMobile.otp = otpText.toString()
 
-            val callServicProviders = LoginAPI.loginUser().postOtpMobile(requestVerifyMobile)
+            val callServicProviders = APIClient.getApiInterface().postOtpMobile(requestVerifyMobile)
             callServicProviders.enqueue(object : Callback<ResponseVerifyMobile> {
                 override fun onResponse(call: Call<ResponseVerifyMobile>, response: Response<ResponseVerifyMobile>) {
 
@@ -120,7 +120,7 @@ class OtpVerificationActivity : BaseActivity() {
 
     private fun loadExistingProfile() {
         val user = localStorage(this).loggedInUser
-        LoginAPI.loginUser()!!.getCompleteProfile(user.customerId!!).enqueue(object : Callback<CustomerCompleteProfile> {
+        APIClient.getApiInterface()!!.getCompleteProfile(user.customerId!!).enqueue(object : Callback<CustomerCompleteProfile> {
             override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
                 if (response.isSuccessful) {
                     val profile = response.body()!!.data

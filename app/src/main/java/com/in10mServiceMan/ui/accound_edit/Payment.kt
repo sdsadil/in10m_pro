@@ -18,7 +18,7 @@ import com.in10mServiceMan.ui.accound_edit.UpdatePayment.IUpdatePaymentView
 import com.in10mServiceMan.ui.accound_edit.UpdatePayment.UpdatePaymentPresenter
 import com.in10mServiceMan.ui.accound_edit.UpdatePayment.UpdatePaymentResponse
 import com.in10mServiceMan.ui.activities.create_online_account.CreateOnlinePaymentAccountActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.fragment_payment.view.*
@@ -179,7 +179,7 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
                     .toString()
 
             val callServiceProviders =
-                LoginAPI.loginUser().checkStripAccount(header, myUserId.toString())
+                APIClient.getApiInterface().checkStripAccount(header, myUserId.toString())
             callServiceProviders.enqueue(object : Callback<CheckStripeAccount> {
                 override fun onResponse(
                     call: Call<CheckStripeAccount>,

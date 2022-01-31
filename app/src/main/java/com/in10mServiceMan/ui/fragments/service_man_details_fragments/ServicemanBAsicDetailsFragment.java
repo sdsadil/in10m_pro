@@ -23,7 +23,7 @@ import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate;
 import com.in10mServiceMan.models.CustomerUser;
 import com.in10mServiceMan.models.RequestUpdateServiceMan;
 import com.in10mServiceMan.R;
-import com.in10mServiceMan.ui.apis.LoginAPI;
+import com.in10mServiceMan.ui.apis.APIClient;
 import com.in10mServiceMan.ui.interfaces.OnDataPass;
 import com.in10mServiceMan.utils.LoadingDialog;
 import com.in10mServiceMan.utils.localStorage;
@@ -69,7 +69,7 @@ public class ServicemanBAsicDetailsFragment extends Fragment implements View.OnC
 
     private void loadExistingProfile() {
         CustomerUser user = new localStorage(getActivity()).getLoggedInUser();
-        LoginAPI.loginUser().getCompleteProfile(user.getCustomerId()).enqueue(new Callback<CustomerCompleteProfile>() {
+        APIClient.getApiInterface().getCompleteProfile(user.getCustomerId()).enqueue(new Callback<CustomerCompleteProfile>() {
             @Override
             public void onResponse(Call<CustomerCompleteProfile> call, Response<CustomerCompleteProfile> response) {
                 if (response.isSuccessful()) {
@@ -312,7 +312,7 @@ public class ServicemanBAsicDetailsFragment extends Fragment implements View.OnC
 
         Log.i("eeeeUPDATE", new Gson().toJson(rq));
 
-        Call<CustomerCompleteProfileAfterUpdate> call = LoginAPI.loginUser().updateServiceManProfile(rq);
+        Call<CustomerCompleteProfileAfterUpdate> call = APIClient.getApiInterface().updateServiceManProfile(rq);
 
         loadingDialog.showProgressDialog("");
 

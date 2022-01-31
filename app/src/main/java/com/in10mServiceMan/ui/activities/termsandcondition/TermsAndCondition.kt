@@ -1,7 +1,6 @@
 package com.in10mServiceMan.ui.activities.termsandcondition
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -10,7 +9,7 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.ITermsConditionsView
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.PolicyAndTermsResponse
 import com.in10mServiceMan.ui.accound_edit.policy_and_terms_api.TermsConditionsPresenter
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -39,7 +38,7 @@ class TermsAndCondition : In10mBaseActivity(), ITermsConditionsView {
             finish()
         }
         termsAndConditionWV.settings.javaScriptEnabled = true
-        termsAndConditionWV.loadUrl("https://docs.google.com/viewer?embedded=true&url=" + LoginAPI.termsAndCondition)
+        termsAndConditionWV.loadUrl("https://docs.google.com/viewer?embedded=true&url=" + APIClient.termsAndCondition)
         termsAndConditionWV.webViewClient = myWebViewClient()
 
         if (Constants.GlobalSettings.termsConditions) {

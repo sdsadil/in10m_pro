@@ -14,7 +14,7 @@ import com.in10mServiceMan.ui.activities.BackButtonHandler
 import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
 import com.in10mServiceMan.ui.activities.splash.SplashActivity
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -293,7 +293,7 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 Constants.SharedPrefs.User.AUTH_TOKEN,
                 mResponse.data!![0]?.apiToken!!
             )
-            LoginAPI().publicAccessToken = mResponse.data[0]?.apiToken!!
+            APIClient().publicAccessToken = mResponse.data[0]?.apiToken!!
 
             SharedPreferencesHelper.putString(
                 this,

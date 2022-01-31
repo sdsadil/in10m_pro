@@ -1,21 +1,13 @@
 package com.in10mServiceMan.ui.activities.my_bookings
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
-import com.google.gson.Gson
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
-import com.in10mServiceMan.ui.apis.LoginAPI
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_company_service_history.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class CompanyServiceHistoryActivity : In10mBaseActivity() {
     private lateinit var bookingsAdapter: CompanyBookingsAdapter
