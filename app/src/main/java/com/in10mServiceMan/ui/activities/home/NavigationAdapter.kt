@@ -20,7 +20,7 @@ class NavigationAdapter(val context: Context, var navigationCallbacks: Navigatio
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NavigationVH {
 
-        val v = LayoutInflater.from(parent?.context).inflate(R.layout.navigation_list_item, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.navigation_list_item, parent, false)
         return NavigationVH(v)
     }
 
