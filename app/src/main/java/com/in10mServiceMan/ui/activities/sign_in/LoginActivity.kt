@@ -17,6 +17,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatEditText
 import com.google.gson.Gson
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.ui.activities.BaseActivity
@@ -75,7 +76,7 @@ class LoginActivity : BaseActivity(), ILoginView {
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
-        val email = mDialogView.findViewById(R.id.resetEmailET) as TextInputEditText
+        val email = mDialogView.findViewById(R.id.resetEmailET) as AppCompatEditText
         val button = mDialogView.findViewById(R.id.resetClickLL) as LinearLayout
         button.setOnClickListener {
 
@@ -184,38 +185,31 @@ class LoginActivity : BaseActivity(), ILoginView {
     }
 
     override fun onLoginCompleted(mResponse: LoginResponse) {
-        Log.e("Login Response", Gson().toJson(mResponse))
         destroyDialog()
         if (mResponse.status == 1) {
 
             val gson = Gson()
-            val responseString = gson.toJson(mResponse?.data)
+            val responseString = gson.toJson(mResponse.data)
 
-            Log.d("Login Response data", responseString)
-            Log.d(
-                "Registration step",
-                mResponse?.data!![0]?.customerData!![0]?.registrationStep.toString()
-            )
-
-            APIClient().publicAccessToken = mResponse?.data!![0]?.apiToken!!.toString()
+            APIClient().publicAccessToken = mResponse.data!![0]?.apiToken!!.toString()
 
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.USER_ID,
-                mResponse?.data!![0]?.customerData!![0]?.servicePersonId.toString()
+                mResponse.data[0]?.customerData!![0]?.servicePersonId.toString()
             )
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.AUTH_TOKEN,
-                mResponse?.data!![0]?.apiToken!!
+                mResponse.data[0]?.apiToken!!
             )
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.EMAIL,
-                mResponse?.data!![0]?.customerData!![0]?.servicePersonEmail!!
+                mResponse.data[0]?.customerData!![0]?.servicePersonEmail!!
             )
             try {
-                if (mResponse?.data!![0]?.customerData!![0]?.servicePersonCompany != null)
+                if (mResponse.data[0]?.customerData!![0]?.servicePersonCompany != null)
                     SharedPreferencesHelper.putInt(
                         this,
                         Constants.SharedPrefs.User.PERSON_COMPANY_NAME,

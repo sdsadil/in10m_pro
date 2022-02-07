@@ -44,31 +44,12 @@ import kotlin.collections.ArrayList
 
 class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
-    override fun onConnectionFailed(p0: ConnectionResult) {
-        Toast.makeText(
-            this.context,
-            "Google Places API connection failed with error code:" + p0.errorCode,
-            Toast.LENGTH_LONG
-        ).show()
-    }
 
-    override fun onConnected(p0: Bundle?) {
-        mPlaceArrayAdapter?.setGoogleApiClient(mGoogleApiClient)
-    }
+    var state: String = "Hawally"
+    var city: String = "Kuwait City"
+    var country: String = "Kuwait"
+    var country_id: String = "12"
 
-    override fun onConnectionSuspended(p0: Int) {
-        mPlaceArrayAdapter?.setGoogleApiClient(null)
-
-    }
-
-    interface NextFragmentInterfaceOne {
-        fun toNextFragmentOne()
-    }
-
-    var state: String = ""
-    var city: String = ""
-    var country: String = ""
-    var country_id: String = ""
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mPlaceArrayAdapter: PlaceArrayAdapter? = null
     private var mStatesList: List<State?>? = null
@@ -92,7 +73,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_signup_details, container, false)
-        filter = AutocompleteFilter.Builder().setCountry("US").build()
+        filter = AutocompleteFilter.Builder().setCountry("KW").build()
         getStates()
 
         /*if (SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2") == "2") {
@@ -141,7 +122,17 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 ageCalculator(view.personalDetailsLastDOB.text.toString()) < 13 -> {
                     ShowToast(resources.getString(R.string.age_must_be_greater_than))
                 }
-                view.personalDetailsLastStreetAddress.text.toString().trim().isEmpty() -> {
+                view.etAreaName_SignUpProfLay.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_your_area_name))
+                }
+                view.etBlock_SignUpProfLay.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_your_block))
+                }
+                view.etStreet_SignUpProfLay.text.toString().trim().isEmpty() -> {
+                    ShowToast(resources.getString(R.string.please_enter_your_street))
+                }
+
+                /*view.personalDetailsLastStreetAddress.text.toString().trim().isEmpty() -> {
                     ShowToast(resources.getString(R.string.please_enter_street_address))
                 }
                 view.personalDetailsLastSuite.text.toString().trim().isEmpty() -> {
@@ -155,7 +146,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 }
                 view.personalDetailsZip.text.toString().trim().length != 5 -> {
                     ShowToast(resources.getString(R.string.please_enter_valid_zipcode))
-                }
+                }*/
                 else -> {
                     SharedPreferencesHelper.putString(
                         this.context!!,
@@ -170,17 +161,17 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.STREET,
-                        view.personalDetailsLastStreetAddress.text.toString().trim()
+                        view.etStreet_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.SUITE,
-                        view.personalDetailsLastSuite.text.toString().trim()
+                        view.etAreaName_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.CITY,
-                        view.personalDetailsStreetAddress.text.toString().trim()
+                        view.etBlock_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
@@ -236,44 +227,9 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
             dpd_startdate.show()
         }
-
-        /*view.personalDetailsStreetAddress.threshold = 3
-        if (mGoogleApiClient == null || !mGoogleApiClient?.isConnected!!) {
-            try {
-
-                mGoogleApiClient = GoogleApiClient.Builder(this.context as Activity)
-                        .addApi(Places.GEO_DATA_API)
-                        .enableAutoManage(this.activity!!, GOOGLE_API_CLIENT_ID, this)
-                        .addConnectionCallbacks(this)
-                        .build()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-        view.personalDetailsStreetAddress.onItemClickListener = mAutocompleteClickListener
-        mPlaceArrayAdapter = PlaceArrayAdapter(this.context, android.R.layout.simple_list_item_1, BOUNDS_MOUNTAIN_VIEW, filter)
-        view.personalDetailsStreetAddress.setAdapter(mPlaceArrayAdapter)*/
-
-
         return view
     }
 
-    val mUpdatePlaceDetailsCallback = object : ResultCallback<PlaceBuffer> {
-        override fun onResult(places: PlaceBuffer) {
-            if (!places.status.isSuccess) {
-                Log.e(
-                    "Location",
-                    ("Place query did not complete. Error: " + places.status.toString())
-                )
-                return
-            }
-            // Selecting the first object buffer.
-            val place = places.get(0)
-            val attributions = places.attributions
-            personalDetailsStreetAddress.setText(place.name.toString())
-            /* mNameView.setText(Html.fromHtml(place.getAddress() + ""))*/
-        }
-    }
 
     private fun displayAlertDialog() {
         val mDialogView =
@@ -314,7 +270,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         mStatesList = body.data?.states
         country = body.data?.countryCode!!
         country_id = body.data.countryId.toString()
-        val myStateList: ArrayList<String>? = ArrayList()
+        val myStateList: ArrayList<String> = ArrayList()
         if (mStatesList?.size!! > 0) {
             for (i in 0 until mStatesList!!.size) {
                 myStateList?.add(mStatesList?.get(i)?.name!!)
@@ -385,36 +341,59 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 etAptOffNo_SignUpProfLay.setText("")
                 etAvenue_SignUpProfLay.setText("")
                 addressType = "1"
-                tvAddressType_SignUpProfLay.setText(context!!.resources.getString(R.string.house))
-                etBuildingNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.house_no))
-                etFloorNo_SignUpProfLay.setVisibility(View.GONE)
-                etAptOffNo_SignUpProfLay.setVisibility(View.GONE)
+                tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.house)
+                etBuildingNo_SignUpProfLay.hint = context!!.resources.getString(R.string.house_no)
+                etFloorNo_SignUpProfLay.visibility = View.GONE
+                etAptOffNo_SignUpProfLay.visibility = View.GONE
             } else if (checkedId == R.id.rbApartment_AddressTypePopUp) {
                 etBuildingNo_SignUpProfLay.setText("")
                 etFloorNo_SignUpProfLay.setText("")
                 etAptOffNo_SignUpProfLay.setText("")
                 etAvenue_SignUpProfLay.setText("")
                 addressType = "2"
-                tvAddressType_SignUpProfLay.setText(context!!.resources.getString(R.string.apartment))
-                etBuildingNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.building_no))
-                etAptOffNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.apartment))
-                etFloorNo_SignUpProfLay.setVisibility(View.VISIBLE)
-                etAptOffNo_SignUpProfLay.setVisibility(View.VISIBLE)
+                tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.apartment)
+                etBuildingNo_SignUpProfLay.hint =
+                    context!!.resources.getString(R.string.building_no)
+                etAptOffNo_SignUpProfLay.hint = context!!.resources.getString(R.string.apartment)
+                etFloorNo_SignUpProfLay.visibility = View.VISIBLE
+                etAptOffNo_SignUpProfLay.visibility = View.VISIBLE
             } else if (checkedId == R.id.rbOffice_AddressTypePopUp) {
                 etBuildingNo_SignUpProfLay.setText("")
                 etFloorNo_SignUpProfLay.setText("")
                 etAptOffNo_SignUpProfLay.setText("")
                 etAvenue_SignUpProfLay.setText("")
                 addressType = "3"
-                tvAddressType_SignUpProfLay.setText(context!!.resources.getString(R.string.office))
-                etBuildingNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.building_no))
-                etAptOffNo_SignUpProfLay.setHint(context!!.resources.getString(R.string.office_no))
-                etFloorNo_SignUpProfLay.setVisibility(View.VISIBLE)
-                etAptOffNo_SignUpProfLay.setVisibility(View.VISIBLE)
+                tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.office)
+                etBuildingNo_SignUpProfLay.hint =
+                    context!!.resources.getString(R.string.building_no)
+                etAptOffNo_SignUpProfLay.hint = context!!.resources.getString(R.string.office_no)
+                etFloorNo_SignUpProfLay.visibility = View.VISIBLE
+                etAptOffNo_SignUpProfLay.visibility = View.VISIBLE
             }
         }
         ivClose_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
         btnContinue_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
         dialog.show()
+    }
+
+    override fun onConnectionFailed(p0: ConnectionResult) {
+        Toast.makeText(
+            this.context,
+            "Google Places API connection failed with error code:" + p0.errorCode,
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    override fun onConnected(p0: Bundle?) {
+        mPlaceArrayAdapter?.setGoogleApiClient(mGoogleApiClient)
+    }
+
+    override fun onConnectionSuspended(p0: Int) {
+        mPlaceArrayAdapter?.setGoogleApiClient(null)
+
+    }
+
+    interface NextFragmentInterfaceOne {
+        fun toNextFragmentOne()
     }
 }

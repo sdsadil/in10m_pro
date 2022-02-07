@@ -58,11 +58,10 @@ class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.Selecte
 
         ServiceSelectionButton.setOnClickListener {
             if (serviceList.isEmpty()) {
-                ShowToast("Please select a service")
+                ShowToast(getString(R.string.please_select_a_service))
             } else {
                 val gson = Gson()
                 val responseString = gson.toJson(serviceList)
-                Log.d("serviceList", responseString)
                 for (i in 0 until serviceList.size) {
                     serviceListString = serviceListString + serviceList[i].serviceId + ","
                 }
@@ -70,9 +69,7 @@ class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.Selecte
 /*
                 var newServiceListString = serviceListString.substring(0, serviceListString.length-1)
 */
-                var newServiceListString = serviceListString.replace(",", " ").trim().replace(" ", ",")
-
-                Log.d("service provide", newServiceListString)
+                val newServiceListString = serviceListString.replace(",", " ").trim().replace(" ", ",")
                 SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING, newServiceListString)
                 serviceListString = ""
                 if (SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2") == "2") {

@@ -1,6 +1,7 @@
 package com.in10mServiceMan.ui.apis;
 
 import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -15,16 +16,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-    //    private static final String BaseUrl = "http://52.47.100.139/in10m/in10m/public/";  //test
+//    private static final String BaseUrl = "http://52.47.100.139/in10m/in10m/public/";  //test
 //    public static final String UserImage = "http://52.47.100.139/in10m/in10m/public/serviceprovider/api/get_servicemen_image/";//+phonenumber  //test
 
     //Live
-//    private static final String BaseUrl = "http://www.in10m.com/in10m/public/";
-//    public static final String UserImage = "http://www.in10m.com/in10m/public/serviceprovider/api/get_servicemen_image/";
+    private static final String BaseUrl = "http://www.in10m.com/in10m/public/";
+    public static final String UserImage = "http://www.in10m.com/in10m/public/serviceprovider/api/get_servicemen_image/";
 
     //Dev
-    private static final String BaseUrl = "http://34.224.101.230/in10m/public/";
-    public static final String UserImage = "http://34.224.101.230/in10m/public/serviceprovider/api/get_servicemen_image/";
+//    private static final String BaseUrl = "http://34.224.101.230/in10m/public/";
+//    public static final String UserImage = "http://34.224.101.230/in10m/public/serviceprovider/api/get_servicemen_image/";
 
 
     public static final String privacyPolicy = "https://in10m.com/in10mPrivacyPolicy.pdf";

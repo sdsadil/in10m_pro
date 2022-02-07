@@ -34,7 +34,6 @@
     <string name="date_of_birth">Date of Birth</string>
     <string name="date_of_birth_caps">DATE OF BIRTH</string>
     <string name="home_address">Home Address</string>
-    <string name="company_details">Company Details</string>
     <string name="company_address">Company Address</string>
     <string name="company_name">COMPANY NAME</string>
     <string name="confirm_address_min">Confirm Address</string>
@@ -412,4 +411,10 @@
     <string name="office">Office</string>
     <string name="block">Block</string>
     <string name="ok">Ok</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="please_select_a_service">Please select a service</string>
+    <string name="company_details">Company Details</string>
+    <string name="please_enter_your_area_name">Please enter your area name</string>
+    <string name="please_enter_your_block">Please enter your block</string>
+    <string name="please_enter_your_street">Please enter your street</string>
 </resources>
