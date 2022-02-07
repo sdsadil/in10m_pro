@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.accound_edit.Estimates">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
@@ -19,7 +19,7 @@
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_50sdp"
             android:fontFamily="@font/aller_lt"
-            android:text="You Offer"
+            android:text="@string/you_offer"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,7 @@
                     android:padding="@dimen/_15sdp"
                     android:text="@string/free_estimate"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/selectRoundIVFreeEstimate"
@@ -225,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/avenir_medium"
                     android:padding="@dimen/_5sdp"
-                    android:text="COMPLETE"
+                    android:text="@string/complete"
                     android:textColor="@color/white_text_selector"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@+id/arrow"

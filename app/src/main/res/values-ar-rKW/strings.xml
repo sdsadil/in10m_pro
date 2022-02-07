@@ -415,4 +415,10 @@
     <string name="please_enter_your_block">Please enter your block</string>
     <string name="please_enter_your_street">Please enter your street</string>
     <string name="i_accept">I Accept</string>
+    <string name="services">Services</string>
+    <string name="payment">Payment</string>
+    <string name="estimates">Estimates</string>
+    <string name="update">UPDATE</string>
+    <string name="you_offer">You Offer</string>
+    <string name="complete">COMPLETE</string>
 </resources>

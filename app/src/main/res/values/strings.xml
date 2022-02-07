@@ -411,7 +411,7 @@
     <string name="apartment">Apartment</string>
     <string name="office">Office</string>
     <string name="block">Block</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="reset_password">Reset Password</string>
     <string name="please_select_a_service">Please select a service</string>
     <string name="company_details">Company Details</string>
@@ -419,4 +419,10 @@
     <string name="please_enter_your_block">Please enter your block</string>
     <string name="please_enter_your_street">Please enter your street</string>
     <string name="i_accept">I Accept</string>
+    <string name="services">Services</string>
+    <string name="payment">Payment</string>
+    <string name="estimates">Estimates</string>
+    <string name="update">UPDATE</string>
+    <string name="you_offer">You Offer</string>
+    <string name="complete">COMPLETE</string>
 </resources>

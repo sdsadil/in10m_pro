@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.accound_edit.Payment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
@@ -65,7 +65,7 @@
                     android:padding="@dimen/_10sdp"
                     android:text="@string/cash_payment"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/selectRoundIVCashOnly"
@@ -102,7 +102,7 @@
                     android:padding="@dimen/_10sdp"
                     android:text="@string/online_payment"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/selectRoundIVOnline"
@@ -122,8 +122,8 @@
                 android:paddingBottom="5dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/OnlineAndCashCL">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,10 +138,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/avenir_medium"
-                        android:textSize="@dimen/_8sdp"
                         android:padding="@dimen/_5sdp"
                         android:text="Create Online Account"
                         android:textColor="@color/white_text_selector"
+                        android:textSize="@dimen/_8sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -738,10 +738,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/avenir_medium"
-                    android:textSize="@dimen/_8sdp"
                     android:padding="@dimen/_5sdp"
-                    android:text="UPDATE"
+                    android:text="@string/update"
                     android:textColor="@color/white_text_selector"
+                    android:textSize="@dimen/_8sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@+id/arrow"
                     app:layout_constraintStart_toEndOf="@+id/arrow"

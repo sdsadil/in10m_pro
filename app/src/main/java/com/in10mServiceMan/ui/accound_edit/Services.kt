@@ -53,8 +53,6 @@ class Services : BaseFragment() {
             override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {
                 if (response.isSuccessful) {
                     bindOfferedServiceRecyclerView(response.body()!!)
-                } else {
-                    Log.d("error", "Error")
                 }
             }
 

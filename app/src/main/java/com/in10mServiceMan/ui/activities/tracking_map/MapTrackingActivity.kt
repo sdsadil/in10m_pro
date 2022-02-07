@@ -80,7 +80,10 @@ import kotlinx.android.synthetic.main.home_bottom_buttons.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.cos
+import kotlin.math.pow
 import kotlin.math.sqrt
+import kotlin.math.atan2 as atan21
 
 class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
     OnMapReadyCallback, Mapss.RouteStatus,
@@ -88,7 +91,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     GoogleMap.OnCameraMoveListener,
     GoogleMap.OnCameraMoveCanceledListener,
     GoogleMap.OnCameraIdleListener, SinchService.StartFailedListener, ICompleteProfileView {
-
 
     var permissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -99,254 +101,11 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         Manifest.permission.CALL_PHONE
     )
     var permsRequestCode = 1
-
-    override fun onCompleteProfileCompleted(mPost: CompleteProfileResponse) {
-        destroyDialog()
-        if (mPost.status == 1) {
-            if (mPost.data.privacy_policy_accept == 0) {
-                Constants.GlobalSettings.privacyPolicy = true
-            }
-
-            if (mPost.data.terms_condition_accept == 0) {
-                Constants.GlobalSettings.termsConditions = true
-            }
-
-            when {
-                mPost.data.privacy_policy_accept == 0 -> {
-                    bannerCard_HO.visibility = View.VISIBLE
-                    header_HO.text = resources.getString(R.string.privacy_updated)
-                    subHeader_HO.text = resources.getString(R.string.desc_privacy_updated)
-                    yes_HO.setOnClickListener {
-                        openactivity(PrivacyPolicyActivity())
-                    }
-                }
-                mPost.data.terms_condition_accept == 0 -> {
-                    bannerCard_HO.visibility = View.VISIBLE
-                    header_HO.text = resources.getString(R.string.terms_updated)
-                    subHeader_HO.text = resources.getString(R.string.desc_terms_updated)
-                    yes_HO.setOnClickListener {
-                        openactivity(TermsAndCondition())
-                    }
-                }
-                else -> {
-                    bannerCard_HO.visibility = View.GONE
-                }
-            }
-        }
-    }
-
-    override fun onCompleteProfileFailed(msg: String) {
-        destroyDialog()
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
-    }
-
+    var polyline: Polyline? = null
     var currentWorkStatus: Int = 0
     var isLocationReayForChange = true
     var thread = Thread()
 
-    override fun onStartFailed(error: SinchError?) {
-        // Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
-    }
-
-    override fun onStarted() {
-    }
-
-    override fun onServiceConnected() {
-        sinchServiceInterface.setStartListener(this)
-        initCalling()
-    }
-
-    private fun initCalling() {
-        val user = localStorage(this).completeCustomer
-
-        var callerSelfId: String = user.name
-
-        if (!user.lastname.isNullOrEmpty()) {
-            callerSelfId = callerSelfId + " " + user.lastname
-        }
-        if (!user.mobile.isNullOrEmpty()) {
-            callerSelfId = callerSelfId + "-" + user.mobile
-        }
-
-        Log.e("MapTrackingActivity", "Sinch Self Id: " + callerSelfId)
-
-        if (callerSelfId != sinchServiceInterface.userName) {
-            sinchServiceInterface.stopClient()
-        }
-
-        if (!sinchServiceInterface.isStarted) {
-            sinchServiceInterface.startClient(callerSelfId)
-        }
-    }
-
-    private fun updateDeviceIdOnServer() {
-        /*OneSignal.idsAvailable { userId, registrationId ->
-            var text = "OneSignal UserID:\n$userId\n\n"
-
-            text += if (registrationId != null)
-                "Google Registration Id:\n$registrationId"
-            else
-                "Google Registration Id:\nCould not subscribe for push"
-            val requestUpdateDeviceUser = RequestUpdateDeviceUser()
-            requestUpdateDeviceUser.userId = userid
-            requestUpdateDeviceUser.status = 1
-            requestUpdateDeviceUser.deviceId = userId
-
-            val callServiceProviders = LoginAPI.loginUser().saveDeviceId(requestUpdateDeviceUser)
-            callServiceProviders.enqueue(object : Callback<Void> {
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    if (response.isSuccessful)
-                        Log.d("Response from backend", response.body().toString())
-                }
-
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-
-                }
-            })
-        }*/
-
-        val device: OSDeviceState? = OneSignal.getDeviceState()
-        val userId: String = device!!.userId
-//        val registrationId: String = device.emailUserId;
-        val registrationId: String = device.userId;
-
-        var text = "OneSignal UserID:\n$userId\n\n"
-        text += "Google Registration Id:\n$registrationId"
-        val requestUpdateDeviceUser = RequestUpdateDeviceUser()
-        requestUpdateDeviceUser.userId = userid
-        requestUpdateDeviceUser.status = 1
-        requestUpdateDeviceUser.deviceId = userId
-
-        val callServiceProviders = APIClient.getApiInterface().saveDeviceId(requestUpdateDeviceUser)
-        callServiceProviders.enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful)
-                    Log.d("Response from backend", response.body().toString())
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-
-            }
-        })
-
-    }
-
-
-    override fun jobDone1() {
-
-    }
-
-    var polyline: Polyline? = null
-    override fun jobDone2(polyline1: Polyline) {
-        polyline = polyline1
-    }
-
-
-    override fun bookNow() {
-    }
-
-    override fun callNow() {
-        callToCustomer()
-    }
-
-    override fun showOnMap() {
-        // show on map
-
-    }
-
-    override fun cancelBooking() {
-
-    }
-
-    override fun about() {
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            { startActivity(Intent(this, AboutActivity::class.java)) },
-            navigationDelay
-        )
-    }
-
-    override fun privacy() {
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            { startActivity(Intent(this, PrivacyPolicyActivity::class.java)) },
-            navigationDelay
-        )
-    }
-
-    override fun settings() {
-        /*slidingRootNav?.closeMenu(true)
-        handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)*/
-        languageChangeDialogView()
-    }
-
-    override fun contactUs() {
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed({ startActivity(Intent(this, ContactUs::class.java)) }, navigationDelay)
-    }
-
-    override fun myAccount() {
-        slidingRootNav?.closeMenu(true)
-        MenuNavigation(this, handler).OpenMyAccount()
-    }
-
-    override fun myBookings() {
-
-        var userType =
-            SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
-        if (userType == 3) {
-            slidingRootNav?.closeMenu(true)
-            handler.postDelayed(
-                { startActivity(Intent(this, ServiceHistoryActivity::class.java)) },
-                navigationDelay
-            )
-            //handler.postDelayed({ startActivity(Intent(this, CompanyServiceHistoryActivity::class.java)) }, navigationDelay)
-        } else {
-            slidingRootNav?.closeMenu(true)
-            handler.postDelayed(
-                { startActivity(Intent(this, ServiceHistoryActivity::class.java)) },
-                navigationDelay
-            )
-        }
-
-    }
-
-    override fun logout() {
-        try {
-            val builder =
-                android.app.AlertDialog.Builder(this@MapTrackingActivity, R.style.AlertDialogDanger)
-            builder.setTitle(resources.getString(R.string.log_out))
-            builder.setMessage(resources.getString(R.string.desc_logout))
-            builder.setPositiveButton(
-                resources.getString(R.string.log_out)
-            ) { dialog, which ->
-                mLogoutWithChangeStatus()
-            }
-            builder.setNegativeButton(
-                resources.getString(R.string.cancel)
-            ) { dialog, which ->
-                dialog.cancel()
-            }
-            builder.show()
-        } catch (e: Exception) {
-        }
-    }
-
-    override fun myEarnings() {
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            { startActivity(Intent(this, EarningsActivity::class.java)) },
-            navigationDelay
-        )
-    }
-
-    override fun companyPros() {
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            { startActivity(Intent(this, CompanyPros::class.java)) },
-            navigationDelay
-        )
-    }
 
     private var slidingRootNav: SlidingRootNav? = null
 
@@ -807,7 +566,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         freezCurrentLocation = false
         loadDashboardCount()
         val user = localStorage(this).completeCustomer
-        if (user != null) ServiceManNameTOP.text = (resources.getString(R.string.hello) + " " +  user.name)
+        if (user != null) ServiceManNameTOP.text =
+            (resources.getString(R.string.hello) + " " + user.name)
         selectedCV.visibility = View.VISIBLE
 
         lvBtnBookNow1.visibility = View.VISIBLE
@@ -886,7 +646,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         val compId =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_COMPANY_NAME, 0)
         val callServiceProviders =
-            APIClient.getApiInterface().getServicemanLocation(header, userid.toString(), compId.toString())
+            APIClient.getApiInterface()
+                .getServicemanLocation(header, userid.toString(), compId.toString())
         callServiceProviders.enqueue(object : Callback<CompanyServicemanLocationResponse> {
             override fun onResponse(
                 call: Call<CompanyServicemanLocationResponse>,
@@ -1015,7 +776,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         } else {
             aa = cVal.toString()
         }
-        return aa;
+        return aa
     }
 
 
@@ -1028,16 +789,16 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             // map!!.animateCamera(CameraUpdateFactory.newLatLngZoom(destinationLocation, 12f), 1000, null)
             bookingAccpted = true
 
-            val builder = LatLngBounds.Builder();
+            val builder = LatLngBounds.Builder()
             if (destinationMarker != null)
-                builder.include(destinationMarker!!.position);
-            builder.include(userLocation);
-            val bounds = builder.build();
+                builder.include(destinationMarker!!.position)
+            builder.include(userLocation)
+            val bounds = builder.build()
             val width = resources.displayMetrics.widthPixels
             val height = resources.displayMetrics.heightPixels
             val padding = (width * 0.10).toInt() // offset from edges of the map 10% of screen
-            val cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding);
-            map!!.animateCamera(cu);
+            val cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding)
+            map!!.animateCamera(cu)
         }
     }
 
@@ -1087,13 +848,14 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         val sindLat = Math.sin(dLat / 2)
         val sindLng = Math.sin(dLng / 2)
 
-        val a = Math.pow(sindLat, 2.0) + (Math.pow(sindLng, 2.0)
-                * Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)))
+        val a = sindLat.pow(2.0) + (sindLng.pow(2.0)
+                * cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)))
 
-        val c = 2 * Math.atan2(sqrt(a), Math.sqrt(1 - a))
+        val c = 2 * atan21(sqrt(a), Math.sqrt(1 - a))
 
         return earthRadius * c
     }
+
 
     private fun RequestCanceled(showMsg: Boolean = true) {
 
@@ -1602,7 +1364,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         freezCurrentLocation = false
                         loadDashboardCount()
                         val user = localStorage(this@MapTrackingActivity).completeCustomer
-                        if (user != null) ServiceManNameTOP.text = (resources.getString(R.string.hello) + " " + user.name)
+                        if (user != null) ServiceManNameTOP.text =
+                            (resources.getString(R.string.hello) + " " + user.name)
                         selectedCV.visibility = View.VISIBLE
 
                         lvBtnBookNow1.visibility = View.VISIBLE
@@ -1844,7 +1607,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         loc.id = userid
         loc.workingStatus = currentStatus.toString()
 
-        val callServiceProviders = APIClient.getApiInterface().updateServiceWorkingStatusWithHeader(loc)
+        val callServiceProviders =
+            APIClient.getApiInterface().updateServiceWorkingStatusWithHeader(loc)
         callServiceProviders.enqueue(object : Callback<CommonApiResponse> {
             override fun onResponse(
                 call: Call<CommonApiResponse>,
@@ -1986,7 +1750,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
             val header =
                 SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val callServiceProviders = APIClient.getApiInterface().getOwnReviews("Bearer $header", userId)
+            val callServiceProviders =
+                APIClient.getApiInterface().getOwnReviews("Bearer $header", userId)
             callServiceProviders.enqueue(object : Callback<ReviewsResponse> {
                 override fun onResponse(
                     call: Call<ReviewsResponse>,
@@ -2185,6 +1950,23 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     private fun onLocationFetched() {
         dbUpdated = false
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location: Location? ->
 
@@ -2193,16 +1975,15 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                     if (map != null) {
 
                         map!!.setOnCameraIdleListener(this);
-                        map!!.setOnCameraMoveStartedListener(this);
-                        map!!.setOnCameraMoveListener(this);
-                        map!!.setOnCameraMoveCanceledListener(this);
+                        map!!.setOnCameraMoveStartedListener(this)
+                        map!!.setOnCameraMoveListener(this)
+                        map!!.setOnCameraMoveCanceledListener(this)
 
                         userLocation = LatLng(location.latitude, location.longitude)
                         if (mCurrLocationMarker != null) {
                             mCurrLocationMarker?.remove()
                         }
 
-                        // Log.i("EEEEEEEEEEEEEE","7")
                         updateMyLocationToDB(
                             location.latitude.toString(),
                             location.longitude.toString()
@@ -2431,5 +2212,246 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             }
         }
         return true
+    }
+
+    override fun onCompleteProfileCompleted(mPost: CompleteProfileResponse) {
+        destroyDialog()
+        if (mPost.status == 1) {
+            if (mPost.data.privacy_policy_accept == 0) {
+                Constants.GlobalSettings.privacyPolicy = true
+            }
+
+            if (mPost.data.terms_condition_accept == 0) {
+                Constants.GlobalSettings.termsConditions = true
+            }
+
+            when {
+                mPost.data.privacy_policy_accept == 0 -> {
+                    bannerCard_HO.visibility = View.VISIBLE
+                    header_HO.text = resources.getString(R.string.privacy_updated)
+                    subHeader_HO.text = resources.getString(R.string.desc_privacy_updated)
+                    yes_HO.setOnClickListener {
+                        openactivity(PrivacyPolicyActivity())
+                    }
+                }
+                mPost.data.terms_condition_accept == 0 -> {
+                    bannerCard_HO.visibility = View.VISIBLE
+                    header_HO.text = resources.getString(R.string.terms_updated)
+                    subHeader_HO.text = resources.getString(R.string.desc_terms_updated)
+                    yes_HO.setOnClickListener {
+                        openactivity(TermsAndCondition())
+                    }
+                }
+                else -> {
+                    bannerCard_HO.visibility = View.GONE
+                }
+            }
+        }
+    }
+
+    override fun onCompleteProfileFailed(msg: String) {
+        destroyDialog()
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onStartFailed(error: SinchError?) {
+        // Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+    }
+
+    override fun onStarted() {
+    }
+
+    override fun onServiceConnected() {
+        sinchServiceInterface.setStartListener(this)
+        initCalling()
+    }
+
+    private fun initCalling() {
+        val user = localStorage(this).completeCustomer
+
+        var callerSelfId: String = user.name
+
+        if (!user.lastname.isNullOrEmpty()) {
+            callerSelfId = callerSelfId + " " + user.lastname
+        }
+        if (!user.mobile.isNullOrEmpty()) {
+            callerSelfId = callerSelfId + "-" + user.mobile
+        }
+
+        Log.e("MapTrackingActivity", "Sinch Self Id: " + callerSelfId)
+
+        if (callerSelfId != sinchServiceInterface.userName) {
+            sinchServiceInterface.stopClient()
+        }
+
+        if (!sinchServiceInterface.isStarted) {
+            sinchServiceInterface.startClient(callerSelfId)
+        }
+    }
+
+    private fun updateDeviceIdOnServer() {
+        /*OneSignal.idsAvailable { userId, registrationId ->
+            var text = "OneSignal UserID:\n$userId\n\n"
+
+            text += if (registrationId != null)
+                "Google Registration Id:\n$registrationId"
+            else
+                "Google Registration Id:\nCould not subscribe for push"
+            val requestUpdateDeviceUser = RequestUpdateDeviceUser()
+            requestUpdateDeviceUser.userId = userid
+            requestUpdateDeviceUser.status = 1
+            requestUpdateDeviceUser.deviceId = userId
+
+            val callServiceProviders = LoginAPI.loginUser().saveDeviceId(requestUpdateDeviceUser)
+            callServiceProviders.enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful)
+                        Log.d("Response from backend", response.body().toString())
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+
+                }
+            })
+        }*/
+
+        val device: OSDeviceState? = OneSignal.getDeviceState()
+        val userId: String = device!!.userId
+//        val registrationId: String = device.emailUserId;
+        val registrationId: String = device.userId;
+
+        var text = "OneSignal UserID:\n$userId\n\n"
+        text += "Google Registration Id:\n$registrationId"
+        val requestUpdateDeviceUser = RequestUpdateDeviceUser()
+        requestUpdateDeviceUser.userId = userid
+        requestUpdateDeviceUser.status = 1
+        requestUpdateDeviceUser.deviceId = userId
+
+        val callServiceProviders = APIClient.getApiInterface().saveDeviceId(requestUpdateDeviceUser)
+        callServiceProviders.enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful)
+                    Log.d("Response from backend", response.body().toString())
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+
+            }
+        })
+
+    }
+
+    override fun jobDone1() {
+
+    }
+
+    override fun jobDone2(polyline1: Polyline) {
+        polyline = polyline1
+    }
+
+    override fun bookNow() {
+    }
+
+    override fun callNow() {
+        callToCustomer()
+    }
+
+    override fun showOnMap() {
+        // show on map
+
+    }
+
+    override fun cancelBooking() {
+
+    }
+
+    override fun about() {
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed(
+            { startActivity(Intent(this, AboutActivity::class.java)) },
+            navigationDelay
+        )
+    }
+
+    override fun privacy() {
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed(
+            { startActivity(Intent(this, PrivacyPolicyActivity::class.java)) },
+            navigationDelay
+        )
+    }
+
+    override fun settings() {
+        /*slidingRootNav?.closeMenu(true)
+        handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)*/
+        languageChangeDialogView()
+    }
+
+    override fun contactUs() {
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed({ startActivity(Intent(this, ContactUs::class.java)) }, navigationDelay)
+    }
+
+    override fun myAccount() {
+        slidingRootNav?.closeMenu(true)
+        MenuNavigation(this, handler).OpenMyAccount()
+    }
+
+    override fun myBookings() {
+
+        var userType =
+            SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
+        if (userType == 3) {
+            slidingRootNav?.closeMenu(true)
+            handler.postDelayed(
+                { startActivity(Intent(this, ServiceHistoryActivity::class.java)) },
+                navigationDelay
+            )
+            //handler.postDelayed({ startActivity(Intent(this, CompanyServiceHistoryActivity::class.java)) }, navigationDelay)
+        } else {
+            slidingRootNav?.closeMenu(true)
+            handler.postDelayed(
+                { startActivity(Intent(this, ServiceHistoryActivity::class.java)) },
+                navigationDelay
+            )
+        }
+
+    }
+
+    override fun logout() {
+        try {
+            val builder =
+                android.app.AlertDialog.Builder(this@MapTrackingActivity, R.style.AlertDialogDanger)
+            builder.setTitle(resources.getString(R.string.log_out))
+            builder.setMessage(resources.getString(R.string.desc_logout))
+            builder.setPositiveButton(
+                resources.getString(R.string.log_out)
+            ) { _, _ ->
+                mLogoutWithChangeStatus()
+            }
+            builder.setNegativeButton(
+                resources.getString(R.string.cancel)
+            ) { dialog, _ ->
+                dialog.cancel()
+            }
+            builder.show()
+        } catch (e: Exception) {
+        }
+    }
+
+    override fun myEarnings() {
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed(
+            { startActivity(Intent(this, EarningsActivity::class.java)) },
+            navigationDelay
+        )
+    }
+
+    override fun companyPros() {
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed(
+            { startActivity(Intent(this, CompanyPros::class.java)) },
+            navigationDelay
+        )
     }
 }

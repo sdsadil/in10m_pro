@@ -15,17 +15,17 @@ class MyAccountEdit : In10mBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_account_edit)
 
-        var userType = SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
+        val userType =
+            SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
 
         val adapter = ServiceHistoryViewpagerAdapter(supportFragmentManager)
-        if (userType == 3)  {
-            adapter.addFragment(Profile(),"Profile")
-        }
-        else {
-            adapter.addFragment(Profile(),"Profile")
-            adapter.addFragment(Services(), "Services")
-            adapter.addFragment(Payment(), "Payment")
-            adapter.addFragment(Estimates(), "Estimates")
+        if (userType == 3) {
+            adapter.addFragment(Profile(), resources.getString(R.string.profile))
+        } else {
+            adapter.addFragment(Profile(), resources.getString(R.string.profile))
+            adapter.addFragment(Services(), resources.getString(R.string.services))
+            adapter.addFragment(Payment(), resources.getString(R.string.payment))
+            adapter.addFragment(Estimates(), resources.getString(R.string.estimates))
         }
         pager_service_history.adapter = adapter
         tab_service_history.setupWithViewPager(pager_service_history)

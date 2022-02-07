@@ -46,57 +46,6 @@ import java.util.*
  * A simple [Fragment] subclass.
  */
 class Profile : BaseFragment(), IProfileView {
-    override fun onDPUpdated(mData: ImageUpdateResponse) {
-        destroyDialog()
-        if (mData.status == 1) {
-            val mServiceManId =
-                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
-            if (mServiceManId != null) {
-                mPresenter.getCompleteProfile(mServiceManId)
-            }
-            Showtoast(mData.message!!)
-        }
-    }
-
-    override fun onFailed(msg: String) {
-        destroyDialog()
-        Showtoast(msg)
-    }
-
-    override fun onProfileUpdated(mData: CustomerCompleteProfileAfterUpdate) {
-        destroyDialog()
-        if (mData.status == 1) {
-            val mAuthToken = SharedPreferencesHelper.getString(
-                activity,
-                Constants.SharedPrefs.User.AUTH_TOKEN,
-                ""
-            )
-            val mServiceManId =
-                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
-
-            if (imageUri.isNotEmpty()) {
-                showProgressDialog("")
-                if (mAuthToken != null) {
-                    if (mServiceManId != null) {
-                        mPresenter.updateProfilePicture(mAuthToken, mServiceManId, imageUri)
-                    }
-                }
-            } else {
-                if (mServiceManId != null) {
-                    mPresenter.getCompleteProfile(mServiceManId)
-                }
-            }
-        } else {
-            Showtoast(mData.message)
-        }
-    }
-
-    override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
-        if (metaData.status == 1) {
-            localStorage(activity).saveCompleteCustomer(metaData.data)
-            activity?.finish()
-        }
-    }
 
     var country: String = ""
     var country_id: String = ""
@@ -549,4 +498,57 @@ class Profile : BaseFragment(), IProfileView {
         btnContinue_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
         dialog.show()
     }
+
+    override fun onDPUpdated(mData: ImageUpdateResponse) {
+        destroyDialog()
+        if (mData.status == 1) {
+            val mServiceManId =
+                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+            if (mServiceManId != null) {
+                mPresenter.getCompleteProfile(mServiceManId)
+            }
+            Showtoast(mData.message!!)
+        }
+    }
+
+    override fun onFailed(msg: String) {
+        destroyDialog()
+        Showtoast(msg)
+    }
+
+    override fun onProfileUpdated(mData: CustomerCompleteProfileAfterUpdate) {
+        destroyDialog()
+        if (mData.status == 1) {
+            val mAuthToken = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.AUTH_TOKEN,
+                ""
+            )
+            val mServiceManId =
+                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+
+            if (imageUri.isNotEmpty()) {
+                showProgressDialog("")
+                if (mAuthToken != null) {
+                    if (mServiceManId != null) {
+                        mPresenter.updateProfilePicture(mAuthToken, mServiceManId, imageUri)
+                    }
+                }
+            } else {
+                if (mServiceManId != null) {
+                    mPresenter.getCompleteProfile(mServiceManId)
+                }
+            }
+        } else {
+            Showtoast(mData.message)
+        }
+    }
+
+    override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
+        if (metaData.status == 1) {
+            localStorage(activity).saveCompleteCustomer(metaData.data)
+            activity?.finish()
+        }
+    }
+
 }

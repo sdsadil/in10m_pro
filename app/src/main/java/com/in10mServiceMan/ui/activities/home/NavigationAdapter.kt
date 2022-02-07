@@ -40,10 +40,10 @@ class NavigationAdapter(val context: Context, var navigationCallbacks: Navigatio
         }*/
 
         if (userType == 2) {
-            holder.itemView?.navtitleTV?.text = in10mApplication.instance!!.resources.getStringArray(R.array.nav_titles)[position]
+            holder.itemView.navtitleTV?.text = in10mApplication.instance!!.resources.getStringArray(R.array.nav_titles)[position]
         }
         else if (userType == 3) {
-            holder.itemView?.navtitleTV?.text = in10mApplication.instance!!.resources.getStringArray(R.array.nav_title)[position]
+            holder.itemView.navtitleTV?.text = in10mApplication.instance!!.resources.getStringArray(R.array.nav_title)[position]
         }
 
         holder.itemView.setOnClickListener {
