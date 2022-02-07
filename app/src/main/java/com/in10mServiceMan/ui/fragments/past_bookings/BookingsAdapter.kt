@@ -38,7 +38,7 @@ class BookingsAdapter(var context: Context, var bookingList: List<ServiceHistory
         var address = ""
         holder.itemView.findViewById<TextView>(R.id.ServiceManName).text = booking.customer_name
 
-        val img = if (booking.customer_image == null) "" else booking.customer_image
+        val img = booking.customer_image ?: ""
         if (img != "")
             Picasso.get().load(img).placeholder(R.drawable.user_dummy_avatar).fit().into(holder.itemView.serviceManIV)
         /*holder.itemView.thumbsUpTV.text = booking.customerDetails[0].totalTumbsUp.toString()
@@ -80,7 +80,7 @@ class BookingsAdapter(var context: Context, var bookingList: List<ServiceHistory
 
         holder.itemView.locationDetailsTV.text = booking.address
 
-        val serviceColor = booking.service_color!!
+        val serviceColor = booking.service_color
 
         val mDrawable = ContextCompat.getDrawable(context, R.drawable.r_circle)!!.constantState!!.newDrawable().mutate()//holder.ImageViewColor.getDrawable();
         // Drawable mDrawable = drawable.getConstantState().newDrawable();//holder.ImageViewColor.getDrawable();
@@ -100,14 +100,14 @@ class BookingsAdapter(var context: Context, var bookingList: List<ServiceHistory
 
     private fun getStatusText(status: Int): String {
         return when (status) {
-            1 -> "Requested"
-            2 -> "Accepted"
-            3 -> "Arrived"
-            4 -> "Ongoing"
-            5 -> "Reached"
-            6 -> "Completed"
-            7 -> "Customer Canceled"
-            8 -> "Serviceman Canceled"
+            1 -> context.getString(R.string.requested)
+            2 -> context.getString(R.string.accepted)
+            3 -> context.getString(R.string.arrived)
+            4 -> context.getString(R.string.ongoing)
+            5 -> context.getString(R.string.reached)
+            6 -> context.getString(R.string.completed)
+            7 -> context.getString(R.string.customer_canceled)
+            8 -> context.getString(R.string.serviceman_canceled)
             else -> ""
         }
     }

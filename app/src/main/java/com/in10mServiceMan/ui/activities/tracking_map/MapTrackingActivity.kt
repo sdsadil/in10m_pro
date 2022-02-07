@@ -1791,7 +1791,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         termsCondition.setOnClickListener {
             slidingRootNav?.closeMenu(true)
             handler.postDelayed(
-                { startActivity(Intent(this, TermsAndCondition::class.java)) },
+                {
+                    startActivity(Intent(this, TermsAndCondition::class.java))
+                    overridePendingTransition(0, 0)
+                },
                 navigationDelay
             )
         }
@@ -1882,6 +1885,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     fun openactivity(activity: Activity) {
         val intent = Intent(this, activity::class.java)
         startActivity(intent)
+        overridePendingTransition(0, 0)
     }
 
     private fun stopLocationUpdates() {
@@ -2368,7 +2372,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun about() {
         slidingRootNav?.closeMenu(true)
         handler.postDelayed(
-            { startActivity(Intent(this, AboutActivity::class.java)) },
+            {
+                startActivity(Intent(this, AboutActivity::class.java))
+                overridePendingTransition(0, 0)
+            },
             navigationDelay
         )
     }
@@ -2376,7 +2383,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun privacy() {
         slidingRootNav?.closeMenu(true)
         handler.postDelayed(
-            { startActivity(Intent(this, PrivacyPolicyActivity::class.java)) },
+            {
+                startActivity(Intent(this, PrivacyPolicyActivity::class.java))
+                overridePendingTransition(0, 0)
+            },
             navigationDelay
         )
     }
@@ -2389,7 +2399,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     override fun contactUs() {
         slidingRootNav?.closeMenu(true)
-        handler.postDelayed({ startActivity(Intent(this, ContactUs::class.java)) }, navigationDelay)
+        handler.postDelayed({
+            startActivity(Intent(this, ContactUs::class.java))
+            overridePendingTransition(0, 0)
+        }, navigationDelay)
     }
 
     override fun myAccount() {
@@ -2399,19 +2412,25 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     override fun myBookings() {
 
-        var userType =
+        val userType =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
         if (userType == 3) {
             slidingRootNav?.closeMenu(true)
             handler.postDelayed(
-                { startActivity(Intent(this, ServiceHistoryActivity::class.java)) },
+                {
+                    startActivity(Intent(this, ServiceHistoryActivity::class.java))
+                    overridePendingTransition(0, 0)
+                },
                 navigationDelay
             )
             //handler.postDelayed({ startActivity(Intent(this, CompanyServiceHistoryActivity::class.java)) }, navigationDelay)
         } else {
             slidingRootNav?.closeMenu(true)
             handler.postDelayed(
-                { startActivity(Intent(this, ServiceHistoryActivity::class.java)) },
+                {
+                    startActivity(Intent(this, ServiceHistoryActivity::class.java))
+                    overridePendingTransition(0, 0)
+                },
                 navigationDelay
             )
         }
@@ -2442,7 +2461,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun myEarnings() {
         slidingRootNav?.closeMenu(true)
         handler.postDelayed(
-            { startActivity(Intent(this, EarningsActivity::class.java)) },
+            {
+                startActivity(Intent(this, EarningsActivity::class.java))
+                overridePendingTransition(0, 0)
+            },
             navigationDelay
         )
     }
@@ -2450,7 +2472,10 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun companyPros() {
         slidingRootNav?.closeMenu(true)
         handler.postDelayed(
-            { startActivity(Intent(this, CompanyPros::class.java)) },
+            {
+                startActivity(Intent(this, CompanyPros::class.java))
+                overridePendingTransition(0, 0)
+            },
             navigationDelay
         )
     }

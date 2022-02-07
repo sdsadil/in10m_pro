@@ -23,7 +23,6 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/aller_rg"
-        android:text="Customer name"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/serviceManIV"
@@ -55,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
             android:fontFamily="@font/aller_lt"
-            android:text="Address details where service is done"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/_10sdp" />
     </LinearLayout>
@@ -85,9 +83,8 @@
             android:layout_marginTop="-4dp"
             android:layout_marginEnd="5dp"
             android:fontFamily="@font/aller_rg"
-            android:text="4"
             android:textColor="@color/colorPrimary"
-            android:textSize="18dp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/serviceManIV"
             app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
@@ -115,7 +112,7 @@
             android:fontFamily="@font/aller_rg"
             android:text="4"
             android:textColor="@color/colorPrimary"
-            android:textSize="18dp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/serviceManIV"
             app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
@@ -153,7 +150,6 @@
             android:ellipsize="end"
             android:fontFamily="@font/aller_rg"
             android:maxLines="1"
-            android:text="Plumbing"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -166,16 +162,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginStart="18dp"
         android:ellipsize="end"
         android:fontFamily="@font/aller_rg"
         android:maxLines="1"
-        android:text="Status of the service"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="11sp"
-        android:layout_marginStart="18dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        android:textStyle="bold" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
         android:id="@+id/textView26"
@@ -184,7 +179,6 @@
         android:layout_marginTop="5sp"
         android:layout_marginEnd="12dp"
         android:fontFamily="@font/aller_lt"
-        android:text="26 Sep 2018"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -195,10 +189,9 @@
         android:id="@+id/textViewTIME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/aller_rg"
-        android:text="KD 12500.00"
-        android:layout_marginEnd="12dp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
         android:textStyle="bold"

@@ -425,4 +425,20 @@
     <string name="update">UPDATE</string>
     <string name="you_offer">You Offer</string>
     <string name="complete">COMPLETE</string>
+    <string name="pending">Pending</string>
+    <string name="completed">Completed</string>
+    <string name="canceled">Canceled</string>
+    <string name="no_data_found">No data found</string>
+    <string name="requested">Requested</string>
+    <string name="accepted">Accepted</string>
+    <string name="arrived">Arrived</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="reached">Reached</string>
+    <string name="customer_canceled">Customer Canceled</string>
+    <string name="serviceman_canceled">Serviceman Canceled</string>
+    <string name="invoice_details">Invoice Details</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="received_by_cash">Received by Cash</string>
+    <string name="received_by_online_payment">Received by Online Payment</string>
+    <string name="no_invoice_found">No Invoice Found</string>
 </resources>

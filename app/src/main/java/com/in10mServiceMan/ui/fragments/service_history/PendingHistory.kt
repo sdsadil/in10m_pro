@@ -31,7 +31,7 @@ import retrofit2.Response
  */
 class PendingHistory : BaseFragment(), BookingHistoryInterface {
     override fun adapterTransaction() {
-        Toast.makeText(activity, "No Invoice Found", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, resources.getString(R.string.no_invoice_found), Toast.LENGTH_LONG).show()
     }
 
     private lateinit var bookingsAdapter: BookingsAdapter
@@ -54,10 +54,10 @@ class PendingHistory : BaseFragment(), BookingHistoryInterface {
             val header = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
             val userId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
-            var userType = SharedPreferencesHelper.getInt(activity, Constants.SharedPrefs.User.PERSON_TYPE, 2)
+            val userType = SharedPreferencesHelper.getInt(activity, Constants.SharedPrefs.User.PERSON_TYPE, 2)
 
             if (userType == 3)  {
-                var companyId = SharedPreferencesHelper.getInt(activity, Constants.SharedPrefs.User.PERSON_COMPANY_NAME, 0).toInt()
+                val companyId = SharedPreferencesHelper.getInt(activity, Constants.SharedPrefs.User.PERSON_COMPANY_NAME, 0).toInt()
                 val callServiceProviders = APIClient.getApiInterface().getCompanyServiceHistory("Bearer $header", userId, companyId, 150, 1)//user.customerId
                 callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
                     override fun onResponse(call: Call<ServiceHistoryResponse>, response: Response<ServiceHistoryResponse>) {
@@ -65,7 +65,7 @@ class PendingHistory : BaseFragment(), BookingHistoryInterface {
                         Log.i("response data", Gson().toJson(response.body()).toString())
                         if (response.isSuccessful) {
                             destroyDialog()
-                            if (response.body()!!.data?.size!! > 0) {
+                            if (response.body()!!.data.size > 0) {
                                 view!!.noDataFound.visibility = View.GONE
                                 bookingsAdapter = BookingsAdapter(this@PendingHistory.requireContext(), response.body()!!.data as List<ServiceHistoryData>, this@PendingHistory)
                                 view!!.pendingRV.layoutManager = LinearLayoutManager(this@PendingHistory.requireContext())
@@ -97,7 +97,7 @@ class PendingHistory : BaseFragment(), BookingHistoryInterface {
                         Log.i("response data", Gson().toJson(response.body()).toString())
                         if (response.isSuccessful) {
                             destroyDialog()
-                            if (response.body()!!.data?.size!! > 0) {
+                            if (response.body()!!.data.isNotEmpty()) {
                                 view!!.noDataFound.visibility = View.GONE
                                 bookingsAdapter = BookingsAdapter(this@PendingHistory.requireContext(), response.body()!!.data as List<ServiceHistoryData>, this@PendingHistory)
                                 view!!.pendingRV.layoutManager = LinearLayoutManager(this@PendingHistory.requireContext())

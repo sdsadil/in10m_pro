@@ -35,9 +35,79 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetailsView {
+
+    private lateinit var bookingsAdapter: BookingsAdapter
+    var mPresenter = InvoiceDetailsPresenter(this)
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_completed_history, container, false)
+        getServiceHistory()
+        return view
+    }
+
+    private fun getServiceHistory() {
+        showProgressDialog("")
+        val user = localStorage(activity).loggedInUser
+        val token =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        if (!token.isNullOrEmpty()) {
+            val header = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.AUTH_TOKEN,
+                ""
+            )
+            val userId = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!
+                .toInt()
+            val callServiceProviders = APIClient.getApiInterface()
+                .getServiceHistory("Bearer $header", userId, "6", 150, 1)//user.customerId
+            callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
+                override fun onResponse(
+                    call: Call<ServiceHistoryResponse>,
+                    response: Response<ServiceHistoryResponse>
+                ) {
+                    destroyDialog()
+                    if (response.isSuccessful) {
+                        destroyDialog()
+                        if (response.body()!!.data.isNotEmpty()) {
+                            view!!.noDataFound.visibility = View.GONE
+                            bookingsAdapter = BookingsAdapter(
+                                this@CompletedHistory.requireContext(),
+                                response.body()!!.data,
+                                this@CompletedHistory
+                            )
+                            view!!.completedRV.layoutManager =
+                                LinearLayoutManager(this@CompletedHistory.requireContext())
+                            view!!.completedRV.adapter = bookingsAdapter
+                        } else {
+                            destroyDialog()
+                            view!!.noDataFound.visibility = View.VISIBLE
+                            //Toast.makeText(this@CompletedHistory.requireContext(),"No Data Found", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        destroyDialog()
+                        view!!.noDataFound.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun onFailure(call: Call<ServiceHistoryResponse>, t: Throwable) {
+                    destroyDialog()
+                    view!!.noDataFound.visibility = View.VISIBLE
+                }
+            })
+        }
+    }
+
     override fun onInvoiceDetailsCompleted(mPost: InvoiceDetailsResponse) {
         destroyDialog()
-        if (mPost.status == 1)  {
+        if (mPost.status == 1) {
             val moduleAlert = LayoutInflater.from(activity).inflate(R.layout.alert_invoice, null)
             val moduleBuilder = AlertDialog.Builder(activity).setView(moduleAlert)
             moduleAlert.serviceCost.text = "KD " + mPost.data.serviceman_charge.toString()
@@ -45,17 +115,17 @@ class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetail
             moduleAlert.totalAmount.text = "KD " + mPost.data.amount_paid.toString()
             if (mPost.data.payment_method == 1) {
                 moduleAlert.onlineId.visibility = View.GONE
-                moduleAlert.cashHeader.text = "Received by Cash"
-            }
-            else    {
+                moduleAlert.cashHeader.text = resources.getString(R.string.received_by_cash)
+            } else {
                 moduleAlert.onlineId.visibility = View.VISIBLE
-                moduleAlert.cashHeader.text = "Received by Online Payment"
+                moduleAlert.cashHeader.text =
+                    resources.getString(R.string.received_by_online_payment)
+
                 if (mPost.data.transaction_id != "null" || mPost.data.transaction_id != null)
                     moduleAlert.onlineId.text = mPost.data.transaction_id.toString()
             }
             val moduleDialogue = moduleBuilder!!.show()
-        }
-        else    {
+        } else {
             Toast.makeText(activity!!, mPost.message, Toast.LENGTH_LONG).show()
         }
     }
@@ -67,64 +137,16 @@ class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetail
 
     override fun adapterTransaction() {
         showProgressDialog("")
-        val userId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
-            .toInt()
-        mPresenter.invoiceDetails(SharedPreferencesHelper.getInt(activity, Constants.SharedPrefs.User.COMMON_ID, 0), userId, 2)
-    }
-
-    private lateinit var bookingsAdapter: BookingsAdapter
-    var mPresenter = InvoiceDetailsPresenter(this)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_completed_history, container, false)
-
-        getServiceHistory()
-
-        return view
-    }
-
-    private fun getServiceHistory() {
-        showProgressDialog("")
-        val user = localStorage(activity).loggedInUser
-        val token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        if (!token.isNullOrEmpty()) {
-            val header = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val userId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
+        val userId =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
-            val callServiceProviders = APIClient.getApiInterface().getServiceHistory("Bearer $header", userId, "6", 150, 1)//user.customerId
-            callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
-                override fun onResponse(call: Call<ServiceHistoryResponse>, response: Response<ServiceHistoryResponse>) {
-                    destroyDialog()
-                    Log.i("response data", Gson().toJson(response.body()).toString())
-                    if (response.isSuccessful) {
-                        destroyDialog()
-                        if (response.body()!!.data?.size!! > 0) {
-                            view!!.noDataFound.visibility = View.GONE
-                            bookingsAdapter = BookingsAdapter(this@CompletedHistory.requireContext(), response.body()!!.data as List<ServiceHistoryData>, this@CompletedHistory)
-                            view!!.completedRV.layoutManager = LinearLayoutManager(this@CompletedHistory.requireContext())
-                            view!!.completedRV.adapter = bookingsAdapter
-                        } else {
-                            destroyDialog()
-                            view!!.noDataFound.visibility = View.VISIBLE
-                            //Toast.makeText(this@CompletedHistory.requireContext(),"No Data Found", Toast.LENGTH_SHORT).show()
-                        }
-                    } else {
-                        destroyDialog()
-                        view!!.noDataFound.visibility = View.VISIBLE
-                        //somethingWentWrong()
-                    }
-                }
-
-                override fun onFailure(call: Call<ServiceHistoryResponse>, t: Throwable) {
-                    destroyDialog()
-                    view!!.noDataFound.visibility = View.VISIBLE
-                    //somethingWentWrong()
-                }
-            })
-        } else {
-            //somethingWentWrong()
-        }
+        mPresenter.invoiceDetails(
+            SharedPreferencesHelper.getInt(
+                activity,
+                Constants.SharedPrefs.User.COMMON_ID,
+                0
+            ), userId, 2
+        )
     }
+
 }

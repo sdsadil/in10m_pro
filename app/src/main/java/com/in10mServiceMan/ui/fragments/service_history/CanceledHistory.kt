@@ -31,7 +31,7 @@ import retrofit2.Response
  */
 class CanceledHistory : BaseFragment(), BookingHistoryInterface {
     override fun adapterTransaction() {
-        Toast.makeText(activity, "No Invoice Found", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, resources.getString(R.string.no_invoice_found), Toast.LENGTH_LONG).show()
     }
 
     private lateinit var bookingsAdapter: BookingsAdapter
