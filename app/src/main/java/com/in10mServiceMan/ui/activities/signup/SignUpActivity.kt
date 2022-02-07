@@ -235,14 +235,14 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 )
                 Constants.GlobalSettings.stateName = mData.data.state
             }
-            if (mData.data.zipcode?.isNotEmpty()!!) {
+            /*if (mData.data.zipcode?.isNotEmpty()!!) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ZIP_CODE,
                     mData.data.zipcode
                 )
                 Constants.GlobalSettings.zipCode = mData.data.zipcode
-            }
+            }*/
 
             signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
         } else {

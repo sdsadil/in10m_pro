@@ -181,7 +181,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.ZIPCODE,
-                        view.personalDetailsZip.text.toString().trim()
+                        "500051"
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
