@@ -64,6 +64,7 @@ class PaymentTypeFragment : Fragment() {
         "2030"
     )
     var mView: View? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

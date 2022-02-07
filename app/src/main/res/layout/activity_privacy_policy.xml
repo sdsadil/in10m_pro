@@ -59,7 +59,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/accept_button"
         android:clickable="true"
         android:focusable="true"
@@ -72,10 +75,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="8dp">
+        app:layout_constraintRight_toRightOf="parent">
 
         <ImageView
             android:layout_width="15dp"
@@ -97,7 +97,7 @@
             android:fontFamily="@font/diavlo_book"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_6sdp"
-            android:text="I Accpet"
+            android:text="@string/i_accept"
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="12sp"

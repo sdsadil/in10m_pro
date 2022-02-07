@@ -637,7 +637,7 @@
                     android:fontFamily="@font/diavlo_book"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
-                    android:text="Yes"
+                    android:text="@string/yes"
                     android:textAllCaps="true"
                     android:textColor="@color/white_text_selector"
                     android:textSize="12sp"

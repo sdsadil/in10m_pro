@@ -85,6 +85,7 @@
     <string name="follow_us_on_twitter">Follow us on Twitter</string>
     <string name="legal">Legal</string>
     <string name="terms_and_conditions"><u>شروط و قواعد الإستخدام </u></string>
+    <string name="terms_and_conditions1">Terms &amp; conditions</string>
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="links">Links</string>
     <string name="fb_link">https://www.facebook.com/wagonkw</string>
@@ -413,4 +414,5 @@
     <string name="please_enter_your_area_name">Please enter your area name</string>
     <string name="please_enter_your_block">Please enter your block</string>
     <string name="please_enter_your_street">Please enter your street</string>
+    <string name="i_accept">I Accept</string>
 </resources>
