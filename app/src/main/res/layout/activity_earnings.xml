@@ -27,7 +27,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/aller_rg"
         android:maxLines="2"
-        android:text="Earnings"
+        android:text="@string/earnings"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,22 +43,23 @@
         app:layout_constraintTop_toBottomOf="@+id/earningHeadingTV">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:animateLayoutChanges="true"
             android:id="@+id/onlinePaymentLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/onlineImage"
                 android:layout_width="20dp"
                 android:layout_height="14dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/online_card_three"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="10dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -69,128 +70,139 @@
                 android:text="@string/online_payment_earning"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
-                app:layout_constraintTop_toTopOf="@+id/onlineImage"
+                app:layout_constraintBottom_toBottomOf="@+id/onlineImage"
                 app:layout_constraintLeft_toRightOf="@+id/onlineImage"
-                app:layout_constraintBottom_toBottomOf="@+id/onlineImage"/>
+                app:layout_constraintTop_toTopOf="@+id/onlineImage" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/onlinePaymentValueTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_lt"
-                android:text="$0.0"
+                android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@+id/onlineImage"
+                app:layout_constraintBottom_toBottomOf="@+id/onlineImage"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/onlineImage"/>
+                app:layout_constraintTop_toTopOf="@+id/onlineImage" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:visibility="gone"
                 android:id="@+id/onlineLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/onlinePaymentValueTV"
+                android:layout_marginStart="10dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toRightOf="@+id/onlineImage"
                 app:layout_constraintRight_toRightOf="@+id/onlinePaymentValueTV"
-                android:layout_marginLeft="10dp">
+                app:layout_constraintTop_toBottomOf="@+id/onlinePaymentValueTV">
 
                 <TextView
                     android:id="@+id/onlineSubOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="@font/aller_lt"
                     android:text="Paid by homeowner"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/onlineSubOneRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="@font/aller_rg"
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/onlineSubTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aller_lt"
                     android:text="in10m &amp; other charges"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/onlineSubOne"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/onlineSubOne" />
 
                 <TextView
                     android:id="@+id/onlineSubTwoRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aller_rg"
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/onlineSubOne"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/onlineSubOne" />
 
                 <TextView
                     android:id="@+id/onlineSubThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aller_lt"
                     android:text="Total received"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo" />
 
                 <TextView
                     android:id="@+id/onlineSubThreeRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/aller_rg"
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
                 android:id="@+id/onlineArrow"
-                android:src="@drawable/dropdown_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="5dp"
-                app:layout_constraintTop_toBottomOf="@+id/onlineLayout"
+                android:src="@drawable/dropdown_arrow"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/onlineLayout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                app:layout_constraintTop_toBottomOf="@+id/onlineArrow"/>
+                app:layout_constraintTop_toBottomOf="@+id/onlineArrow" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/viewThree"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:alpha="0.5"
+            android:background="@color/lineBg"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/onlinePaymentLL" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:animateLayoutChanges="true"
             android:id="@+id/cashPaymentLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
             app:layout_constraintTop_toBottomOf="@+id/onlinePaymentLL">
@@ -201,11 +213,11 @@
                 android:layout_height="18dp"
                 android:background="@drawable/wallet_three"
                 android:backgroundTint="@color/colorPrimaryDark"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="10dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cashTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -214,9 +226,20 @@
                 android:text="@string/cash_payment_earning"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
-                app:layout_constraintTop_toTopOf="@+id/cashImage"
+                app:layout_constraintBottom_toBottomOf="@+id/cashImage"
                 app:layout_constraintLeft_toRightOf="@+id/cashImage"
-                app:layout_constraintBottom_toBottomOf="@+id/cashImage"/>
+                app:layout_constraintTop_toTopOf="@+id/cashImage" />
+
+            <ImageView
+                android:id="@+id/cashArrow"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/dropdown_arrow"
+                app:layout_constraintBottom_toBottomOf="@+id/cashTitle"
+                app:layout_constraintLeft_toRightOf="@+id/cashTitle"
+                app:layout_constraintTop_toTopOf="@+id/cashTitle" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/cashPaymentValueTV"
@@ -224,121 +247,124 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_lt"
                 android:gravity="end"
-                android:text="$0.0"
+                android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@+id/cashImage"
+                app:layout_constraintBottom_toBottomOf="@+id/cashImage"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/cashImage"/>
+                app:layout_constraintTop_toTopOf="@+id/cashImage" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:visibility="gone"
                 android:id="@+id/cashLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/cashPaymentValueTV"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
                 app:layout_constraintLeft_toRightOf="@+id/cashImage"
                 app:layout_constraintRight_toRightOf="@+id/cashPaymentValueTV"
-                android:layout_marginLeft="10dp">
+                app:layout_constraintTop_toBottomOf="@+id/cashPaymentValueTV">
 
                 <TextView
                     android:id="@+id/cashSubOne"
-                    android:fontFamily="@font/aller_lt"
-                    android:text="Paid by homeowner"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/aller_lt"
+                    android:text="@string/paid_by_homeowner"
+                    android:textColor="@color/darkGreyText"
+                    android:textSize="@dimen/_10sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/cashSubOneRate"
-                    android:fontFamily="@font/aller_rg"
-                    android:text="KD 0.0"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/aller_rg"
+                    android:text="@string/kd_0_000"
+                    android:textColor="@color/darkGreyText"
+                    android:textSize="@dimen/_10sdp"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/cashSubTwo"
-                    android:fontFamily="@font/aller_lt"
-                    android:text="in10m &amp; other charges"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/cashSubOne"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/aller_lt"
+                    android:text="@string/in10m_amp_other_charges"
+                    android:textColor="@color/darkGreyText"
+                    android:textSize="@dimen/_10sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cashSubOne" />
 
                 <TextView
                     android:id="@+id/cashSubTwoRate"
-                    android:fontFamily="@font/aller_rg"
-                    android:text="KD 0.0"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/cashSubOne"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/aller_rg"
+                    android:text="@string/kd_0_000"
+                    android:textColor="@color/darkGreyText"
+                    android:textSize="@dimen/_10sdp"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cashSubOne" />
 
                 <TextView
                     android:id="@+id/cashSubThree"
-                    android:fontFamily="@font/aller_lt"
-                    android:text="Total received"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/cashSubTwo"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/aller_lt"
+                    android:text="@string/total_received"
+                    android:textColor="@color/darkGreyText"
+                    android:textSize="@dimen/_10sdp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cashSubTwo" />
 
                 <TextView
                     android:id="@+id/cashSubThreeRate"
-                    android:fontFamily="@font/aller_rg"
-                    android:text="KD 0.0"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/cashSubTwo"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/aller_rg"
+                    android:text="@string/kd_0_000"
+                    android:textColor="@color/darkGreyText"
+                    android:textSize="@dimen/_10sdp"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cashSubTwo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/cashArrow"
-                android:src="@drawable/dropdown_arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="5dp"
-                app:layout_constraintTop_toBottomOf="@+id/cashLayout"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                app:layout_constraintTop_toBottomOf="@+id/cashArrow"/>
+                app:layout_constraintTop_toBottomOf="@+id/cashArrow" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewTwo"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:alpha="0.5"
+            android:background="@color/lineBg"
+            app:layout_constraintTop_toBottomOf="@+id/cashPaymentLL" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/outstandingAmountLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@+id/cashPaymentLL">
+            app:layout_constraintTop_toBottomOf="@+id/viewTwo">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/outstandingImage"
@@ -346,9 +372,8 @@
                 android:layout_height="18dp"
                 android:background="@drawable/outstanding_three"
                 android:tint="@color/colorPrimary"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="10dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -359,9 +384,9 @@
                 android:text="@string/outstanding"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
-                app:layout_constraintTop_toTopOf="@+id/outstandingImage"
+                app:layout_constraintBottom_toBottomOf="@+id/outstandingImage"
                 app:layout_constraintLeft_toRightOf="@+id/outstandingImage"
-                app:layout_constraintBottom_toBottomOf="@+id/outstandingImage"/>
+                app:layout_constraintTop_toTopOf="@+id/outstandingImage" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/outstandingAmountValueTV"
@@ -369,30 +394,29 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_lt"
                 android:gravity="end"
-                android:text="$0.0"
+                android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="@+id/outstandingImage"
+                app:layout_constraintBottom_toBottomOf="@+id/outstandingImage"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/outstandingImage" />
+                app:layout_constraintTop_toTopOf="@+id/outstandingImage" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/outstandingAmountValueTV"/>
+                app:layout_constraintTop_toBottomOf="@+id/outstandingAmountValueTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:id="@+id/viewFour"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_2sdp"
             android:alpha="0.5"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintTop_toBottomOf="@+id/outstandingAmountLL">
-
-        </View>
+            android:background="@color/lineBg"
+            app:layout_constraintTop_toBottomOf="@+id/outstandingAmountLL" />
 
         <LinearLayout
             android:id="@+id/totalEarningLL"
@@ -405,7 +429,7 @@
             app:layout_constraintTop_toBottomOf="@+id/viewFour">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/aller_rg"
@@ -420,31 +444,13 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aller_rg"
                 android:gravity="end"
-                android:text="$0.0"
+                android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/viewTwo"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:alpha="0.5"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintTop_toBottomOf="@+id/cashPaymentLL">
 
-        </View>
-
-        <View
-            android:id="@+id/viewThree"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:alpha="0.5"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintTop_toBottomOf="@+id/onlinePaymentLL">
-
-        </View>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

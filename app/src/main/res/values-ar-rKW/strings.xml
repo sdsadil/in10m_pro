@@ -437,4 +437,11 @@
     <string name="received_by_cash">Received by Cash</string>
     <string name="received_by_online_payment">Received by Online Payment</string>
     <string name="no_invoice_found">No Invoice Found</string>
+    <string name="earnings">Earnings</string>
+    <string name="kd_0_000">KD 0.000</string>
+    <string name="paid_by_homeowner">Paid by homeowner</string>
+    <string name="in10m_amp_other_charges"><![CDATA[in10m & other charges]]></string>
+    <string name="total_received">Total received</string>
+    <string name="_202_779_7977">(202)-779-7977</string>
+    <string name="please_enter_your_query">Please enter your query</string>
 </resources>

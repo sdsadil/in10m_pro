@@ -103,7 +103,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     var permsRequestCode = 1
     var polyline: Polyline? = null
     var currentWorkStatus: Int = 0
-    var isLocationReayForChange = true
     var thread = Thread()
 
 
@@ -149,7 +148,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     private var TAG = "DirectionsActivity"
     val completeProfilePresenter = CompleteProfilePresenter(this)
 
-    private var isFirstReload: Boolean = true
     var sec = 0
     var min = 0
     var hr = 0
@@ -198,7 +196,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
-                locationResult ?: return
+                locationResult
                 for (location in locationResult.locations) {
                     if (!dbUpdated) {
                         updateMyLocationToDB(
@@ -386,13 +384,13 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 BookingStatus.Customer_Canceled -> {
                                     // already canceled
                                     // delete the node
-                                    canceledByTheCustomer(false)
+                                    canceledByTheCustomer()
                                     currentWorkStatus = BookingStatus.Customer_Canceled
                                 }
                                 BookingStatus.Servicemen_Canceled -> {
                                     // already canceled by you
                                     // delete the node
-                                    RequestCanceled(false)
+                                    RequestCanceled()
                                     currentWorkStatus = BookingStatus.Servicemen_Canceled
                                 }
                                 BookingStatus.Requested -> {
@@ -538,7 +536,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     var canceledByTheUser = false
     var isJobDone = false
 
-    private fun canceledByTheCustomer(showMsg: Boolean = true) {
+    private fun canceledByTheCustomer() {
         /*if (showMsg)
             ShowToast("Request canceled by the Customer")*/
         //mDatabase.child(bookingId.toString()).setValue(null)
@@ -669,8 +667,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     private fun setDataToMarker(cData: List<ServicemanLocationData?>) {
         val markerOptions = MarkerOptions()
-        if (cData.isNotEmpty())
-            for (i in 0 until cData.size) {
+        if (cData.isNotEmpty()) {
+            for (i in cData.indices) {
                 val latLng =
                     LatLng(cData[i]!!.latitude?.toDouble()!!, cData[i]!!.longitude?.toDouble()!!)
                 var marker =
@@ -705,13 +703,14 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 Constants.GlobalSettings.image = localStorage(this).completeCustomer.image
 
                 /*var mData: CustomInfoWindowGoogleMap = CustomInfoWindowGoogleMap(this@MapTrackingActivity)
-                map!!.setInfoWindowAdapter(mData)
+                        map!!.setInfoWindowAdapter(mData)
 
-                var marker = map!!.addMarker(markerOptions)
-                marker.tag = mInfo
+                        var marker = map!!.addMarker(markerOptions)
+                        marker.tag = mInfo
 
-                marker.showInfoWindow()*/
+                        marker.showInfoWindow()*/
             }
+        }
 
     }
 
@@ -857,7 +856,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     }
 
 
-    private fun RequestCanceled(showMsg: Boolean = true) {
+    private fun RequestCanceled() {
 
         if (btnCancelBooking.getTag(R.string.request_id) != null) {
 
@@ -1162,7 +1161,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             ShowToast(resources.getString(R.string.home_owner_rejected_the_estimate))
             serviceDone1()
         } else if (!acceptStatus && freeEstimate == 1) {
-            canceledByTheCustomer(true)
+            canceledByTheCustomer()
         }
     }
 
@@ -1616,7 +1615,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             ) {
                 if (response.isSuccessful) {
                     try {
-                        if (response?.body()!!.status == 1) {
+                        if (response.body()!!.status == 1) {
                             localStorage(this@MapTrackingActivity).logoutUser()
                             SharedPreferencesHelper.clearPreferences(this@MapTrackingActivity)
                             startActivity(
@@ -1713,9 +1712,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         permissions: Array<String>,
         grantResults: IntArray
     ) {
-        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-        } else {
-        }
     }
 
     /*  private fun btnDetailsProceed(){
@@ -1732,7 +1728,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
     private fun initDrawer(savedInstanceState: Bundle?) {
         val navigationView: View =
-            LayoutInflater.from(this).inflate(R.layout.drawyer_layout, null, false);
+            LayoutInflater.from(this).inflate(R.layout.drawyer_layout, null, false)
         val thumbSection = navigationView.findViewById(R.id.thumbsContentLL) as LinearLayout
         val mProfileImage = navigationView.findViewById(R.id.serviceManIV) as CircleImageView
         val mProfileName = navigationView.findViewById(R.id.userNameTVM) as TextView
@@ -1873,7 +1869,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
              locationCallback,
              null *//* Looper *//*
         )*/
-        fusedLocationClient.removeLocationUpdates(locationCallback);
+        fusedLocationClient.removeLocationUpdates(locationCallback)
 
     }
 
@@ -1903,7 +1899,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         settingsBuilder.setAlwaysShow(true)
 
         val result = LocationServices.getSettingsClient(this)
-            .checkLocationSettings(settingsBuilder.build());
+            .checkLocationSettings(settingsBuilder.build())
 
         result.addOnCompleteListener { task ->
             try {
@@ -1978,7 +1974,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                     //val location=LatLng(29.374009, 47.976461)
                     if (map != null) {
 
-                        map!!.setOnCameraIdleListener(this);
+                        map!!.setOnCameraIdleListener(this)
                         map!!.setOnCameraMoveStartedListener(this)
                         map!!.setOnCameraMoveListener(this)
                         map!!.setOnCameraMoveCanceledListener(this)
@@ -2321,7 +2317,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
         val device: OSDeviceState? = OneSignal.getDeviceState()
         val userId: String = device!!.userId
-//        val registrationId: String = device.emailUserId;
+//        val registrationId: String = device.emailUserId
         val registrationId: String = device.userId;
 
         var text = "OneSignal UserID:\n$userId\n\n"

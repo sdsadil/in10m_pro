@@ -27,7 +27,7 @@ class ContactUs : In10mBaseActivity() {
         }
         lvBtnSubmit.setOnClickListener {
             if (description.text.toString().trim().isEmpty())
-                ShowToast("Enter your query")
+                ShowToast(resources.getString(R.string.please_enter_your_query))
             else
                 putQuery(description.text.toString())
         }
