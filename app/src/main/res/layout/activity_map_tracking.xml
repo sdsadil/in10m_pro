@@ -18,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/TopCL"
         android:layout_width="match_parent"
@@ -137,8 +136,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/lineOne"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/lineOne"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
@@ -148,8 +147,8 @@
                         android:fontFamily="@font/diavlo_bold"
                         android:text="00"
                         android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -158,8 +157,8 @@
                         android:fontFamily="@font/aller_rg"
                         android:text="@string/today"
                         android:textSize="13sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/countTodayTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -171,8 +170,8 @@
                     android:layout_marginBottom="8dp"
                     android:background="@color/colorLight"
                     app:layout_constraintBottom_toBottomOf="@+id/today"
+                    app:layout_constraintEnd_toStartOf="@+id/month"
                     app:layout_constraintStart_toEndOf="@+id/today"
-                    app:layout_constraintRight_toLeftOf="@+id/month"
                     app:layout_constraintTop_toTopOf="@+id/today">
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -181,8 +180,8 @@
                     android:id="@+id/month"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/lineTwo"
                     app:layout_constraintStart_toEndOf="@+id/lineOne"
-                    app:layout_constraintRight_toLeftOf="@+id/lineTwo"
                     app:layout_constraintTop_toTopOf="@+id/today">
 
                     <TextView
@@ -192,8 +191,8 @@
                         android:fontFamily="@font/diavlo_bold"
                         android:text="00"
                         android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -202,8 +201,8 @@
                         android:fontFamily="@font/aller_rg"
                         android:text="@string/this_month"
                         android:textSize="13sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/countMonthTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -215,8 +214,8 @@
                     android:layout_marginBottom="8dp"
                     android:background="@color/colorLight"
                     app:layout_constraintBottom_toBottomOf="@+id/month"
+                    app:layout_constraintEnd_toStartOf="@+id/year"
                     app:layout_constraintStart_toEndOf="@+id/month"
-                    app:layout_constraintRight_toLeftOf="@+id/year"
                     app:layout_constraintTop_toTopOf="@+id/month">
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -225,8 +224,8 @@
                     android:id="@+id/year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@+id/lineTwo"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lineTwo"
                     app:layout_constraintTop_toTopOf="@+id/month">
 
                     <TextView
@@ -236,8 +235,8 @@
                         android:fontFamily="@font/diavlo_bold"
                         android:text="00"
                         android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -246,8 +245,8 @@
                         android:fontFamily="@font/aller_rg"
                         android:text="@string/this_year"
                         android:textSize="13sp"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/countYearTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,8 +260,8 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/month" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -278,7 +277,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="0dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
@@ -288,8 +287,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tv1111"
@@ -345,8 +343,10 @@
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/aller_rg"
+                android:gravity="center|start"
                 android:maxLines="1"
                 android:text=""
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/serviceManIVR"
@@ -383,8 +383,9 @@
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
                     android:fontFamily="@font/aller_lt"
+                    android:gravity="center|start"
                     android:maxLines="3"
-                    android:text="123 street, Mubarak Bin Mutlaq Al Radaan street"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/text_colour_light"
                     android:textSize="11sp" />
 
@@ -459,7 +460,6 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_marginStart="1dp"
-                    android:src="@drawable/icon_plumbing"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -490,7 +490,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/aller_rg"
-                        android:text="Sub service : PUMPS"
                         android:visibility="gone" />
 
                 </LinearLayout>
@@ -544,13 +543,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view5" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
-
 
     <ImageView
         android:id="@+id/btnMaximizeRequestCV"
@@ -563,4 +557,101 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic__ionicons_svg_md_arrow_dropup_circle" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bannerCard_HO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/header_HO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/aller_rg"
+                android:text="@string/privacy_updated"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subHeader_HO"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/aller_lt"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/yes_HO"
+                app:layout_constraintEnd_toStartOf="@id/yes_HO"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/yes_HO" />
+
+            <LinearLayout
+                android:id="@+id/yes_HO"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/accept_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="18dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="5dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_HO">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:src="@drawable/greentick" />
+
+                <TextView
+                    android:id="@+id/btnBookNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/accept_button"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/diavlo_book"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@string/yes"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_text_selector"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+
+                    />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/yes_HO" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
