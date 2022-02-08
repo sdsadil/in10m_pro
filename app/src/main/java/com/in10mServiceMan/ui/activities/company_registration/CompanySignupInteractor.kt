@@ -94,7 +94,7 @@ class CompanySignupInteractor(val listener: ICompanySignupInteractorListener) : 
     }
 
     override fun signupLevelThreeDebitCard(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String, expiryMonth: String, expiryYear: String, cardNumber: String, paymentType: String, street: String, houseNo: String, city: String, state: String, country: String, SSN: String, zip: String) {
-        val request = APIClient.getApiInterface().registrationLevelDebitCard("Bearer " + APIClient.Token, userID, email, estimateType, estimationFee, payoutType, expiryMonth, expiryYear, cardNumber, paymentType, street, houseNo, city, state, country, SSN, zip)
+        val request = APIClient.getApiInterface().registrationLevelDebitCard("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType, expiryMonth, expiryYear, cardNumber, paymentType, street, houseNo, city, state, country, SSN, zip)
         request.enqueue(object : Callback<SignupThreeResponse> {
             override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                 if (response.isSuccessful) {
@@ -112,7 +112,7 @@ class CompanySignupInteractor(val listener: ICompanySignupInteractorListener) : 
     }
 
     override fun signupLevelThreeBankPay(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String, accountNumer: String, RoutingNumber: String, SSN: String, paymentType: String, street: String, houseNo: String, city: String, state: String, country: String, zip: String) {
-        val request = APIClient.getApiInterface().registrationLevelBankPay("Bearer " + APIClient.Token, userID, email, estimateType, estimationFee, payoutType, accountNumer, RoutingNumber, SSN, paymentType, street, houseNo, city, state, country, zip)
+        val request = APIClient.getApiInterface().registrationLevelBankPay("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType, accountNumer, RoutingNumber, SSN, paymentType, street, houseNo, city, state, country, zip)
         request.enqueue(object : Callback<SignupThreeResponse> {
             override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                 if (response.isSuccessful) {
@@ -130,7 +130,7 @@ class CompanySignupInteractor(val listener: ICompanySignupInteractorListener) : 
     }
 
     override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String) {
-        val request = APIClient.getApiInterface().registrationLevelThreeCash("Bearer " + APIClient.Token, userID, email, estimateType, estimationFee, payoutType)
+        val request = APIClient.getApiInterface().registrationLevelThreeCash("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType)
         request.enqueue(object : Callback<SignupThreeResponse> {
             override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                 if (response.isSuccessful) {

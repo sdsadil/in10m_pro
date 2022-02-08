@@ -287,10 +287,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             RequestCanceled()
 
         }
-        lvBtnBookNow1.setOnClickListener {
-            //
-            RequestAccepted()
-        }
+
         lvBtnCall.setOnClickListener {
             callToCustomer()
         }
@@ -382,57 +379,42 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             }
                             when (stts) {
                                 BookingStatus.Customer_Canceled -> {
-                                    // already canceled
-                                    // delete the node
                                     canceledByTheCustomer()
                                     currentWorkStatus = BookingStatus.Customer_Canceled
                                 }
                                 BookingStatus.Servicemen_Canceled -> {
-                                    // already canceled by you
-                                    // delete the node
                                     RequestCanceled()
                                     currentWorkStatus = BookingStatus.Servicemen_Canceled
                                 }
                                 BookingStatus.Requested -> {
-                                    // request came
                                     setupRequest(it.key!!.toInt(), true)
                                     currentWorkStatus = BookingStatus.Requested
                                 }
                                 BookingStatus.Accepted -> {
-                                    // request Already accepted
                                     setupRequest(it.key!!.toInt(), false)
-                                    RequestAccepted(false)
+                                    callRequestAcceptFdB(false)
                                     drawPolyLine()
                                 }
                                 BookingStatus.Arrived -> {
-                                    // already arrived at location
                                     setupRequest(it.key!!.toInt(), false)
                                     updateToArrived(false)
                                     drawPolyLine()
                                     currentWorkStatus = BookingStatus.Arrived
                                 }
                                 BookingStatus.Ongoing -> {
-                                    // already arrived at location
                                     setupRequest(it.key!!.toInt(), false)
                                     updateTOStart(false)
                                     drawPolyLine()
                                     currentWorkStatus = BookingStatus.Ongoing
                                 }
                                 BookingStatus.Complete -> {
-                                    // Already completed the services
-                                    // delete the node
                                     serviceDone1(false)
-
-                                    /*myBookingId = request?.booking_id
-                                    customerID = request?.customer_id
-                                    doAfterJobComplete()*/
                                     currentWorkStatus = BookingStatus.Complete
                                 }
                             }
 
 
                         } else if (bookingId == it.key!!.toInt()) {
-
                             if (it.getValue(firebaseRequestModel::class.java)?.status!! == BookingStatus.Customer_Canceled.toString()) {
                                 canceledByTheCustomer()
                             }
@@ -443,10 +425,17 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             }
 
             override fun onCancelled(error: DatabaseError) {
-
-                Log.e("mDatabase canceled", "Failed to read value.", error.toException())
+                error.toException()
             }
         })
+
+        lvBtnBookNow1.setOnClickListener {
+            callRequestAcceptFdB()
+        }
+
+        linearLayout5.setOnClickListener {
+            updateToArrived()
+        }
 
         loadDashboardCount()
         updateDeviceIdOnServer()
@@ -897,30 +886,18 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         requestCV.visibility = View.INVISIBLE
     }
 
-    private fun RequestAccepted(showMsg: Boolean = true) {
+    private fun callRequestAcceptFdB(showMsg: Boolean = true) {
         val servicemenImage = localStorage(this@MapTrackingActivity).completeCustomer.image
         request?.servicemen_image = servicemenImage
 
         request!!.status = BookingStatus.Accepted.toString()
 
-        // Log.d("Called", "Updating =" + Gson().toJson(request))
-
         if (lvBtnBookNow1.getTag(R.string.request_id2) != null) {
-
-            /*mDatabaseCustomer.child("status").setValue(BookingStatus.Accepted.toString())
-            mDatabaseCustomer.child("servicemen_image").setValue(servicemenImage)
-
-            mDatabase.child(bookingId.toString()).setValue(request)*/
-
             if (showMsg) {
-                // Toast.makeText(this@MapTrackingActivity, "Request Accepted", Toast.LENGTH_SHORT).show()
                 showProgressDialog("")
                 val loc = UpdateBookingStatus()
                 loc.id = bookingId
                 loc.status = BookingStatus.Accepted.toString()
-
-                Log.d("eeeSTupdate", "Updating =" + Gson().toJson(loc))
-
                 val callServiceProviders = APIClient.getApiInterface().updateBookingStatus(loc)
                 callServiceProviders.enqueue(object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -943,8 +920,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 .setValue(BookingStatus.Accepted.toString())
                             mDatabase.child(bookingId.toString()).child("servicemen_image")
                                 .setValue(servicemenImage)
-                            // mDatabase.child(bookingId.toString()).setValue(request)
-
                             currentWorkStatus = BookingStatus.Accepted
                         }
                     }
@@ -954,20 +929,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                     }
                 })
             }
-            /* bookingAccpted = true
-             lvBtnCall.visibility = View.VISIBLE
-             lvBtnBookNow1.visibility = View.GONE
-             tv1111.visibility = View.GONE
-             closeCV.visibility = View.GONE
-             linearLayout5.visibility = View.VISIBLE
-             ServiceManNameTOP.text = "You are on the way"
-             imgBtnNavigate.visibility = View.VISIBLE
-             btnCancel.text = getString(R.string.cancel)*/
 
-            linearLayout5.setOnClickListener {
-                // update status 3
-                updateToArrived()
-            }
 
         }
     }

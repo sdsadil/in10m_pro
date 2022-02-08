@@ -355,10 +355,10 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     private fun getPreServices() {
-        APIClient.Token =
+        APIClient.token =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall = APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
-            "Bearer " + APIClient.Token,
+            "Bearer " + APIClient.token,
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
         )

@@ -70,7 +70,7 @@ class EstimationActivity : In10mBaseActivity(), ISignupview {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_estimation)
-        APIClient.Token =
+        APIClient.token =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
 
         FreeEstimateCL.setOnClickListener {

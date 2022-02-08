@@ -381,10 +381,10 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun getPreServices() {
-        APIClient.Token =
+        APIClient.token =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall = APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
-            "Bearer " + APIClient.Token,
+            "Bearer " + APIClient.token,
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
         )

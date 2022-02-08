@@ -246,7 +246,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
         if (Constants.GlobalSettings.isBankAccount && !Constants.GlobalSettings.isDebitCard) {
 
 
-            Log.i("Account Creation Bank", "Tocken :" + "Bearer " + APIClient.Token + "\n" +
+            Log.i("Account Creation Bank", "Tocken :" + "Bearer " + APIClient.token + "\n" +
                     "User ID: " + userID + "\n" +
                     "Email :" + userEmail + "\n" +
                     "Fee Estimation: " + "" + "\n" +
@@ -264,7 +264,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
                     "Zipcode: " + zip)
 
             showProgressDialog("")
-            val request = APIClient.getApiInterface().createOnlinePaymentAccountBank("Bearer " + APIClient.Token, userID, userEmail, "", "", "1", accountNo, routinNo, ssn, "2", street, house, city, state, country, zip)
+            val request = APIClient.getApiInterface().createOnlinePaymentAccountBank("Bearer " + APIClient.token, userID, userEmail, "", "", "1", accountNo, routinNo, ssn, "2", street, house, city, state, country, zip)
             request.enqueue(object : Callback<SignupThreeResponse> {
                 override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                     processResponse(response)
@@ -278,7 +278,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
         } else {
 
 
-            Log.i("Account Creation Card", "Tocken :" + "Bearer " + APIClient.Token + "\n" +
+            Log.i("Account Creation Card", "Tocken :" + "Bearer " + APIClient.token + "\n" +
                     "User ID: " + userID + "\n" +
                     "Email :" + userEmail + "\n" +
                     "Fee Estimation: " + "" + "\n" +
@@ -297,7 +297,7 @@ class CreateOnlinePaymentAccountFragment : BaseFragment() {
                     "Zipcode: " + zip)
 
             showProgressDialog("")
-            val request = APIClient.getApiInterface().createOnlinePaymentAccountCard("Bearer " + APIClient.Token, userID, userEmail, "", "", "2", expiryMonth, expiryYear, cardNo, "2", street, house, city, state, country, ssn, zip)
+            val request = APIClient.getApiInterface().createOnlinePaymentAccountCard("Bearer " + APIClient.token, userID, userEmail, "", "", "2", expiryMonth, expiryYear, cardNo, "2", street, house, city, state, country, ssn, zip)
             request.enqueue(object : Callback<SignupThreeResponse> {
                 override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                     processResponse(response)

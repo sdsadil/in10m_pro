@@ -45,10 +45,10 @@ class Services : BaseFragment() {
     }
 
     private fun getPreServices() {
-        APIClient.Token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        APIClient.token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")
-                ?.let { APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + APIClient.Token, it.toInt()) }
+                ?.let { APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + APIClient.token, it.toInt()) }
         homeCall?.enqueue(object : Callback<ServicesResponse> {
             override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {
                 if (response.isSuccessful) {
