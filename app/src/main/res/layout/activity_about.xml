@@ -26,7 +26,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/aller_rg"
         android:maxLines="2"
-        android:text="About the app"
+        android:text="@string/about"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_close"

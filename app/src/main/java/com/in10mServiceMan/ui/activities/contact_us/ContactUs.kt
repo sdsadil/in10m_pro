@@ -34,7 +34,7 @@ class ContactUs : In10mBaseActivity() {
         textView29.movementMethod = LinkMovementMethod.getInstance()
         imageView2.setOnClickListener {
             val callIntent = Intent(Intent.ACTION_DIAL)
-            callIntent.data = Uri.parse("tel:12027797977")
+            callIntent.data = Uri.parse("tel:90910210")
             startActivity(callIntent)
         }
     }
