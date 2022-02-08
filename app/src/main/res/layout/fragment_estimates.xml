@@ -116,7 +116,7 @@
                     android:padding="@dimen/_15sdp"
                     android:text="@string/trip_charge"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/selectRoundIVPaidEstimate"
@@ -138,10 +138,10 @@
                 android:inputType="number"
                 android:maxLength="6"
                 android:minEms="10"
-                android:paddingLeft="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textCursorDrawable="@color/colorPrimaryDark"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/TripChargeCL"
@@ -204,8 +204,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -217,7 +217,7 @@
                     android:focusable="false"
                     android:src="@drawable/greentick"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -228,7 +228,6 @@
                     android:text="@string/complete"
                     android:textColor="@color/white_text_selector"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/arrow"
                     app:layout_constraintStart_toEndOf="@+id/arrow"
                     app:layout_constraintTop_toTopOf="parent" />
 

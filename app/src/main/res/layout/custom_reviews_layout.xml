@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="1"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -98,7 +98,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <LinearLayout
                     android:visibility="gone"
@@ -134,7 +134,7 @@
                 android:layout_gravity="left"
                 android:layout_weight="1"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/reviewOverallTV"

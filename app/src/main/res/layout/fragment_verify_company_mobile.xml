@@ -20,7 +20,7 @@
             android:text="@string/mobile_verification"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,8 +37,8 @@
             android:text="@string/code"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileVerification" />
 
         <!--<androidx.appcompat.widget.AppCompatEditText
@@ -52,7 +52,7 @@
             android:fontFamily="@font/diavlo_book"
             android:hint="@string/enter_code"
             android:inputType="number"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:maxLength="6"
             android:paddingTop="4dp"
             android:paddingBottom="8dp"
@@ -60,8 +60,8 @@
             android:textColorHint="@color/colorPrimaryDark"
             android:textCursorDrawable="@null"
             android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileDescription" />-->
 
 
@@ -87,7 +87,7 @@
                 android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
-                android:paddingLeft="24dp"
+                android:paddingStart="24dp"
                 android:paddingTop="16dp"
                 android:paddingRight="24dp"
                 android:paddingBottom="16dp"
@@ -106,7 +106,7 @@
                 android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
-                android:paddingLeft="24dp"
+                android:paddingStart="24dp"
                 android:paddingTop="16dp"
                 android:paddingRight="24dp"
                 android:paddingBottom="16dp"
@@ -125,7 +125,7 @@
                 android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
-                android:paddingLeft="24dp"
+                android:paddingStart="24dp"
                 android:paddingTop="16dp"
                 android:paddingRight="24dp"
                 android:paddingBottom="16dp"
@@ -143,7 +143,7 @@
                 android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
-                android:paddingLeft="24dp"
+                android:paddingStart="24dp"
                 android:paddingTop="16dp"
                 android:paddingRight="24dp"
                 android:paddingBottom="16dp"
@@ -162,8 +162,8 @@
             android:layout_marginEnd="38dp"
             android:layout_marginRight="38dp"
             android:background="@color/colorLight"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_otp">
 
             <TextView
@@ -175,8 +175,8 @@
                 android:text="@string/policy"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -196,16 +196,16 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:visibility="visible"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/policy_layout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -217,7 +217,7 @@
                     android:focusable="false"
                     android:src="@drawable/greenarrowirght"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView

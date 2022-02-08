@@ -137,7 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/lineOne"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -148,8 +148,8 @@
                         android:fontFamily="@font/diavlo_bold"
                         android:text="00"
                         android:textSize="20sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -158,8 +158,8 @@
                         android:fontFamily="@font/aller_rg"
                         android:text="@string/today"
                         android:textSize="13sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/countTodayTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -171,7 +171,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@color/colorLight"
                     app:layout_constraintBottom_toBottomOf="@+id/today"
-                    app:layout_constraintLeft_toRightOf="@+id/today"
+                    app:layout_constraintStart_toEndOf="@+id/today"
                     app:layout_constraintRight_toLeftOf="@+id/month"
                     app:layout_constraintTop_toTopOf="@+id/today">
 
@@ -181,7 +181,7 @@
                     android:id="@+id/month"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@+id/lineOne"
+                    app:layout_constraintStart_toEndOf="@+id/lineOne"
                     app:layout_constraintRight_toLeftOf="@+id/lineTwo"
                     app:layout_constraintTop_toTopOf="@+id/today">
 
@@ -192,8 +192,8 @@
                         android:fontFamily="@font/diavlo_bold"
                         android:text="00"
                         android:textSize="20sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -202,8 +202,8 @@
                         android:fontFamily="@font/aller_rg"
                         android:text="@string/this_month"
                         android:textSize="13sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/countMonthTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -215,7 +215,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@color/colorLight"
                     app:layout_constraintBottom_toBottomOf="@+id/month"
-                    app:layout_constraintLeft_toRightOf="@+id/month"
+                    app:layout_constraintStart_toEndOf="@+id/month"
                     app:layout_constraintRight_toLeftOf="@+id/year"
                     app:layout_constraintTop_toTopOf="@+id/month">
 
@@ -225,8 +225,8 @@
                     android:id="@+id/year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@+id/lineTwo"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lineTwo"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/month">
 
                     <TextView
@@ -236,8 +236,8 @@
                         android:fontFamily="@font/diavlo_bold"
                         android:text="00"
                         android:textSize="20sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -246,8 +246,8 @@
                         android:fontFamily="@font/aller_rg"
                         android:text="@string/this_year"
                         android:textSize="13sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/countYearTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,8 +261,8 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/month" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

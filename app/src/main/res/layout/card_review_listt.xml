@@ -14,7 +14,7 @@
             android:layout_height="40dp"
             android:src="@drawable/dummy_user"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"/>
 

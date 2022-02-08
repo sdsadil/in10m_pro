@@ -19,7 +19,7 @@
             android:text="@string/company_profile_picture"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -28,8 +28,8 @@
             android:layout_height="@dimen/_180sdp"
             android:layout_marginTop="@dimen/_60sdp"
             android:src="@drawable/user_dummy_avatar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
         <ImageView
@@ -37,7 +37,7 @@
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:src="@drawable/camera"
-            app:layout_constraintRight_toRightOf="@+id/userAvatar"
+            app:layout_constraintEnd_toEndOf="@+id/userAvatar"
             app:layout_constraintTop_toTopOf="@+id/userAvatar" />
 
         <TextView
@@ -50,8 +50,8 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userAvatar" />
 
         <ImageView
@@ -60,8 +60,8 @@
             android:layout_height="@dimen/_70sdp"
             android:layout_marginTop="@dimen/_90sdp"
             android:src="@drawable/darktickbubble"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/smile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

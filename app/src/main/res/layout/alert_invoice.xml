@@ -7,8 +7,8 @@
     android:layout_marginEnd="80dp"
     app:cardCornerRadius="6dp"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,8 +28,8 @@
             android:text="@string/invoice_details"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
@@ -56,7 +56,7 @@
             android:text="@string/service_cost"
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view1" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -70,7 +70,7 @@
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@+id/serviceCostHeader"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/serviceCostHeader" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -84,7 +84,7 @@
             android:text="@string/in10m_charges"
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/serviceCostHeader" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -98,7 +98,7 @@
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@+id/chargesHeader"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/chargesHeader" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -112,7 +112,7 @@
             android:text="@string/total_amount"
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chargesHeader" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -126,7 +126,7 @@
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@+id/totalAmountHeader"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/totalAmountHeader" />
 
         <View
@@ -153,7 +153,7 @@
             android:text="@string/received_by_cash"
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -167,7 +167,7 @@
             android:text="Online ID"
             android:textColor="@color/darkGreyText"
             android:textSize="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cashHeader" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

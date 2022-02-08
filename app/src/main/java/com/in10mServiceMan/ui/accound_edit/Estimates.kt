@@ -21,21 +21,6 @@ import kotlinx.android.synthetic.main.fragment_estimates.view.*
  * A simple [Fragment] subclass.
  */
 class Estimates : BaseFragment(), IUpdateEstimateView {
-    override fun onUpdateEstimateCompleted(mPost: UpdateEstimateResponse) {
-        destroyDialog()
-        if (mPost.status == 1)  {
-            showToast("Estimate Updated")
-        }
-        else    {
-            showToast("Something went wrong")
-        }
-    }
-
-    override fun onUpdateEstimateFailed(msg: String) {
-        destroyDialog()
-        showToast(msg)
-    }
-
     var freeEstimate = true
     var estimate = false
     var estimationStatus = 0
@@ -43,16 +28,19 @@ class Estimates : BaseFragment(), IUpdateEstimateView {
 
     var mUpdateEstimatePresenter = UpdateEstimatePresenter(this)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_estimates, container, false)
 
-        val mServiceManId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+        val mServiceManId =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
 
         view.FreeEstimateCL.setOnClickListener {
             view!!.selectRoundIVFreeEstimate.setImageResource(R.drawable.select_radio_one)
-            view!!.selectRoundIVPaidEstimate.setImageResource(R.drawable.unselect_radio_one)
+            view.selectRoundIVPaidEstimate.setImageResource(R.drawable.unselect_radio_one)
             freeEstimate = true
             estimate = false
             view.TripEstimateFeeET.visibility = View.GONE
@@ -60,24 +48,29 @@ class Estimates : BaseFragment(), IUpdateEstimateView {
 
         view.TripChargeCL.setOnClickListener {
             view!!.selectRoundIVFreeEstimate.setImageResource(R.drawable.unselect_radio_one)
-            view!!.selectRoundIVPaidEstimate.setImageResource(R.drawable.select_radio_one)
+            view.selectRoundIVPaidEstimate.setImageResource(R.drawable.select_radio_one)
             freeEstimate = false
             estimate = true
             view.TripEstimateFeeET.visibility = View.VISIBLE
         }
 
         view.enterButtonEstimateAndFee.setOnClickListener {
-            if (freeEstimate && !estimate)  {
+            if (freeEstimate && !estimate) {
                 estimationStatus = 1
                 estimationFee = "0"
-            }
-            else    {
+            } else {
                 estimationStatus = 0
                 estimationFee = view.TripEstimateFeeET.toString()
             }
 
             showProgressDialog("")
-            mServiceManId?.let { it1 -> mUpdateEstimatePresenter.updateEstimate(it1.toInt(), estimationStatus.toString(), estimationFee) }
+            mServiceManId?.let { it1 ->
+                mUpdateEstimatePresenter.updateEstimate(
+                    it1.toInt(),
+                    estimationStatus.toString(),
+                    estimationFee
+                )
+            }
         }
 
         return view
@@ -85,5 +78,19 @@ class Estimates : BaseFragment(), IUpdateEstimateView {
 
     fun showToast(msg: String) {
         Toast.makeText(this.context, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onUpdateEstimateCompleted(mPost: UpdateEstimateResponse) {
+        destroyDialog()
+        if (mPost.status == 1) {
+            showToast("Estimate Updated")
+        } else {
+            showToast("Something went wrong")
+        }
+    }
+
+    override fun onUpdateEstimateFailed(msg: String) {
+        destroyDialog()
+        showToast(msg)
     }
 }

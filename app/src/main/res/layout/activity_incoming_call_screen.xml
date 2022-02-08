@@ -106,7 +106,7 @@
                         android:layout_weight="1"
                         android:background="@color/colorLight"
                         android:orientation="horizontal"
-                        android:paddingLeft="16dp"
+                        android:paddingStart="16dp"
                         android:paddingTop="5dp"
                         android:paddingRight="16dp"
                         android:paddingBottom="5dp">
@@ -141,7 +141,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingLeft="25dp"
+                        android:paddingStart="25dp"
                         android:paddingTop="5dp"
                         android:paddingRight="25dp"
                         android:paddingBottom="5dp"

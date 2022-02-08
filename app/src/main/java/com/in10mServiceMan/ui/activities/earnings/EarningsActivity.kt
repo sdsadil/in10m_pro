@@ -76,13 +76,11 @@ class EarningsActivity : In10mBaseActivity() {
                     setData(response.body()!!)
                 } else {
                     destroyDialog()
-                    Log.d("error", "Error")
                 }
             }
 
             override fun onFailure(call: Call<EarningsResponse>, t: Throwable) {
                 destroyDialog()
-                Log.d("error", "Error")
             }
         })
     }

@@ -62,7 +62,7 @@
             android:background="@color/colorLight"
             android:hint="@string/mobile_number"
             android:inputType="number"
-            android:paddingLeft="24dp"
+            android:paddingStart="24dp"
             android:paddingRight="24dp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"

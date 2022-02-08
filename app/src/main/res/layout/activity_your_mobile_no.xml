@@ -60,7 +60,7 @@
              android:fontFamily="@font/diavlo_book"
              android:hint="@string/mobile_number"
              android:inputType="number"
-             android:paddingLeft="24dp"
+             android:paddingStart="24dp"
              android:paddingTop="16dp"
              android:paddingRight="24dp"
              android:paddingBottom="16dp"

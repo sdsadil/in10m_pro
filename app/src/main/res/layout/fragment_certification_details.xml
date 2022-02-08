@@ -98,7 +98,7 @@
         android:text="Issuing State"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="10sp"
-        app:layout_constraintLeft_toLeftOf="@+id/certificationDetailsTV"
+        app:layout_constraintStart_toStartOf="@+id/certificationDetailsTV"
         app:layout_constraintTop_toBottomOf="@+id/radioCertificationCL" />
 
     <androidx.appcompat.widget.AppCompatSpinner
@@ -150,8 +150,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -163,7 +163,7 @@
                 android:focusable="false"
                 android:src="@drawable/greentick"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -174,7 +174,6 @@
                 android:text="ENTER"
                 android:textColor="@color/white_text_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/arrow"
                 app:layout_constraintStart_toEndOf="@+id/arrow"
                 app:layout_constraintTop_toTopOf="parent" />
 

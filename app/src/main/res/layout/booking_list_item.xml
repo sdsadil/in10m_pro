@@ -23,6 +23,8 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/aller_rg"
+        android:gravity="center|start"
+        android:textAlignment="viewStart"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/serviceManIV"
@@ -54,12 +56,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
             android:fontFamily="@font/aller_lt"
+            android:gravity="center|start"
+            android:textAlignment="viewStart"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/_10sdp" />
     </LinearLayout>
 
     <LinearLayout
-
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
@@ -149,7 +152,9 @@
             android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:fontFamily="@font/aller_rg"
+            android:gravity="center|start"
             android:maxLines="1"
+            android:textAlignment="viewStart"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="11sp"
             android:textStyle="bold" />

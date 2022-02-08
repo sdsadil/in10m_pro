@@ -23,8 +23,8 @@
             android:text="@string/work_scope_and_estimate"
             android:textColor="#455A64"
             android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,8 +49,8 @@
                 android:gravity="center"
                 android:textColor="#455A64"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -104,16 +104,16 @@
                 android:orientation="horizontal"
                 android:visibility="visible"
                 app:layout_constraintTop_toBottomOf="@+id/feePayDescriptionET"
-                app:layout_constraintLeft_toLeftOf="@+id/feePayDescriptionET"
-                app:layout_constraintRight_toRightOf="@+id/feePayDescriptionET"
+                app:layout_constraintStart_toStartOf="@+id/feePayDescriptionET"
+                app:layout_constraintEnd_toEndOf="@+id/feePayDescriptionET"
                 android:layout_marginTop="@dimen/_20sdp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <ImageView
@@ -125,7 +125,7 @@
                         android:focusable="false"
                         android:src="@drawable/tick_simple"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <TextView
@@ -144,7 +144,7 @@
                         android:textColor="@color/white_text_selector"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        app:layout_constraintLeft_toRightOf="@+id/tickImage"
+                        app:layout_constraintStart_toEndOf="@+id/tickImage"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 

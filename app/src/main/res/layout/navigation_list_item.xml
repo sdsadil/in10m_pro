@@ -17,7 +17,7 @@
         android:text="@string/my_account"
         android:textAllCaps="true"
         android:textColor="@color/blackTransparentWindowBG"
-        app:fontFamily="@font/diavlo_book"
+        app:fontFamily="@font/aller_rg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

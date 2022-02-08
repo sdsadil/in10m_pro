@@ -186,8 +186,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/header"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/_5sdp">
 
             <ImageView
@@ -195,7 +195,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/tumbsupgray"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -204,7 +204,7 @@
                 android:layout_height="40dp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:src="@drawable/tumbsdowngray"
-                app:layout_constraintLeft_toRightOf="@+id/reviewThumpsUpIV"
+                app:layout_constraintStart_toEndOf="@+id/reviewThumpsUpIV"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginLeft="16dp"/>
 

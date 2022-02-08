@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:paddingLeft="3dp">
+    android:paddingStart="3dp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/itemIV"

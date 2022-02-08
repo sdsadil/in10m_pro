@@ -167,14 +167,14 @@
     <string name="help_us_with_your_correct_location">Help us with your correct address location</string>
     <string name="confirm_location">Confirm Location</string>
     <string name="signin_required">Sign in Required</string>
-    <string name="mobile_number">MOBILE NUMBER</string>
+    <string name="mobile_number">رقم الهاتف</string>
     <string name="enter">التالي</string>
     <string name="ote_verification">OTP Verification</string>
     <string name="all_set">كل شيء جاهز</string>
     <string name="book_your_service_now">Book your first service now</string>
     <string name="additional_details">Additional Details</string>
     <string name="personal_info">معلومات شخصية</string>
-    <string name="full_name">FULL NAME</string>
+    <string name="full_name">الاسم الكامل</string>
     <string name="address_details">Address Details (Optional)</string>
     <string name="appartment_name">APARTMENT NAME</string>
     <string name="street_name">STREET NAME</string>
@@ -205,8 +205,8 @@
     <string name="your_service_and_experiences">Enter your services &amp;\nexperiences</string>
     <string name="upload_a_profile_picture">Upload a profile picture</string>
 
-    <string name="dob">DATE OF BIRTH</string>
-    <string name="dob_short">DOB</string>
+    <string name="dob">تاريخ الميلاد</string>
+    <string name="dob_short">تاريخ الميلاد</string>
 
     <string name="email_id">EMAIL ID</string>
     <string name="working_as">WORKING AS</string>
@@ -442,6 +442,7 @@
     <string name="paid_by_homeowner">مدفوعات من قبل الزبائن</string>
     <string name="in10m_amp_other_charges"><![CDATA[رسوم التطبيق]]></string>
     <string name="total_received">مجموع ما تم تحصيله</string>
-    <string name="_202_779_7977">909 10 2 10</string>
+    <string name="_202_779_7977">90910210</string>
     <string name="please_enter_your_query">اكتب سؤالك أو تعليقك هنا</string>
+    <string name="add_more">Add More</string>
 </resources>

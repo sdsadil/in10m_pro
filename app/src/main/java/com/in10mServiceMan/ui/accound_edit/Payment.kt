@@ -30,45 +30,6 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
-    override fun onUpdatePaymentCompleted(mPost: UpdatePaymentResponse) {
-        destroyDialog()
-        if (mPost.status == 1) {
-            showToast("Payment Updated")
-        }
-    }
-
-    override fun onUpdatePaymentFailed(msg: String) {
-        destroyDialog()
-        showToast(msg)
-    }
-
-    override fun onCheckStripeCompleted(mPost: CheckStripeResponse) {
-        destroyDialog()
-        if (mPost.status == 1) {
-            if (mPost.stripe_account == 1) {
-                view!!.createAccount.visibility = View.GONE
-                cash = true
-                online = true
-                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
-                view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
-            } else {
-//                view!!.createAccount.visibility = View.VISIBLE
-                view!!.createAccount.visibility = View.GONE
-                cash = true
-                online = false
-                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
-                view!!.selectRoundIVOnline.setImageResource(R.drawable.unselect_radio_one)
-            }
-        } else {
-            showToast("Something went wrong")
-        }
-    }
-
-    override fun onCheckStripeFailed(msg: String) {
-        destroyDialog()
-        showToast(msg)
-    }
-
     var cash = false
     var online = false
     var paymentType = 0
@@ -78,12 +39,6 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
     var mCheckStripePresenter = CheckStripePresenter(this)
     var mUpdatePaymentPresenter = UpdatePaymentPresenter(this)
 
-    /*val cashRadio = view!!.findViewById(R.id.CashOnlyCL) as ConstraintLayout
-    val onlineRadio = view!!.findViewById(R.id.OnlineAndCashCL) as ConstraintLayout
-    val accountTypeCL = view!!.findViewById(R.id.accountTypeMainCL) as ConstraintLayout
-    val accountDetailCL = view!!.findViewById(R.id.accountPaymentDetailsCL) as ConstraintLayout
-    val addressDetailsCL = view!!.findViewById(R.id.paymentSectionAddressDetailsCL) as ConstraintLayout
-    val debitAndBankDetailsCL = view!!.findViewById(R.id.accountPaymentDetailsCL) as ConstraintLayout*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -204,84 +159,6 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
         }
     }
 
-    /*fun initView()  {
-        view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
-        view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
-        accountTypeCL.visibility = View.VISIBLE
-        accountDetailCL.visibility = View.VISIBLE
-        addressDetailsCL.visibility = View.VISIBLE
-        debitAndBankDetailsCL.visibility = View.VISIBLE
-        Constants.GlobalSettings.isCashPaid = false
-        Constants.GlobalSettings.isBankAccount = true
-        SharedPreferencesHelper.putString(mContext!!, Constants.SharedPrefs.User.PAYMENT_TYPE, "2")
-
-        cashRadio.setOnClickListener {
-            if (cash && online) {
-                cash = false
-                online = true
-                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.unselect_radio_one)
-                view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
-                accountTypeCL.visibility = View.VISIBLE
-                accountDetailCL.visibility = View.VISIBLE
-                addressDetailsCL.visibility = View.VISIBLE
-                debitAndBankDetailsCL.visibility = View.VISIBLE
-                Constants.GlobalSettings.isCashPaid = false
-                Constants.GlobalSettings.isBankAccount = true
-                SharedPreferencesHelper.putString(mContext!!, Constants.SharedPrefs.User.PAYMENT_TYPE, "3")
-            }
-            else if (!cash && online)   {
-                cash = true
-                online = true
-                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
-                view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
-                accountTypeCL.visibility = View.VISIBLE
-                accountDetailCL.visibility = View.VISIBLE
-                addressDetailsCL.visibility = View.VISIBLE
-                debitAndBankDetailsCL.visibility = View.VISIBLE
-                Constants.GlobalSettings.isCashPaid = false
-                Constants.GlobalSettings.isBankAccount = true
-                SharedPreferencesHelper.putString(mContext!!, Constants.SharedPrefs.User.PAYMENT_TYPE, "2")
-            }
-            else if (cash && !online)   {
-                showToast("Select atleast 1 payment option")
-            }
-
-        }
-
-        onlineRadio.setOnClickListener {
-            if (cash && online) {
-                cash = true
-                online = false
-                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
-                view!!.selectRoundIVOnline.setImageResource(R.drawable.unselect_radio_one)
-                accountTypeCL.visibility = View.GONE
-                accountDetailCL.visibility = View.GONE
-                addressDetailsCL.visibility = View.GONE
-                debitAndBankDetailsCL.visibility = View.GONE
-                Constants.GlobalSettings.isCashPaid = true
-                Constants.GlobalSettings.isBankAccount = false
-                Constants.GlobalSettings.isDebitCard = false
-                SharedPreferencesHelper.putString(mContext!!, Constants.SharedPrefs.User.PAYMENT_TYPE, "1")
-            }
-            else if (cash && !online)    {
-                cash = true
-                online = true
-                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
-                view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
-                accountTypeCL.visibility = View.VISIBLE
-                accountDetailCL.visibility = View.VISIBLE
-                addressDetailsCL.visibility = View.VISIBLE
-                debitAndBankDetailsCL.visibility = View.VISIBLE
-                Constants.GlobalSettings.isCashPaid = false
-                Constants.GlobalSettings.isBankAccount = true
-                SharedPreferencesHelper.putString(mContext!!, Constants.SharedPrefs.User.PAYMENT_TYPE, "2")
-            }
-            else if (!cash && online)   {
-                showToast("Select atleast 1 payment option")
-            }
-        }
-    }*/
-
     fun showToast(msg: String) {
         Toast.makeText(this.context, msg, Toast.LENGTH_SHORT).show()
     }
@@ -298,4 +175,42 @@ class Payment : BaseFragment(), ICheckStripeView, IUpdatePaymentView {
         super.onResume()
     }
 
+    override fun onUpdatePaymentCompleted(mPost: UpdatePaymentResponse) {
+        destroyDialog()
+        if (mPost.status == 1) {
+            showToast("Payment Updated")
+        }
+    }
+
+    override fun onUpdatePaymentFailed(msg: String) {
+        destroyDialog()
+        showToast(msg)
+    }
+
+    override fun onCheckStripeCompleted(mPost: CheckStripeResponse) {
+        destroyDialog()
+        if (mPost.status == 1) {
+            if (mPost.stripe_account == 1) {
+                view!!.createAccount.visibility = View.GONE
+                cash = true
+                online = true
+                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
+                view!!.selectRoundIVOnline.setImageResource(R.drawable.select_radio_one)
+            } else {
+//                view!!.createAccount.visibility = View.VISIBLE
+                view!!.createAccount.visibility = View.GONE
+                cash = true
+                online = false
+                view!!.selectRoundIVCashOnly.setImageResource(R.drawable.select_radio_one)
+                view!!.selectRoundIVOnline.setImageResource(R.drawable.unselect_radio_one)
+            }
+        } else {
+            showToast("Something went wrong")
+        }
+    }
+
+    override fun onCheckStripeFailed(msg: String) {
+        destroyDialog()
+        showToast(msg)
+    }
 }

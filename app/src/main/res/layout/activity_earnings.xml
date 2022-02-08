@@ -58,7 +58,7 @@
                 android:layout_height="14dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/online_card_three"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -71,7 +71,7 @@
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/onlineImage"
-                app:layout_constraintLeft_toRightOf="@+id/onlineImage"
+                app:layout_constraintStart_toEndOf="@+id/onlineImage"
                 app:layout_constraintTop_toTopOf="@+id/onlineImage" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -84,7 +84,7 @@
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/onlineImage"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/onlineImage" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -93,8 +93,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:visibility="gone"
-                app:layout_constraintLeft_toRightOf="@+id/onlineImage"
-                app:layout_constraintRight_toRightOf="@+id/onlinePaymentValueTV"
+                app:layout_constraintStart_toEndOf="@+id/onlineImage"
+                app:layout_constraintEnd_toEndOf="@+id/onlinePaymentValueTV"
                 app:layout_constraintTop_toBottomOf="@+id/onlinePaymentValueTV">
 
                 <TextView
@@ -106,7 +106,7 @@
                     android:text="Paid by homeowner"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -118,7 +118,7 @@
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -130,7 +130,7 @@
                     android:text="in10m &amp; other charges"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubOne" />
 
                 <TextView
@@ -142,7 +142,7 @@
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubOne" />
 
                 <TextView
@@ -154,7 +154,7 @@
                     android:text="Total received"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo" />
 
                 <TextView
@@ -166,7 +166,7 @@
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -176,8 +176,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="5dp"
                 android:src="@drawable/dropdown_arrow"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/onlineLayout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -213,7 +213,7 @@
                 android:layout_height="18dp"
                 android:background="@drawable/wallet_three"
                 android:backgroundTint="@color/colorPrimaryDark"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -227,7 +227,7 @@
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/cashImage"
-                app:layout_constraintLeft_toRightOf="@+id/cashImage"
+                app:layout_constraintStart_toEndOf="@+id/cashImage"
                 app:layout_constraintTop_toTopOf="@+id/cashImage" />
 
             <ImageView
@@ -238,7 +238,7 @@
                 android:padding="@dimen/_3sdp"
                 android:src="@drawable/dropdown_arrow"
                 app:layout_constraintBottom_toBottomOf="@+id/cashTitle"
-                app:layout_constraintLeft_toRightOf="@+id/cashTitle"
+                app:layout_constraintStart_toEndOf="@+id/cashTitle"
                 app:layout_constraintTop_toTopOf="@+id/cashTitle" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -252,7 +252,7 @@
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/cashImage"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/cashImage" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -262,8 +262,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:visibility="gone"
-                app:layout_constraintLeft_toRightOf="@+id/cashImage"
-                app:layout_constraintRight_toRightOf="@+id/cashPaymentValueTV"
+                app:layout_constraintStart_toEndOf="@+id/cashImage"
+                app:layout_constraintEnd_toEndOf="@+id/cashPaymentValueTV"
                 app:layout_constraintTop_toBottomOf="@+id/cashPaymentValueTV">
 
                 <TextView
@@ -275,7 +275,7 @@
                     android:text="@string/paid_by_homeowner"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -287,7 +287,7 @@
                     android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -299,7 +299,7 @@
                     android:text="@string/in10m_amp_other_charges"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubOne" />
 
                 <TextView
@@ -311,7 +311,7 @@
                     android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubOne" />
 
                 <TextView
@@ -323,7 +323,7 @@
                     android:text="@string/total_received"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubTwo" />
 
                 <TextView
@@ -335,7 +335,7 @@
                     android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubTwo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -372,7 +372,7 @@
                 android:layout_height="18dp"
                 android:background="@drawable/outstanding_three"
                 android:tint="@color/colorPrimary"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -385,7 +385,7 @@
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/outstandingImage"
-                app:layout_constraintLeft_toRightOf="@+id/outstandingImage"
+                app:layout_constraintStart_toEndOf="@+id/outstandingImage"
                 app:layout_constraintTop_toTopOf="@+id/outstandingImage" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -399,7 +399,7 @@
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/outstandingImage"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/outstandingImage" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
