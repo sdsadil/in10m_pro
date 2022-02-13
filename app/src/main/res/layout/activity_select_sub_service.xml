@@ -43,13 +43,12 @@
             app:fontFamily="@font/unineuebold"
             android:textSize="@dimen/_20sdp"/>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/txtViewSelectSubServices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/select_sub_service"
             android:layout_marginTop="@dimen/_15sdp"
-            app:fontFamily="@font/unineuebook"
             android:textSize="@dimen/_15sdp"
             />
     </LinearLayout>

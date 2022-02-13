@@ -11,14 +11,13 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/howToGetPaidTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="38dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="38dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/payment_heading"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
@@ -121,13 +120,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/howToGetPaidTV">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/paymentSectionNeedTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/payment_section_need"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
@@ -135,14 +133,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/lastFourDigitOfSSNTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/last_four_digits_SSN_expanded"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
@@ -152,14 +149,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/paymentSectionNeedTV" />
 
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/whereToSendMoneyTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_50sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/where_to_send_money"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
@@ -186,8 +182,10 @@
                 android:id="@+id/AccountDetailsSSNET"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/last_four_digits_SSN"
                 android:inputType="number"
                 android:maxLength="4"
@@ -198,13 +196,11 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="@dimen/_20sdp"
                 android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/hidedSSNStarTV"
-                app:layout_constraintTop_toBottomOf="@+id/lastFourDigitOfSSNTV"/>
+                app:layout_constraintTop_toBottomOf="@+id/lastFourDigitOfSSNTV" />
 
             <!--<com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/AccountDetailsSSNTIL"
@@ -255,16 +251,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/textview_background"
-                        app:fontFamily="@font/unineuebook"
                         android:padding="@dimen/_15sdp"
                         android:text="@string/bank_account_pay"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/selectRoundIVBankAccount"
@@ -290,16 +285,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/textview_background"
-                        app:fontFamily="@font/unineuebook"
                         android:padding="@dimen/_15sdp"
                         android:text="@string/debit_card_pay"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/selectRoundIVDebitCard"
@@ -352,7 +346,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/account_number"
                         android:inputType="number"
                         android:maxLength="12"
@@ -360,6 +353,7 @@
                         android:paddingBottom="8dp"
                         android:textAllCaps="true"
                         android:textSize="12sp"
+                        app:fontFamily="@font/unineuebook"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -387,7 +381,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/routing_number"
                         android:inputType="number"
                         android:maxLength="9"
@@ -395,6 +388,7 @@
                         android:paddingBottom="8dp"
                         android:textAllCaps="true"
                         android:textSize="12sp"
+                        app:fontFamily="@font/unineuebook"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -433,7 +427,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/card_number"
                         android:inputType="number"
                         android:maxLength="16"
@@ -441,6 +434,7 @@
                         android:paddingBottom="8dp"
                         android:textAllCaps="true"
                         android:textSize="12sp"
+                        app:fontFamily="@font/unineuebook"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -501,13 +495,12 @@
                 app:layout_constraintBottom_toTopOf="@+id/AccountDetailsHomeAddress"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/AccountDetailsHomeAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/confirm_address_min"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintStart_toStartOf="parent"
@@ -517,20 +510,20 @@
                 android:id="@+id/AccountDetailsStreetAddressET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/street_address"
                 android:inputType="text"
                 android:paddingStart="@dimen/_8sdp"
-                android:paddingEnd="@dimen/_8sdp"
                 android:paddingTop="10dp"
+                android:paddingEnd="@dimen/_8sdp"
                 android:paddingBottom="10dp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:theme="@style/EditTextHint"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"
                 android:textSize="14sp"
+                android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsHomeAddress" />
@@ -539,20 +532,20 @@
                 android:id="@+id/AccountDetailsSuiteET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/suite"
                 android:inputType="text"
                 android:paddingStart="@dimen/_8sdp"
-                android:paddingEnd="@dimen/_8sdp"
                 android:paddingTop="10dp"
+                android:paddingEnd="@dimen/_8sdp"
                 android:paddingBottom="10dp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:theme="@style/EditTextHint"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"
                 android:textSize="14sp"
+                android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsStreetAddressET" />
@@ -561,20 +554,20 @@
                 android:id="@+id/AccountDetailsCityTV"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/city"
                 android:inputType="textPersonName"
                 android:paddingStart="@dimen/_8sdp"
-                android:paddingEnd="@dimen/_8sdp"
                 android:paddingTop="10dp"
+                android:paddingEnd="@dimen/_8sdp"
                 android:paddingBottom="10dp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:theme="@style/EditTextHint"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"
                 android:textSize="14sp"
+                android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsSuiteET" />
@@ -587,31 +580,31 @@
                 android:background="@drawable/gradient_spinner"
                 android:drawableEnd="@drawable/dropdownblack"
                 android:hint="@string/state"
-                app:layout_constraintStart_toStartOf="@+id/AccountDetailsCityTV"
                 app:layout_constraintEnd_toEndOf="@+id/AccountDetailsCityTV"
+                app:layout_constraintStart_toStartOf="@+id/AccountDetailsCityTV"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsCityTV" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/AccountDetailsZipET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/zip_code"
                 android:inputType="number"
                 android:paddingStart="@dimen/_8sdp"
-                android:paddingEnd="@dimen/_8sdp"
                 android:paddingTop="10dp"
+                android:paddingEnd="@dimen/_8sdp"
                 android:paddingBottom="10dp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:theme="@style/EditTextHint"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"
                 android:textSize="14sp"
+                android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/AccountDetailsStateSpinner"/>
+                app:layout_constraintTop_toBottomOf="@+id/AccountDetailsStateSpinner" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -639,8 +632,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -655,10 +648,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/unineueregular"
                     android:padding="@dimen/_5sdp"
                     android:text="@string/enter"
                     android:textColor="@color/white_text_selector"

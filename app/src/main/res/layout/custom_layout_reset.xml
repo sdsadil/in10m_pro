@@ -18,7 +18,7 @@
         android:paddingEnd="@dimen/_16sdp"
         android:paddingBottom="@dimen/_30sdp">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/resetPassLinkTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +27,6 @@
             android:text="@string/reset_password_link"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,7 +75,7 @@
                 android:src="@drawable/greenarrowirght"
                 android:visibility="gone" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/EnterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,10 +89,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white_text_selector"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/unineuebook"
-
-                />
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

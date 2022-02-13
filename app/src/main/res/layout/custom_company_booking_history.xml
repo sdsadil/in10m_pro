@@ -19,25 +19,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/ServiceManName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        app:fontFamily="@font/unineueregular"
         android:text="Customer name"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/serviceManIV"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/totalBookingTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        app:fontFamily="@font/unineuebook"
         android:text="Total Bookings : 100"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
@@ -61,7 +59,7 @@
             android:layout_height="20dp"
             android:src="@drawable/tumbsupgray" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/thumbsUpTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +67,6 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="-4dp"
             android:layout_marginEnd="5dp"
-            app:fontFamily="@font/unineueregular"
             android:text="4"
             android:textColor="@color/colorPrimary"
             android:textSize="18dp"
@@ -89,7 +86,7 @@
             android:layout_height="20dp"
             android:src="@drawable/tumbsdowngray" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/thumbsDownTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +94,6 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="-4dp"
             android:layout_marginEnd="5dp"
-            app:fontFamily="@font/unineueregular"
             android:text="4"
             android:textColor="@color/colorPrimary"
             android:textSize="18dp"
@@ -107,12 +103,10 @@
 
     </LinearLayout>
 
-
-    <TextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fontFamily="@font/unineuebook"
         android:text="Total Amount : 500"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
@@ -121,12 +115,11 @@
         app:layout_constraintTop_toTopOf="@+id/totalBookingTV" />
 
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textViewTIME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        app:fontFamily="@font/unineueregular"
         android:text="KD 0.0"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"

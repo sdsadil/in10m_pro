@@ -6,37 +6,35 @@
     tools:context=".ui.fragments.service_man_details_fragments.ServicemanServiceDetailsFragmentListener">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:fitsSystemWindows="true"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:fitsSystemWindows="true">
 
         <ImageView
-            android:visibility="invisible"
             android:id="@+id/button_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:elevation="3dp"
-            android:padding="@dimen/_10sdp"
             android:foregroundGravity="center"
+            android:padding="@dimen/_10sdp"
             android:src="@drawable/ic_back"
-             />
+            android:visibility="invisible" />
 
 
-        <TextView
-            android:layout_below="@+id/button_close"
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/txtViewService"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/button_close"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/your_service_and_experiences"
+            android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="21sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,99 +42,86 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
-
-        <TextView
-            android:hint="@string/choose_a_service"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/_15sdp"
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/choose_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            android:textColor="@color/colorPrimaryDark"
-            app:fontFamily="@font/unineuebook"
+            android:drawableEnd="@drawable/rightcarretblack"
+            android:gravity="center"
+            android:hint="@string/choose_a_service"
             android:paddingStart="24dp"
             android:paddingTop="12dp"
             android:paddingEnd="24dp"
             android:paddingBottom="12dp"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
-            android:drawableEnd="@drawable/rightcarretblack"
 
             />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/linear_bottom"
-                android:layout_below="@+id/txtViewService"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:visibility="gone"
-                />
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linear_bottom"
+            android:layout_below="@+id/txtViewService"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:visibility="gone" />
 
 
         <LinearLayout
             android:id="@+id/linear_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/_10sdp"
-            android:orientation="vertical"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_alignParentBottom="true">
+            android:orientation="vertical">
 
-            <TextView
-                android:visibility="gone"
-                android:hint="@string/choose_another_service"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/_15sdp"
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/autocomplete_choose_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:drawableEnd="@drawable/rightcarretblack"
-
                 android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-                android:textColor="@color/colorPrimaryDark"
-                app:fontFamily="@font/unineuebook"
+                android:drawableEnd="@drawable/rightcarretblack"
+                android:gravity="center"
+                android:hint="@string/choose_another_service"
                 android:paddingStart="24dp"
                 android:paddingTop="12dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="12dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp"
-
-
-                />
+                android:visibility="gone"  />
 
 
             <ImageView
                 android:id="@+id/img_view_done_services"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/darktickbubble"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_centerHorizontal="true"/>
+                android:src="@drawable/darktickbubble" />
 
             <View
                 android:id="@+id/view"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="3dp"
-                android:alpha=".5"
                 android:layout_gravity="center"
-                android:background="@color/greenyBlue"
-                android:layout_marginBottom="@dimen/_10sdp"/>
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:alpha=".5"
+                android:background="@color/greenyBlue" />
 
         </LinearLayout>
 

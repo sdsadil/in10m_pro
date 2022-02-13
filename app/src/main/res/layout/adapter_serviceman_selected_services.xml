@@ -25,13 +25,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/service_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_10sdp"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="start"
                 android:text="@string/plumbing_text"
                 android:textSize="14sp"
@@ -61,16 +60,15 @@
             android:paddingBottom="@dimen/_5sdp"
             android:visibility="gone">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/txt_view_sub_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/sub_service"
                 android:textSize="15sp" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/subService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,7 +76,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="50dp"
                 android:layout_toEndOf="@+id/txt_view_sub_service"
-                app:fontFamily="@font/unineuebook"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -97,16 +94,15 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_5sdp">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/exp_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/total_experience"
                 android:textSize="14sp" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/ServiceExperienceTV"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
@@ -114,7 +110,6 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_toEndOf="@+id/exp_year"
                 android:background="@drawable/et_bg"
-                app:fontFamily="@font/unineuebook"
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"

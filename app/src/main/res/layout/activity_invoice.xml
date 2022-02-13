@@ -18,12 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/invoiceTV" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/invoiceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:text="@string/invoice"
         android:textColor="@color/colorPrimaryDark"
@@ -61,13 +60,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/textview_background"
-                app:fontFamily="@font/unineueregular"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/cash_payment_invoice"
                 android:textColor="@color/colorPrimaryDark"
@@ -97,13 +95,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/textview_background"
-                app:fontFamily="@font/unineueregular"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/online_payment_invoice"
                 android:textColor="@color/colorPrimaryDark"
@@ -124,11 +121,10 @@
             app:layout_constraintStart_toStartOf="@+id/CashPayCL"
             app:layout_constraintTop_toBottomOf="@+id/CashPayCL">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/lbl_or"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="OR"
@@ -138,19 +134,18 @@
                 app:layout_constraintStart_toStartOf="@+id/lbl_create_online_account"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/lbl_create_online_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/textview_background"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/online_payment_enable"
                 android:textColor="@color/greenyBlue"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_or" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -165,7 +160,6 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/textview_background"
         android:drawableTint="@android:color/transparent"
-        app:fontFamily="@font/unineuebook"
         android:gravity="start|top"
         android:hint="@string/work_description"
         android:inputType="textMultiLine"
@@ -174,6 +168,7 @@
         android:textColorHint="@color/colorPrimaryDark"
         android:textCursorDrawable="@null"
         android:textSize="@dimen/_10sdp"
+        app:fontFamily="@font/unineuebook"
         app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL" />
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -184,7 +179,6 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/textview_background"
-        app:fontFamily="@font/unineuebook"
         android:hint="@string/fee"
         android:inputType="numberDecimal"
         android:maxLength="6"
@@ -193,14 +187,14 @@
         android:textColor="@color/colorPrimaryDark"
         android:textCursorDrawable="@null"
         android:textSize="12sp"
+        app:fontFamily="@font/unineuebook"
         app:layout_constraintTop_toBottomOf="@+id/workDescriptionET" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/infoToUserTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/info_to_user_invoice"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="10sp"
@@ -231,7 +225,7 @@
             android:focusable="false"
             android:src="@drawable/greenarrowirght" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/EnterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -240,23 +234,19 @@
             android:background="@drawable/default_background"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:padding="@dimen/_10sdp"
             android:text="@string/submit"
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="15sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/customerCancelQuoteMessageTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
-        app:fontFamily="@font/unineueregular"
         android:gravity="center"
         android:text="Customer asked for a re-quote"
         android:textColor="@color/colorPrimaryDark"

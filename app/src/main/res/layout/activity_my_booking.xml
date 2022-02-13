@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +28,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        app:fontFamily="@font/unineueregular"
         android:maxLines="2"
         android:text="@string/my_bookings"
         android:textAlignment="center"
@@ -49,14 +48,13 @@
 
     </View>
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/noBookingTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/no_bookings"
         android:textAlignment="center"
         android:visibility="gone"

@@ -25,14 +25,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
-            app:fontFamily="@font/unineueregular"
             android:maxLines="2"
             android:text="Create Online Payment Account"
             android:textColor="@color/colorPrimaryDark"

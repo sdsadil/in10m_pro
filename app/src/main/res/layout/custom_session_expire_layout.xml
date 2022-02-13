@@ -27,12 +27,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/sessionExpireMessageTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
-            app:fontFamily="@font/unineueregular"
             android:gravity="center"
             android:text="Please re-login to use the application"
             android:textColor="@color/colorPrimaryDark"

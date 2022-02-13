@@ -12,13 +12,12 @@
         android:background="@color/colorAccent"
         tools:context=".ui.activities.signup.EstimationActivity">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/OneLastThingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_50sdp"
-            app:fontFamily="@font/unineuebook"
             android:text="@string/you_offer"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
@@ -26,13 +25,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/DoYouOfferTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_40sdp"
-            app:fontFamily="@font/unineuebook"
             android:text="@string/do_you_offer"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
@@ -69,13 +67,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:background="@drawable/textview_background"
-                    app:fontFamily="@font/unineuebook"
                     android:padding="@dimen/_15sdp"
                     android:text="@string/free_estimate"
                     android:textColor="@color/colorPrimaryDark"
@@ -105,14 +102,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:background="@drawable/textview_background"
-                    app:fontFamily="@font/unineuebook"
                     android:padding="@dimen/_15sdp"
                     android:text="@string/trip_charge"
                     android:textColor="@color/colorPrimaryDark"
@@ -147,13 +142,12 @@
                 app:layout_constraintStart_toStartOf="@+id/TripChargeCL"
                 app:layout_constraintTop_toBottomOf="@+id/TripChargeCL" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/TripEstimatePromotionTT"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:fontFamily="@font/unineuebook"
                 android:text="This charge will be waived if you perform the work requested"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp"
@@ -164,14 +158,13 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/TripEstimatePromotionTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center"
             android:text="@string/free_estimate_promotion"
             android:textColor="@color/colorPrimaryDark"
@@ -220,10 +213,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/unineueregular"
                     android:padding="@dimen/_5sdp"
                     android:text="@string/complete"
                     android:textColor="@color/white_text_selector"

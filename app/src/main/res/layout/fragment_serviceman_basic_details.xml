@@ -6,16 +6,15 @@
     tools:context=".ui.fragments.service_man_details_fragments.ServicemanBAsicDetailsFragment">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:fitsSystemWindows="true"
         android:animateLayoutChanges="true"
         android:clickable="true"
-        android:id="@+id/mainLayout"
-        android:focusableInTouchMode="true"
-        >
+        android:fitsSystemWindows="true"
+        android:focusableInTouchMode="true">
 
 
         <ImageView
@@ -24,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:elevation="3dp"
-            android:padding="@dimen/_10sdp"
             android:foregroundGravity="center"
+            android:padding="@dimen/_10sdp"
             android:src="@drawable/ic_back"
 
             />
@@ -34,10 +33,10 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/button_close"
             android:layout_above="@+id/relative_bottom"
-            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_below="@id/button_close"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
 
             >
 
@@ -45,170 +44,162 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                >
-
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:fontFamily="@font/unineueregular"
-                    android:text="@string/enter_your_basic_details"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="21sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    >
+                    android:layout_marginStart="@dimen/_10sdp"
 
-                    <EditText
-                        android:id="@+id/edt_full_name"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/enter_your_basic_details"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="21sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp">
+
+                        <EditText
+                            android:id="@+id/edt_full_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@color/colorLight"
+                            android:hint="@string/full_name"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:paddingStart="24dp"
+                            android:paddingTop="16dp"
+                            android:paddingEnd="24dp"
+                            android:paddingBottom="16dp"
+                            android:textSize="15sp"
+                            app:fontFamily="@font/unineuebook" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <EditText
+                            android:id="@+id/edt_dob"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@color/colorLight"
+                            android:hint="@string/age"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:paddingStart="24dp"
+                            android:paddingTop="16dp"
+                            android:paddingEnd="24dp"
+                            android:paddingBottom="16dp"
+                            android:textSize="15sp"
+                            app:fontFamily="@font/unineuebook"
+
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <EditText
+                            android:id="@+id/edt_email_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@color/colorLight"
+                            android:hint="@string/email_id"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:paddingStart="24dp"
+                            android:paddingTop="16dp"
+                            android:paddingEnd="24dp"
+                            android:paddingBottom="16dp"
+                            android:textSize="15sp"
+                            app:fontFamily="@font/unineuebook" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+
+                        android:id="@+id/txt_view_gender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
-                        android:hint="@string/full_name"
-                        android:inputType="textPersonName"
-                        android:imeOptions="actionNext"
-                        android:maxLines="1"
-                        android:paddingStart="24dp"
-                        android:paddingTop="16dp"
-                        android:paddingEnd="24dp"
-                        android:paddingBottom="16dp"
-                        android:textSize="15sp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    >
-
-                    <EditText
-                        android:id="@+id/edt_dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/age"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
+                        android:drawableEnd="@drawable/dropdownblack"
+                        android:hint="@string/gender"
                         android:paddingStart="24dp"
                         android:paddingTop="16dp"
                         android:paddingEnd="24dp"
                         android:paddingBottom="16dp"
                         android:textSize="15sp"
-                        android:inputType="number"
-                        android:imeOptions="actionNext"
+                        app:fontFamily="@font/unineuebook"
 
                         />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    <com.in10mServiceMan.widgets.CustomBookTextView
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp">
-
-                    <EditText
-                        android:id="@+id/edt_email_id"
+                        android:id="@+id/txt_view_working_as"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/email_id"
                         android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
+                        android:drawableEnd="@drawable/dropdownblack"
+                        android:hint="@string/working_as"
                         android:paddingStart="24dp"
                         android:paddingTop="16dp"
                         android:paddingEnd="24dp"
                         android:paddingBottom="16dp"
                         android:textSize="15sp"
-                        android:maxLines="1"
-                        android:inputType="textEmailAddress"
-                        android:imeOptions="actionNext" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        />
 
-                <TextView
-
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:id="@+id/txt_view_gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@color/colorLight"
-                    app:fontFamily="@font/unineuebook"
-                    android:paddingStart="24dp"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="24dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="15sp"
-                    android:drawableEnd="@drawable/dropdownblack"
-                    android:hint="@string/gender"
-
-                    />
-
-                <TextView
-
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:id="@+id/txt_view_working_as"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@color/colorLight"
-                    app:fontFamily="@font/unineuebook"
-                    android:paddingStart="24dp"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="24dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="15sp"
-                    android:drawableEnd="@drawable/dropdownblack"
-                    android:hint="@string/working_as"
-
-                    />
-
-                <EditText
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:id="@+id/edit_text_total_eperiance"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@color/colorLight"
-                    app:fontFamily="@font/unineuebook"
-                    android:paddingStart="24dp"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="24dp"
-                    android:paddingBottom="16dp"
-                    android:textSize="15sp"
-                    android:hint="@string/total_experience2"
-                    android:inputType="number"
-                    />
+                    <EditText
+                        android:id="@+id/edit_text_total_eperiance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/colorLight"
+                        android:hint="@string/total_experience2"
+                        android:inputType="number"
+                        android:paddingStart="24dp"
+                        android:paddingTop="16dp"
+                        android:paddingEnd="24dp"
+                        android:paddingBottom="16dp"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/unineuebook" />
 
 
-
-            </LinearLayout>
-
+                </LinearLayout>
 
 
             </RelativeLayout>
@@ -221,24 +212,22 @@
             android:layout_alignParentBottom="true">
 
 
-
             <View
                 android:id="@+id/view"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="3dp"
-                android:alpha=".5"
-                android:layout_centerHorizontal="true"
-                android:background="@color/greenyBlue"
                 android:layout_below="@+id/img_view_done"
-                android:layout_marginBottom="@dimen/_10sdp"/>
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:alpha=".5"
+                android:background="@color/greenyBlue" />
 
             <ImageView
                 android:id="@+id/img_view_done"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/darktickbubble"
                 android:layout_centerHorizontal="true"
-                />
+                android:src="@drawable/darktickbubble" />
 
         </RelativeLayout>
 

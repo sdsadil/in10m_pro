@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/_20sdp">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/headingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:fontFamily="@font/unineuebook"
             android:text="Payment Completed"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
@@ -39,26 +38,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TotalAmountTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/TotalAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
             android:layout_marginTop="40dp"
-            app:fontFamily="@font/unineueregular"
             android:gravity="center"
             android:text="Total Amount"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/headingTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/AmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="34dp"
-            app:fontFamily="@font/unineueregular"
             android:gravity="center"
             android:text=""
             android:textSize="18sp"
@@ -74,12 +71,11 @@
             app:layout_constraintStart_toStartOf="@id/TotalAmountTV"
             app:layout_constraintTop_toBottomOf="@id/lineView" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/cashReceiveStatusTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center"
             android:text="Received by online payment"
             android:textSize="18sp"
@@ -108,7 +104,7 @@
                 android:focusable="false"
                 android:src="@drawable/greenarrowirght" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/EnterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,9 +113,8 @@
                 android:background="@drawable/default_background"
                 android:clickable="false"
                 android:focusable="false"
-                app:fontFamily="@font/unineuebook"
                 android:padding="8dp"
-                android:text="Confirm"
+                android:text="@string/confirm"
                 android:textAllCaps="true"
                 android:textColor="@color/white_text_selector"
                 android:textSize="15sp"

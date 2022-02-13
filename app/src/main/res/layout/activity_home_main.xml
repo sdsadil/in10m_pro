@@ -39,7 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,10 +47,9 @@
             android:layout_marginTop="52dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
-            app:fontFamily="@font/unineuebook"
             android:maxLines="2"
             android:text="@string/_23_professionals_available_nearby"
-            android:textSize="17dp"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/menuIV"
             app:layout_constraintTop_toTopOf="parent" />
@@ -106,14 +105,13 @@
 
         </View>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/sub_service"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp"
@@ -121,12 +119,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/sink"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
@@ -201,13 +198,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/ServiceManName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                app:fontFamily="@font/unineueregular"
                 android:text="Mujeeb Muhammed"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
@@ -225,16 +221,15 @@
                 app:layout_constraintStart_toStartOf="@+id/ServiceManName"
                 app:layout_constraintTop_toBottomOf="@+id/ServiceManName">
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/ratingTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="-2dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="4.7"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/serviceManIV"
                     app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
 
@@ -262,14 +257,13 @@
 
                 </View>
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/titleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="7dp"
                     android:ellipsize="end"
-                    app:fontFamily="@font/unineueregular"
                     android:maxLines="1"
                     android:text="Working for a Non-Profit Org"
                     android:textColor="@color/colorPrimary"
@@ -302,14 +296,13 @@
 
                 </View>
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/addressTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
-                    app:fontFamily="@font/unineueregular"
                     android:maxLines="1"
                     android:text="123 street, Mubarak Bin Mutlaq Al Radaan street"
                     android:textColor="@color/colorPrimary" />
@@ -340,39 +333,35 @@
 
                 </View>
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="ETA:"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/view4"
                     app:layout_constraintTop_toBottomOf="@+id/addressTV" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/timeTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="12mins"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/textView11"
                     app:layout_constraintTop_toBottomOf="@+id/addressTV" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/distanceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-
-                    app:fontFamily="@font/unineuebook"
                     android:text="0.8km away"
                     app:layout_constraintStart_toEndOf="@+id/timeTV"
                     app:layout_constraintTop_toBottomOf="@+id/addressTV" />

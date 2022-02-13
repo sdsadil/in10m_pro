@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/clickLayout"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_profile_pic_ongoing"
@@ -13,90 +13,86 @@
         android:layout_marginTop="30dp"
         android:src="@drawable/user_dummy_avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/iv_profile_pic_ongoing"
-        app:layout_constraintStart_toEndOf="@id/iv_profile_pic_ongoing"
-        app:layout_constraintEnd_toStartOf="@+id/acButton"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_profile_pic_ongoing"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp">
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_profile_pic_ongoing"
+        app:layout_constraintEnd_toStartOf="@+id/acButton"
+        app:layout_constraintStart_toEndOf="@id/iv_profile_pic_ongoing"
+        app:layout_constraintTop_toTopOf="@+id/iv_profile_pic_ongoing">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/tv_status_ongoing"
-            android:text="Temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingEnd="@dimen/_5sdp"
-            app:fontFamily="@font/unineueregular"
             android:gravity="center_vertical"
+            android:paddingEnd="@dimen/_5sdp"
+            android:text="Temp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/tv_subStatus_ongoing"
-            android:text="Temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingEnd="@dimen/_5sdp"
-            app:fontFamily="@font/unineuebook"
+            android:layout_marginTop="5dp"
             android:gravity="center_vertical"
+            android:paddingEnd="@dimen/_5sdp"
+            android:text="Temp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/tv_status_ongoing"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="5dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_status_ongoing" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/tv_statusTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
             android:paddingEnd="@dimen/_5sdp"
             android:text="Total Earnings:"
-            app:fontFamily="@font/unineuebook"
-            android:gravity="center_vertical"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/tv_subStatus_ongoing"
             app:layout_constraintStart_toStartOf="@+id/tv_subStatus_ongoing"
-            android:layout_marginTop="5dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_subStatus_ongoing" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:paddingEnd="@dimen/_5sdp"
             android:text="0.0"
-            app:fontFamily="@font/unineueregular"
-            android:gravity="center_vertical"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@+id/tv_statusTemp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_statusTemp"
-            app:layout_constraintStart_toEndOf="@+id/tv_statusTemp" />
+            app:layout_constraintStart_toEndOf="@+id/tv_statusTemp"
+            app:layout_constraintTop_toTopOf="@+id/tv_statusTemp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/acButton"
-        android:text="Deactivate"
-        app:fontFamily="@font/unineueregular"
-        android:textSize="12sp"
-        android:textColor="@color/primary_text_selector"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        app:layout_constraintTop_toTopOf="@+id/iv_profile_pic_ongoing"
+        android:layout_marginEnd="10dp"
+        android:text="Deactivate"
+        android:textColor="@color/primary_text_selector"
+        android:textSize="12sp"
+        app:fontFamily="@font/unineueregular"
         app:layout_constraintBottom_toBottomOf="@+id/iv_profile_pic_ongoing"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10dp"/>
+        app:layout_constraintTop_toTopOf="@+id/iv_profile_pic_ongoing" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

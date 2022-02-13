@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/semiTransparent"
-    >
+    android:background="@color/semiTransparent">
 
     <ImageView
         android:id="@+id/closeBtn"
@@ -35,20 +33,18 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/white"
+            android:paddingBottom="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            android:paddingBottom="@dimen/_10sdp"
-            >
+            app:layout_constraintTop_toBottomOf="parent">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/additional_details"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="21sp"
@@ -56,13 +52,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/tv11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/personal_info"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +71,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/full_name"
                 android:inputType="textPersonName"
                 android:paddingStart="24dp"
@@ -85,6 +79,7 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
@@ -97,7 +92,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/mobile_number"
                 android:inputType="number"
                 android:paddingStart="24dp"
@@ -106,6 +100,7 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fullnameET" />
@@ -118,7 +113,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:paddingStart="24dp"
@@ -127,6 +121,7 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mobileET" />
@@ -137,9 +132,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/address_details"
                 android:textColor="@color/colorPrimaryDark"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
@@ -151,7 +146,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/appartment_name"
                 android:inputType="textPersonName"
                 android:paddingStart="24dp"
@@ -160,6 +154,7 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv22" />
@@ -173,7 +168,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/street_name"
                 android:inputType="textPersonName"
                 android:paddingStart="24dp"
@@ -182,30 +176,32 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/apartmentNameET1" />
 
 
             <EditText
-            android:id="@+id/landMarkNameET1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
-            android:hint="@string/location_landmark" android:inputType="textPersonName"
-            android:paddingStart="24dp"
-            android:paddingTop="16dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="16dp"
-            android:textAllCaps="true"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/streetNameET1" />
+                android:id="@+id/landMarkNameET1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/colorLight"
+                android:hint="@string/location_landmark"
+                android:inputType="textPersonName"
+                android:paddingStart="24dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="16dp"
+                android:textAllCaps="true"
+                android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/streetNameET1" />
 
             <EditText
                 android:id="@+id/pinCodeET1"
@@ -215,7 +211,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/pin_code"
                 android:inputType="number"
                 android:paddingStart="24dp"
@@ -224,6 +219,7 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/landMarkNameET1" />
@@ -258,13 +254,13 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="0dp"
                     android:background="@color/transparent"
-                    app:fontFamily="@font/unineuebook"
                     android:padding="10dp"
                     android:text="@string/book_now"
                     android:textAllCaps="true"
                     android:textColor="@color/white_text_selector"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    app:fontFamily="@font/unineuebook"
 
                     />
             </LinearLayout>
@@ -273,7 +269,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

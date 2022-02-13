@@ -68,13 +68,12 @@
                 app:layout_constraintStart_toStartOf="@+id/serviceManProfile"
                 app:layout_constraintTop_toTopOf="@+id/serviceManProfile" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/tv11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/personal_info"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +195,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET">
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/txt_view_working_as"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -204,7 +203,6 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorLight"
-                    app:fontFamily="@font/unineuebook"
                     android:gravity="center|start"
                     android:hint="@string/working_as"
                     android:paddingStart="10dp"
@@ -218,13 +216,12 @@
 
             </LinearLayout>
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/tv222"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/work_experience"
                 android:textColor="@color/colorPrimaryDark"
                 android:visibility="gone"
@@ -256,13 +253,12 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/tv223"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/home_address"
                 android:textColor="@color/colorPrimaryDark"
                 android:visibility="visible"
@@ -301,7 +297,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/tvAddressType_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -311,7 +307,6 @@
                     android:background="@color/colorLight"
                     android:drawableEnd="@drawable/ic_keyboard_arrow"
                     android:drawablePadding="@dimen/_10sdp"
-                    app:fontFamily="@font/unineuebook"
                     android:gravity="center|start"
                     android:hint="@string/address_type"
                     android:paddingStart="10dp"

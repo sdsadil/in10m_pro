@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/earningHeadingTV" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/earningHeadingTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        app:fontFamily="@font/unineueregular"
         android:maxLines="2"
         android:text="@string/earnings"
         android:textColor="@color/colorPrimaryDark"
@@ -61,12 +60,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/online_payment_earning"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
@@ -74,11 +72,10 @@
                 app:layout_constraintStart_toEndOf="@+id/onlineImage"
                 app:layout_constraintTop_toTopOf="@+id/onlineImage" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/onlinePaymentValueTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
                 android:textSize="@dimen/_14sdp"
@@ -93,76 +90,70 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:visibility="gone"
-                app:layout_constraintStart_toEndOf="@+id/onlineImage"
                 app:layout_constraintEnd_toEndOf="@+id/onlinePaymentValueTV"
+                app:layout_constraintStart_toEndOf="@+id/onlineImage"
                 app:layout_constraintTop_toBottomOf="@+id/onlinePaymentValueTV">
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/onlineSubOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    app:fontFamily="@font/unineuebook"
                     android:text="Paid by homeowner"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/onlineSubOneRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    app:fontFamily="@font/unineueregular"
-                    android:text="KD 0.0"
+                    android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/onlineSubTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineuebook"
                     android:text="in10m &amp; other charges"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubOne" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/onlineSubTwoRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubOne" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/onlineSubThree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineuebook"
                     android:text="Total received"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/onlineSubTwo" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/onlineSubThreeRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="KD 0.0"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
@@ -176,8 +167,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="5dp"
                 android:src="@drawable/dropdown_arrow"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/onlineLayout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -216,13 +207,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/cashTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/cash_payment_earning"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
@@ -241,11 +231,10 @@
                 app:layout_constraintStart_toEndOf="@+id/cashTitle"
                 app:layout_constraintTop_toTopOf="@+id/cashTitle" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/cashPaymentValueTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineuebook"
                 android:gravity="end"
                 android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
@@ -262,76 +251,70 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:visibility="gone"
-                app:layout_constraintStart_toEndOf="@+id/cashImage"
                 app:layout_constraintEnd_toEndOf="@+id/cashPaymentValueTV"
+                app:layout_constraintStart_toEndOf="@+id/cashImage"
                 app:layout_constraintTop_toBottomOf="@+id/cashPaymentValueTV">
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/cashSubOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    app:fontFamily="@font/unineuebook"
                     android:text="@string/paid_by_homeowner"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/cashSubOneRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/cashSubTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineuebook"
                     android:text="@string/in10m_amp_other_charges"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubOne" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/cashSubTwoRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubOne" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/cashSubThree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineuebook"
                     android:text="@string/total_received"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cashSubTwo" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/cashSubThreeRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="@string/kd_0_000"
                     android:textColor="@color/darkGreyText"
                     android:textSize="@dimen/_10sdp"
@@ -375,12 +358,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/outstanding"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp"
@@ -388,11 +370,10 @@
                 app:layout_constraintStart_toEndOf="@+id/outstandingImage"
                 app:layout_constraintTop_toTopOf="@+id/outstandingImage" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/outstandingAmountValueTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineuebook"
                 android:gravity="end"
                 android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
@@ -428,21 +409,19 @@
             android:paddingEnd="@dimen/_10sdp"
             app:layout_constraintTop_toBottomOf="@+id/viewFour">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="center_vertical"
                 android:text="@string/total_earning"
                 android:textColor="@color/darkGreyText"
                 android:textSize="@dimen/_14sdp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/totalEarningValueTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="end"
                 android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"

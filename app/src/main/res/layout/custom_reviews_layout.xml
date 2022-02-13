@@ -25,12 +25,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/serviceTitleTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/serviceTitleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
-            app:fontFamily="@font/unineueregular"
             android:text="Plumbing"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"
@@ -38,12 +37,11 @@
             app:layout_constraintStart_toEndOf="@+id/serviceIconIV"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/reviewDescriptionTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
-            app:fontFamily="@font/unineuebook"
             android:text="Good Work Done"
             android:textSize="@dimen/_10sdp"
             android:textStyle="italic"
@@ -69,11 +67,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/reviewPriceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/unineueregular"
                     android:text="Price"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/_10sdp"
@@ -111,11 +108,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/reviewKnowledgeTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineueregular"
                         android:text="Knowledge"
                         android:textSize="@dimen/_10sdp" />
 
@@ -136,12 +132,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/reviewOverallTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="Overall"
                     android:textSize="@dimen/_10sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -177,12 +172,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/reviewerNameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="Vishak Vijayakumar"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/_10sdp"
@@ -200,12 +194,11 @@
                 app:layout_constraintStart_toEndOf="@+id/reviewerNameTV"
                 app:layout_constraintTop_toTopOf="@+id/reviewerNameTV" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/reviewerDateTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="12 june 2018"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/_10sdp"
@@ -222,12 +215,11 @@
                 app:layout_constraintStart_toStartOf="@+id/reviewerNameTV"
                 app:layout_constraintTop_toTopOf="@+id/reviewerLocationTV" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/reviewerLocationTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"
-                app:fontFamily="@font/unineuebook"
                 android:text="123 Street, Changanasery, Vaikom"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="13sp"

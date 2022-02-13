@@ -37,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +45,6 @@
             android:layout_marginTop="55dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
-            app:fontFamily="@font/unineuebook"
             android:maxLines="2"
             android:text="@string/your_serviceman_is_starting_his_journey"
             android:textSize="16sp"
@@ -53,21 +52,20 @@
             app:layout_constraintStart_toEndOf="@+id/backBtn"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="8dp"
-            app:fontFamily="@font/unineuebook"
             android:text="@string/help_us_with_your_correct_location"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:padding="@dimen/_10sdp"
             android:background="@color/colorLight"
             android:layout_width="match_parent"
@@ -75,7 +73,6 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:layout_marginTop="10dp"
-            app:fontFamily="@font/unineueregular"
             android:textAlignment="center"
             android:text="Al-Ameen Appartments, 2nd Street, 11th cross, "
             android:textColor="@color/colorPrimaryDark"

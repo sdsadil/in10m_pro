@@ -40,11 +40,10 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:id="@+id/tvTitle_AddressPopUp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"
-                        app:fontFamily="@font/unineuebook"
                         android:gravity="center"
                         android:text="@string/address_type"
                         android:textColor="@color/colorBlack"

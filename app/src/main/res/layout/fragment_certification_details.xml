@@ -7,26 +7,24 @@
     android:background="@color/colorAccent"
     tools:context=".ui.activities.signup.CertificationDetailsFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/certificationDetailsHeadingTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="20dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/certification_details_heading"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/certificationDetailsTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="20dp"
-        app:fontFamily="@font/unineuebook"
         android:text="@string/certification_details_information"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
@@ -89,12 +87,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/issueStateTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        app:fontFamily="@font/unineueregular"
         android:text="Issuing State"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="10sp"
@@ -150,8 +147,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -166,10 +163,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineueregular"
                 android:padding="@dimen/_5sdp"
                 android:text="ENTER"
                 android:textColor="@color/white_text_selector"

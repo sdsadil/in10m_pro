@@ -13,10 +13,9 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/data_AA"
         android:visibility="gone"
-        app:fontFamily="@font/unineueregular"
         android:text="No Data Found"
         android:textSize="16dp"
         android:gravity="center"

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="10dp">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/paymentRequestHeadingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,6 @@
             android:text="@string/payment_requested"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paymentRequestHeadingTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/waitingMessageTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +49,6 @@
             android:text="@string/waiting_for_the_homeowner_to_process"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progressBar" />
@@ -67,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/waitingMessageTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/serviceHeaderAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,11 +74,10 @@
             android:gravity="center"
             android:text="@string/service_cost"
             android:textSize="18sp"
-            app:fontFamily="@font/unineueregular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/waitingMessageTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/serviceAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,11 +86,10 @@
             android:gravity="center"
             android:text=""
             android:textSize="18sp"
-            app:fontFamily="@font/unineueregular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/waitingMessageTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/in10mHeaderAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,11 +98,10 @@
             android:gravity="center"
             android:text="@string/in10m_charges"
             android:textSize="18sp"
-            app:fontFamily="@font/unineueregular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/serviceHeaderAmountTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/in10mAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,7 +110,6 @@
             android:gravity="center"
             android:text=""
             android:textSize="18sp"
-            app:fontFamily="@font/unineueregular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/serviceHeaderAmountTV" />
 
@@ -200,7 +194,7 @@
                     android:focusable="false"
                     android:src="@drawable/icon_green_pencil_small" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/EnterBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -215,7 +209,6 @@
                     android:textColor="@color/white_text_selector"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/unineuebook"
 
                     />
             </LinearLayout>

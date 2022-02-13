@@ -7,12 +7,11 @@
     android:background="@color/colorAccent"
     android:paddingBottom="@dimen/_25sdp">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/invoiceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:text="Invoice"
         android:textSize="@dimen/_20sdp"
@@ -50,13 +49,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/textview_background"
-                app:fontFamily="@font/unineuebook"
                 android:padding="@dimen/_5sdp"
                 android:text="@string/online_payment_invoice"
                 android:textColor="@color/confirmation_background"
@@ -85,13 +83,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/textview_background"
-                app:fontFamily="@font/unineuebook"
                 android:padding="@dimen/_5sdp"
                 android:text="@string/cash_payment_invoice"
                 android:textColor="@color/confirmation_background"
@@ -132,12 +129,11 @@
         android:textSize="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/workDescriptionET" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/infoToUserTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:text="@string/info_to_user_invoice"
         android:textSize="11sp"

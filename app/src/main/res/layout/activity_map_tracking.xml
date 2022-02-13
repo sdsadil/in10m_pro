@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/ServiceManNameTOP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +43,6 @@
             android:layout_marginTop="52dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
-            app:fontFamily="@font/unineuebook"
             android:maxLines="2"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -99,14 +98,13 @@
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/_10sdp">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/ServiceManName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/services_completed"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
@@ -140,21 +138,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/countTodayTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineuebold"
                         android:text="00"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineueregular"
                         android:text="@string/today"
                         android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -184,21 +180,19 @@
                     app:layout_constraintStart_toEndOf="@+id/lineOne"
                     app:layout_constraintTop_toTopOf="@+id/today">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/countMonthTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineuebold"
                         android:text="00"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineueregular"
                         android:text="@string/this_month"
                         android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -228,21 +222,19 @@
                     app:layout_constraintStart_toEndOf="@+id/lineTwo"
                     app:layout_constraintTop_toTopOf="@+id/month">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/countYearTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineuebold"
                         android:text="00"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineueregular"
                         android:text="@string/this_year"
                         android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -250,12 +242,11 @@
                         app:layout_constraintTop_toBottomOf="@+id/countYearTV" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/leadsDeals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="@string/leads_deals"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp"
@@ -334,7 +325,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/requestorName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -342,7 +333,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="center|start"
                 android:maxLines="1"
                 android:text=""
@@ -375,19 +365,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/addressTV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
-                    app:fontFamily="@font/unineuebook"
                     android:gravity="center|start"
                     android:maxLines="3"
                     android:textAlignment="viewStart"
                     android:textColor="@color/text_colour_light"
-                    android:textSize="11sp" />
+                    android:textSize="11sp"/>
 
             </LinearLayout>
 
@@ -413,14 +402,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/apptFloorTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
-                    app:fontFamily="@font/unineueregular"
                     android:maxLines="1"
                     android:text="Appt no. # , floor no. #"
                     android:textColor="@color/colorPrimary"
@@ -474,44 +462,40 @@
                     app:layout_constraintStart_toEndOf="@+id/imgServiceIcon"
                     app:layout_constraintTop_toTopOf="@+id/imgServiceIcon">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/serviceRequestedTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        app:fontFamily="@font/unineueregular"
                         android:singleLine="true"
                         android:text="@string/service"
                         android:textAllCaps="false"
                         android:textSize="14sp" />
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/subServiceRequestedTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/unineueregular"
                         android:visibility="gone" />
 
                 </LinearLayout>
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/ElapsedTimerTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    app:fontFamily="@font/unineueregular"
                     android:text="@string/elapsed_time"
                     android:textSize="12sp"
                     android:visibility="gone"
                     app:layout_constraintStart_toEndOf="@+id/imgServiceIcon"
                     app:layout_constraintTop_toBottomOf="@+id/ServiceNameContainerLL" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:id="@+id/workStatusTimerTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    app:fontFamily="@font/unineueregular"
                     android:gravity="end"
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="00:00:00"
@@ -568,13 +552,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/header_HO"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/privacy_updated"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
@@ -582,13 +565,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/subHeader_HO"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                app:fontFamily="@font/unineuebook"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -625,7 +607,7 @@
                     android:focusable="false"
                     android:src="@drawable/greentick" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/btnBookNow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -634,16 +616,13 @@
                     android:background="@color/accept_button"
                     android:clickable="false"
                     android:focusable="false"
-                    app:fontFamily="@font/unineuebook"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
                     android:text="@string/yes"
                     android:textAllCaps="true"
                     android:textColor="@color/white_text_selector"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

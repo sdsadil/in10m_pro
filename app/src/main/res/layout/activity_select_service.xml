@@ -28,14 +28,13 @@
         android:layout_below="@+id/button_close">
 
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/txtViewService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/choose_a_service"
             android:textSize="@dimen/_15sdp" />
 

@@ -33,14 +33,13 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:orientation="vertical">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/txt_view_basic_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:text="@string/enter_your_basic_details"
-                android:textSize="@dimen/_20sdp"
-                app:fontFamily="@font/unineueregular" />
+                android:textSize="@dimen/_20sdp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

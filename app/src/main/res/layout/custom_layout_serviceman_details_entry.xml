@@ -65,10 +65,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanEmailET" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:layout_width="@dimen/_180sdp"
         android:layout_height="wrap_content"
-        app:fontFamily="@font/unineuebook"
         android:text="YEARS OF EXPERIENCE"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
@@ -101,13 +100,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanExperienceET">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/companyServicemanAddUserTwoTV"
             android:layout_width="0dp"
             android:layout_height="@dimen/_40sdp"
             android:background="@color/editTextBg"
             android:drawableEnd="@drawable/ic_add_black_24dp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_8sdp"

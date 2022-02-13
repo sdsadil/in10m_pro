@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/contact_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="@dimen/_20sdp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/enter_your_contact_details"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
@@ -85,12 +84,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactDetailsMobile" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/atleast_characters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/atlest_characters"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="8sp"
@@ -134,10 +132,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineueregular"
                 android:padding="@dimen/_5sdp"
                 android:text="@string/enters"
                 android:textColor="@color/white_text_selector"

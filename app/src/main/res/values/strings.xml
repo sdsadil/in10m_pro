@@ -452,4 +452,5 @@
     <string name="edit">EDIT</string>
     <string name="payment_requested">Payment Requested</string>
     <string name="waiting_for_the_homeowner_to_process">Waiting for the Homeowner to process....</string>
+    <string name="sign_up">Sign up</string>
 </resources>

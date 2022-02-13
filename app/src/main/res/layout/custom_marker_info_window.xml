@@ -21,25 +21,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/infoWindowNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
-            app:fontFamily="@font/unineueregular"
             android:text="Company Serviceman"
             app:layout_constraintStart_toEndOf="@+id/infoWindowImageIV"
             app:layout_constraintTop_toTopOf="@+id/infoWindowImageIV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/infoWindowServiceNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
-            app:fontFamily="@font/unineueregular"
             android:text="Service name"
             app:layout_constraintBottom_toBottomOf="@+id/infoWindowImageIV"
-            app:layout_constraintStart_toEndOf="@+id/infoWindowImageIV"
-           />
+            app:layout_constraintStart_toEndOf="@+id/infoWindowImageIV" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

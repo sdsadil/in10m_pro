@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,6 @@
         android:text="@string/terms_and_conditions1"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        app:fontFamily="@font/unineueregular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +83,7 @@
             android:focusable="false"
             android:src="@drawable/greentick" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/btnBookNow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,10 +98,7 @@
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="12sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/unineuebook"
-
-            />
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

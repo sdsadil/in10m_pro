@@ -42,28 +42,6 @@
 
     <string name="invite_friends">Invite Friends</string>
 
-    <string-array name="nav_titles">
-        <item>@string/my_account</item>
-        <item>@string/my_bookings</item>
-        <item>@string/my_earnings</item>
-        <item>@string/about</item>
-        <item>@string/privacy</item>
-        <item>@string/contact</item>
-        <item>@string/language</item>
-        <item>@string/log_out</item>
-    </string-array>
-
-    <string-array name="nav_title">
-        <item>@string/my_account</item>
-        <item>@string/company_pros</item>
-        <item>@string/my_bookings</item>
-        <item>@string/my_earnings</item>
-        <item>@string/about</item>
-        <item>@string/privacy</item>
-        <item>@string/contact</item>
-        <item>@string/language</item>
-        <item>@string/log_out</item>
-    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="upcoming">Upcoming</string>
@@ -448,4 +426,5 @@
     <string name="edit">EDIT</string>
     <string name="payment_requested">Payment Requested</string>
     <string name="waiting_for_the_homeowner_to_process">Waiting for the Homeowner to process....</string>
+    <string name="sign_up">Sign up</string>
 </resources>

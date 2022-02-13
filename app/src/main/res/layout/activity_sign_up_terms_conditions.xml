@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +26,6 @@
         android:layout_marginTop="@dimen/back_btn_margin_top"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        app:fontFamily="@font/unineueregular"
         android:maxLines="2"
         android:text="Terms &amp; Conditions"
         android:textColor="@color/colorPrimaryDark"
@@ -72,11 +71,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="20dp">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            app:fontFamily="@font/unineueregular"
             android:padding="@dimen/_5sdp"
             android:text="I Accept"
             android:textColor="@color/white_text_selector"

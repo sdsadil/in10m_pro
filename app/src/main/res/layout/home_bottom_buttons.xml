@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +40,6 @@
             android:background="@color/decline_button"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_6sdp"
             android:text="@string/decline"
@@ -82,7 +81,7 @@
             android:focusable="false"
             android:src="@drawable/greentick" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/btnBookNow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +90,6 @@
             android:background="@color/accept_button"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_6sdp"
             android:text="@string/accept"
@@ -133,8 +131,7 @@
             android:focusable="false"
             android:src="@drawable/callgreen" />
 
-        <TextView
-
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/btnCall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -143,7 +140,6 @@
             android:background="@color/transparent"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_6sdp"
             android:text="@string/call"
@@ -179,14 +175,13 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@color/colorLight"
                 android:clickable="false"
                 android:focusable="false"
-                app:fontFamily="@font/unineuebook"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/arrived_at_location"
                 android:textAllCaps="true"
@@ -223,14 +218,13 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/default_background"
                 android:clickable="false"
                 android:focusable="false"
-                app:fontFamily="@font/unineuebook"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/provide_estimate"
                 android:textAllCaps="true"

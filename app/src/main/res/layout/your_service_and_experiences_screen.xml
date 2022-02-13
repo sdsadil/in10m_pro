@@ -30,13 +30,12 @@
             android:orientation="vertical"
             android:layout_centerInParent="true">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/txtViewService"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/your_service_and_experiences"
                 android:layout_marginStart="@dimen/_20sdp"
-                app:fontFamily="@font/unineueregular"
                 android:textSize="@dimen/_20sdp"/>
 
             <AutoCompleteTextView

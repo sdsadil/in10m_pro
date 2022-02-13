@@ -8,26 +8,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/personalDetailsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="@dimen/_20sdp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/enter_personal_details"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/personalDetailsLegal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/legal_name"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
@@ -78,24 +76,22 @@
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsFirstName"
             android:layout_marginTop="8dp"/>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/personalDetailsCaution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/enter_your_name_exactly"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="8sp"
             app:layout_constraintStart_toStartOf="@+id/personalDetailsLastName"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastName" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/personalDetailsdob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/date_of_birth"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
@@ -119,13 +115,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsdob">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/personalDetailsLastDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorLight"
                 android:drawableEnd="@drawable/dropdown_arrow"
-                app:fontFamily="@font/unineuebook"
                 android:gravity="center_vertical"
                 android:hint="@string/date_of_birth_caps"
                 android:inputType="date"
@@ -139,12 +134,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/personalDetailsCompanyDetailsTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/company_details"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
@@ -175,12 +169,11 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginTop="8dp"/>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/personalDetailsHomeAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/company_address"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"

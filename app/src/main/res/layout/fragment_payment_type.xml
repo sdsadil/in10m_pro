@@ -10,14 +10,13 @@
         android:background="@color/colorAccent"
         tools:context=".ui.activities.signup.PaymentTypeFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/howToGetPaidTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="38dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="38dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/payment_type_accepted"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
@@ -53,13 +52,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="0dp"
                     android:background="@drawable/textview_background"
-                    app:fontFamily="@font/unineuebook"
                     android:padding="@dimen/_15sdp"
                     android:text="@string/cash_payment"
                     android:textColor="@color/colorPrimaryDark"
@@ -91,13 +89,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="0dp"
                     android:background="@drawable/textview_background"
-                    app:fontFamily="@font/unineuebook"
                     android:padding="@dimen/_15sdp"
                     android:text="@string/online_payment"
                     android:textColor="@color/colorPrimaryDark"
@@ -119,13 +116,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/paymentSectionNeedTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:fontFamily="@font/unineuebook"
                 android:text="@string/payment_section_need"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
@@ -133,14 +129,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/lastFourDigitOfSSNTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/last_four_digits_SSN_expanded"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
@@ -150,14 +145,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/paymentSectionNeedTV" />
 
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/whereToSendMoneyTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_50sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/where_to_send_money"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp"
@@ -491,13 +485,12 @@
                 app:layout_constraintBottom_toTopOf="@+id/AccountDetailsHomeAddress"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/AccountDetailsHomeAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                app:fontFamily="@font/unineueregular"
                 android:text="@string/confirm_address_min"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintStart_toStartOf="parent"
@@ -692,10 +685,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/unineueregular"
                     android:padding="@dimen/_5sdp"
                     android:text="@string/enter"
                     android:textAllCaps="true"

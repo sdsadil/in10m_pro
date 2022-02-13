@@ -53,11 +53,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomBookTextView
                     android:id="@+id/tv11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/unineuebook"
                     android:text="@string/add_more"
                     android:textColor="@color/white_text_selector"
                     app:layout_constraintStart_toEndOf="@+id/addServices"

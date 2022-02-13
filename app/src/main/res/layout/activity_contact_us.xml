@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,6 @@
         android:layout_marginTop="@dimen/back_btn_margin_top"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        app:fontFamily="@font/unineueregular"
         android:maxLines="2"
         android:text="@string/contact_us"
         android:textColor="@color/colorPrimaryDark"
@@ -56,25 +55,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view9" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/give_us_a_call_on"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:autoLink="phone"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/_202_779_7977"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="17sp"
@@ -82,12 +79,11 @@
         app:layout_constraintStart_toStartOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/orTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        app:fontFamily="@font/unineueregular"
         android:gravity="center"
         android:text="@string/or"
         android:textColor="@color/colorPrimaryDark"
@@ -97,13 +93,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/tv111"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/or_put_your_query_here"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -119,7 +114,6 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="@dimen/_50sdp"
         android:background="@color/colorLight"
-        app:fontFamily="@font/unineuebook"
         android:gravity="top|start"
         android:hint="@string/description"
         android:inputType="textMultiLine"
@@ -132,6 +126,7 @@
         android:scrollbars="vertical"
         android:textSize="14sp"
         android:textStyle="normal"
+        app:fontFamily="@font/unineuebook"
         app:layout_constraintBottom_toTopOf="@+id/lvBtnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +157,7 @@
             android:focusable="false"
             android:src="@drawable/greentick" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/BookNowBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -171,14 +166,11 @@
             android:background="@color/transparent"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:padding="10dp"
             android:text="@string/submit"
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="15sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

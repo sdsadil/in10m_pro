@@ -18,13 +18,12 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"/>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/tv_reviewer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="10dp"
-            app:fontFamily="@font/unineueregular"
             android:text="James Hooper"
             android:textSize="14sp"
             android:textColor="@color/colorPrimaryDark"
@@ -46,7 +45,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/tumbsupgray" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/thumbsUpTV1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +53,6 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="-4dp"
                 android:layout_marginEnd="5dp"
-                app:fontFamily="@font/unineueregular"
                 android:text="0"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -74,7 +72,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/tumbsdowngray" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/thumbsDownTV1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +80,6 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="-4dp"
                 android:layout_marginEnd="5dp"
-                app:fontFamily="@font/unineueregular"
                 android:text="0"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -90,14 +87,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/ServiceManName" />
         </LinearLayout>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/tv_review_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:fontFamily="@font/unineuebook"
             android:text="“Very professional and keen”"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="@+id/circleImageView"
             app:layout_constraintEnd_toEndOf="parent"

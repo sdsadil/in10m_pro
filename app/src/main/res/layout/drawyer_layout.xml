@@ -23,13 +23,12 @@
             android:layout_marginTop="80dp"
             android:src="@drawable/dummy_user" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/userNameTVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            app:fontFamily="@font/unineuebold"
             android:gravity="center"
             android:text="@string/guest_user"
             android:textColor="@android:color/white"
@@ -49,14 +48,13 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/tumbsupgray" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/thumbsUpTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="center"
                 android:text="@string/_0"
                 android:textColor="@color/colorLight"
@@ -72,19 +70,17 @@
             </View>
 
             <ImageView
-
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/tumbsdowngray" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/thumbsDownTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
-                app:fontFamily="@font/unineueregular"
                 android:gravity="center"
                 android:text="@string/_0"
                 android:textColor="@color/colorLight"
@@ -110,13 +106,12 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/termsandConditionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            app:fontFamily="@font/unineueregular"
             android:gravity="center"
             android:text="@string/terms_and_conditions"
             android:textColor="@android:color/white" />

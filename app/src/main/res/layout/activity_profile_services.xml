@@ -25,7 +25,7 @@
             android:visibility="visible" />
 
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/txtViewService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            app:fontFamily="@font/unineueregular"
             android:text="@string/your_service_and_experiences"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
@@ -43,7 +42,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/choose_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +52,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawableEnd="@drawable/rightcarretblack"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center"
             android:hint="@string/choose_a_service"
             android:paddingStart="24dp"
@@ -86,19 +84,15 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:orientation="vertical">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/autocomplete_choose_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@color/colorLight"
-
                 android:drawableEnd="@drawable/rightcarretblack"
-
-                app:fontFamily="@font/unineuebook"
                 android:gravity="center"
                 android:hint="@string/choose_another_service"
                 android:paddingStart="24dp"
@@ -107,17 +101,13 @@
                 android:paddingBottom="12dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp"
-                android:visibility="gone"
-
-
-                />
+                android:visibility="gone" />
 
 
             <ImageView
                 android:id="@+id/img_view_done_services"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:src="@drawable/darktickbubble" />

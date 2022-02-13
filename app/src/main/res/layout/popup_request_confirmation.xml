@@ -65,14 +65,13 @@ request"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
 
-    <TextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/eta"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"

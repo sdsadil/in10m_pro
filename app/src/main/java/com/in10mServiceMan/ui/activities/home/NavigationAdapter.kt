@@ -14,21 +14,24 @@ import kotlinx.android.synthetic.main.navigation_list_item.view.*
 /**
  * Created by Rohit on 25/03/18.
  */
-class NavigationAdapter(val context: Context, var navigationCallbacks: NavigationCallbacks?) : RecyclerView.Adapter<NavigationAdapter.NavigationVH>() {
+class NavigationAdapter(val context: Context, var navigationCallbacks: NavigationCallbacks?) :
+    RecyclerView.Adapter<NavigationAdapter.NavigationVH>() {
 
-    var userType = SharedPreferencesHelper.getInt(context, Constants.SharedPrefs.User.PERSON_TYPE, 2)
+    var userType =
+        SharedPreferencesHelper.getInt(context, Constants.SharedPrefs.User.PERSON_TYPE, 2)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NavigationVH {
 
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.navigation_list_item, parent, false)
+        val v = LayoutInflater.from(parent.context)
+            .inflate(R.layout.navigation_list_item, parent, false)
         return NavigationVH(v)
     }
 
     override fun getItemCount(): Int {
-        if (userType == 3)
-            return in10mApplication.instance!!.resources.getStringArray(R.array.nav_title).size
+        return if (userType == 3)
+            context.resources.getStringArray(R.array.nav_title).size
         else
-            return in10mApplication.instance!!.resources.getStringArray(R.array.nav_titles).size
+            context.resources.getStringArray(R.array.nav_titles).size
     }
 
     override fun onBindViewHolder(holder: NavigationVH, position: Int) {
@@ -40,10 +43,11 @@ class NavigationAdapter(val context: Context, var navigationCallbacks: Navigatio
         }*/
 
         if (userType == 2) {
-            holder.itemView.navtitleTV?.text = in10mApplication.instance!!.resources.getStringArray(R.array.nav_titles)[position]
-        }
-        else if (userType == 3) {
-            holder.itemView.navtitleTV?.text = in10mApplication.instance!!.resources.getStringArray(R.array.nav_title)[position]
+            holder.itemView.navtitleTV?.text =
+                context.resources.getStringArray(R.array.nav_titles)[position]
+        } else if (userType == 3) {
+            holder.itemView.navtitleTV?.text =
+                context.resources.getStringArray(R.array.nav_title)[position]
         }
 
         holder.itemView.setOnClickListener {
@@ -67,8 +71,7 @@ class NavigationAdapter(val context: Context, var navigationCallbacks: Navigatio
                     7 -> navigationCallbacks?.logout()
 
                 }
-            }
-            else if (userType == 3) {
+            } else if (userType == 3) {
                 when (position) {
 
                     0 -> navigationCallbacks?.myAccount()
@@ -92,11 +95,9 @@ class NavigationAdapter(val context: Context, var navigationCallbacks: Navigatio
                 }
             }
         }
-
     }
 
-
-    inner class NavigationVH(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {}
+    inner class NavigationVH(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
 
     interface NavigationCallbacks {
 

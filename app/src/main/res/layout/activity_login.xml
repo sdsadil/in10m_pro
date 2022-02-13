@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.sign_in.LoginActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/loginTextTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="38dp"
-        app:fontFamily="@font/unineueregular"
         android:text="@string/login_text"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
@@ -163,7 +162,7 @@
             android:focusable="false"
             android:src="@drawable/greenarrowirght" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/EnterBtn"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -172,7 +171,6 @@
             android:background="#0000"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center"
             android:text="@string/login"
             android:textAllCaps="true"
@@ -183,12 +181,11 @@
             />
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/forgotPassTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        app:fontFamily="@font/unineueregular"
         android:gravity="center"
         android:text="@string/forgot_password"
         android:textColor="@color/colorPrimaryDark"
@@ -206,12 +203,11 @@
         app:layout_constraintStart_toStartOf="@+id/forgotPassTV"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassTV" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/newUserTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:text="@string/for_new_user"
         android:textColor="@color/colorPrimaryDark"
@@ -219,12 +215,11 @@
         app:layout_constraintStart_toStartOf="@+id/forgotPassTV"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassTV" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/registerHereTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"

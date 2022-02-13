@@ -7,13 +7,12 @@
     android:background="@color/colorAccent"
     tools:context=".ui.activities.signup.ProfileSuccessActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_120sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:text="@string/all_set"
         android:textColor="@color/textColor"
@@ -41,14 +40,13 @@
         app:layout_constraintEnd_toEndOf="@id/userAvatarSuccess"
         app:layout_constraintTop_toTopOf="@id/userAvatarSuccess" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/userNameSuccess"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:textColor="@color/textColor"
         android:textSize="@dimen/_18sdp"
@@ -56,14 +54,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userAvatarSuccess" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBookTextView
         android:id="@+id/SuccessMessageTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        app:fontFamily="@font/unineuebook"
         android:gravity="center"
         android:text="@string/success_message"
         android:textColor="@color/textColor"

@@ -27,13 +27,12 @@
                 android:src="@drawable/icon_plumbing"
                 />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/txt_view_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/img_service_icon"
                 android:layout_marginStart="@dimen/_10sdp"
-                app:fontFamily="@font/unineueregular"
                 android:textSize="@dimen/_15sdp"
                 android:text="@string/plumbing"
                 android:gravity="center"

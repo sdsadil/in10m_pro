@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomRegularTextView
             android:id="@+id/mobileVerification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,11 +19,10 @@
             android:text="@string/mobile_verification"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
-            app:fontFamily="@font/unineueregular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/mobileDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -33,7 +32,6 @@
             android:text="@string/code"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
-            app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileVerification" />
@@ -170,7 +168,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/termsOfUseTV" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/termsOfUseTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -179,7 +177,6 @@
                 android:gravity="center"
                 android:text="@string/policy"
                 android:textSize="13sp"
-                app:fontFamily="@font/unineueregular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/termsCheckBox"
@@ -224,14 +221,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.in10mServiceMan.widgets.CustomRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:padding="@dimen/_5sdp"
                     android:text="@string/verify_caps"
                     android:textColor="@color/white_text_selector"
-                    app:fontFamily="@font/unineueregular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/arrow"
                     app:layout_constraintTop_toTopOf="parent" />
