@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/_10sdp"
     tools:context=".ui.activities.termsandcondition.TermsAndCondition">
+
     <ImageView
         android:id="@+id/button_close"
         android:layout_width="@dimen/back_btn_width"
@@ -25,11 +26,11 @@
         android:layout_marginTop="@dimen/back_btn_margin_top"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        android:fontFamily="@font/aller_rg"
         android:maxLines="2"
         android:text="@string/terms_and_conditions1"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
+        app:fontFamily="@font/unineueregular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -60,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/accept_button"
         android:clickable="true"
         android:focusable="true"
@@ -67,15 +69,12 @@
         android:orientation="horizontal"
         android:paddingStart="18dp"
         android:paddingTop="5dp"
-        android:paddingRight="18dp"
+        android:paddingEnd="18dp"
         android:paddingBottom="5dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="8dp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:layout_width="15dp"
@@ -94,7 +93,6 @@
             android:background="@color/accept_button"
             android:clickable="false"
             android:focusable="false"
-            android:fontFamily="@font/diavlo_book"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_6sdp"
             android:text="@string/i_accept"
@@ -102,6 +100,7 @@
             android:textColor="@color/white_text_selector"
             android:textSize="12sp"
             android:textStyle="bold"
+            app:fontFamily="@font/unineuebook"
 
             />
     </LinearLayout>

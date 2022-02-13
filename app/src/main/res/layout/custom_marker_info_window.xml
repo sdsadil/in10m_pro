@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
-            android:fontFamily="@font/aller_rg"
+            app:fontFamily="@font/unineueregular"
             android:text="Company Serviceman"
             app:layout_constraintStart_toEndOf="@+id/infoWindowImageIV"
             app:layout_constraintTop_toTopOf="@+id/infoWindowImageIV" />
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
-            android:fontFamily="@font/aller_rg"
+            app:fontFamily="@font/unineueregular"
             android:text="Service name"
             app:layout_constraintBottom_toBottomOf="@+id/infoWindowImageIV"
             app:layout_constraintStart_toEndOf="@+id/infoWindowImageIV"

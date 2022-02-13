@@ -79,7 +79,7 @@
             android:paddingEnd="3dp"
             android:layout_marginEnd="15dp"
             android:transitionName="@string/pickup_location_transition"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/toLocationET"
@@ -87,7 +87,7 @@
             android:layout_height="35dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/et_bg"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             android:paddingEnd="3dp"
             android:paddingStart="5dp"
             android:textColor="@color/darkText"

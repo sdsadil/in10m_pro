@@ -445,4 +445,7 @@
     <string name="_202_779_7977">90910210</string>
     <string name="please_enter_your_query">اكتب سؤالك أو تعليقك هنا</string>
     <string name="add_more">Add More</string>
+    <string name="edit">EDIT</string>
+    <string name="payment_requested">Payment Requested</string>
+    <string name="waiting_for_the_homeowner_to_process">Waiting for the Homeowner to process....</string>
 </resources>

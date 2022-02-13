@@ -39,7 +39,7 @@
                 android:text="@string/all_set"
                 android:layout_gravity="center"
                 android:textSize="@dimen/_25sdp"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
             <android.support.design.widget.CoordinatorLayout
                 android:id="@+id/coordinator_layout"
@@ -73,7 +73,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="James Cooper"
-                android:fontFamily="@font/aller_rg"
+                app:fontFamily="@font/unineueregular"
                 android:textSize="@dimen/_22sdp"
                 />
 
@@ -83,7 +83,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_15sdp"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:text="@string/your_accont_created"/>
 
         </LinearLayout>

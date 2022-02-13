@@ -17,8 +17,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"/>
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/aller_rg"
+        app:fontFamily="@font/unineueregular"
         android:text="SERVICE MAN APP"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimaryDark"
@@ -46,7 +46,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/aller_rg"
+        app:fontFamily="@font/unineueregular"
         android:text="First Time User"
         android:textColor="@color/colorPrimary"
         android:textSize="22sp"

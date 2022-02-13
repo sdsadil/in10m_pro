@@ -32,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -52,7 +52,7 @@
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:gravity="center"
                 android:textColor="@color/textColor"
-                android:fontFamily="@font/diavlo_bold"
+                app:fontFamily="@font/unineuebold"
                 android:text="@string/intro_heading_one"
                 android:textSize="@dimen/_15sdp" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:fontFamily="@font/diavlo_light"
+                app:fontFamily="@font/unineueregular"
                 android:gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"

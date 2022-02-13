@@ -23,7 +23,7 @@
         android:text="Air Conditioning"
         android:textAllCaps="true"
         android:textSize="16sp"
-        app:fontFamily="@font/aller_rg"
+        app:fontFamily="@font/unineueregular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/offeredServiceAdapterRadio"
         app:layout_constraintStart_toEndOf="@id/offeredServiceAdapterIV"

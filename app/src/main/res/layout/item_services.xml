@@ -54,7 +54,7 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             android:paddingEnd="20dp"
             android:text="Water purification / Softening/cleaning"
             android:textAllCaps="true"

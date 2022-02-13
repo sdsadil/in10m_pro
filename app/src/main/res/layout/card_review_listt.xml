@@ -16,7 +16,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginStart="10dp"/>
 
         <TextView
             android:id="@+id/tv_reviewer_name"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/aller_rg"
+            app:fontFamily="@font/unineueregular"
             android:text="James Hooper"
             android:textSize="14sp"
             android:textColor="@color/colorPrimaryDark"
@@ -54,7 +54,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="-4dp"
                 android:layout_marginEnd="5dp"
-                android:fontFamily="@font/aller_rg"
+                app:fontFamily="@font/unineueregular"
                 android:text="0"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -82,7 +82,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="-4dp"
                 android:layout_marginEnd="5dp"
-                android:fontFamily="@font/aller_rg"
+                app:fontFamily="@font/unineueregular"
                 android:text="0"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -95,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/aller_lt"
+            app:fontFamily="@font/unineuebook"
             android:text="“Very professional and keen”"
             android:textSize="15dp"
             android:textStyle="italic"

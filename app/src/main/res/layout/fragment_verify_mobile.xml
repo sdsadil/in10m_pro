@@ -16,10 +16,10 @@
             android:layout_marginStart="38dp"
             android:layout_marginTop="150dp"
             android:layout_marginEnd="38dp"
-            android:fontFamily="@font/aller_rg"
             android:text="@string/mobile_verification"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
+            app:fontFamily="@font/unineueregular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,12 +30,12 @@
             android:layout_marginStart="38dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="38dp"
-            android:fontFamily="@font/aller_lt"
             android:text="@string/code"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileVerification" />
 
         <!--<androidx.appcompat.widget.AppCompatEditText
@@ -46,7 +46,7 @@
             android:layout_marginTop="@dimen/_40sdp"
             android:layout_marginEnd="38dp"
             android:background="@color/colorLight"
-            android:fontFamily="@font/aller_lt"
+            app:fontFamily="@font/unineuebook"
             android:hint="@string/enter_code"
             android:inputType="number"
             android:maxLength="6"
@@ -80,16 +80,16 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:background="@color/colorLight"
-                android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
                 android:paddingStart="24dp"
                 android:paddingTop="16dp"
-                android:paddingRight="24dp"
+                android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:fontFamily="@font/unineuebook" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_otp2"
@@ -99,16 +99,16 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:background="@color/colorLight"
-                android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
                 android:paddingStart="24dp"
                 android:paddingTop="16dp"
-                android:paddingRight="24dp"
+                android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:fontFamily="@font/unineuebook" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_otp3"
@@ -118,16 +118,16 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:background="@color/colorLight"
-                android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
                 android:paddingStart="24dp"
                 android:paddingTop="16dp"
-                android:paddingRight="24dp"
+                android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:fontFamily="@font/unineuebook" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_otp4"
@@ -136,16 +136,16 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:background="@color/colorLight"
-                android:fontFamily="@font/diavlo_book"
                 android:inputType="number"
                 android:maxLength="1"
                 android:paddingStart="24dp"
                 android:paddingTop="16dp"
-                android:paddingRight="24dp"
+                android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                app:fontFamily="@font/unineuebook" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -156,15 +156,15 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="38dp"
             android:background="@color/colorLight"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_otp">
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/termsCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/termsOfUseTV"
                 app:layout_constraintStart_toStartOf="parent"
@@ -174,15 +174,15 @@
                 android:id="@+id/termsOfUseTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/aller_rg"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:text="@string/policy"
                 android:textSize="13sp"
+                app:fontFamily="@font/unineueregular"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/termsCheckBox"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/termsCheckBox"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -192,26 +192,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="38dp"
-            android:layout_marginLeft="38dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="38dp"
-            android:layout_marginRight="38dp"
             android:background="@drawable/default_background"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/policy_layout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -230,10 +228,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:fontFamily="@font/avenir_medium"
                     android:padding="@dimen/_5sdp"
                     android:text="@string/verify_caps"
                     android:textColor="@color/white_text_selector"
+                    app:fontFamily="@font/unineueregular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/arrow"
                     app:layout_constraintTop_toTopOf="parent" />

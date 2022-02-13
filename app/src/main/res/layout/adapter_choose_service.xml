@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        android:paddingRight="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_30sdp"
         android:background="@drawable/et_bg">
 
         <RelativeLayout
@@ -22,8 +22,8 @@
                 android:id="@+id/img_service_icon"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:src="@drawable/icon_plumbing"
                 />
 
@@ -31,9 +31,9 @@
                 android:id="@+id/txt_view_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/img_service_icon"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:fontFamily="@font/diavlo_light"
+                android:layout_toEndOf="@+id/img_service_icon"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:fontFamily="@font/unineueregular"
                 android:textSize="@dimen/_15sdp"
                 android:text="@string/plumbing"
                 android:gravity="center"

@@ -21,7 +21,7 @@
         android:id="@+id/noDataFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/aller_rg"
+        app:fontFamily="@font/unineueregular"
         android:text="No Data Found"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"

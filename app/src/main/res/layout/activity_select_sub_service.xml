@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="@string/plumbing_text"
             android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             android:textSize="@dimen/_20sdp"/>
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="@string/select_sub_service"
             android:layout_marginTop="@dimen/_15sdp"
-            android:fontFamily="@font/aller_lt"
+            app:fontFamily="@font/unineuebook"
             android:textSize="@dimen/_15sdp"
             />
     </LinearLayout>

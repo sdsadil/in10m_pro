@@ -35,18 +35,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/your_service_and_experiences"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:fontFamily="@font/diavlo_light"
+                android:layout_marginStart="@dimen/_20sdp"
+                app:fontFamily="@font/unineueregular"
                 android:textSize="@dimen/_20sdp"/>
 
             <AutoCompleteTextView
                 android:id="@+id/autocomplete_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:padding="@dimen/_7sdp"
-                android:drawableRight="@drawable/ic_done_white"
+                android:drawableEnd="@drawable/ic_done_white"
                 android:background="@drawable/et_bg"
                 android:hint="@string/gender"
                 />

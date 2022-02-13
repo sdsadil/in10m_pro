@@ -24,10 +24,10 @@
                 android:id="@+id/img_menu_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_navigation"
-                android:layout_marginLeft="@dimen/_10sdp"/>
+                android:layout_marginStart="@dimen/_10sdp"/>
             
             <TextView
                 android:id="@+id/txt_user_name"
@@ -37,7 +37,7 @@
                 android:text="Hello James"
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_20sdp"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
             <ImageView
                 android:id="@+id/img_duty_on_off"
@@ -46,7 +46,7 @@
                 android:src="@drawable/ic_done_white"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/_10sdp"/>
+                android:layout_marginEnd="@dimen/_10sdp"/>
 
         </RelativeLayout>
 
@@ -60,8 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/white_bg">
 
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_20sdp"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:text="@string/completed_service_so_far"
                 android:layout_centerHorizontal="true"/>
 
@@ -96,7 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_20sdp"
-                        android:fontFamily="@font/diavlo_bold"
+                        app:fontFamily="@font/unineuebold"
                         android:text="01"/>
 
                     <TextView
@@ -104,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/aller_rg"
+                        app:fontFamily="@font/unineueregular"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="Today"
                         />
@@ -129,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_20sdp"
-                        android:fontFamily="@font/diavlo_bold"
+                        app:fontFamily="@font/unineuebold"
                         android:text="53"/>
 
                     <TextView
@@ -137,7 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/aller_rg"
+                        app:fontFamily="@font/unineueregular"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="This Month"
                         />
@@ -163,7 +163,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_20sdp"
-                        android:fontFamily="@font/diavlo_bold"
+                        app:fontFamily="@font/unineuebold"
                         android:text="324"/>
 
                     <TextView
@@ -171,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/aller_rg"
+                        app:fontFamily="@font/unineueregular"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="This Year"
                         />
@@ -229,7 +229,7 @@
                     android:layout_gravity="center"
                     android:text="James Cooper"
                     android:textSize="@dimen/_20sdp"
-                    android:fontFamily="@font/diavlo_bold"
+                    app:fontFamily="@font/unineuebold"
                     android:layout_marginTop="@dimen/_20sdp"/>
 
 
@@ -240,9 +240,9 @@
                     android:layout_gravity="center"
                     android:text="4.6"
                     android:textSize="@dimen/_20sdp"
-                    android:fontFamily="@font/diavlo_bold"
+                    app:fontFamily="@font/unineuebold"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:drawableRight="@drawable/star_small"
+                    android:drawableEnd="@drawable/star_small"
                     android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center"/>
 
@@ -260,7 +260,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_10sdp"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:layout_alignParentBottom="true"
                 android:text="@string/terms_and_conditions"
                 android:layout_centerHorizontal="true"

@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/aller_lt"
+        app:fontFamily="@font/unineuebook"
         android:text="@string/select_language"
         android:textSize="@dimen/_13sdp"
         app:layout_constraintEnd_toEndOf="parent"

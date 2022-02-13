@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             android:text="@string/small_car"
             android:textAllCaps="true"
             android:textSize="20sp"
@@ -86,7 +86,7 @@
             android:gravity="center_vertical"
             android:paddingStart="20dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             app:layout_constraintTop_toBottomOf="@+id/carNameTV"
             />
 
@@ -99,7 +99,7 @@
             android:textColor="@color/colorPrimary"
             android:gravity="center_vertical"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             app:layout_constraintTop_toTopOf="@+id/baseFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/baseFareTV"
             />
@@ -125,7 +125,7 @@
             android:gravity="center_vertical"
             android:paddingStart="20dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             app:layout_constraintTop_toBottomOf="@+id/baseFareTV"
             />
 
@@ -138,7 +138,7 @@
             android:textColor="@color/colorPrimary"
             android:gravity="center_vertical"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             app:layout_constraintTop_toTopOf="@+id/weightLimitTV"
             app:layout_constraintBottom_toBottomOf="@+id/weightLimitTV"
             />
@@ -163,7 +163,7 @@
             android:textColor="@color/colorPrimary"
             android:gravity="center_vertical"
             android:paddingStart="20dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/weightLimitTV"
             />
@@ -177,7 +177,7 @@
             android:textColor="@color/colorPrimary"
             android:gravity="center_vertical"
             android:layout_marginEnd="20dp"
-            android:fontFamily="@font/diavlo_bold"
+            app:fontFamily="@font/unineuebold"
             app:layout_constraintTop_toTopOf="@+id/totalFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/totalFareTV"
             />
@@ -205,7 +205,7 @@
             android:layout_marginEnd="20dp"
             android:text="@string/lorem_ipsum"
             android:textColor="@color/grey400"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
 
         <com.in10mServiceMan.ui.custom_views.WagonButton

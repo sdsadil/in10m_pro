@@ -9,8 +9,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:fontFamily="@font/aller_rg"
+                app:fontFamily="@font/unineueregular"
                 android:gravity="start"
                 android:text="@string/plumbing_text"
                 android:textSize="14sp"
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:text="@string/sub_service"
                 android:textSize="15sp" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="50dp"
                 android:layout_toEndOf="@+id/txt_view_sub_service"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:text="@string/total_experience"
                 android:textSize="14sp" />
 
@@ -114,7 +114,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_toEndOf="@+id/exp_year"
                 android:background="@drawable/et_bg"
-                android:fontFamily="@font/aller_lt"
+                app:fontFamily="@font/unineuebook"
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"

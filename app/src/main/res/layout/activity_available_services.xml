@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="@dimen/_50sdp"
-        android:fontFamily="@font/aller_lt"
+        app:fontFamily="@font/unineuebook"
         android:text="@string/select_services_offered"
         android:textColor="@color/colorPrimary"
         android:textSize="22sp"

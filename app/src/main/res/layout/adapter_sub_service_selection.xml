@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -8,30 +8,29 @@
         android:id="@+id/relative_sub_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_15sdp"
+        android:background="@drawable/white_bg"
         android:elevation="@dimen/_10sdp"
-        android:background="@drawable/white_bg">
+        android:padding="@dimen/_15sdp">
 
         <ImageView
             android:id="@+id/selectedSubService"
             android:layout_width="30dp"
             android:layout_height="40dp"
-            android:src="@drawable/greentick"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:visibility="gone"/>
+            android:src="@drawable/greentick"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/selectedSubServiceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sink"
-            android:gravity="center"
-            android:textSize="@dimen/_15sdp"
-            android:fontFamily="@font/diavlo_bold"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            />
+            android:gravity="center"
+            android:text="@string/sink"
+            android:textSize="@dimen/_15sdp"
+            app:fontFamily="@font/unineuebold" />
 
 
     </RelativeLayout>

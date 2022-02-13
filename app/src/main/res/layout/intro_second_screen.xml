@@ -32,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -48,7 +48,7 @@
                 android:id="@+id/txt_view_we_have"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/diavlo_bold"
+                app:fontFamily="@font/unineuebold"
                 android:gravity="center"
                 android:text="@string/intro_heading_two"
                 android:textColor="@color/textColor"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:fontFamily="@font/diavlo_light"
+                app:fontFamily="@font/unineueregular"
                 android:gravity="center"
                 android:text="@string/intro_info_two"
                 android:textColor="@color/textColor"
@@ -97,7 +97,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="10dp"
             android:text="Sign up"
-            android:fontFamily="@font/aller_rg"
+            app:fontFamily="@font/unineueregular"
             android:textColor="@android:color/white"
             android:textAllCaps="true"
             android:background="@color/intro_layout_button" />-->

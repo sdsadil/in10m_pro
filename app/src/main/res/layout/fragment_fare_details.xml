@@ -23,7 +23,7 @@
             android:textSize="13sp"
             android:paddingStart="30dp"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/baseFareAmountTV"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toTopOf="@+id/baseFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/baseFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"
@@ -61,7 +61,7 @@
             android:paddingStart="30dp"
             app:layout_constraintTop_toBottomOf="@+id/baseFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/minimumFareAmountTV"
@@ -75,7 +75,7 @@
             app:layout_constraintTop_toTopOf="@+id/minimumFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/minimumFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"
@@ -99,7 +99,7 @@
             android:paddingStart="30dp"
             app:layout_constraintTop_toBottomOf="@+id/minimumFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/minuteFareAmountTV"
@@ -113,7 +113,7 @@
             app:layout_constraintTop_toTopOf="@+id/minuteFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/minuteFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"
@@ -137,7 +137,7 @@
             android:paddingStart="30dp"
             app:layout_constraintTop_toBottomOf="@+id/minuteFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/belowFareAmountTV"
@@ -151,7 +151,7 @@
             app:layout_constraintTop_toTopOf="@+id/belowFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/belowFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"
@@ -175,7 +175,7 @@
             android:paddingStart="30dp"
             app:layout_constraintTop_toBottomOf="@+id/belowFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/aboveAmountTV"
@@ -189,7 +189,7 @@
             app:layout_constraintTop_toTopOf="@+id/aboveFareTV"
             app:layout_constraintBottom_toBottomOf="@+id/aboveFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"
@@ -213,7 +213,7 @@
             android:paddingStart="30dp"
             app:layout_constraintTop_toBottomOf="@+id/aboveFareTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/cancellationFareAmountTV"
@@ -227,7 +227,7 @@
             app:layout_constraintTop_toTopOf="@+id/cancellationFeeTV"
             app:layout_constraintBottom_toBottomOf="@+id/cancellationFeeTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"
@@ -261,7 +261,7 @@
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toTopOf="@+id/eveningTimeTV"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/eveningTimeTV"
@@ -275,7 +275,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/eveningChargesTV"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textColor="@color/grey300"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/eveningChargePercentTV"
@@ -289,7 +289,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -324,7 +324,7 @@
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toTopOf="@+id/nightTimeTV"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/nightTimeTV"
@@ -338,7 +338,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/nightChargesTV"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textColor="@color/grey300"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/nightChargePercentTV"
@@ -352,7 +352,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/diavlo_bold"/>
+                app:fontFamily="@font/unineuebold"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -378,7 +378,7 @@
             android:paddingStart="30dp"
             app:layout_constraintTop_toBottomOf="@+id/nightFareCL"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/waitingChargeAmountTV"
@@ -392,7 +392,7 @@
             app:layout_constraintTop_toTopOf="@+id/waitingChargeTV"
             app:layout_constraintBottom_toBottomOf="@+id/waitingChargeTV"
             android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/diavlo_bold"/>
+            app:fontFamily="@font/unineuebold"/>
 
         <View
             android:layout_width="0dp"

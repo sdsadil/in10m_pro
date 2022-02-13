@@ -33,7 +33,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/aller_rg"
+            app:fontFamily="@font/unineueregular"
             android:text="@string/your_service_and_experiences"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
@@ -53,12 +53,12 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawableEnd="@drawable/rightcarretblack"
-            android:fontFamily="@font/diavlo_book"
+            app:fontFamily="@font/unineuebook"
             android:gravity="center"
             android:hint="@string/choose_a_service"
             android:paddingStart="24dp"
             android:paddingTop="12dp"
-            android:paddingRight="24dp"
+            android:paddingEnd="24dp"
             android:paddingBottom="12dp"
             android:textColor="@color/colorPrimaryDark"
 
@@ -71,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/linear_bottom"
             android:layout_below="@+id/txtViewService"
-            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:visibility="gone" />
 
 
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:orientation="vertical">
 
@@ -98,12 +98,12 @@
 
                 android:drawableEnd="@drawable/rightcarretblack"
 
-                android:fontFamily="@font/diavlo_book"
+                app:fontFamily="@font/unineuebook"
                 android:gravity="center"
                 android:hint="@string/choose_another_service"
                 android:paddingStart="24dp"
                 android:paddingTop="12dp"
-                android:paddingRight="24dp"
+                android:paddingEnd="24dp"
                 android:paddingBottom="12dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp"

@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/diavlo_bold"
+        app:fontFamily="@font/unineuebold"
         android:letterSpacing="0.1"
         android:text="TITLE"
         android:background="@android:color/transparent"

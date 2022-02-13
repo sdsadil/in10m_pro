@@ -58,8 +58,8 @@ class ItemDetailsActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallba
             getValueImage()
         }
 
-        imageFetcher.typeface = ResourcesCompat.getFont(this, R.font.diavlo_light)
-        imageFetcher.boldTypeface = ResourcesCompat.getFont(this, R.font.diavlo_bold)
+        imageFetcher.typeface = ResourcesCompat.getFont(this, R.font.unineueregular)
+        imageFetcher.boldTypeface = ResourcesCompat.getFont(this, R.font.unineuebold)
     }
 
 

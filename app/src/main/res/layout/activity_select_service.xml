@@ -32,10 +32,10 @@
             android:id="@+id/txtViewService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:fontFamily="@font/diavlo_light"
+            app:fontFamily="@font/unineueregular"
             android:text="@string/choose_a_service"
             android:textSize="@dimen/_15sdp" />
 
@@ -45,8 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtViewService"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp" />
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp" />
 
 
     </RelativeLayout>
