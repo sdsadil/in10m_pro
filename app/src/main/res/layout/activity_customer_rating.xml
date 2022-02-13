@@ -163,12 +163,11 @@
 
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:text="How was the customer?"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
@@ -261,7 +260,7 @@
                 android:src="@drawable/greentick"
                 android:visibility="gone" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/SkipNowBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -270,7 +269,6 @@
                 android:background="@color/colorLight"
                 android:clickable="false"
                 android:focusable="false"
-                app:fontFamily="@font/unineuebook"
                 android:gravity="center"
                 android:padding="@dimen/_10sdp"
                 android:text="SKIP"
@@ -302,7 +300,7 @@
                 android:focusable="false"
                 android:src="@drawable/greentick" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/BookNowBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -311,7 +309,6 @@
                 android:background="@drawable/default_background"
                 android:clickable="false"
                 android:focusable="false"
-                app:fontFamily="@font/unineuebook"
                 android:gravity="center"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/submit"

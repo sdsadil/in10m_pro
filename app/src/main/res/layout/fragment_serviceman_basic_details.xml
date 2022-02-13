@@ -142,8 +142,7 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:id="@+id/txt_view_gender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -157,10 +156,7 @@
                         android:paddingTop="16dp"
                         android:paddingEnd="24dp"
                         android:paddingBottom="16dp"
-                        android:textSize="15sp"
-                        app:fontFamily="@font/unineuebook"
-
-                        />
+                        android:textSize="15sp"/>
 
                     <com.in10mServiceMan.widgets.CustomBookTextView
 

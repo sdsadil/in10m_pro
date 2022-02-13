@@ -239,16 +239,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/textview_background"
-                        app:fontFamily="@font/unineuebook"
                         android:padding="@dimen/_15sdp"
                         android:text="@string/bank_account_pay"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/selectRoundIVBankAccount"
@@ -274,16 +273,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/textview_background"
-                        app:fontFamily="@font/unineuebook"
                         android:padding="@dimen/_15sdp"
                         android:text="@string/debit_card_pay"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/selectRoundIVDebitCard"

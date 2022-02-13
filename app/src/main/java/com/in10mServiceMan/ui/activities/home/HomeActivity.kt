@@ -51,81 +51,8 @@ class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
         Manifest.permission.ACCESS_COARSE_LOCATION
     )
     var permsRequestCode = 1
-
-    override fun companyPros() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun myEarnings() {
-    }
-
-    override fun logout() {
-    }
-
-    override fun bookNow() {
-        //Toast.makeText(this@HomeActivity,"Book Now called", Toast.LENGTH_SHORT).show()
-        proceedBookNow()
-    }
-
-
-    override fun callNow() {
-
-    }
-
-    override fun showOnMap() {
-
-    }
-
-    override fun cancelBooking() {
-
-    }
-
-
-    override fun about() {
-        //  slidingRootNav?.closeMenu(true)
-        //  handler.postDelayed({ startActivity(Intent(this, AddCardActivity::class.java)) }, navigationDelay)
-    }
-
-    override fun privacy() {
-        //   slidingRootNav?.closeMenu(true)
-        //  handler.postDelayed({ startActivity(Intent(this, FareDetailsActivity::class.java)) }, navigationDelay)
-    }
-
-
-    override fun settings() {
-        // slidingRootNav?.closeMenu(true)
-        // handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)
-        languageChangeDialogView()
-    }
-
-    override fun contactUs() {
-        // slidingRootNav?.closeMenu(true)
-        //  handler.postDelayed({ startActivity(Intent(this, InviteFriendsActivity::class.java)) }, navigationDelay)
-    }
-
-    override fun myAccount() {
-
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            { startActivity(Intent(this, ProfileActivity::class.java)) },
-            navigationDelay
-        )
-    }
-
-    override fun myBookings() {
-
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            { startActivity(Intent(this, MyBookingsActivity::class.java)) },
-            navigationDelay
-        )
-    }
-
     private var slidingRootNav: SlidingRootNav? = null
-
-
     private var handler = Handler()
-
     private val navigationDelay = 180L
 
     private var isPickupSelected: Boolean? = null
@@ -159,7 +86,7 @@ class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
         val mapFragment = SupportMapFragment.newInstance()
 
         fm.beginTransaction().replace(R.id.mapContainer, mapFragment).commit()
-        mapFragment?.getMapAsync(this@HomeActivity)
+        mapFragment.getMapAsync(this@HomeActivity)
 
         initDrawer(savedInstanceState)
 
@@ -205,8 +132,6 @@ class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
         lvBtnBookNow.setOnClickListener {
             proceedBookNow()
         }
-
-
     }
 
     private fun btnDetailsProceed() {
@@ -297,17 +222,10 @@ class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
     @SuppressLint("MissingPermission")
     private fun onLocationFetched() {
 
-//        fusedLocationClient.lastLocation
-//                .addOnSuccessListener { location: Location? ->
-
         if (map != null) {
-
-            //   mLastLocation = userLocation
             if (mCurrLocationMarker != null) {
                 mCurrLocationMarker?.remove()
             }
-
-            Log.i("EEEEEEEEEEEEEE", "7")
 
             //Place current location marker
             // val latLng = LatLng(location.latitude, location.longitude)
@@ -486,5 +404,74 @@ class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
             }
         }
         return true
+    }
+
+    override fun companyPros() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun myEarnings() {
+    }
+
+    override fun logout() {
+    }
+
+    override fun bookNow() {
+        //Toast.makeText(this@HomeActivity,"Book Now called", Toast.LENGTH_SHORT).show()
+        proceedBookNow()
+    }
+
+
+    override fun callNow() {
+
+    }
+
+    override fun showOnMap() {
+
+    }
+
+    override fun cancelBooking() {
+
+    }
+
+
+    override fun about() {
+        //  slidingRootNav?.closeMenu(true)
+        //  handler.postDelayed({ startActivity(Intent(this, AddCardActivity::class.java)) }, navigationDelay)
+    }
+
+    override fun privacy() {
+        //   slidingRootNav?.closeMenu(true)
+        //  handler.postDelayed({ startActivity(Intent(this, FareDetailsActivity::class.java)) }, navigationDelay)
+    }
+
+
+    override fun settings() {
+        // slidingRootNav?.closeMenu(true)
+        // handler.postDelayed({ startActivity(Intent(this, SettingsActivity::class.java)) }, navigationDelay)
+        languageChangeDialogView()
+    }
+
+    override fun contactUs() {
+        // slidingRootNav?.closeMenu(true)
+        //  handler.postDelayed({ startActivity(Intent(this, InviteFriendsActivity::class.java)) }, navigationDelay)
+    }
+
+    override fun myAccount() {
+
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed(
+            { startActivity(Intent(this, ProfileActivity::class.java)) },
+            navigationDelay
+        )
+    }
+
+    override fun myBookings() {
+
+        slidingRootNav?.closeMenu(true)
+        handler.postDelayed(
+            { startActivity(Intent(this, MyBookingsActivity::class.java)) },
+            navigationDelay
+        )
     }
 }

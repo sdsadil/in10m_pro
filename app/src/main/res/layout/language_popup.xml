@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
@@ -35,11 +35,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:gravity="center">
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomBookTextView
                         android:id="@+id/tvTitle_LangPopUp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -47,6 +45,7 @@
                         android:text="@string/language"
                         android:textColor="@color/darkText"
                         android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -55,12 +54,9 @@
                         android:id="@+id/ivClose_LangPopUp"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:padding="5dp"
                         android:tint="@color/darkText"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvTitle_LangPopUp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/ic_close" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -74,8 +70,7 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/tvEnglish_LangPopUp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -105,7 +100,7 @@
                     android:orientation="horizontal">
 
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/tvArabic_LangPopUp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

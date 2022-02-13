@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
 
 import com.in10mServiceMan.R;
@@ -188,14 +189,14 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         LinearLayout llEnglish_LangPopUpLay = dialog.findViewById(R.id.llEnglish_LangPopUpLay);
         LinearLayout llArabic_LangPopUpLay = dialog.findViewById(R.id.llArabic_LangPopUpLay);
+        AppCompatImageView ivClose_LangPopUp = dialog.findViewById(R.id.ivClose_LangPopUp);
 
+        ivClose_LangPopUp.setOnClickListener(v -> dialog.dismiss());
 
         llEnglish_LangPopUpLay.setOnClickListener(v -> {
             SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, false);
-
             setLanguage(this, "en");
             dialog.dismiss();
-
             finish();
             overridePendingTransition(0, 0);
             startActivity(getIntent());
@@ -203,11 +204,8 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         });
         llArabic_LangPopUpLay.setOnClickListener(v -> {
             SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, true);
-
             setLanguage(this, "ar");
-//            setLanguage(this, "en");
             dialog.dismiss();
-
             finish();
             overridePendingTransition(0, 0);
             startActivity(getIntent());

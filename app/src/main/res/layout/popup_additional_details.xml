@@ -126,7 +126,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mobileET" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:id="@+id/tv22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,7 +134,6 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/address_details"
                 android:textColor="@color/colorPrimaryDark"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
