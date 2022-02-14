@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/invoiceTV" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/invoiceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
@@ -95,7 +95,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
@@ -121,7 +121,7 @@
             app:layout_constraintStart_toStartOf="@+id/CashPayCL"
             app:layout_constraintTop_toBottomOf="@+id/CashPayCL">
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/lbl_or"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                 app:layout_constraintStart_toStartOf="@+id/lbl_create_online_account"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/lbl_create_online_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/workDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
         android:textSize="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL" />
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/feePayDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
         android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@+id/workDescriptionET" />
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/infoToUserTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
             android:focusable="false"
             android:src="@drawable/greenarrowirght" />
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/EnterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/customerCancelQuoteMessageTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

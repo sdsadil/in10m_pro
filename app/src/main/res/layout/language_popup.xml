@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
 
-                    <com.in10mServiceMan.widgets.CustomBookTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
                         android:id="@+id/tvTitle_LangPopUp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/tvEnglish_LangPopUp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                     android:orientation="horizontal">
 
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/tvArabic_LangPopUp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

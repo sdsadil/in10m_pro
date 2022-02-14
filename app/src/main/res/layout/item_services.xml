@@ -45,7 +45,7 @@
             app:layout_constraintStart_toStartOf="@+id/cons_bg"
             app:layout_constraintTop_toTopOf="@+id/cons_bg" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/tvItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

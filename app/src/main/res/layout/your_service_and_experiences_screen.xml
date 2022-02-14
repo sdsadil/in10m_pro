@@ -30,7 +30,7 @@
             android:orientation="vertical"
             android:layout_centerInParent="true">
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/txtViewService"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -12,7 +12,7 @@
         android:background="@color/transparent"
         android:visibility="visible">
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/subServiceTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:layout_height="@dimen/_55sdp"
             android:layout_marginTop="-10dp">
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/subServiceTV2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

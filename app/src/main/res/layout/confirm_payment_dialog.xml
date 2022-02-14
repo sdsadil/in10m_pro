@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/_20sdp">
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/headingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TotalAmountTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/TotalAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/headingTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/AmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="@id/TotalAmountTV"
             app:layout_constraintTop_toBottomOf="@id/lineView" />
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/cashReceiveStatusTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 android:focusable="false"
                 android:src="@drawable/greenarrowirght" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/EnterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

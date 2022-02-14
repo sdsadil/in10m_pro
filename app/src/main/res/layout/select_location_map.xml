@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.in10mServiceMan.widgets.CustomBoldTextView
+    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
         android:id="@+id/mainLocationTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

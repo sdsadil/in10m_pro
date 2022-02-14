@@ -12,7 +12,7 @@
         android:background="@color/colorAccent"
         tools:context=".ui.activities.signup.PaymentTypeFragment">
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/howToGetPaidTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.in10mServiceMan.widgets.CustomBookTextView
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -90,7 +90,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.in10mServiceMan.widgets.CustomBookTextView
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -131,7 +131,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp"
@@ -157,7 +157,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL">
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/paymentSectionNeedTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/lastFourDigitOfSSNTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/paymentSectionNeedTV" />
 
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/whereToSendMoneyTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -280,7 +280,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.in10mServiceMan.widgets.CustomBookTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -314,7 +314,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.in10mServiceMan.widgets.CustomBookTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -524,7 +524,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/AccountDetailsHomeAddress"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/AccountDetailsHomeAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -724,7 +724,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.in10mServiceMan.widgets.CustomRegularTextView
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_5sdp"

@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar">
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/personalCardTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalCardTV" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/cardNumberET"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/personalCardTV" />
 
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/cardMonthET"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -97,7 +97,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardNumberET" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/cardYearET"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -118,7 +118,7 @@
             app:layout_constraintStart_toEndOf="@+id/cardMonthET"
             app:layout_constraintTop_toBottomOf="@+id/cardNumberET" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/cardCvvET"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -140,7 +140,7 @@
             app:layout_constraintStart_toEndOf="@+id/cardYearET"
             app:layout_constraintTop_toBottomOf="@+id/cardNumberET" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/cardNameET"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -161,7 +161,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardMonthET" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/saveAsDefaultCardTV"
             android:layout_width="0dp"
             android:layout_height="60dp"

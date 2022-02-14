@@ -37,7 +37,7 @@
             android:focusableInTouchMode="true"
             android:paddingBottom="20dp">
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/quickInfoTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quickInfoTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/itemNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quickInfoTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/valueItemET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -129,7 +129,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/valueItemET"></androidx.recyclerview.widget.RecyclerView>
 
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/instructionsET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -153,7 +153,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageRV" />
 
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/howBigTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -278,7 +278,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/handleOptionsRV" />
 
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/receiverNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -301,7 +301,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/handleOptionsRV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/receiverNumberET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"

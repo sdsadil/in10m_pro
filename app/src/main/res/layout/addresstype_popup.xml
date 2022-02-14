@@ -40,7 +40,7 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <com.in10mServiceMan.widgets.CustomBookTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
                         android:id="@+id/tvTitle_AddressPopUp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"

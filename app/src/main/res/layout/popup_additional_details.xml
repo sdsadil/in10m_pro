@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/tv11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/fullnameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/mobileET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fullnameET" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/emailET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mobileET" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/tv22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/apartmentNameET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv22" />
 
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/streetNameET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/apartmentNameET1" />
 
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/landMarkNameET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +196,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/streetNameET1" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/pinCodeET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/greenarrowirght" />
 
-                <com.in10mServiceMan.widgets.CustomBookButtonView
+                <com.in10mServiceMan.widgets.button.CustomBookButtonView
                     android:id="@+id/BookNowBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

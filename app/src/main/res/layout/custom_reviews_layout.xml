@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/serviceTitleTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/serviceTitleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             app:layout_constraintStart_toEndOf="@+id/serviceIconIV"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/reviewDescriptionTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.in10mServiceMan.widgets.CustomRegularTextView
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:id="@+id/reviewPriceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/reviewKnowledgeTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <com.in10mServiceMan.widgets.CustomRegularTextView
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:id="@+id/reviewOverallTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/reviewerNameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -194,7 +194,7 @@
                 app:layout_constraintStart_toEndOf="@+id/reviewerNameTV"
                 app:layout_constraintTop_toTopOf="@+id/reviewerNameTV" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/reviewerDateTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                 app:layout_constraintStart_toStartOf="@+id/reviewerNameTV"
                 app:layout_constraintTop_toTopOf="@+id/reviewerLocationTV" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/reviewerLocationTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

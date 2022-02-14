@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/mobileET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/greenarrowirght" />
 
-            <com.in10mServiceMan.widgets.CustomBookButtonView
+            <com.in10mServiceMan.widgets.button.CustomBookButtonView
                 android:id="@+id/EnterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

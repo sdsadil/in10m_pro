@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="@+id/serviceManIV"
             app:layout_constraintTop_toTopOf="@+id/serviceManIV" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/nameET"
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/emailET"
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -96,7 +96,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameET" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/phoneNumberET"
             android:layout_width="0dp"
             android:layout_height="45dp"

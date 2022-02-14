@@ -34,7 +34,7 @@
             android:layout_height="match_parent"
             android:paddingBottom="30dp">
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/titleInviteTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleInviteTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/amountTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleInviteTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/referalCodeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/amountTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/shareViaTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shareViaTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/facebookTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -136,7 +136,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/facebookTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/twitterTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -169,7 +169,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/twitterTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/whatsappTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -203,7 +203,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/whatsappTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/smsTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"

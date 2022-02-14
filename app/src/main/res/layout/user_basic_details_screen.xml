@@ -33,7 +33,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:orientation="vertical">
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/txt_view_basic_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.in10mServiceMan.widgets.CustomRegularEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomRegularEditTextView
                     android:id="@+id/edt_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.in10mServiceMan.widgets.CustomRegularEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomRegularEditTextView
                     android:id="@+id/edt_dob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.in10mServiceMan.widgets.CustomRegularEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomRegularEditTextView
                     android:id="@+id/edt_email_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

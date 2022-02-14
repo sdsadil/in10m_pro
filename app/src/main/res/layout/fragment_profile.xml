@@ -68,7 +68,7 @@
                 app:layout_constraintStart_toStartOf="@+id/serviceManProfile"
                 app:layout_constraintTop_toTopOf="@+id/serviceManProfile" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/tv11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/serviceManProfile" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/fullnameET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -105,7 +105,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/mobileET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -193,7 +193,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET">
 
-                <com.in10mServiceMan.widgets.CustomBookTextView
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:id="@+id/txt_view_working_as"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -214,7 +214,7 @@
 
             </LinearLayout>
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/tv222"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -251,7 +251,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/tv223"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -271,7 +271,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv223">
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etAreaName_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -294,7 +294,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
 
-                <com.in10mServiceMan.widgets.CustomBookTextView
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:id="@+id/tvAddressType_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -318,7 +318,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etAreaName_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etBlock_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -342,7 +342,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvAddressType_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etStreet_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -366,7 +366,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBlock_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etBuildingNo_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -390,7 +390,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etStreet_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etAvenue_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -414,7 +414,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBuildingNo_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etFloorNo_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -439,7 +439,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etAvenue_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etAptOffNo_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -464,7 +464,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etFloorNo_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/etGovernorate_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -603,7 +603,7 @@
                     app:layout_constraintStart_toStartOf="@+id/landMarkNameET1"
                     app:layout_constraintTop_toBottomOf="@+id/landMarkNameET1" />
 
-                <com.in10mServiceMan.widgets.CustomBookEditTextView
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                     android:id="@+id/pinCodeET1"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_20sdp">
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/sessionExpireTitleTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/sessionExpireMessageTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sessionExpireTitleTV" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/buttonOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
     android:background="@color/colorAccent"
     tools:context=".ui.activities.signup.CertificationDetailsFragment">
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/certificationDetailsHeadingTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/certificationDetailsTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/issueStateTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_5sdp"

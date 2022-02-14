@@ -29,7 +29,7 @@
             android:layout_margin="4dp"
             android:background="@color/colorAccent">
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/textView37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/callerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                         android:paddingBottom="5dp">
 
 
-                        <com.in10mServiceMan.widgets.CustomBookButtonView
+                        <com.in10mServiceMan.widgets.button.CustomBookButtonView
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:layout_gravity="center_vertical"
@@ -148,7 +148,7 @@
                             android:focusable="false"
                             android:src="@drawable/callgreen" />
 
-                        <com.in10mServiceMan.widgets.CustomBookButtonView
+                        <com.in10mServiceMan.widgets.button.CustomBookButtonView
                             android:id="@+id/btnBookNow"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"

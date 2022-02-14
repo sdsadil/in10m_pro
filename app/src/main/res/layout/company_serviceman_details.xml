@@ -161,7 +161,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv11" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:layout_width="@dimen/_180sdp"
                 android:layout_height="wrap_content"
                 android:text="YEARS OF EXPERIENCE"
@@ -171,7 +171,7 @@
                 app:layout_constraintStart_toStartOf="@+id/companyServicemanMobileTIL"
                 app:layout_constraintTop_toTopOf="@+id/companyServicemanExperienceET" />
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/companyServicemanExperienceET"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="40dp"
@@ -208,7 +208,7 @@
         app:layout_constraintStart_toStartOf="@+id/companyServicemanDetailsRVCL"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanDetailsRVCL">
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/companyServicemanAddUserTV"
             android:layout_width="0dp"
             android:layout_height="@dimen/_40sdp"

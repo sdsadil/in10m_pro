@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/offeredServiceAdapterTV"
         android:layout_width="0dp"
         android:layout_height="0dp"

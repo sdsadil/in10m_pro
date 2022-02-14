@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tripProgressPB" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/etaTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             app:layout_constraintStart_toEndOf="@+id/truckIV"
             app:layout_constraintTop_toTopOf="@+id/truckIV" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/itemNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             app:layout_constraintStart_toStartOf="@+id/truckIV"
             app:layout_constraintTop_toBottomOf="@+id/truckIV" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/timeOfStartTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

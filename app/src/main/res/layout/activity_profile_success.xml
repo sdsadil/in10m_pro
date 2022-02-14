@@ -7,7 +7,7 @@
     android:background="@color/colorAccent"
     tools:context=".ui.activities.signup.ProfileSuccessActivity">
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_40sdp"
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="@id/userAvatarSuccess"
         app:layout_constraintTop_toTopOf="@id/userAvatarSuccess" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/userNameSuccess"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userAvatarSuccess" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/SuccessMessageTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

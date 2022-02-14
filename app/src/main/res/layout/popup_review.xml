@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.in10mServiceMan.widgets.CustomRegularTextView
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:id="@+id/ServiceRequestorName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                             android:layout_height="20dp"
                             android:src="@drawable/tumbsupgray" />
 
-                        <com.in10mServiceMan.widgets.CustomRegularTextView
+                        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                             android:id="@+id/thumbsUpTVR"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                             android:layout_height="20dp"
                             android:src="@drawable/tumbsdowngray" />
 
-                        <com.in10mServiceMan.widgets.CustomRegularTextView
+                        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                             android:id="@+id/thumbsDownTVR"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/textView34"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/textView35"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/textView36"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -327,7 +327,7 @@
             </LinearLayout>
 
 
-            <com.in10mServiceMan.widgets.CustomBookEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/descriptionET22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -378,7 +378,7 @@
                     android:focusable="false"
                     android:src="@drawable/greentick" />
 
-                <com.in10mServiceMan.widgets.CustomBookButtonView
+                <com.in10mServiceMan.widgets.button.CustomBookButtonView
                     android:id="@+id/BookNowBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

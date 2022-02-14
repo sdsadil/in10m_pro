@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:padding="@dimen/_5sdp">
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/navtitleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/navCountTV"
         android:layout_width="18dp"
         android:layout_height="18dp"

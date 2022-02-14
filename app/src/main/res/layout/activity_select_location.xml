@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toLocationET" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/fromLocationET"
             android:layout_width="0dp"
             android:layout_height="35dp"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomBoldEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
             android:id="@+id/toLocationET"
             android:layout_width="0dp"
             android:layout_height="35dp"

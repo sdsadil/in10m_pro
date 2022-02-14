@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.in10mServiceMan.widgets.CustomBoldTextView
+    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
         android:id="@+id/vehicleNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

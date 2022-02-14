@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/serviceManProfile" />
 
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/serviceManProfile" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

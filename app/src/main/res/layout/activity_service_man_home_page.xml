@@ -28,7 +28,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:src="@drawable/ic_navigation" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/txt_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             android:background="@drawable/white_bg"
             android:padding="@dimen/_10sdp">
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/txt_view_completed_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,14 +88,14 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
-                    <com.in10mServiceMan.widgets.CustomBoldTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                         android:id="@+id/txt_view_today_completion_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="01"
                         android:textSize="@dimen/_20sdp" />
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/txt_view_today"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -118,14 +118,14 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
-                    <com.in10mServiceMan.widgets.CustomBoldTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                         android:id="@+id/txt_view_month_completion_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="53"
                         android:textSize="@dimen/_20sdp" />
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/txt_view_month"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -149,14 +149,14 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
-                    <com.in10mServiceMan.widgets.CustomBoldTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                         android:id="@+id/txt_view_year_completion_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="324"
                         android:textSize="@dimen/_20sdp" />
 
-                    <com.in10mServiceMan.widgets.CustomRegularTextView
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                         android:id="@+id/txt_view_year"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                         android:layout_gravity="center"
                         android:src="@drawable/darktickbubble" />
 
-                    <com.in10mServiceMan.widgets.CustomBoldTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                         android:id="@+id/txt_view_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -219,7 +219,7 @@
                         android:textSize="@dimen/_20sdp" />
 
 
-                    <com.in10mServiceMan.widgets.CustomBoldTextView
+                    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                         android:id="@+id/txt_view_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
 
                 </LinearLayout>
 
-                <com.in10mServiceMan.widgets.CustomBookTextView
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:id="@+id/txtViewTerms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

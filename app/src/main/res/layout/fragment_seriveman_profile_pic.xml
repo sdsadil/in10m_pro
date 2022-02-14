@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button_close">
 
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:textAlignment="center"
                 android:layout_marginBottom="@dimen/_50sdp"
                 android:layout_above="@+id/linear_profile"

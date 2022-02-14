@@ -16,7 +16,7 @@
         android:clipToPadding="false"
         android:paddingBottom="5dp" />
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/noDataFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

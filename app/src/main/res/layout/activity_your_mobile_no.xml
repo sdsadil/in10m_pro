@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/text_view_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                     android:focusable="false"
                     android:src="@drawable/greenarrowirght" />
 
-                <com.in10mServiceMan.widgets.CustomBookButtonView
+                <com.in10mServiceMan.widgets.button.CustomBookButtonView
                     android:id="@+id/EnterBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

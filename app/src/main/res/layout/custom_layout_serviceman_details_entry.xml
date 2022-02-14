@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/companyServicemanFullNameET"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/companyServicemanEmailET"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanFullNameET" />
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/companyServicemanMobileET"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -62,7 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanEmailET" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:layout_width="@dimen/_180sdp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="@+id/companyServicemanMobileET"
         app:layout_constraintTop_toTopOf="@+id/companyServicemanExperienceET" />
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/companyServicemanExperienceET"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="40dp"
@@ -96,7 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanExperienceET">
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/companyServicemanAddUserTwoTV"
             android:layout_width="0dp"
             android:layout_height="@dimen/_40sdp"

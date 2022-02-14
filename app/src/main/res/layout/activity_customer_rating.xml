@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/reviewHeadingTV" />
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/reviewHeadingTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/SkipButtonTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/ServiceRequestorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/tumbsupgray" />
 
-                <com.in10mServiceMan.widgets.CustomRegularTextView
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:id="@+id/thumbsUpTVR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/tumbsdowngray" />
 
-                <com.in10mServiceMan.widgets.CustomRegularTextView
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:id="@+id/thumbsDownTVR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
 
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/reviewDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -257,7 +257,7 @@
                 android:src="@drawable/greentick"
                 android:visibility="gone" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/SkipNowBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -297,7 +297,7 @@
                 android:focusable="false"
                 android:src="@drawable/greentick" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/BookNowBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

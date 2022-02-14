@@ -25,7 +25,7 @@
         app:layout_constraintStart_toEndOf="@id/iv_profile_pic_ongoing"
         app:layout_constraintTop_toTopOf="@+id/iv_profile_pic_ongoing">
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/tv_status_ongoing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/tv_subStatus_ongoing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_status_ongoing" />
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/tv_statusTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             app:layout_constraintStart_toStartOf="@+id/tv_subStatus_ongoing"
             app:layout_constraintTop_toBottomOf="@+id/tv_subStatus_ongoing" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.in10mServiceMan.widgets.CustomRegularButtonView
+    <com.in10mServiceMan.widgets.button.CustomRegularButtonView
         android:id="@+id/acButton"
         android:layout_width="100dp"
         android:layout_height="40dp"

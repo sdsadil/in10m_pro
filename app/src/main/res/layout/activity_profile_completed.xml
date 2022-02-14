@@ -33,7 +33,7 @@
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -64,7 +64,7 @@
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/txt_view_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:text="James Cooper"
                 android:textSize="@dimen/_22sdp" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

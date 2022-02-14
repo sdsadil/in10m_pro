@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="10dp">
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/paymentRequestHeadingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paymentRequestHeadingTV" />
 
-        <com.in10mServiceMan.widgets.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/waitingMessageTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/waitingMessageTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/serviceHeaderAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/waitingMessageTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/serviceAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/waitingMessageTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/in10mHeaderAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/serviceHeaderAmountTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/in10mAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/serviceHeaderAmountTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/TotalAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -122,11 +122,10 @@
             android:gravity="center"
             android:text="@string/total_amount"
             android:textSize="18sp"
-            app:fontFamily="@font/unineueheavy"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/in10mHeaderAmountTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/AmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,7 +134,6 @@
             android:gravity="center"
             android:text=""
             android:textSize="18sp"
-            app:fontFamily="@font/unineueheavy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/in10mHeaderAmountTV" />
 
@@ -147,7 +145,7 @@
             app:layout_constraintStart_toStartOf="@+id/lineViewSeparator"
             app:layout_constraintTop_toBottomOf="@+id/AmountTV">
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/paymentCancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -193,7 +191,7 @@
                     android:focusable="false"
                     android:src="@drawable/icon_green_pencil_small" />
 
-                <com.in10mServiceMan.widgets.CustomBookTextView
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:id="@+id/EnterBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

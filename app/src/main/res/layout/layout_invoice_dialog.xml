@@ -7,7 +7,7 @@
     android:background="@color/colorAccent"
     android:paddingBottom="@dimen/_25sdp">
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/invoiceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -100,7 +100,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/workDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
         android:textSize="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL" />
 
-    <com.in10mServiceMan.widgets.CustomBookEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/feePayDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
         android:textSize="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/workDescriptionET" />
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/infoToUserTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
             android:focusable="false"
             android:src="@drawable/greenarrowirght" />
 
-        <com.in10mServiceMan.widgets.CustomBookButtonView
+        <com.in10mServiceMan.widgets.button.CustomBookButtonView
             android:id="@+id/EnterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -23,7 +23,7 @@
             android:layout_marginTop="80dp"
             android:src="@drawable/dummy_user" />
 
-        <com.in10mServiceMan.widgets.CustomBoldTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/userNameTVM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/tumbsupgray" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/thumbsUpTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/tumbsdowngray" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/thumbsDownTVM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/termsandConditionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

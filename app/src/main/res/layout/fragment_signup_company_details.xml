@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsLegal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsHeader"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsHeader" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsFirstName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -53,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLegal" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsLastName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -74,7 +74,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsFirstName" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsCaution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsLastName"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastName" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsdob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsdob">
 
-            <com.in10mServiceMan.widgets.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/personalDetailsLastDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsCompanyDetailsTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsDOB1" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsCompanyET"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -166,7 +166,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyDetailsTV" />
 
-        <com.in10mServiceMan.widgets.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsHomeAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyET" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsLastStreetAddress"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -198,7 +198,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsLastSuite"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -219,7 +219,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastStreetAddress" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsStreetAddress"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -253,7 +253,7 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsStreetAddress"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsStreetAddress" />
 
-        <com.in10mServiceMan.widgets.CustomBookEditTextView
+        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsZip"
             android:layout_width="match_parent"
             android:layout_height="50dp"

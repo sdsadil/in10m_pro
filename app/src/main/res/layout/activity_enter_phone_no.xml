@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_wagon_logo" />
 
-    <com.in10mServiceMan.widgets.CustomBoldTextView
+    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
         android:id="@+id/appNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoIV" />
 
-    <com.in10mServiceMan.widgets.CustomBoldEditTextView
+    <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
         android:id="@+id/phoneNumberET"
         android:layout_width="0dp"
         android:layout_height="45dp"

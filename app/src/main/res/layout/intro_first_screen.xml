@@ -44,7 +44,7 @@
                 android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/first_screen" />
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/txt_view_we_have"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 android:text="@string/intro_heading_one"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.in10mServiceMan.widgets.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/txt_view_our_expert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.services.AvailableServices">
 
-    <com.in10mServiceMan.widgets.CustomBookTextView
+    <com.in10mServiceMan.widgets.textview.CustomBookTextView
         android:id="@+id/selectServicesTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

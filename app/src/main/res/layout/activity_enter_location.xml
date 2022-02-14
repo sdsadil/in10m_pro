@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="20dp">
 
-            <com.in10mServiceMan.widgets.CustomBoldTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/addressHelpTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/buildingNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -69,7 +69,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addressHelpTV" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/streetNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -89,7 +89,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buildingNameET" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/landMarkNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -109,7 +109,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/streetNameET" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/cityNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
@@ -129,7 +129,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/landMarkNameET" />
 
-            <com.in10mServiceMan.widgets.CustomBoldEditTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBoldEditTextView
                 android:id="@+id/pinCodeET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"

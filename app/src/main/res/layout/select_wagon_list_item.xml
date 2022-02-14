@@ -29,7 +29,7 @@
     </androidx.cardview.widget.CardView>
 
 
-    <com.in10mServiceMan.widgets.CustomBoldTextView
+    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
         android:id="@+id/carNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carIVCard" />
 
-    <com.in10mServiceMan.widgets.CustomBoldTextView
+    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
         android:id="@+id/carPriceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carNameTV" />
 
-    <com.in10mServiceMan.widgets.CustomBoldTextView
+    <com.in10mServiceMan.widgets.textview.CustomBoldTextView
         android:id="@+id/carWeightLimitTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

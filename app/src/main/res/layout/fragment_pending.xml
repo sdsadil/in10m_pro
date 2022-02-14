@@ -13,7 +13,7 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <com.in10mServiceMan.widgets.CustomRegularTextView
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/data_PA"
         android:visibility="gone"
         android:text="No Data Found"
