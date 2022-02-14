@@ -19,7 +19,7 @@ import com.in10mServiceMan.utils.SharedPreferencesHelper
 class PrivacyPolicyActivity : In10mBaseActivity(), IPrivacyPolicyView {
     override fun onPrivacyPolicyCompleted(mPost: PolicyAndTermsResponse) {
         destroyDialog()
-        if (mPost.status == 1)  {
+        if (mPost.status == 1) {
             accept_PP.visibility = View.GONE
             Constants.GlobalSettings.privacyPolicy = false
         }
@@ -50,7 +50,9 @@ class PrivacyPolicyActivity : In10mBaseActivity(), IPrivacyPolicyView {
         accept_PP.setOnClickListener {
             showProgressDialog("")
             privacyPolicyPresenter.privacyPolicy(
-                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!.toInt(), 2)
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
+                    .toInt(), 2
+            )
         }
     }
 
