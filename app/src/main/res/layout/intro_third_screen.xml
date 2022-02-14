@@ -75,19 +75,5 @@
             android:background="@color/greenyBlue"
             android:visibility="gone" />
 
-        <!-- <Button
-             android:id="@+id/button"
-             android:layout_width="@dimen/_120sdp"
-             android:layout_height="wrap_content"
-             android:layout_alignParentBottom="true"
-             android:layout_centerHorizontal="true"
-             android:layout_marginTop="@dimen/_5sdp"
-             android:layout_marginBottom="10dp"
-             android:background="@color/intro_layout_button"
-             app:fontFamily="@font/unineueregular"
-             android:text="Sign up"
-             android:textAllCaps="true"
-             android:textColor="@android:color/white" />-->
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

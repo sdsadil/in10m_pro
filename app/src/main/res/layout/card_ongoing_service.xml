@@ -82,7 +82,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <com.in10mServiceMan.widgets.CustomRegularButtonView
         android:id="@+id/acButton"
         android:layout_width="100dp"
         android:layout_height="40dp"
@@ -90,7 +90,6 @@
         android:text="Deactivate"
         android:textColor="@color/primary_text_selector"
         android:textSize="12sp"
-        app:fontFamily="@font/unineueregular"
         app:layout_constraintBottom_toBottomOf="@+id/iv_profile_pic_ongoing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iv_profile_pic_ongoing" />

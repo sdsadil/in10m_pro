@@ -112,40 +112,6 @@
 
     </View>
 
-
-    <!-- <TextView
-         android:id="@+id/textView32"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginStart="16dp"
-         android:layout_marginTop="16dp"
-         app:fontFamily="@font/unineueregular"
-         android:text="@string/other_settings"
-         android:textSize="16sp"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/view11" />
-
-     <ImageView
-
-         android:layout_width="15dp"
-         android:layout_height="15dp"
-         android:layout_marginEnd="16dp"
-         android:layout_marginTop="16dp"
-         android:src="@drawable/rightcarretblack"
-         app:layout_constraintEnd_toEndOf="@+id/view11"
-         app:layout_constraintTop_toBottomOf="@+id/view11" />
-
-     <View
-         android:id="@+id/view12"
-         android:layout_width="match_parent"
-         android:layout_height="0.5dp"
-         android:alpha="0.5"
-         android:layout_marginTop="16dp"
-         android:background="@color/colorPrimaryDark"
-         app:layout_constraintTop_toBottomOf="@+id/textView32">
-
-     </View>-->
-
     <com.in10mServiceMan.widgets.CustomRegularTextView
         android:id="@+id/textView33"
         android:layout_width="match_parent"
