@@ -56,7 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
 
         mContext = this;
         mProgressDialog = new LoadingDialog(this);
-        setLangFunc();
     }
 
     public void hideKeyboard() {
@@ -76,6 +75,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
     protected void onResume() {
         super.onResume();
         hideKeyboard();
+        setLangFunc();
     }
 
     public void showProgressDialog(int mContent) {
