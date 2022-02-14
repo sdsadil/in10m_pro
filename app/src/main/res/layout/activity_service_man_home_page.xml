@@ -28,15 +28,14 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:src="@drawable/ic_navigation" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/txt_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="Hello James"
-                android:textSize="@dimen/_20sdp"
-                app:fontFamily="@font/unineuebold" />
+                android:textSize="@dimen/_20sdp" />
 
             <ImageView
                 android:id="@+id/img_duty_on_off"
@@ -70,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="@string/completed_service_so_far"
-                android:textSize="@dimen/_20sdp"/>
+                android:textSize="@dimen/_20sdp" />
 
             <LinearLayout
                 android:id="@+id/linear_bottom"
@@ -89,13 +88,12 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/txt_view_today_completion_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="01"
-                        android:textSize="@dimen/_20sdp"
-                        app:fontFamily="@font/unineuebold" />
+                        android:textSize="@dimen/_20sdp" />
 
                     <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/txt_view_today"
@@ -103,7 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="Today"
-                        android:textSize="@dimen/_10sdp"/>
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -120,13 +118,12 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/txt_view_month_completion_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="53"
-                        android:textSize="@dimen/_20sdp"
-                        app:fontFamily="@font/unineuebold" />
+                        android:textSize="@dimen/_20sdp" />
 
                     <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/txt_view_month"
@@ -134,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="This Month"
-                        android:textSize="@dimen/_10sdp"/>
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -152,13 +149,12 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/txt_view_year_completion_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="324"
-                        android:textSize="@dimen/_20sdp"
-                        app:fontFamily="@font/unineuebold" />
+                        android:textSize="@dimen/_20sdp" />
 
                     <com.in10mServiceMan.widgets.CustomRegularTextView
                         android:id="@+id/txt_view_year"
@@ -166,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="This Year"
-                        android:textSize="@dimen/_10sdp"/>
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -213,18 +209,17 @@
                         android:layout_gravity="center"
                         android:src="@drawable/darktickbubble" />
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/txt_view_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_20sdp"
                         android:text="James Cooper"
-                        android:textSize="@dimen/_20sdp"
-                        app:fontFamily="@font/unineuebold" />
+                        android:textSize="@dimen/_20sdp" />
 
 
-                    <TextView
+                    <com.in10mServiceMan.widgets.CustomBoldTextView
                         android:id="@+id/txt_view_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -234,8 +229,7 @@
                         android:drawablePadding="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="4.6"
-                        android:textSize="@dimen/_20sdp"
-                        app:fontFamily="@font/unineuebold" />
+                        android:textSize="@dimen/_20sdp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view_navigation"

@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingEnd="20dp"
-    android:paddingStart="20dp">
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/carIVCard"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="6dp"
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/carIV"
@@ -29,12 +29,11 @@
     </androidx.cardview.widget.CardView>
 
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBoldTextView
         android:id="@+id/carNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:fontFamily="@font/unineuebold"
         android:text="@string/small_car"
         android:textAllCaps="true"
         android:textColor="@color/darkText"
@@ -42,30 +41,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carIVCard" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBoldTextView
         android:id="@+id/carPriceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        app:fontFamily="@font/unineuebold"
         android:text="KD 124.56"
         android:textAllCaps="true"
-        android:textSize="12sp"
         android:textColor="@color/darkText"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carNameTV" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.in10mServiceMan.widgets.CustomBoldTextView
         android:id="@+id/carWeightLimitTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        app:fontFamily="@font/unineuebold"
         android:gravity="center"
-        android:textSize="10sp"
         android:text="@string/smallcar_weight_limit"
         android:textColor="@color/darkText"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carPriceTV" />
@@ -74,8 +71,8 @@
         android:id="@+id/carInfoIV"
         android:layout_width="25dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_info"
         android:padding="5dp"
+        android:src="@drawable/ic_info"
         app:layout_constraintBottom_toBottomOf="@+id/carWeightLimitTV"
         app:layout_constraintStart_toEndOf="@+id/carWeightLimitTV"
         app:layout_constraintTop_toTopOf="@+id/carWeightLimitTV" />

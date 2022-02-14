@@ -161,10 +161,9 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv11" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBookTextView
                 android:layout_width="@dimen/_180sdp"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineuebook"
                 android:text="YEARS OF EXPERIENCE"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="13sp"
@@ -172,14 +171,13 @@
                 app:layout_constraintStart_toStartOf="@+id/companyServicemanMobileTIL"
                 app:layout_constraintTop_toTopOf="@+id/companyServicemanExperienceET" />
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/companyServicemanExperienceET"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:inputType="number"
                 android:background="@color/editTextBg"
-                app:fontFamily="@font/unineuebook"
                 android:paddingStart="@dimen/_10sdp"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/companyServicemanMobileTIL"
@@ -210,13 +208,12 @@
         app:layout_constraintStart_toStartOf="@+id/companyServicemanDetailsRVCL"
         app:layout_constraintTop_toBottomOf="@+id/companyServicemanDetailsRVCL">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBookTextView
             android:id="@+id/companyServicemanAddUserTV"
             android:layout_width="0dp"
             android:layout_height="@dimen/_40sdp"
             android:background="@color/editTextBg"
             android:drawableEnd="@drawable/ic_add_black_24dp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_8sdp"

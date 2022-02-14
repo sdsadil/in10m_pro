@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.fare_details.FareDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,397 +12,377 @@
         android:paddingBottom="30dp">
 
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/baseFareTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/base_fare"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
+            android:text="@string/base_fare"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/baseFareAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 12.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/baseFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/baseFareTV"
+            android:gravity="center_vertical"
+            android:text="KD 12.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/baseFareTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/baseFareTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/baseFareTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baseFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/minimumFareTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/minimum_fare_10_miles"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/baseFareTV"
+            android:text="@string/minimum_fare_10_miles"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baseFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/minimumFareAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 20.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/minimumFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/minimumFareTV"
+            android:gravity="center_vertical"
+            android:text="KD 20.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/minimumFareTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/minimumFareTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/minimumFareTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minimumFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/minuteFareTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/minute_fare_10_miles"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/minimumFareTV"
+            android:text="@string/minute_fare_10_miles"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minimumFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/minuteFareAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 2.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/minuteFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/minuteFareTV"
+            android:gravity="center_vertical"
+            android:text="KD 2.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/minuteFareTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/minuteFareTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/minuteFareTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minuteFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/belowFareTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/below_25_miles"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/minuteFareTV"
+            android:text="@string/below_25_miles"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minuteFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/belowFareAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 15.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/belowFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/belowFareTV"
+            android:gravity="center_vertical"
+            android:text="KD 15.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/belowFareTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/belowFareTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/belowFareTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/belowFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/aboveFareTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/above_10_miles"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/belowFareTV"
+            android:text="@string/above_10_miles"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/belowFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/aboveAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 15.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/aboveFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/aboveFareTV"
+            android:gravity="center_vertical"
+            android:text="KD 15.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/aboveFareTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/aboveFareTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/aboveFareTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboveFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/cancellationFeeTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/cancellation_fare"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/aboveFareTV"
+            android:text="@string/cancellation_fare"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboveFareTV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/cancellationFareAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 5.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/cancellationFeeTV"
-            app:layout_constraintBottom_toBottomOf="@+id/cancellationFeeTV"
+            android:gravity="center_vertical"
+            android:text="KD 5.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cancellationFeeTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cancellationFeeTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/cancellationFeeTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cancellationFeeTV" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/eveningFareCL"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cancellationFeeTV">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/eveningChargesTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/evening_charges"
-                android:textSize="13sp"
                 android:paddingStart="30dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintBottom_toTopOf="@+id/eveningTimeTV"
+                android:text="@string/evening_charges"
                 android:textColor="@color/colorPrimary"
-                app:fontFamily="@font/unineuebold"/>
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/eveningTimeTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/eveningTimeTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="16:15:00 to 17:00:00"
-                android:textSize="11sp"
                 android:paddingStart="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/eveningChargesTV"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="16:15:00 to 17:00:00"
                 android:textColor="@color/grey300"
-                app:fontFamily="@font/unineuebold"/>
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eveningChargesTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/eveningChargePercentTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="20%"
-                android:gravity="center_vertical"
-                android:textSize="13sp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center_vertical"
+                android:text="20%"
                 android:textColor="@color/colorPrimary"
-                app:fontFamily="@font/unineuebold"/>
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/eveningFareCL"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eveningFareCL" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/nightFareCL"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eveningFareCL">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/nightChargesTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/night_charges"
-                android:textSize="13sp"
                 android:paddingStart="30dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintBottom_toTopOf="@+id/nightTimeTV"
+                android:text="@string/night_charges"
                 android:textColor="@color/colorPrimary"
-                app:fontFamily="@font/unineuebold"/>
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/nightTimeTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/nightTimeTV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="22:00:00 to 04:00:00"
-                android:textSize="11sp"
                 android:paddingStart="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/nightChargesTV"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="22:00:00 to 04:00:00"
                 android:textColor="@color/grey300"
-                app:fontFamily="@font/unineuebold"/>
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nightChargesTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/nightChargePercentTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="10%"
-                android:gravity="center_vertical"
-                android:textSize="13sp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center_vertical"
+                android:text="10%"
                 android:textColor="@color/colorPrimary"
-                app:fontFamily="@font/unineuebold"/>
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/nightFareCL"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nightFareCL" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/waitingChargeTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/waiting_fare_per_hour"
             android:gravity="center_vertical"
-            android:textSize="13sp"
             android:paddingStart="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/nightFareCL"
+            android:text="@string/waiting_fare_per_hour"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nightFareCL" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/waitingChargeAmountTV"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 5.00"
-            android:gravity="center_vertical"
-            android:textSize="13sp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintTop_toTopOf="@+id/waitingChargeTV"
-            app:layout_constraintBottom_toBottomOf="@+id/waitingChargeTV"
+            android:gravity="center_vertical"
+            android:text="KD 5.00"
             android:textColor="@color/colorPrimary"
-            app:fontFamily="@font/unineuebold"/>
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/waitingChargeTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/waitingChargeTV" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/waitingChargeTV"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waitingChargeTV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

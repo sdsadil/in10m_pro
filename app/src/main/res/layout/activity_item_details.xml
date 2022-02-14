@@ -32,17 +32,16 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:focusableInTouchMode="true"
+            android:descendantFocusability="beforeDescendants"
             android:focusable="true"
-            android:descendantFocusability="beforeDescendants">
+            android:focusableInTouchMode="true"
+            android:paddingBottom="20dp">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/quickInfoTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                app:fontFamily="@font/unineuebold"
                 android:text="@string/quick_info"
                 android:textColor="@color/darkText"
                 android:textSize="16sp"
@@ -53,30 +52,29 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/grey200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quickInfoTV" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/itemNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/et_bg"
-                android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_item_name"
-                app:fontFamily="@font/unineuebold"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/item_name"
                 android:inputType="textPersonName"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="@color/darkText"
                 android:textColorHint="@color/darkGreyText"
                 android:textCursorDrawable="@null"
@@ -85,21 +83,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quickInfoTV" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/valueItemET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/et_bg"
-                android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_kd"
-                app:fontFamily="@font/unineuebold"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/value_of_the_item"
                 android:inputType="textPersonName"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="@color/darkText"
                 android:textColorHint="@color/darkGreyText"
                 android:textCursorDrawable="@null"
@@ -112,8 +109,8 @@
                 android:id="@+id/cameraIV"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginEnd="40dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/et_bg"
                 android:padding="10dp"
                 android:src="@drawable/ic_camera"
@@ -125,30 +122,28 @@
                 android:id="@+id/imageRV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/valueItemET"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
-                ></androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/valueItemET"></androidx.recyclerview.widget.RecyclerView>
 
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/instructionsET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/et_bg"
-                android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_instructions"
-                app:fontFamily="@font/unineuebold"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/instructions"
                 android:inputType="textPersonName"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="@color/darkText"
                 android:textColorHint="@color/darkGreyText"
                 android:textCursorDrawable="@null"
@@ -158,12 +153,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageRV" />
 
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/howBigTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                app:fontFamily="@font/unineuebold"
                 android:text="@string/how_big_is_it"
                 android:textColor="@color/darkText"
                 android:textSize="16sp"
@@ -174,9 +168,9 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/grey200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -186,9 +180,9 @@
                 android:id="@+id/itemSizeRV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/howBigTV"></androidx.recyclerview.widget.RecyclerView>
 
@@ -242,8 +236,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="@string/how_would_you_like_to_handle_it"
                 android:gravity="center"
+                android:text="@string/how_would_you_like_to_handle_it"
                 android:textColor="@color/darkText"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -253,9 +247,9 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/grey200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -265,9 +259,9 @@
                 android:id="@+id/handleOptionsRV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/handleDescTV"></androidx.recyclerview.widget.RecyclerView>
 
@@ -275,31 +269,30 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:layout_marginEnd="60dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="60dp"
                 android:background="@color/grey200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/handleOptionsRV" />
 
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/receiverNameET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/et_bg"
-                android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_receiver_name"
-                app:fontFamily="@font/unineuebold"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/receiver_name"
                 android:inputType="textPersonName"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="@color/darkText"
                 android:textColorHint="@color/darkGreyText"
                 android:textCursorDrawable="@null"
@@ -308,22 +301,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/handleOptionsRV" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/receiverNumberET"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/et_bg"
-                android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_receiver_number"
-                app:fontFamily="@font/unineuebold"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/receiver_number"
                 android:inputType="textPersonName"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="@color/darkText"
                 android:textColorHint="@color/darkGreyText"
                 android:textCursorDrawable="@null"
@@ -337,9 +329,9 @@
                 android:id="@+id/confirmCL"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/button_height"
-                android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
                 app:button_text="@string/confirm"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

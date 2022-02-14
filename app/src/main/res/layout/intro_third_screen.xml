@@ -42,11 +42,10 @@
                 android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/third_screen" />
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/txt_view_we_have"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/unineuebold"
                 android:gravity="center"
                 android:text="@string/intro_heading_three"
                 android:textColor="@color/textColor"

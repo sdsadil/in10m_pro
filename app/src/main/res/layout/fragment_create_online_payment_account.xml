@@ -178,7 +178,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/AccountDetailsSSNET" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/AccountDetailsSSNET"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -197,7 +197,6 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp"
                 android:theme="@style/EditTextHint"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/hidedSSNStarTV"
                 app:layout_constraintTop_toBottomOf="@+id/lastFourDigitOfSSNTV" />
@@ -506,7 +505,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/AccountDetailsStreetAddressET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -523,12 +522,11 @@
                 android:textAllCaps="true"
                 android:textSize="14sp"
                 android:theme="@style/EditTextHint"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsHomeAddress" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/AccountDetailsSuiteET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -545,12 +543,11 @@
                 android:textAllCaps="true"
                 android:textSize="14sp"
                 android:theme="@style/EditTextHint"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsStreetAddressET" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/AccountDetailsCityTV"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -567,7 +564,6 @@
                 android:textAllCaps="true"
                 android:textSize="14sp"
                 android:theme="@style/EditTextHint"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsSuiteET" />
@@ -584,7 +580,7 @@
                 app:layout_constraintStart_toStartOf="@+id/AccountDetailsCityTV"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsCityTV" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/AccountDetailsZipET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -601,7 +597,6 @@
                 android:textAllCaps="true"
                 android:textSize="14sp"
                 android:theme="@style/EditTextHint"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/AccountDetailsStateSpinner" />

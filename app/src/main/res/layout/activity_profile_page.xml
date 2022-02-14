@@ -111,7 +111,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/serviceManProfile" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/fullnameET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -119,7 +119,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/full_name"
                 android:inputType="textPersonName"
                 android:paddingStart="@dimen/_8sdp"
@@ -135,7 +134,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/mobileET"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -145,7 +144,6 @@
                 android:background="@color/colorLight"
                 android:clickable="false"
                 android:ems="10"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/mobile_number"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingTop="10dp"
@@ -168,7 +166,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/dob_short"
                 android:imeOptions="actionNext"
                 android:inputType="date"
@@ -181,6 +178,7 @@
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="12sp"
                 android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mobileET" />
@@ -193,7 +191,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:paddingStart="@dimen/_8sdp"
@@ -205,6 +202,7 @@
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="14sp"
                 android:theme="@style/EditTextHint"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_age" />
@@ -271,12 +269,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edt_age1">
 
-                    <EditText
+                    <com.in10mServiceMan.widgets.CustomBookEditTextView
                         android:id="@+id/edit_text_total_eperiance"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/total_experience2"
                         android:inputType="number"
                         android:paddingTop="4dp"
@@ -417,12 +414,11 @@
                     android:paddingEnd="24dp"
                     android:paddingBottom="4dp">
 
-                    <EditText
+                    <com.in10mServiceMan.widgets.CustomBookEditTextView
                         android:id="@+id/apartmentNameET1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/appartment_name"
                         android:inputType="textPersonName"
                         android:paddingTop="4dp"
@@ -447,12 +443,11 @@
                     android:paddingEnd="24dp"
                     android:paddingBottom="4dp">
 
-                    <EditText
+                    <com.in10mServiceMan.widgets.CustomBookEditTextView
                         android:id="@+id/streetNameET1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/street_name"
                         android:inputType="textPersonName"
                         android:paddingTop="4dp"
@@ -478,12 +473,11 @@
                     android:paddingEnd="24dp"
                     android:paddingBottom="4dp">
 
-                    <EditText
+                    <com.in10mServiceMan.widgets.CustomBookEditTextView
                         android:id="@+id/landMarkNameET1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/location_landmark"
                         android:inputType="textPersonName"
                         android:paddingTop="4dp"
@@ -507,12 +501,11 @@
                     android:paddingEnd="24dp"
                     android:paddingBottom="4dp">
 
-                    <EditText
+                    <com.in10mServiceMan.widgets.CustomBookEditTextView
                         android:id="@+id/pinCodeET1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLight"
-                        app:fontFamily="@font/unineuebook"
                         android:hint="@string/pin_code"
                         android:inputType="number"
                         android:paddingTop="4dp"

@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_20sdp">
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/sessionExpireTitleTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
-            app:fontFamily="@font/unineuebold"
             android:gravity="center"
             android:text="Session Expired"
             android:textColor="@color/colorPrimaryDark"
@@ -40,14 +39,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sessionExpireTitleTV" />
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/buttonOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@color/colorPrimaryDark"
-            app:fontFamily="@font/unineuebold"
-            android:text="Ok"
+            android:text="@string/ok"
             android:paddingStart="@dimen/_15sdp"
             android:paddingEnd="@dimen/_15sdp"
             android:paddingBottom="@dimen/_5sdp"

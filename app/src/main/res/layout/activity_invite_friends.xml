@@ -34,12 +34,11 @@
             android:layout_height="match_parent"
             android:paddingBottom="30dp">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/titleInviteTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                app:fontFamily="@font/unineuebold"
                 android:text="@string/when_a_friend_rides_with_your_code_you_earn"
                 android:textColor="@color/normalGreyText"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,12 +54,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleInviteTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/amountTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                app:fontFamily="@font/unineuebold"
                 android:gravity="center"
                 android:letterSpacing="0.05"
                 android:text="KD "
@@ -70,12 +68,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleInviteTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/referalCodeTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                app:fontFamily="@font/unineuebold"
                 android:text="@string/referral_code_1234wag"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
@@ -83,12 +80,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/amountTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/shareViaTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                app:fontFamily="@font/unineuebold"
                 android:text="@string/share_via"
                 android:textColor="@color/darkText"
                 android:textSize="12sp"
@@ -107,13 +103,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shareViaTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/facebookTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
-                app:fontFamily="@font/unineuebold"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
                 android:text="@string/facebook"
@@ -141,13 +136,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/facebookTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/twitterTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
-                app:fontFamily="@font/unineuebold"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
                 android:text="@string/twitter"
@@ -175,13 +169,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/twitterTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/whatsappTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
-                app:fontFamily="@font/unineuebold"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
                 android:text="@string/whatsapp"
@@ -210,13 +203,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/whatsappTV" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/smsTV"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
-                app:fontFamily="@font/unineuebold"
                 android:gravity="center_vertical"
                 android:paddingStart="30dp"
                 android:text="@string/sms"

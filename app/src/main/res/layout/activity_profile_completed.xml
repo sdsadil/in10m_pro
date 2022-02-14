@@ -33,15 +33,14 @@
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/all_set"
-                android:textSize="@dimen/_25sdp"
-                app:fontFamily="@font/unineuebold" />
+                android:textSize="@dimen/_25sdp" />
 
-            <android.support.design.widget.CoordinatorLayout
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/coordinator_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +62,7 @@
                     app:layout_anchorGravity="top|end" />
 
 
-            </android.support.design.widget.CoordinatorLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
             <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/txt_view_user_name"

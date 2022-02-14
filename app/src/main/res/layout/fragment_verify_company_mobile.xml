@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileDescription">
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/et_otp1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -88,10 +88,9 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp"
-                app:fontFamily="@font/unineuebook" />
+                android:textSize="15sp"/>
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/et_otp2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -107,10 +106,9 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp"
-                app:fontFamily="@font/unineuebook" />
+                android:textSize="15sp"/>
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/et_otp3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -126,10 +124,9 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp"
-                app:fontFamily="@font/unineuebook" />
+                android:textSize="15sp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/et_otp4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -144,8 +141,7 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textCursorDrawable="@null"
-                android:textSize="15sp"
-                app:fontFamily="@font/unineuebook" />
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

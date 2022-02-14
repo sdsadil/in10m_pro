@@ -21,9 +21,9 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="3dp"
-            android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/progressbarbackground"
             android:max="10"
             android:progress="3"
@@ -42,39 +42,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tripProgressPB" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/etaTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            app:fontFamily="@font/unineuebold"
             android:text="ETA: 12 mins"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/truckIV"
             app:layout_constraintStart_toEndOf="@+id/truckIV"
             app:layout_constraintTop_toTopOf="@+id/truckIV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/itemNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fontFamily="@font/unineuebold"
-            android:text="Item: Pottery Item"
-            android:textSize="12sp"
             android:layout_marginTop="10dp"
+            android:text="Item: Pottery Item"
             android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/truckIV"
             app:layout_constraintTop_toBottomOf="@+id/truckIV" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/timeOfStartTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fontFamily="@font/unineuebold"
-            android:text="Time of start:  12th Feb 09:30 Hrs"
-            android:textSize="12dp"
             android:layout_marginTop="5dp"
+            android:text="Time of start:  12th Feb 09:30 Hrs"
             android:textColor="@color/colorPrimary"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/itemNameTV"
             app:layout_constraintTop_toBottomOf="@+id/itemNameTV" />
 
@@ -82,34 +79,34 @@
             android:id="@+id/locationIV"
             android:layout_width="12dp"
             android:layout_height="22dp"
-            android:src="@drawable/ic_location"
             android:layout_marginTop="8dp"
+            android:src="@drawable/ic_location"
             app:layout_constraintStart_toStartOf="@+id/itemNameTV"
-            app:layout_constraintTop_toBottomOf="@+id/timeOfStartTV"/>
+            app:layout_constraintTop_toBottomOf="@+id/timeOfStartTV" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/locationTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/locationTV"
+            android:layout_marginStart="5dp"
+            android:text="Ali Al-Saleem Street, Kuwait City, Kuwait"
             android:textColor="#626262"
             android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/locationIV"
-            app:layout_constraintTop_toTopOf="@+id/locationIV"
             app:layout_constraintBottom_toBottomOf="@+id/locationIV"
-            android:layout_marginStart="5dp"
-            android:text="Ali Al-Saleem Street, Kuwait City, Kuwait"/>
+            app:layout_constraintStart_toEndOf="@+id/locationIV"
+            app:layout_constraintTop_toTopOf="@+id/locationIV" />
 
-        
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pottery"
-            android:background="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tripProgressPB"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginTop="10dp"/>
-        
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_pottery"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tripProgressPB" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

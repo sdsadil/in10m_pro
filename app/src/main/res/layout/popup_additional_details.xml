@@ -63,7 +63,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/fullnameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,12 +79,11 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/mobileET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,12 +99,11 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fullnameET" />
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/emailET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,7 +119,6 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mobileET" />
@@ -137,7 +134,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/apartmentNameET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,13 +150,12 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv22" />
 
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/streetNameET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,13 +171,12 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/apartmentNameET1" />
 
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/landMarkNameET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,12 +192,11 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/streetNameET1" />
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/pinCodeET1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,7 +212,6 @@
                 android:paddingBottom="16dp"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/landMarkNameET1" />

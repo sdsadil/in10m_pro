@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/semiTransparent"
-    >
+    android:background="@color/semiTransparent">
 
     <androidx.cardview.widget.CardView
-        android:background="@color/colorAccent"
         android:id="@+id/calling"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,19 +14,20 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
         android:visibility="visible"
-        app:cardCornerRadius="7dp"
         app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/colorAccent"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_margin="4dp"
-            android:layout_height="match_parent">
+            android:background="@color/colorAccent">
 
             <com.in10mServiceMan.widgets.CustomRegularTextView
                 android:id="@+id/textView37"
@@ -71,13 +69,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/serviceManIVR" />
 
             <LinearLayout
-                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,15 +115,13 @@
                             android:background="@color/transparent"
                             android:clickable="false"
                             android:focusable="false"
-                            app:fontFamily="@font/unineuebook"
                             android:padding="0dp"
-                            android:text="Cancel"
+                            android:text="@string/cancel"
                             android:textAllCaps="true"
                             android:textColor="@color/danger"
                             android:textSize="12sp"
                             android:textStyle="bold"
-
-                            />
+                            app:fontFamily="@font/unineuebook" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -162,15 +158,13 @@
                             android:background="@color/transparent"
                             android:clickable="false"
                             android:focusable="false"
-                            app:fontFamily="@font/unineuebook"
                             android:padding="0dp"
-                            android:text="Accept"
+                            android:text="@string/accept"
                             android:textAllCaps="true"
                             android:textColor="@color/white_text_selector"
                             android:textSize="12sp"
                             android:textStyle="bold"
-
-                            />
+                            app:fontFamily="@font/unineuebook" />
                     </LinearLayout>
 
 

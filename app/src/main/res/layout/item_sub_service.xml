@@ -57,7 +57,7 @@
             android:layout_height="@dimen/_55sdp"
             android:layout_marginTop="-10dp">
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:id="@+id/subServiceTV2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,6 @@
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textSize="15sp"
-                app:fontFamily="@font/unineuebold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
 

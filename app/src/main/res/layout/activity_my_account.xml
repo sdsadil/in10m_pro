@@ -34,14 +34,13 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"/>
 
-            <TextView
+            <com.in10mServiceMan.widgets.CustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:textSize="@dimen/_15sdp"
                 android:text="@string/my_account"
                 android:layout_marginTop="@dimen/_30sdp"
-                app:fontFamily="@font/unineuebold"
                 android:layout_centerVertical="true"/>
 
             <ImageView
@@ -109,7 +108,7 @@
                 android:layout_gravity="left"
                 android:textSize="@dimen/_15sdp"/>
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/full_name"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -120,10 +119,9 @@
                 android:paddingBottom="10dp"
                 android:theme="@style/EditTextHint"
                 android:hint="@string/full_name"
-                android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebold"/>
+                android:background="@color/colorLight"/>
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/edt_mo_no"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -135,10 +133,9 @@
                 android:theme="@style/EditTextHint"
                 android:hint="@string/mobile_number"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebold"
                 android:layout_marginTop="@dimen/_8sdp"/>
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -150,10 +147,9 @@
                 android:theme="@style/EditTextHint"
                 android:hint="@string/email"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebold"
                 android:layout_marginTop="@dimen/_8sdp"/>
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/edt_dob"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -165,10 +161,9 @@
                 android:theme="@style/EditTextHint"
                 android:hint="@string/dob"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebold"
                 android:layout_marginTop="@dimen/_8sdp"/>
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/edt_gender"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -180,10 +175,9 @@
                 android:theme="@style/EditTextHint"
                 android:hint="@string/gender"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebold"
                 android:layout_marginTop="@dimen/_8sdp"/>
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBoldEditTextView
                 android:id="@+id/edt_working_as"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -195,7 +189,6 @@
                 android:theme="@style/EditTextHint"
                 android:hint="@string/working_as"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebold"
                 android:layout_marginTop="@dimen/_8sdp"/>
 
         </LinearLayout>

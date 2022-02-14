@@ -115,7 +115,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/TripEstimateFeeET"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -131,7 +131,6 @@
                 android:textCursorDrawable="@color/colorPrimaryDark"
                 android:textSize="12sp"
                 android:visibility="gone"
-                app:fontFamily="@font/unineuebook"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/TripChargeCL"
                 app:layout_constraintTop_toBottomOf="@+id/TripChargeCL" />

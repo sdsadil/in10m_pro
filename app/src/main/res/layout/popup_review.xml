@@ -367,7 +367,7 @@
                   app:layout_constraintTop_toBottomOf="@+id/ratingBar" />-->
 
 
-            <EditText
+            <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/descriptionET22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -375,7 +375,6 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="24dp"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:gravity="top|start"
                 android:hint="@string/description"
                 android:imeOptions="actionDone"

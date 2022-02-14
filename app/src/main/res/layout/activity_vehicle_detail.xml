@@ -15,8 +15,7 @@
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -34,191 +33,177 @@
             android:layout_height="wrap_content"
             android:paddingBottom="20dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/carIVCard"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="2dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="30dp"
-            app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="true">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/carIVCard"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/carIV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/white_bg"
-                android:padding="5dp"
-                android:transitionName="@string/wagon_image_transition"
-                android:src="@drawable/ic_small_car_selector" />
+                <ImageView
+                    android:id="@+id/carIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/white_bg"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_small_car_selector"
+                    android:transitionName="@string/wagon_image_transition" />
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/carNameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:fontFamily="@font/unineuebold"
-            android:text="@string/small_car"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            android:textColor="@color/darkText"
-            android:transitionName="@string/wagon_name_transition"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/carIVCard" />
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/baseFareTV"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/base_fare"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:layout_marginTop="10dp"
-            app:fontFamily="@font/unineuebold"
-            app:layout_constraintTop_toBottomOf="@+id/carNameTV"
-            />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/baseFareValueTV"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 12.00"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:layout_marginEnd="20dp"
-            app:fontFamily="@font/unineuebold"
-            app:layout_constraintTop_toTopOf="@+id/baseFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/baseFareTV"
-            />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/baseFareTV"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/weightLimitTV"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/weight_limit"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:layout_marginTop="10dp"
-            app:fontFamily="@font/unineuebold"
-            app:layout_constraintTop_toBottomOf="@+id/baseFareTV"
-            />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/weightLimitValueTV"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="20 kgs"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:layout_marginEnd="20dp"
-            app:fontFamily="@font/unineuebold"
-            app:layout_constraintTop_toTopOf="@+id/weightLimitTV"
-            app:layout_constraintBottom_toBottomOf="@+id/weightLimitTV"
-            />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/weightLimitTV"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/totalFareTV"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/total_fare"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            app:fontFamily="@font/unineuebold"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/weightLimitTV"
-            />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/totalValueTV"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="KD 124.56"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:layout_marginEnd="20dp"
-            app:fontFamily="@font/unineuebold"
-            app:layout_constraintTop_toTopOf="@+id/totalFareTV"
-            app:layout_constraintBottom_toBottomOf="@+id/totalFareTV"
-            />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/lineBg"
-            app:layout_constraintTop_toBottomOf="@+id/totalFareTV"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/carNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/small_car"
+                android:textAllCaps="true"
+                android:textColor="@color/darkText"
+                android:textSize="20sp"
+                android:transitionName="@string/wagon_name_transition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carIVCard" />
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/wagonHelpTV"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/totalFareTV"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/lorem_ipsum"
-            android:textColor="@color/grey400"
-            app:fontFamily="@font/unineuebold"/>
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/baseFareTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="@string/base_fare"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carNameTV" />
+
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/baseFareValueTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_vertical"
+                android:text="KD 12.00"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/baseFareTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/baseFareTV" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/baseFareTV" />
+
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/weightLimitTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="@string/weight_limit"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/baseFareTV" />
+
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/weightLimitValueTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_vertical"
+                android:text="20 kgs"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/weightLimitTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/weightLimitTV" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightLimitTV" />
+
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/totalFareTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:text="@string/total_fare"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightLimitTV" />
+
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/totalValueTV"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_vertical"
+                android:text="KD 124.56"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/totalFareTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/totalFareTV" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/lineBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalFareTV" />
 
 
-        <com.in10mServiceMan.ui.custom_views.WagonButton
-            android:id="@+id/doneCL"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
-            app:button_text="@string/done"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wagonHelpTV" />
+            <com.in10mServiceMan.widgets.CustomBoldTextView
+                android:id="@+id/wagonHelpTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/grey400"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalFareTV" />
+
+
+            <com.in10mServiceMan.ui.custom_views.WagonButton
+                android:id="@+id/doneCL"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                app:button_text="@string/done"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagonHelpTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

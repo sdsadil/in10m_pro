@@ -34,13 +34,12 @@
             android:layout_height="@dimen/_65sdp"
             android:src="@drawable/icon_plumbing"/>
 
-        <TextView
+        <com.in10mServiceMan.widgets.CustomBoldTextView
             android:id="@+id/txtViewServiceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plumbing_text"
             android:layout_marginTop="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebold"
             android:textSize="@dimen/_20sdp"/>
 
         <com.in10mServiceMan.widgets.CustomBookTextView

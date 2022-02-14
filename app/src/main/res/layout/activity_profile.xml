@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="@+id/serviceManIV"
             app:layout_constraintTop_toTopOf="@+id/serviceManIV" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBoldEditTextView
             android:id="@+id/nameET"
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -60,7 +60,6 @@
             android:background="@drawable/et_bg"
             android:drawablePadding="5dp"
             android:drawableStart="@drawable/ic_name"
-            app:fontFamily="@font/unineuebold"
             android:hint="@string/name"
             android:inputType="textPersonName"
             android:paddingEnd="10dp"
@@ -74,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBoldEditTextView
             android:id="@+id/emailET"
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -84,7 +83,6 @@
             android:background="@drawable/et_bg"
             android:drawablePadding="5dp"
             android:drawableStart="@drawable/ic_email"
-            app:fontFamily="@font/unineuebold"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:paddingEnd="10dp"
@@ -98,7 +96,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameET" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBoldEditTextView
             android:id="@+id/phoneNumberET"
             android:layout_width="0dp"
             android:layout_height="45dp"
@@ -109,7 +107,6 @@
             android:drawablePadding="5dp"
             android:drawableStart="@drawable/ic_phone"
             android:focusable="false"
-            app:fontFamily="@font/unineuebold"
             android:hint="@string/phone_number"
             android:inputType="number"
             android:paddingEnd="10dp"

@@ -105,7 +105,7 @@
         app:layout_constraintStart_toStartOf="@+id/description"
         app:layout_constraintTop_toBottomOf="@+id/orTv" />
 
-    <EditText
+    <com.in10mServiceMan.widgets.CustomBookEditTextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -126,7 +126,6 @@
         android:scrollbars="vertical"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:fontFamily="@font/unineuebook"
         app:layout_constraintBottom_toTopOf="@+id/lvBtnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

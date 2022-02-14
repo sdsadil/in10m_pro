@@ -152,7 +152,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.in10mServiceMan.widgets.CustomBookEditTextView
         android:id="@+id/workDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -168,10 +168,9 @@
         android:textColorHint="@color/colorPrimaryDark"
         android:textCursorDrawable="@null"
         android:textSize="@dimen/_10sdp"
-        app:fontFamily="@font/unineuebook"
         app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.in10mServiceMan.widgets.CustomBookEditTextView
         android:id="@+id/feePayDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -187,7 +186,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textCursorDrawable="@null"
         android:textSize="12sp"
-        app:fontFamily="@font/unineuebook"
         app:layout_constraintTop_toBottomOf="@+id/workDescriptionET" />
 
     <com.in10mServiceMan.widgets.CustomRegularTextView

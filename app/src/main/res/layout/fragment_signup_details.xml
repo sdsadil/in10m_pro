@@ -15,8 +15,8 @@
             android:layout_height="@dimen/_70sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:src="@drawable/darktickbubble"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etGovernorate_SignUpProfLay" />
 
         <com.in10mServiceMan.widgets.CustomRegularTextView
@@ -88,7 +88,7 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyTIL" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/personalDetailsFirstName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -96,7 +96,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:hint="@string/first_name"
             android:inputType="textPersonName"
             android:paddingStart="10dp"
@@ -111,7 +110,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLegal" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/personalDetailsLastName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -119,7 +118,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:hint="@string/last_name"
             android:inputType="textPersonName"
             android:paddingStart="10dp"
@@ -192,7 +190,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorLight"
-                app:fontFamily="@font/unineuebook"
                 android:hint="Company Name"
                 android:inputType="date"
                 android:paddingTop="4dp"
@@ -200,13 +197,14 @@
                 android:textAllCaps="true"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="15sp"
+                app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etAreaName_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -214,7 +212,6 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/area_name"
             android:inputType="text"
@@ -254,7 +251,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAreaName_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etBlock_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -263,7 +260,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/block"
             android:inputType="number"
@@ -279,7 +275,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvAddressType_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etStreet_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -288,7 +284,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/street"
             android:inputType="number"
@@ -304,7 +299,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etBlock_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etBuildingNo_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -313,7 +308,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/house_no"
             android:inputType="text|number"
@@ -329,7 +323,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etStreet_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etAvenue_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -338,7 +332,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/avenue"
             android:inputType="text|number"
@@ -354,7 +347,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etBuildingNo_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etFloorNo_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -363,7 +356,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/floor_no"
             android:inputType="number"
@@ -380,7 +372,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAvenue_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etAptOffNo_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -389,7 +381,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/office_no"
             android:inputType="number"
@@ -406,7 +397,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etFloorNo_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/etGovernorate_SignUpProfLay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -415,7 +406,6 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
             android:drawablePadding="@dimen/_10sdp"
-            app:fontFamily="@font/unineuebook"
             android:gravity="center|start"
             android:hint="@string/governorate"
             android:inputType="text"
@@ -431,7 +421,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAptOffNo_SignUpProfLay" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/personalDetailsLastStreetAddress"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -439,7 +429,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:hint="@string/suite"
             android:inputType="text"
             android:paddingStart="10dp"
@@ -454,7 +443,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/personalDetailsLastSuite"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -462,7 +451,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:hint="@string/street_address"
             android:inputType="text"
             android:paddingStart="10dp"
@@ -477,7 +465,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLastStreetAddress" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.in10mServiceMan.widgets.CustomBookEditTextView
             android:id="@+id/personalDetailsStreetAddress"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -485,7 +473,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:hint="@string/city"
             android:inputType="textPersonName"
             android:paddingStart="10dp"
@@ -508,7 +495,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
-            app:fontFamily="@font/unineuebook"
             android:hint="@string/zip_code"
             android:inputType="number"
             android:maxLength="5"
@@ -520,6 +506,7 @@
             android:textSize="14sp"
             android:theme="@style/EditTextHint"
             android:visibility="gone"
+            app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_view_state" />
@@ -534,8 +521,8 @@
             android:paddingStart="8dp"
             android:textSize="12sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/personalDetailsStreetAddress"
             app:layout_constraintEnd_toEndOf="@+id/personalDetailsStreetAddress"
+            app:layout_constraintStart_toStartOf="@+id/personalDetailsStreetAddress"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsStreetAddress"
             tools:ignore="RtlSymmetry" />
 

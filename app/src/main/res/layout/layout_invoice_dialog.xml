@@ -100,20 +100,19 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.in10mServiceMan.widgets.CustomBookEditTextView
         android:id="@+id/workDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:background="@drawable/textview_background"
-        app:fontFamily="@font/unineuebook"
         android:hint="Work description"
         android:padding="@dimen/_10sdp"
         android:textSize="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@+id/paymentSelectionCL" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.in10mServiceMan.widgets.CustomBookEditTextView
         android:id="@+id/feePayDescriptionET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -122,7 +121,6 @@
         android:layout_marginEnd="@dimen/_20sdp"
         android:background="@drawable/textview_background"
         android:drawableEnd="@drawable/doller_symbol"
-        app:fontFamily="@font/unineuebook"
         android:hint="Fee"
         android:padding="@dimen/_10sdp"
         android:paddingEnd="@dimen/_40sdp"
