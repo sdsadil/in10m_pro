@@ -108,7 +108,7 @@
                         android:paddingBottom="5dp">
 
 
-                        <Button
+                        <com.in10mServiceMan.widgets.CustomBookButtonView
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:layout_gravity="center_vertical"
@@ -120,8 +120,7 @@
                             android:textAllCaps="true"
                             android:textColor="@color/danger"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/unineuebook" />
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -149,7 +148,7 @@
                             android:focusable="false"
                             android:src="@drawable/callgreen" />
 
-                        <Button
+                        <com.in10mServiceMan.widgets.CustomBookButtonView
                             android:id="@+id/btnBookNow"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
@@ -163,8 +162,7 @@
                             android:textAllCaps="true"
                             android:textColor="@color/white_text_selector"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/unineuebook" />
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
 

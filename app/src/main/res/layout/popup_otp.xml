@@ -102,7 +102,7 @@
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/greenarrowirght" />
 
-            <Button
+            <com.in10mServiceMan.widgets.CustomBookButtonView
                 android:id="@+id/VerifyBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,10 +114,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/white_text_selector"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/unineuebook"
-
-                />
+                android:textStyle="bold" />
         </LinearLayout>
 
 

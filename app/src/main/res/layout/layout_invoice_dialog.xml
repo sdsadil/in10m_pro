@@ -160,7 +160,7 @@
             android:focusable="false"
             android:src="@drawable/greenarrowirght" />
 
-        <Button
+        <com.in10mServiceMan.widgets.CustomBookButtonView
             android:id="@+id/EnterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -169,14 +169,11 @@
             android:background="#0000"
             android:clickable="false"
             android:focusable="false"
-            app:fontFamily="@font/unineuebook"
             android:padding="10dp"
             android:text="@string/submit"
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="15sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold"   />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -327,46 +327,6 @@
             </LinearLayout>
 
 
-            <!-- <RatingBar
-                 android:id="@+id/ratingBar"
-                  android:layout_marginTop="20dp"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-
-                 android:layout_marginStart="8dp"
-                 android:layout_marginEnd="8dp"
-                 android:numStars="5"
-                 android:rating="0.0"
-
-                 android:stepSize="1.0"
-                 android:theme="@style/RatingBar"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toBottomOf="@+id/view8" />-->
-
-            <!--  <EditText
-                  android:id="@+id/shortNoteET"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginStart="24dp"
-                  android:layout_marginTop="16dp"
-                  android:layout_marginEnd="24dp"
-                  android:background="@color/colorLight"
-                  android:hint="@string/short_note"
-                  android:inputType="textPersonName"
-                  android:paddingStart="24dp"
-                  android:paddingTop="16dp"
-                  app:fontFamily="@font/unineuebook"
-                  android:textStyle="italic"
-                  android:paddingEnd="24dp"
-                  android:paddingBottom="16dp"
-                  android:textAllCaps="true"
-                  android:textSize="15sp"
-                  app:layout_constraintEnd_toEndOf="parent"
-                  app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/ratingBar" />-->
-
-
             <com.in10mServiceMan.widgets.CustomBookEditTextView
                 android:id="@+id/descriptionET22"
                 android:layout_width="match_parent"
@@ -418,7 +378,7 @@
                     android:focusable="false"
                     android:src="@drawable/greentick" />
 
-                <Button
+                <com.in10mServiceMan.widgets.CustomBookButtonView
                     android:id="@+id/BookNowBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -427,15 +387,12 @@
                     android:background="@color/transparent"
                     android:clickable="false"
                     android:focusable="false"
-                    app:fontFamily="@font/unineuebook"
                     android:padding="10dp"
                     android:text="@string/submit"
                     android:textAllCaps="true"
                     android:textColor="@color/white_text_selector"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

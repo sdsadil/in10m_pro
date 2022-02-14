@@ -23,7 +23,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:background="@color/greenyBlue" />-->
 
-    <Button
+    <com.in10mServiceMan.widgets.CustomBookButtonView
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,6 @@
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@android:color/black"
-        app:fontFamily="@font/unineuebook"
         android:text="@string/next"
         android:visibility="invisible" />
 
