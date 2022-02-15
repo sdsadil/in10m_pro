@@ -28,26 +28,26 @@ class ServiceManDetails(): DialogFragment() {
         val action=arguments!!.getInt("action")
         if(action==RequestCode.FromHome)
         {
-            rootView.findViewById<Button>(R.id.btnCancelBooking).visibility=View.GONE
+            rootView.findViewById<Button>(R.id.llCancel_HomeBottomBtn).visibility=View.GONE
             rootView.findViewById<LinearLayout>(R.id.lvCallButtonView).visibility=View.GONE
             rootView.findViewById<Button>(R.id.callButtonView).visibility=View.GONE
 
             rootView.findViewById<LinearLayout>(R.id.lvButtonView).visibility=View.VISIBLE
-            rootView.findViewById<Button>(R.id.btnBookNow).visibility=View.VISIBLE
+            rootView.findViewById<Button>(R.id.btnAccept_HomeBottomBtn).visibility=View.VISIBLE
         }else{
-            rootView.findViewById<Button>(R.id.btnCancelBooking).visibility=View.VISIBLE
+            rootView.findViewById<Button>(R.id.llCancel_HomeBottomBtn).visibility=View.VISIBLE
             rootView.findViewById<LinearLayout>(R.id.lvCallButtonView).visibility=View.VISIBLE
             rootView.findViewById<Button>(R.id.callButtonView).visibility=View.VISIBLE
 
             rootView.findViewById<LinearLayout>(R.id.lvButtonView).visibility=View.GONE
-            rootView.findViewById<Button>(R.id.btnBookNow).visibility=View.GONE
+            rootView.findViewById<Button>(R.id.btnAccept_HomeBottomBtn).visibility=View.GONE
         }
 
         rootView.findViewById<Button>(R.id.btnShowOnMap).setOnClickListener{
             serviceManCallBack?.showOnMap()
             dismiss()
         }
-        rootView.findViewById<Button>(R.id.btnCancelBooking).setOnClickListener{
+        rootView.findViewById<Button>(R.id.llCancel_HomeBottomBtn).setOnClickListener{
             serviceManCallBack?.cancelBooking()
             dismiss()
         }
@@ -55,7 +55,7 @@ class ServiceManDetails(): DialogFragment() {
             serviceManCallBack?.bookNow()
             dismiss()
         }
-        rootView.findViewById<Button>(R.id.btnBookNow).setOnClickListener{
+        rootView.findViewById<Button>(R.id.btnAccept_HomeBottomBtn).setOnClickListener{
             serviceManCallBack?.bookNow()
             dismiss()
         }

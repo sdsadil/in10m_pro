@@ -258,7 +258,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/lv3" />
 
             <com.in10mServiceMan.widgets.button.CustomRegularButtonView
-                android:id="@+id/btnCancelBooking"
+                android:id="@+id/llCancel_HomeBottomBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -508,7 +508,7 @@
             android:src="@drawable/greentick" />
 
         <com.in10mServiceMan.widgets.button.CustomBookButtonView
-            android:id="@+id/btnBookNow"
+            android:id="@+id/btnAccept_HomeBottomBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

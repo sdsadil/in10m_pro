@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/_10sdp">
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vertical_in_center"
         android:layout_width="wrap_content"
@@ -14,7 +13,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <LinearLayout
-        android:id="@+id/btnCancelBooking"
+        android:id="@+id/llCancel_HomeBottomBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -31,9 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
-            android:id="@+id/btnCancel"
+            android:id="@+id/btnCancel_HomeBottomBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -46,14 +44,11 @@
             android:textAllCaps="true"
             android:textColor="@color/danger"
             android:textSize="15sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-
-        android:id="@+id/lvBtnBookNow1"
+        android:id="@+id/llAccept_HomeBottomBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -82,7 +77,7 @@
             android:src="@drawable/greentick" />
 
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
-            android:id="@+id/btnBookNow"
+            android:id="@+id/btnAccept_HomeBottomBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -102,7 +97,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/lvBtnCall"
+        android:id="@+id/llCall_HomeBottomBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -132,7 +127,7 @@
             android:src="@drawable/callgreen" />
 
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
-            android:id="@+id/btnCall"
+            android:id="@+id/btnCall_HomeBottomBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -146,13 +141,11 @@
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="15sp"
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/llArrived_HomeBottomBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -163,10 +156,10 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCancelBooking">
+        app:layout_constraintTop_toBottomOf="@+id/llCancel_HomeBottomBtn">
 
         <LinearLayout
-            android:id="@+id/btnArrived"
+            android:id="@+id/btnArrived_HomeBottomBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorLight"
@@ -195,7 +188,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout_Estimate"
+        android:id="@+id/llEstimate_HomeBottomBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -206,10 +199,10 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCancelBooking">
+        app:layout_constraintTop_toBottomOf="@+id/llCancel_HomeBottomBtn">
 
         <LinearLayout
-            android:id="@+id/btnEstimate"
+            android:id="@+id/llEstimate1_HomeBottomBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/default_background"
@@ -230,15 +223,13 @@
                 android:textAllCaps="true"
                 android:textColor="@color/white_text_selector"
                 android:textSize="15sp"
-                android:textStyle="normal"
-
-                />
+                android:textStyle="normal" />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
+        android:id="@+id/llStart_HomeBottomBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -251,10 +242,10 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCancelBooking">
+        app:layout_constraintTop_toBottomOf="@+id/llCancel_HomeBottomBtn">
 
         <com.ebanx.swipebtn.SwipeButton
-            android:id="@+id/btnStartService"
+            android:id="@+id/sbStart_HomeBottomBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
@@ -278,7 +269,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/llEnd_HomeBottomBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -291,10 +282,10 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCancelBooking">
+        app:layout_constraintTop_toBottomOf="@+id/llCancel_HomeBottomBtn">
 
         <com.ebanx.swipebtn.SwipeButton
-            android:id="@+id/btnEndService"
+            android:id="@+id/sbEnd_HomeBottomBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:button_background="@color/transparent"

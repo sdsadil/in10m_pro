@@ -93,6 +93,12 @@
 
     <style name="AlertDialogDanger" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="fontFamily">@font/unineueregular</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveAlertButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveAlertButtonStyle</item>
     </style>
 
+    <style name="PositiveAlertButtonStyle">
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
 </resources>

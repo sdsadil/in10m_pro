@@ -280,15 +280,20 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             onLocationFetched()
             freezCurrentLocation = false
         }
-        btnCancelBooking.setOnClickListener {
+        llCancel_HomeBottomBtn.setOnClickListener {
             callRequestCancelApi()
         }
         closeCV.setOnClickListener {
             callRequestCancelApi()
 
         }
-
-        lvBtnCall.setOnClickListener {
+        sbStart_HomeBottomBtn.setOnActiveListener {
+            updateTOStart()
+        }
+        sbEnd_HomeBottomBtn.setOnActiveListener {
+            serviceDone1()
+        }
+        llCall_HomeBottomBtn.setOnClickListener {
             callToCustomer()
         }
         btnMaximizeRequestCV.setOnClickListener {
@@ -381,24 +386,111 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                 }
                                 BookingStatus.Accepted -> {
                                     setupRequest(it.key!!.toInt())
-                                    callRequestAcceptFdB(false)
                                     drawPolyLine()
+//                                    callRequestAcceptFdB(false)
+
+                                    bookingAccpted = true
+                                    llCall_HomeBottomBtn.visibility = View.VISIBLE
+                                    llArrived_HomeBottomBtn.visibility = View.VISIBLE
+                                    llAccept_HomeBottomBtn.visibility = View.GONE
+                                    tv1111.visibility = View.GONE
+                                    closeCV.visibility = View.GONE
+                                    ServiceManNameTOP.text = getString(R.string.you_are_on_the_way)
+                                    imgBtnNavigate.visibility = View.VISIBLE
+                                    btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                                    currentWorkStatus = BookingStatus.Accepted
                                 }
                                 BookingStatus.Arrived -> {
                                     setupRequest(it.key!!.toInt())
-                                    updateToArrived(false)
                                     drawPolyLine()
+//                                    updateToArrived(false)
+
                                     currentWorkStatus = BookingStatus.Arrived
+                                    imgBtnNavigate.visibility = View.GONE
+                                    ServiceManNameTOP.text =
+                                        resources.getString(R.string.you_have_reached)
+                                    llArrived_HomeBottomBtn.visibility = View.GONE
+                                    llEstimate_HomeBottomBtn.visibility = View.GONE
+                                    llStart_HomeBottomBtn.visibility = View.VISIBLE
+                                    btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                                    request!!.status = BookingStatus.Arrived.toString()
+                                    bookingAccpted = true
                                 }
                                 BookingStatus.Ongoing -> {
                                     setupRequest(it.key!!.toInt())
-                                    updateTOStart(false)
                                     drawPolyLine()
+//                                    updateTOStart(false)
                                     currentWorkStatus = BookingStatus.Ongoing
+
+                                    ServiceManNameTOP.text =
+                                        resources.getString(R.string.job_in_progress)
+                                    llStart_HomeBottomBtn.visibility = View.GONE
+                                    llEnd_HomeBottomBtn.visibility = View.VISIBLE
+                                    imgBtnNavigate.visibility = View.GONE
+                                    btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                                    llCancel_HomeBottomBtn.isEnabled = false
+                                    timerStartCreation()
+
+                                    request!!.status = BookingStatus.Ongoing.toString()
+                                    bookingAccpted = true
+                                    mDatabase.child(bookingId.toString()).child("status")
+                                        .setValue(BookingStatus.Ongoing.toString())
+                                    mDatabaseCustomer.child("status")
+                                        .setValue(BookingStatus.Ongoing.toString())
                                 }
                                 BookingStatus.Complete -> {
-                                    serviceDone1(false)
+//                                    serviceDone1(false)
                                     currentWorkStatus = BookingStatus.Complete
+
+                                    val pathCustomer =
+                                        "bookings/customer/" + request!!.customer_id + "/" + bookingId
+                                    mDatabaseCustomer =
+                                        FirebaseDatabase.getInstance().getReference(pathCustomer)
+                                    mDatabaseCustomer.child("status")
+                                        .setValue(BookingStatus.Complete.toString())
+                                    mDatabase.child(bookingId.toString()).child("status")
+                                        .setValue(BookingStatus.Complete.toString())//Serviceman status update
+                                    isJobDone = true
+
+                                    //mDatabase.child(bookingId.toString()).setValue(null)
+                                    startActivity(
+                                        Intent(
+                                            this@MapTrackingActivity,
+                                            InvoiceActivity::class.java
+                                        ).putExtra("bookingId", myBookingId)
+                                            .putExtra("customerId", customerID)
+                                            .putExtra("tripCharge", estimationFee)
+                                            .putExtra("serviceId", serviceId)
+                                    )
+                                    //finish()
+                                    requestCV.visibility = View.INVISIBLE
+                                    DutyChangeImage.visibility = View.VISIBLE
+                                    bookingAccpted = false
+                                    bookingId = 0
+                                    isJobDone = true
+                                    removeDestinationMarker()
+                                    if (mapss != null)
+                                        mapss!!.removePolyLine()
+                                    freezCurrentLocation = false
+                                    loadDashboardCount()
+                                    val user =
+                                        localStorage(this@MapTrackingActivity).completeCustomer
+                                    if (user != null) ServiceManNameTOP.text =
+                                        (resources.getString(R.string.hello) + " " + user.name)
+                                    selectedCV.visibility = View.VISIBLE
+
+                                    llAccept_HomeBottomBtn.visibility = View.VISIBLE
+                                    llCall_HomeBottomBtn.visibility = View.GONE
+                                    llArrived_HomeBottomBtn.visibility = View.GONE
+                                    llStart_HomeBottomBtn.visibility = View.GONE
+                                    llEnd_HomeBottomBtn.visibility = View.GONE
+                                    imgBtnNavigate.visibility = View.GONE
+                                    btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                                    llCancel_HomeBottomBtn.isEnabled = false
+                                    workStatusTimerTV.visibility = View.GONE
+                                    ElapsedTimerTV.visibility = View.GONE
+                                    //changeStatusOfServiceMan()
+                                    map?.clear()
                                 }
                             }
 
@@ -418,11 +510,11 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             }
         })
 
-        lvBtnBookNow1.setOnClickListener {
+        llAccept_HomeBottomBtn.setOnClickListener {
             callRequestAcceptFdB()
         }
 
-        linearLayout5.setOnClickListener {
+        llArrived_HomeBottomBtn.setOnClickListener {
             updateToArrived()
         }
 
@@ -468,8 +560,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         addressTV.text = request!!.address
         serviceRequestedTV.text = request!!.service_name
         subServiceRequestedTV.text = "Sub service : ${request!!.sub_service_name}"
-        btnCancelBooking.setTag(R.string.request_id, key.toString())
-        lvBtnBookNow1.setTag(R.string.request_id2, key.toString())
+        llCancel_HomeBottomBtn.setTag(R.string.request_id, key.toString())
+        llAccept_HomeBottomBtn.setTag(R.string.request_id2, key.toString())
         requestCV.visibility = View.VISIBLE
         imgBtnNavigate.visibility = View.GONE
     }
@@ -529,13 +621,13 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             (resources.getString(R.string.hello) + " " + user.name)
         selectedCV.visibility = View.VISIBLE
 
-        lvBtnBookNow1.visibility = View.VISIBLE
-        lvBtnCall.visibility = View.GONE
-        linearLayout5.visibility = View.GONE
-        linearLayout6.visibility = View.GONE
-        linearLayout7.visibility = View.GONE
+        llAccept_HomeBottomBtn.visibility = View.VISIBLE
+        llCall_HomeBottomBtn.visibility = View.GONE
+        llArrived_HomeBottomBtn.visibility = View.GONE
+        llStart_HomeBottomBtn.visibility = View.GONE
+        llEnd_HomeBottomBtn.visibility = View.GONE
         imgBtnNavigate.visibility = View.GONE
-        btnCancel.text = getString(R.string.cancel)
+        btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
         changeStatusOfServiceMan()
         map?.clear()
         reLoadPage()
@@ -781,7 +873,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     }
 
     private fun callRequestCancelApi() {
-        if (btnCancelBooking.getTag(R.string.request_id) != null) {
+        if (llCancel_HomeBottomBtn.getTag(R.string.request_id) != null) {
 
             showProgressDialog("")
 
@@ -820,7 +912,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
         request!!.status = BookingStatus.Accepted.toString()
 
-        if (lvBtnBookNow1.getTag(R.string.request_id2) != null) {
+        if (llAccept_HomeBottomBtn.getTag(R.string.request_id2) != null) {
             if (showMsg) {
                 showProgressDialog("")
                 val loc = UpdateBookingStatus()
@@ -832,14 +924,14 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         destroyDialog()
                         if (response.isSuccessful) {
                             bookingAccpted = true
-                            lvBtnCall.visibility = View.VISIBLE
-                            lvBtnBookNow1.visibility = View.GONE
+                            llCall_HomeBottomBtn.visibility = View.VISIBLE
+                            llAccept_HomeBottomBtn.visibility = View.GONE
                             tv1111.visibility = View.GONE
                             closeCV.visibility = View.GONE
-                            linearLayout5.visibility = View.VISIBLE
+                            llArrived_HomeBottomBtn.visibility = View.VISIBLE
                             ServiceManNameTOP.text = getString(R.string.you_are_on_the_way)
                             imgBtnNavigate.visibility = View.VISIBLE
-                            btnCancel.text = getString(R.string.cancel)
+                            btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
                             mDatabaseCustomer.child("status")
                                 .setValue(BookingStatus.Accepted.toString())
@@ -874,14 +966,11 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                     if (response.isSuccessful) {
                         imgBtnNavigate.visibility = View.GONE
                         ServiceManNameTOP.text = resources.getString(R.string.you_have_reached)
-                        linearLayout5.visibility = View.GONE
-                        linearLayout_Estimate.visibility = View.GONE
-                        linearLayout6.visibility = View.VISIBLE
-                        btnCancel.text = getString(R.string.cancel)
+                        llArrived_HomeBottomBtn.visibility = View.GONE
+                        llEstimate_HomeBottomBtn.visibility = View.GONE
+                        llStart_HomeBottomBtn.visibility = View.VISIBLE
+                        btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
-                        btnStartService.setOnActiveListener {
-                            updateTOStart()
-                        }
                         request!!.status = BookingStatus.Arrived.toString()
                         bookingAccpted = true
                         mDatabaseCustomer.child("status")
@@ -897,7 +986,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 }
             })
         }
-        linearLayout_Estimate.setOnClickListener {
+        llEstimate_HomeBottomBtn.setOnClickListener {
             askEstimate()
         }
     }
@@ -986,11 +1075,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         }
         mAlertDialog?.dismiss()
         if (acceptStatus) {
-            linearLayout_Estimate.visibility = View.GONE
-            linearLayout6.visibility = View.VISIBLE
-            btnStartService.setOnActiveListener {
-                updateTOStart()
-            }
+            llEstimate_HomeBottomBtn.visibility = View.GONE
+            llStart_HomeBottomBtn.visibility = View.VISIBLE
         } else if (!acceptStatus && freeEstimate == 0) {
             // pay charge of the trip
             ShowToast(resources.getString(R.string.home_owner_rejected_the_estimate))
@@ -1013,11 +1099,11 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                     destroyDialog()
                     if (response.isSuccessful) {
                         ServiceManNameTOP.text = resources.getString(R.string.job_in_progress)
-                        linearLayout6.visibility = View.GONE
-                        linearLayout7.visibility = View.VISIBLE
+                        llStart_HomeBottomBtn.visibility = View.GONE
+                        llEnd_HomeBottomBtn.visibility = View.VISIBLE
                         imgBtnNavigate.visibility = View.GONE
-                        btnCancel.text = getString(R.string.cancel)
-                        btnCancelBooking.isEnabled = false
+                        btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                        llCancel_HomeBottomBtn.isEnabled = false
                         timerStartCreation()
 
                         request!!.status = BookingStatus.Ongoing.toString()
@@ -1033,9 +1119,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 }
             })
         }
-        btnEndService.setOnActiveListener {
-            serviceDone1()
-        }
+
     }
 
     private fun serviceDone1(showMsg: Boolean = true) {
@@ -1097,14 +1181,14 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             (resources.getString(R.string.hello) + " " + user.name)
                         selectedCV.visibility = View.VISIBLE
 
-                        lvBtnBookNow1.visibility = View.VISIBLE
-                        lvBtnCall.visibility = View.GONE
-                        linearLayout5.visibility = View.GONE
-                        linearLayout6.visibility = View.GONE
-                        linearLayout7.visibility = View.GONE
+                        llAccept_HomeBottomBtn.visibility = View.VISIBLE
+                        llCall_HomeBottomBtn.visibility = View.GONE
+                        llArrived_HomeBottomBtn.visibility = View.GONE
+                        llStart_HomeBottomBtn.visibility = View.GONE
+                        llEnd_HomeBottomBtn.visibility = View.GONE
                         imgBtnNavigate.visibility = View.GONE
-                        btnCancel.text = getString(R.string.cancel)
-                        btnCancelBooking.isEnabled = false
+                        btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                        llCancel_HomeBottomBtn.isEnabled = false
                         workStatusTimerTV.visibility = View.GONE
                         ElapsedTimerTV.visibility = View.GONE
                         //changeStatusOfServiceMan()
@@ -1162,6 +1246,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         if (response.body()!!.status == 1) {
                             localStorage(this@MapTrackingActivity).logoutUser()
                             SharedPreferencesHelper.clearPreferences(this@MapTrackingActivity)
+                            setLanguage(this@MapTrackingActivity, "en")
                             startActivity(
                                 Intent(
                                     this@MapTrackingActivity,
@@ -1940,7 +2025,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun logout() {
         try {
             val builder =
-                android.app.AlertDialog.Builder(this@MapTrackingActivity, R.style.AlertDialogDanger)
+                AlertDialog.Builder(this@MapTrackingActivity, R.style.AlertDialogDanger)
             builder.setTitle(resources.getString(R.string.log_out))
             builder.setMessage(resources.getString(R.string.desc_logout))
             builder.setPositiveButton(

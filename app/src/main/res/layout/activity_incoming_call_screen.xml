@@ -96,7 +96,7 @@
                     android:weightSum="2">
 
                     <LinearLayout
-                        android:id="@+id/btnCancelBooking"
+                        android:id="@+id/llCancel_HomeBottomBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -149,7 +149,7 @@
                             android:src="@drawable/callgreen" />
 
                         <com.in10mServiceMan.widgets.button.CustomBookButtonView
-                            android:id="@+id/btnBookNow"
+                            android:id="@+id/btnAccept_HomeBottomBtn"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:layout_gravity="center_vertical"

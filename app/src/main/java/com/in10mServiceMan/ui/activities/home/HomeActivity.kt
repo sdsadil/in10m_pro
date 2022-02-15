@@ -11,7 +11,6 @@ import android.os.Handler
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -126,7 +125,7 @@ class HomeActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
             btnDetailsProceed()
         }
 
-        btnBookNow.setOnClickListener {
+        btnAccept_HomeBottomBtn.setOnClickListener {
             proceedBookNow()
         }
         lvBtnBookNow.setOnClickListener {

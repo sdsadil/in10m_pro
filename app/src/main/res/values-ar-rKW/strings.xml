@@ -214,8 +214,8 @@
     <string name="work_experience"><![CDATA[Work & experience]]></string>
     <string name="please_enter_valid_email">ادخل بريد الكتروني صحيح</string>
     <string name="services_completed">Services Completed</string>
-    <string name="decline">DECLINE</string>
-    <string name="cancel">CANCEL</string>
+    <string name="decline">انخفاض</string>
+    <string name="cancel">إلغاء</string>
     <string name="arrived_at_location">Arrived at location</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
     <string name="slide_to_end_service">SLIDE TO COMPLETE JOB</string>
@@ -306,7 +306,7 @@
     <string name="desc_privacy_updated"><![CDATA[هل ترغب بمراجعتها الآن؟]]></string>
     <string name="terms_updated"><![CDATA[تحديث الشروط و الأحكام]]></string>
     <string name="desc_terms_updated"><![CDATA[هل ترغب بمراجعتها الآن؟]]></string>
-    <string name="desc_logout">Do you want to Logout?</string>
+    <string name="desc_logout">هل ترغب بالخروج؟</string>
     <string name="invalid_booking_data">Invalid booking data received</string>
     <string name="work_status">مؤشر أعمالي</string>
     <string name="you_have_reached">You have reached</string>
