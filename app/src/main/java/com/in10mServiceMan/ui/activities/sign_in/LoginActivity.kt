@@ -52,6 +52,9 @@ class LoginActivity : BaseActivity(), ILoginView {
 //            SharedPreferencesHelper.putInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
 //            startActivity(Intent(this, AvailableServices::class.java))
         }
+        tvChooseLang_LoginLay.setOnClickListener {
+            languageChangeDialogView()
+        }
         loginClickLL.setOnClickListener {
             if (!isValidEmail(usernameLoginET.text!!)) {
                 ShowToast(resources.getString(R.string.enter_your_username))
@@ -98,85 +101,99 @@ class LoginActivity : BaseActivity(), ILoginView {
     }
 
     override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
-        Log.e("Cmplt Profile Response", Gson().toJson(metaData))
         destroyDialog()
         if (metaData.status == 1) {
             if (user == 2 && companyId != null) {
                 localStorage(this).saveCompleteCustomer(metaData.data)
-                if (mRegistrationStep == 1) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            CompanySignupActivity::class.java
-                        ).putExtra("step", "1")
-                    )
-                } else if (mRegistrationStep == 2) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            CompanySignupActivity::class.java
-                        ).putExtra("step", "2")
-                    )
-                } else if (mRegistrationStep == 3) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            CompanySignupActivity::class.java
-                        ).putExtra("step", "3")
-                    )
-                } else {
-                    localStorage(this).saveCompleteCustomer(metaData.data)
-                    startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                when (mRegistrationStep) {
+                    1 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                CompanySignupActivity::class.java
+                            ).putExtra("step", "1")
+                        )
+                    }
+                    2 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                CompanySignupActivity::class.java
+                            ).putExtra("step", "2")
+                        )
+                    }
+                    3 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                CompanySignupActivity::class.java
+                            ).putExtra("step", "3")
+                        )
+                    }
+                    else -> {
+                        localStorage(this).saveCompleteCustomer(metaData.data)
+                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                    }
                 }
             } else if (user == 3) {
                 localStorage(this).saveCompleteCustomer(metaData.data)
-                if (mRegistrationStep == 1) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            CompanySignupActivity::class.java
-                        ).putExtra("step", "1")
-                    )
-                } else if (mRegistrationStep == 2) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            CompanySignupActivity::class.java
-                        ).putExtra("step", "2")
-                    )
-                } else if (mRegistrationStep == 3) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            CompanySignupActivity::class.java
-                        ).putExtra("step", "3")
-                    )
-                } else {
-                    localStorage(this).saveCompleteCustomer(metaData.data)
-                    startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                when (mRegistrationStep) {
+                    1 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                CompanySignupActivity::class.java
+                            ).putExtra("step", "1")
+                        )
+                    }
+                    2 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                CompanySignupActivity::class.java
+                            ).putExtra("step", "2")
+                        )
+                    }
+                    3 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                CompanySignupActivity::class.java
+                            ).putExtra("step", "3")
+                        )
+                    }
+                    else -> {
+                        localStorage(this).saveCompleteCustomer(metaData.data)
+                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                    }
                 }
             } else {
-                if (mRegistrationStep == 1) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            SignUpActivity::class.java
-                        ).putExtra("step", "1")
-                    )
-                } else if (mRegistrationStep == 2) {
-                    startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            SignUpActivity::class.java
-                        ).putExtra("step", "2")
-                    )
-                } else if (mRegistrationStep == 3) {
-                    localStorage(this).saveCompleteCustomer(metaData.data)
-                    startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
-                    //startActivity(Intent(this@LoginActivity, SignUpActivity::class.java).putExtra("step", "3"))
-                } else {
-                    localStorage(this).saveCompleteCustomer(metaData.data)
-                    startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                when (mRegistrationStep) {
+                    1 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                SignUpActivity::class.java
+                            ).putExtra("step", "1")
+                        )
+                    }
+                    2 -> {
+                        startActivity(
+                            Intent(
+                                this@LoginActivity,
+                                SignUpActivity::class.java
+                            ).putExtra("step", "2")
+                        )
+                    }
+                    3 -> {
+                        localStorage(this).saveCompleteCustomer(metaData.data)
+                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                        //startActivity(Intent(this@LoginActivity, SignUpActivity::class.java).putExtra("step", "3"))
+                    }
+                    else -> {
+                        localStorage(this).saveCompleteCustomer(metaData.data)
+                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                    }
                 }
             }
         } else {

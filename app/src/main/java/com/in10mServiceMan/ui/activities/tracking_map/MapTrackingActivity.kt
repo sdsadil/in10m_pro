@@ -1204,11 +1204,15 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     }
 
     private fun reLoadPage() {
-        val refresh = Intent(this@MapTrackingActivity, MapTrackingActivity::class.java)
+        /*val refresh = Intent(this@MapTrackingActivity, MapTrackingActivity::class.java)
         handler.postDelayed({
             startActivity(refresh)
             this@MapTrackingActivity.finish()
-        }, 250L)
+        }, 250L)*/
+        finish()
+        overridePendingTransition(0, 0)
+        startActivity(intent)
+        overridePendingTransition(0, 0)
     }
 
     private fun changeStatusOfServiceMan() {

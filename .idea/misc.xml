@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/custom_radiobtn.xml" value="0.25833333333333336" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/default_background.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.25435897435897437" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_radio_button_checked.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout-large/drawyer_layout.xml" value="0.1290983606557377" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout-v21/activity_map_tracking.xml" value="0.121875" />

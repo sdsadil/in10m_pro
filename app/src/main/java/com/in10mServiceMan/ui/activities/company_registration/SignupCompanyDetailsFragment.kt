@@ -138,7 +138,7 @@ class SignupCompanyDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFai
                 SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.STATE, state)
                 SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.ZIPCODE, view.personalDetailsZip.text.toString())
                 SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.COUNTRY, country)
-                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.COUNTRY_CODE, "+1")//country_id
+                SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.COUNTRY_CODE, "+965")//country_id
                 SharedPreferencesHelper.putString(this.context!!, Constants.SharedPrefs.User.NAME_OF_COMPANY, view.personalDetailsCompanyET.text.toString())
                 displayAlertDialog()
             }
@@ -244,10 +244,10 @@ class SignupCompanyDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFai
         mStatesList = body.data?.states
         country = body.data?.countryCode!!
         country_id = body.data.countryId.toString()
-        var myStateList: ArrayList<String>? = ArrayList()
+        val myStateList: ArrayList<String> = ArrayList()
         if (mStatesList?.size!! > 0) {
-            for (i in 0 until mStatesList!!.size) {
-                myStateList?.add(mStatesList?.get(i)?.name!!)
+            for (i in mStatesList!!.indices) {
+                myStateList.add(mStatesList?.get(i)?.name!!)
             }
         }
         val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)

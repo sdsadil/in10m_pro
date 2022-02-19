@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+
 import androidx.appcompat.app.AlertDialog;
 
 import com.in10mServiceMan.R;
@@ -17,33 +18,18 @@ public class BackButtonHandler {
     }
 
     public void onClick() {
-        AlertDialog.Builder alertDialog;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            alertDialog = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            alertDialog = new AlertDialog.Builder(context, R.style.MyDialogTheme);
-        }
-        // Setting Dialog Title
-        alertDialog.setTitle("in10m Serviceman");
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context, R.style.AlertDialogDanger);
+        alertDialog.setTitle(context.getResources().getString(R.string.app_name));
         alertDialog.setIcon(R.mipmap.ic_launcher_logo_one_round);
-        // Setting Dialog Message
-        alertDialog.setMessage("Are you sure you want to leave the application?");
-        // Setting Icon to Dialog
-        // alertDialog.setIcon(R.drawable.dialog_icon);
-        // Setting Positive "Yes" Button
-        alertDialog.setPositiveButton("YES",
+        alertDialog.setMessage(context.getResources().getString(R.string.are_you_sure_you_want_to_leave_the_application));
+        alertDialog.setPositiveButton(context.getResources().getString(R.string.yes),
                 (dialog, which) -> {
-                    //((Activity)context).finish();
                     ((Activity) context).finishAffinity();
-                    /*System.exit(0);*/
                 });
-        // Setting Negative "NO" Button
-        alertDialog.setNegativeButton("NO",
+        alertDialog.setNegativeButton(context.getResources().getString(R.string.no),
                 (dialog, which) -> {
-                    // Write your code here to invoke NO event
                     dialog.cancel();
                 });
-        // Showing Alert Message
         alertDialog.show();
     }
 }

@@ -38,10 +38,11 @@ class SignupContactFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_signup_contact, container, false)
 
         view.enterButton.setOnClickListener {
-            if (!isValidEmail(view.contactDetailsEmail.text.toString()))//view.contactDetailsEmail.text.toString().trim().isEmpty()
+           /* if (!isValidEmail(view.contactDetailsEmail.text.toString()))//view.contactDetailsEmail.text.toString().trim().isEmpty()
             {
                 showToast(resources.getString(R.string.please_enter_valid_email))
-            } else if (view.contactDetailsMobile.text.toString().trim()
+            } else */
+            if (view.contactDetailsMobile.text.toString().trim()
                     .isEmpty() && view.contactDetailsMobile.text.toString().length != 8
             ) {
                 showToast(resources.getString(R.string.enter_valid_mobile_number))

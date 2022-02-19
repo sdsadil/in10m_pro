@@ -84,7 +84,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             view.personalDetailsCompanyTIL.visibility = View.GONE
 
         }*/
-        var myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
+        val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
 
         myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -191,7 +191,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.COUNTRY_CODE,
-                        "+1"
+                        "+965"
                     )//country_id
 
                     displayAlertDialog()
@@ -268,12 +268,12 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
 
     fun bindData(body: StatesResponse) {
         mStatesList = body.data?.states
-        country = body.data?.countryCode!!
-        country_id = body.data.countryId.toString()
+        country = "Kuwait"
+        country_id = body.data?.countryId.toString()
         val myStateList: ArrayList<String> = ArrayList()
         if (mStatesList?.size!! > 0) {
-            for (i in 0 until mStatesList!!.size) {
-                myStateList?.add(mStatesList?.get(i)?.name!!)
+            for (i in mStatesList!!.indices) {
+                myStateList.add(mStatesList?.get(i)?.name!!)
             }
         }
         val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)

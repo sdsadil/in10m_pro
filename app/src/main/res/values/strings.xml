@@ -453,4 +453,5 @@
     <string name="payment_requested">Payment Requested</string>
     <string name="waiting_for_the_homeowner_to_process">Waiting for the Homeowner to process....</string>
     <string name="sign_up">Sign up</string>
+    <string name="are_you_sure_you_want_to_leave_the_application">Are you sure you want to leave the application?</string>
 </resources>
