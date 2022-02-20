@@ -9,11 +9,19 @@ import android.view.ViewGroup
 import com.in10mServiceMan.models.HomeService
 import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
+import com.in10mServiceMan.ui.activities.BaseActivity
+import com.in10mServiceMan.utils.Constants
+import com.in10mServiceMan.utils.SharedPreferencesHelper
+import com.in10mServiceMan.utils.SharedPreferencesHelper.getBoolean
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_services.view.*
 
 
-class ServicesAdapter(var activity: Context, var selectedServiceCallback: SelectedServiceCallback?, var data: HomeService?) : RecyclerView.Adapter<ServicesAdapter.ServiceVH>() {
+class ServicesAdapter(
+    var activity: Context,
+    var selectedServiceCallback: SelectedServiceCallback?,
+    var data: HomeService?
+) : RecyclerView.Adapter<ServicesAdapter.ServiceVH>() {
 
     private var serviceList = data?.data
 
@@ -34,20 +42,38 @@ class ServicesAdapter(var activity: Context, var selectedServiceCallback: Select
     override fun onBindViewHolder(holder: ServiceVH, position: Int) {
 
         val service = this.serviceList!![position]
-        if (service.serviceName.length > 35) {
-            var text = service.serviceName.substring(0, 35) + "..."
-            holder.itemView?.tvItem?.text = text
+        /* if (service.serviceName.length > 35) {
+             val text = service.serviceName.substring(0, 35) + "..."
+             holder.itemView.tvItem?.text = text
+         } else {
+             holder.itemView.tvItem?.text = service.serviceName
+         }*/
+
+        val serviceName: String
+        val isLangArabic = getBoolean(
+            activity,
+            Constants.SharedPrefs.User.IS_LANG_ARB, false
+        )!!
+        serviceName = if (isLangArabic) {
+            if (!service.serviceArName.equals("") && !service.serviceArName.equals(null) && !service.serviceArName.equals(
+                    "null"
+                )
+            ) {
+                service.serviceArName.trim()
+            } else
+                ""
         } else {
-            holder.itemView?.tvItem?.text = service.serviceName
+            service.serviceName.trim()
         }
 
+        holder.itemView.tvItem?.text = serviceName
 
-
-        holder.itemView?.colorView?.setBackgroundColor(Color.parseColor(service.serviceColor))
+        holder.itemView.colorView?.setBackgroundColor(Color.parseColor(service.serviceColor))
 /*
 "http://"+ <--- this was added before for getting service icon.
 */
-        Picasso.get().load(service.serviceIcon).placeholder(R.drawable.icon_plumbing).fit().into(holder.itemView?.serviceIconIV)
+        Picasso.get().load(service.serviceIcon).placeholder(R.drawable.icon_plumbing).fit()
+            .into(holder.itemView?.serviceIconIV)
         //holder.itemView?.serviceIconIV?.setImageResource(service.ServiceImage)
         var isClicked: Boolean = false
         holder.itemView.setOnClickListener {

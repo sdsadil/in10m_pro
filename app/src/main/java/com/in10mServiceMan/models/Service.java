@@ -13,6 +13,9 @@ public class Service {
     @SerializedName("service_name")
     @Expose
     private String serviceName;
+    @SerializedName("service_ar_name")
+    @Expose
+    private String serviceArName;
     @SerializedName("service_status")
     @Expose
     private Integer serviceStatus;
@@ -74,4 +77,11 @@ public class Service {
         this.subService = subService;
     }
 
+    public String getServiceArName() {
+        return serviceArName;
+    }
+
+    public void setServiceArName(String serviceArName) {
+        this.serviceArName = serviceArName;
+    }
 }

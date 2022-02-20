@@ -132,6 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"
         android:gravity="center"
         android:text="@string/info_to_user_invoice"
         android:textSize="11sp"
