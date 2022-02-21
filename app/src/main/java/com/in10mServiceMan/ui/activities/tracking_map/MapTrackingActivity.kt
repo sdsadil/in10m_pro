@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.*
 import android.widget.*
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
@@ -1339,8 +1340,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             LayoutInflater.from(this).inflate(R.layout.drawyer_layout, null, false)
         val thumbSection = navigationView.findViewById(R.id.thumbsContentLL) as LinearLayout
         val mProfileImage = navigationView.findViewById(R.id.serviceManIV) as CircleImageView
-        val mProfileName = navigationView.findViewById(R.id.userNameTVM) as TextView
-        val termsCondition = navigationView.findViewById(R.id.termsandConditionTV) as TextView
+        val mProfileName = navigationView.findViewById(R.id.userNameTVM) as AppCompatTextView
+        val termsCondition = navigationView.findViewById(R.id.termsandConditionTV) as AppCompatTextView
 
         val mDetails = localStorage(this).completeCustomer
         if (mDetails.image != null)
