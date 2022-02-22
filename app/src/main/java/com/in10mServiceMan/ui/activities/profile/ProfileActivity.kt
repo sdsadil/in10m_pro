@@ -31,9 +31,9 @@ import com.in10mServiceMan.ui.interfaces.EditTextValuePass
 import com.in10mServiceMan.ui.listener.EditSubServicesListener
 import com.in10mServiceMan.ui.listener.RemoveServiceExperienceListener
 import com.in10mServiceMan.utils.*
+import com.in10mServiceMan.utils.cropper.CropImage
+import com.in10mServiceMan.utils.cropper.CropImageView
 
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat

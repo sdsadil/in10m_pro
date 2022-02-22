@@ -17,8 +17,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -55,7 +55,8 @@
             android:name=".ui.activities.create_online_account.CreateOnlinePaymentAccountActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activities.termsandcondition.TermsAndCondition"
+        <activity
+            android:name=".ui.activities.termsandcondition.TermsAndCondition"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -150,7 +151,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:name=".utils.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".ui.activities.set_up_profile.SetUpProfileActivity"
@@ -235,7 +236,8 @@
             android:name="io.fabric.ApiKey"
             android:value="3d4091c805f9fa54b15cc6bc154e42d482077be4" />
 
-        <service android:name=".ui.activities.SinchService"
+        <service
+            android:name=".ui.activities.SinchService"
             android:exported="true" />
 
         <activity

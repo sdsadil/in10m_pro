@@ -454,4 +454,14 @@
     <string name="waiting_for_the_homeowner_to_process">Waiting for the Homeowner to process....</string>
     <string name="sign_up">Sign up</string>
     <string name="are_you_sure_you_want_to_leave_the_application">Are you sure you want to leave the application?</string>
+    <string name="please_enter_fee_amount">Please enter fee amount</string>
+    <string name="crop_image_activity_title"></string>
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+    <string name="pick_image_intent_chooser_title">Select source</string>
+    <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
 </resources>

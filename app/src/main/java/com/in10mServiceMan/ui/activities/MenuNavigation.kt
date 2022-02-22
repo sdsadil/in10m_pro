@@ -49,7 +49,7 @@ class MenuNavigation(val context: Context, val handler: Handler) {
                             localStorage(context).saveCompleteCustomer(profile)
                             navigationView.findViewById<TextView>(userNameTVM).text = profile.name.toString()
                             navigationView.findViewById<TextView>(userNameTVM).text = profile.name.toString()
-                            serviceManNameTOP.text = "Hello " + profile.name.toString()
+                            serviceManNameTOP.text = (context.resources.getString(com.in10mServiceMan.R.string.hello)+" " + profile.name.toString())
                             navigationView.findViewById<TextView>(thumbsUpTVM).text = profile.totalTumbsUp.toString()
                             val asd = navigationView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(serviceManIV)
                             /*Picasso.with(context).load(profile.image).placeholder(com.in10mServiceMan.R.drawable.dummy_user).fit().into(asd)*/

@@ -13,8 +13,8 @@ import android.widget.Toast
 import com.in10mServiceMan.R
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
+import com.in10mServiceMan.utils.cropper.CropImage
+import com.in10mServiceMan.utils.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_company_profile_picture.*
 import kotlinx.android.synthetic.main.fragment_company_profile_picture.view.*
 

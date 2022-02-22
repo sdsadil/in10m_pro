@@ -13,8 +13,8 @@ import android.widget.Toast
 import com.in10mServiceMan.R
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
+import com.in10mServiceMan.utils.cropper.CropImage
+import com.in10mServiceMan.utils.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_profile_picture.*
 import kotlinx.android.synthetic.main.fragment_profile_picture.view.*
 
@@ -55,15 +55,14 @@ class ProfilePictureFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode === CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             val result = CropImage.getActivityResult(data)
-            if (resultCode === Activity.RESULT_OK) {
+            if (resultCode == Activity.RESULT_OK) {
                 val resultUri = result.uri
                 imageUri = resultUri.path.toString()
                 userAvatar.setImageURI(resultUri)
-
                 SharedPreferencesHelper.putString(this.context, Constants.SharedPrefs.User.USER_IMAGE, resultUri.toString())
-            } else if (resultCode === CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
             }
         }

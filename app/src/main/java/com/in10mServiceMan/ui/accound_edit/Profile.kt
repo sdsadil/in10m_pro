@@ -1,8 +1,11 @@
 package com.in10mServiceMan.ui.accound_edit
 
 
+import android.R.attr
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +29,7 @@ import com.in10mServiceMan.ui.activities.profile.ImageUpdateResponse
 import com.in10mServiceMan.ui.activities.profile.ProfilePresenter
 import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
+import com.in10mServiceMan.ui.activities.signup.ProfilePictureFragment
 import com.in10mServiceMan.ui.activities.signup.State
 import com.in10mServiceMan.ui.activities.signup.StatesResponse
 import com.in10mServiceMan.ui.apis.APIClient
@@ -36,11 +40,25 @@ import com.in10mServiceMan.utils.spinnerAdapter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import kotlinx.android.synthetic.main.fragment_profile_picture.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import android.R.attr.data
+import android.content.Context
+
+import android.graphics.Bitmap
+import android.net.Uri
+import androidx.core.content.FileProvider
+
+import android.os.Build
+import com.in10mServiceMan.BuildConfig
+import com.in10mServiceMan.utils.cropper.CropImage
+import com.in10mServiceMan.utils.cropper.CropImageView
+import java.io.File
+
 
 /**
  * A simple [Fragment] subclass.
@@ -81,6 +99,12 @@ class Profile : BaseFragment(), IProfileView {
 
         view.tvAddressType_EditProfLay.setOnClickListener {
             openAddressTypePopUp()
+        }
+        view.btnChangeImage.setOnClickListener {
+            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
+                .setOutputCompressQuality(50)
+                .setFixAspectRatio(false)
+                .start(context!!, this)
         }
         view.btnEditProfile.setOnClickListener {
             view.btnSaveProfile.visibility = View.VISIBLE
@@ -551,4 +575,33 @@ class Profile : BaseFragment(), IProfileView {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            val result = CropImage.getActivityResult(data)
+            if (resultCode == Activity.RESULT_OK) {
+                val resultUri = result.uri
+                var imageUri = resultUri.path.toString()
+                serviceManProfile.setImageURI(resultUri)
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                val error = result.error
+            }
+        }
+    }
+
+    fun getCaptureImageOutputUri(context: Context): Uri? {
+        var outputFileUri: Uri? = null
+        val getImage: File = context.externalCacheDir
+        if (getImage != null) {
+            outputFileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                FileProvider.getUriForFile(
+                    context, BuildConfig.APPLICATION_ID.toString() + ".provider",
+                    File(getImage.path, "pickImageResult.jpeg")
+                )
+            } else {
+                Uri.fromFile(File(getImage.path, "pickImageResult.jpeg"))
+            }
+        }
+        return outputFileUri
+    }
 }

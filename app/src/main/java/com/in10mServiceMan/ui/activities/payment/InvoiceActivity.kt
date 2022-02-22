@@ -112,7 +112,7 @@ class InvoiceActivity : In10mBaseActivity() {
             )
                 makePaymentInitialize()
             else
-                ShowToast("Enter fee amount")
+                ShowToast(getString(R.string.please_enter_fee_amount))
         }
         CashPayCL.callOnClick()
 

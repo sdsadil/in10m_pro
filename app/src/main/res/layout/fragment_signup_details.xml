@@ -286,7 +286,7 @@
             android:drawablePadding="@dimen/_10sdp"
             android:gravity="center|start"
             android:hint="@string/street"
-            android:inputType="number"
+            android:inputType="text"
             android:paddingStart="10dp"
             android:paddingTop="8dp"
             android:paddingEnd="24dp"
