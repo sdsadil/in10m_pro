@@ -45,8 +45,8 @@ import kotlin.collections.ArrayList
 class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
 
-    var state: String = "Hawally"
-    var city: String = "Kuwait City"
+    var state: String = "Kuwait City"
+    var city: String = "Mirqab"
     var country: String = "Kuwait"
     var country_id: String = "12"
 
@@ -122,7 +122,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 ageCalculator(view.personalDetailsLastDOB.text.toString()) < 13 -> {
                     ShowToast(resources.getString(R.string.age_must_be_greater_than))
                 }
-                view.etAreaName_SignUpProfLay.text.toString().trim().isEmpty() -> {
+                /*view.etAreaName_SignUpProfLay.text.toString().trim().isEmpty() -> {
                     ShowToast(resources.getString(R.string.please_enter_your_area_name))
                 }
                 view.etBlock_SignUpProfLay.text.toString().trim().isEmpty() -> {
@@ -130,7 +130,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 }
                 view.etStreet_SignUpProfLay.text.toString().trim().isEmpty() -> {
                     ShowToast(resources.getString(R.string.please_enter_your_street))
-                }
+                }*/
 
                 /*view.personalDetailsLastStreetAddress.text.toString().trim().isEmpty() -> {
                     ShowToast(resources.getString(R.string.please_enter_street_address))
@@ -160,18 +160,18 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.STREET,
-                        view.etStreet_SignUpProfLay.text.toString().trim()
+                        Constants.SharedPrefs.User.STREET,"Street 12"
+//                        view.etStreet_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.SUITE,
-                        view.etAreaName_SignUpProfLay.text.toString().trim()
+                        Constants.SharedPrefs.User.SUITE,"Kaifan"
+//                        view.etAreaName_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.CITY,
-                        view.etBlock_SignUpProfLay.text.toString().trim()
+                        Constants.SharedPrefs.User.CITY,"Block 1"
+//                        view.etBlock_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,

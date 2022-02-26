@@ -65,7 +65,8 @@ class VerifyMobileFragment : BaseFragment() {
             Constants.SharedPrefs.User.MOBILE_NUMBER,
             ""
         )
-        view.mobileDescription.text = (getString(R.string.code) + replaceCentreFour(mobile.toString()))
+        view.mobileDescription.text =
+            (getString(R.string.code) + " " + replaceCentreFour(mobile.toString()))
 
 //        view.termsOfUseTV.text = Html.fromHtml("By clicking to “VERIFY”, I agree to the <font color=#4A90E2><u> Terms of Use </u></font> and <font color=#4A90E2><u>Privacy Policy</u></font> ")
         view.termsOfUseTV.text =
@@ -80,7 +81,7 @@ class VerifyMobileFragment : BaseFragment() {
         val otpET2 = view.findViewById<AppCompatEditText>(R.id.et_otp2)
         val otpET3 = view.findViewById<AppCompatEditText>(R.id.et_otp3)
         val otpET4 = view.findViewById<AppCompatEditText>(R.id.et_otp4)
-        var otpText: String = ""
+        var otpText = ""
 
         GenericOtpTextWatcher.handleOtpTextWatcher(otpET1, otpET2, otpET3, otpET4)
 
