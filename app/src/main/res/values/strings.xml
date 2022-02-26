@@ -405,7 +405,7 @@
     <string name="apartment_no">Apartment</string>
     <string name="office_no">Office</string>
     <string name="avenue">Avenue</string>
-    <string name="governorate">Governorate</string>
+    <string name="governorate">GOVERNORATE (Optional)</string>
     <string name="house">House</string>
     <string name="house_no">House No</string>
     <string name="apartment">Apartment</string>
@@ -464,4 +464,5 @@
     <string name="crop_image_menu_flip_vertically">Flip vertically</string>
     <string name="pick_image_intent_chooser_title">Select source</string>
     <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
+    <string name="where_do_you_live">Where do you live</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,17 +7,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/signUpPhaseDetailsOkTickIV"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
-            android:layout_marginTop="@dimen/_20sdp"
             android:src="@drawable/darktickbubble"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etGovernorate_SignUpProfLay" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsHeader"
@@ -82,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/home_address"
+            android:text="@string/where_do_you_live"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
@@ -223,6 +222,7 @@
             android:textColor="@color/textColor"
             android:textSize="15sp"
             android:theme="@style/EditTextHint"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
@@ -247,6 +247,7 @@
             android:textAlignment="viewStart"
             android:textColor="@color/textColor"
             android:textSize="14sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAreaName_SignUpProfLay" />
@@ -271,6 +272,7 @@
             android:textColor="@color/textColor"
             android:textSize="14sp"
             android:theme="@style/EditTextHint"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvAddressType_SignUpProfLay" />
@@ -295,6 +297,7 @@
             android:textColor="@color/textColor"
             android:textSize="14sp"
             android:theme="@style/EditTextHint"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etBlock_SignUpProfLay" />
@@ -319,6 +322,7 @@
             android:textColor="@color/textColor"
             android:textSize="14sp"
             android:theme="@style/EditTextHint"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etStreet_SignUpProfLay" />
@@ -343,6 +347,7 @@
             android:textColor="@color/textColor"
             android:textSize="14sp"
             android:theme="@style/EditTextHint"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etBuildingNo_SignUpProfLay" />
@@ -528,5 +533,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

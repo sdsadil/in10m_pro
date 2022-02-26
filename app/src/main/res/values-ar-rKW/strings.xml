@@ -380,7 +380,7 @@
     <string name="apartment_no">شقة</string>
     <string name="office_no">مكتب</string>
     <string name="avenue">Avenue</string>
-    <string name="governorate">المحافظة</string>
+    <string name="governorate">المحافظة (Optional)</string>
     <string name="house">منزل</string>
     <string name="house_no">رقم المنزل</string>
     <string name="apartment">شقة</string>
@@ -438,4 +438,5 @@
     <string name="crop_image_menu_flip_vertically">انعكاس عمودي</string>
     <string name="pick_image_intent_chooser_title">اختر مصدر</string>
     <string name="crop_image_activity_no_permissions">الإلغاء ، لا يتم منح الأذونات المطلوبة</string>
+    <string name="where_do_you_live">Where do you live</string>
 </resources>

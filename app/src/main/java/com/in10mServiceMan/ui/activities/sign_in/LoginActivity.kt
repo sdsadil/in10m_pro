@@ -22,6 +22,7 @@ import com.google.gson.Gson
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
+import com.in10mServiceMan.ui.activities.services.AvailableServices
 import com.in10mServiceMan.ui.activities.signup.AccountType
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.APIClient
@@ -47,10 +48,11 @@ class LoginActivity : BaseActivity(), ILoginView {
             displayAlertDialog()
         }
         registerHereTV.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, AccountType::class.java))
-//            SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "1")
-//            SharedPreferencesHelper.putInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
-//            startActivity(Intent(this, AvailableServices::class.java))
+//            startActivity(Intent(this@LoginActivity, AccountType::class.java))
+
+            SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "1")
+            SharedPreferencesHelper.putInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
+            startActivity(Intent(this, AvailableServices::class.java))
         }
         tvChooseLang_LoginLay.setOnClickListener {
             languageChangeDialogView()

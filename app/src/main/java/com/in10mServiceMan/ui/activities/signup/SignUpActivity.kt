@@ -149,41 +149,8 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
         }
     }
 
-    override fun toNextFragmentSix() {
-        val userID =
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
-        val userEmail =
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
-
-        mPresenter.signupLevelThreeDirectCash(
-            userID.toString(),
-            userEmail.toString(), "1", "", "1"
-        )
-    }
-
-    override fun toNextFragmentFive(certificateStatus: String, stateId: String) {
-        val header =
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        showProgressDialog("")
 
 
-        /*mPresenter.signupLevelTwo(
-            "Bearer $header",
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
-                .toString(),
-            stateId, certificateStatus
-        ) */
-        mPresenter.signupLevelTwo(
-            "Bearer $header",
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
-                .toString(),
-            "", "0"
-        )
-    }
 
     @SuppressLint("LogNotTimber")
     override fun onProfilePictureUpdated(mData: SignupstepTwoResponse) {
@@ -244,10 +211,75 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 Constants.GlobalSettings.zipCode = mData.data.zipcode
             }
 
-            signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
+//            signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
+
+            Constants.GlobalSettings.isFreeEstimate = true
+            SharedPreferencesHelper.putString(
+                this@SignUpActivity,
+                Constants.SharedPrefs.User.FREE_ESTIMATE,
+                "1"
+            )
+
+            toNextFragmentSix()
         } else {
             ShowToast(mData.message)
         }
+    }
+
+    override fun toNextFragmentOne() {
+        signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
+    }
+
+    override fun toNextFragmentTwo() {
+        //SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2").toInt()
+        showProgressDialog("")
+        mPresenter.signUpUser(
+            2,
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.FIRST_NAME, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.LAST_NAME, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.DATE_OF_BIRTH, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.STREET, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SUITE, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.CITY, "").toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.STATE, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.COUNTRY, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ZIPCODE, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.COUNTRY_CODE, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.MOBILE_NUMBER, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.PASSWORD, "")
+                .toString(),
+            SharedPreferencesHelper.getString(
+                this,
+                Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING,
+                ""
+            ).toString()
+        )
+
+        //openFragment(VerifyMobileFragment.newInstance(this, "1234"))
+
+    }
+
+    override fun toNextFragmentThree(otp: String) {
+        removeFragment()
+
+        signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
+        /*val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val email = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
+        val mobile = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.MOBILE_NUMBER, "")
+        showProgressDialog("")
+        mPresenter.verifyMobile(header, otp, email, mobile)*/
     }
 
     override fun toNextFragmentFour(imageUri: String) {
@@ -267,17 +299,41 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
         )
     }
 
-    override fun toNextFragmentThree(otp: String) {
-        removeFragment()
-
-        signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
-        /*val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        val email = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
-        val mobile = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.MOBILE_NUMBER, "")
+    override fun toNextFragmentFive(certificateStatus: String, stateId: String) {
+        val header =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         showProgressDialog("")
-        mPresenter.verifyMobile(header, otp, email, mobile)*/
+
+
+        /*mPresenter.signupLevelTwo(
+            "Bearer $header",
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
+                .toString(),
+            stateId, certificateStatus
+        ) */
+        mPresenter.signupLevelTwo(
+            "Bearer $header",
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+                .toString(),
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SELECTED_IMAGE, "")
+                .toString(),
+            "", "0"
+        )
     }
 
+    override fun toNextFragmentSix() {
+        val userID =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+        val userEmail =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
+
+        mPresenter.signupLevelThreeDirectCash(
+            userID.toString(),
+            userEmail.toString(), "1", "", "1"
+        )
+    }
     override fun onSignUpFirstCompleted(mResponse: SignupOneResponse) {
         destroyDialog()
         if (mResponse.status == 1) {
@@ -330,50 +386,4 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
         destroyDialog()
         showToast(msg)
     }
-
-    override fun toNextFragmentTwo() {
-        //SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2").toInt()
-        showProgressDialog("")
-        mPresenter.signUpUser(
-            2,
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.FIRST_NAME, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.LAST_NAME, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.DATE_OF_BIRTH, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.STREET, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.SUITE, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.CITY, "").toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.STATE, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.COUNTRY, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ZIPCODE, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.COUNTRY_CODE, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.MOBILE_NUMBER, "")
-                .toString(),
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.PASSWORD, "")
-                .toString(),
-            SharedPreferencesHelper.getString(
-                this,
-                Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING,
-                ""
-            ).toString()
-        )
-
-        //openFragment(VerifyMobileFragment.newInstance(this, "1234"))
-
-    }
-
-    override fun toNextFragmentOne() {
-        signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
-    }
-
 }
