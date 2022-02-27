@@ -468,4 +468,5 @@
     <string name="verify_1">By clicking to “VERIFY”, I agree to the</string>
     <string name="verify_2">Terms of Use</string>
     <string name="verify_3">Privacy Policy</string>
+    <string name="direction">Direction</string>
 </resources>

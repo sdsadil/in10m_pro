@@ -74,7 +74,7 @@ public class APIClient {
             apiInterface = retrofit.create(ApiInterface.class);
         } else if (isTokenSet == 1) {
             Log.e("Authorization", "" + token);
-            isTokenSet = 2;
+//            isTokenSet = 2;
             okhttpClientBuilder.addInterceptor(chain -> {
                 Request original = chain.request();
                 Request.Builder requestBuilder = original.newBuilder().header("Authorization", "Bearer " + token);

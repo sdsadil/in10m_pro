@@ -31,7 +31,7 @@ class ServiceHistoryActivity : In10mBaseActivity() {
         }
 
         val adapter = ServiceHistoryViewpagerAdapter(supportFragmentManager)
-        adapter.addFragment(PendingHistory(), resources.getString(R.string.pending))
+//        adapter.addFragment(PendingHistory(), resources.getString(R.string.pending))
         adapter.addFragment(CompletedHistory(), resources.getString(R.string.completed))
         adapter.addFragment(CanceledHistory(), resources.getString(R.string.canceled))
         pager_service_history.adapter = adapter

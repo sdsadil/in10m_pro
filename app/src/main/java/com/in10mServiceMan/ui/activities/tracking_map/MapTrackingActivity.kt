@@ -299,10 +299,18 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         }
         btnMaximizeRequestCV.setOnClickListener {
             requestCV.visibility = View.VISIBLE
-            imgBtnNavigate.visibility = View.VISIBLE
+//            imgBtnNavigate.visibility = View.VISIBLE
+            imgBtnNavigate.visibility = View.INVISIBLE
             btnMaximizeRequestCV.visibility = View.GONE
         }
         imgBtnNavigate.setOnClickListener {
+            orginPosition = Point.fromLngLat(userLocation.longitude, userLocation.latitude)
+            destinationPosition =
+                Point.fromLngLat(destinationLocation.longitude, destinationLocation.latitude)
+            getRoute(destinationPosition, orginPosition)
+        }
+
+        btnDirection_HomeBottomBtn . setOnClickListener {
             orginPosition = Point.fromLngLat(userLocation.longitude, userLocation.latitude)
             destinationPosition =
                 Point.fromLngLat(destinationLocation.longitude, destinationLocation.latitude)
@@ -397,7 +405,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                     tv1111.visibility = View.GONE
                                     closeCV.visibility = View.GONE
                                     ServiceManNameTOP.text = getString(R.string.you_are_on_the_way)
-                                    imgBtnNavigate.visibility = View.VISIBLE
+//                                    imgBtnNavigate.visibility = View.VISIBLE
+                                    imgBtnNavigate.visibility = View.INVISIBLE
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     currentWorkStatus = BookingStatus.Accepted
                                 }
@@ -931,7 +940,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             closeCV.visibility = View.GONE
                             llArrived_HomeBottomBtn.visibility = View.VISIBLE
                             ServiceManNameTOP.text = getString(R.string.you_are_on_the_way)
-                            imgBtnNavigate.visibility = View.VISIBLE
+//                            imgBtnNavigate.visibility = View.VISIBLE
+                            imgBtnNavigate.visibility = View.INVISIBLE
                             btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
                             mDatabaseCustomer.child("status")
@@ -1341,7 +1351,8 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         val thumbSection = navigationView.findViewById(R.id.thumbsContentLL) as LinearLayout
         val mProfileImage = navigationView.findViewById(R.id.serviceManIV) as CircleImageView
         val mProfileName = navigationView.findViewById(R.id.userNameTVM) as AppCompatTextView
-        val termsCondition = navigationView.findViewById(R.id.termsandConditionTV) as AppCompatTextView
+        val termsCondition =
+            navigationView.findViewById(R.id.termsandConditionTV) as AppCompatTextView
 
         val mDetails = localStorage(this).completeCustomer
         if (mDetails.image != null)

@@ -442,4 +442,5 @@
     <string name="verify_1">بالنقر فوق "تحقق" ، أوافق على</string>
     <string name="verify_2">شروط الاستخدام</string>
     <string name="verify_3">سياسة خاصة</string>
+    <string name="direction">اتجاه</string>
 </resources>
