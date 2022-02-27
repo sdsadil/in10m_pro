@@ -465,4 +465,7 @@
     <string name="pick_image_intent_chooser_title">Select source</string>
     <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
     <string name="where_do_you_live">Where do you live</string>
+    <string name="verify_1">By clicking to “VERIFY”, I agree to the</string>
+    <string name="verify_2">Terms of Use</string>
+    <string name="verify_3">Privacy Policy</string>
 </resources>

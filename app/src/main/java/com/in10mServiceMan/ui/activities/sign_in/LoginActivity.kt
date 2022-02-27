@@ -27,6 +27,7 @@ import com.in10mServiceMan.ui.activities.signup.AccountType
 import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
+import com.in10mServiceMan.utils.GenericOtpTextWatcher
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_account_type.*
@@ -42,7 +43,6 @@ class LoginActivity : BaseActivity(), ILoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         registerHereTV.text = Html.fromHtml(resources.getString(R.string.register_here_html))
         forgotPassTV.setOnClickListener {
             displayAlertDialog()

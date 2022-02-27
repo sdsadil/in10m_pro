@@ -6,14 +6,20 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.in10mServiceMan.R
 import com.in10mServiceMan.utils.in10mApplication
 
-class MyBookingsPagerAdapter(fm: FragmentManager?,
-                             private var fragments:List<Fragment> = ArrayList()) : FragmentStatePagerAdapter(fm) {
+class MyBookingsPagerAdapter(
+    fm: FragmentManager?,
+    private var fragments: List<Fragment> = ArrayList()
+) : FragmentStatePagerAdapter(
+    fm!!
+) {
 
 
-    val titles= arrayOf(in10mApplication.instance?.getString(R.string.all),
-            in10mApplication.instance?.getString(R.string.favorite))
+    val titles = arrayOf(
+        in10mApplication.instance?.getString(R.string.all),
+        in10mApplication.instance?.getString(R.string.favorite)
+    )
 
-    override fun getItem(position: Int): Fragment= fragments[position]
+    override fun getItem(position: Int): Fragment = fragments[position]
 
     override fun getCount(): Int = fragments.size
 

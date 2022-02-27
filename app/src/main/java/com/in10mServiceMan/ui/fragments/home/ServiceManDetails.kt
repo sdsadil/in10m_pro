@@ -1,5 +1,6 @@
 package com.in10mServiceMan.ui.fragments.home
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -78,8 +79,8 @@ class ServiceManDetails(): DialogFragment() {
     }
 
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    override fun onAttach(activity: Activity) {
+        super.onAttach(context!!)
         serviceManCallBack= context as ServiceManCallBack
     }
 

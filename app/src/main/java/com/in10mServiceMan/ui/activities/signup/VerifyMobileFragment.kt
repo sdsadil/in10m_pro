@@ -23,15 +23,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class VerifyMobileFragment : BaseFragment() {
-
-
-    interface NextFragmentInterfaceThree {
-        fun toNextFragmentThree(otp: String)
-        fun termsAndConditions()
-    }
-
     companion object {
         var otp: String = ""
         private var mListener: NextFragmentInterfaceThree? = null
@@ -50,16 +42,8 @@ class VerifyMobileFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        /*try {
-            var bundle = this.arguments
-            otp = bundle!!.getString("otp")
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }*/
         val view = inflater.inflate(R.layout.fragment_verify_mobile, container, false)
         view!!.setOnTouchListener { view, motionEvent -> return@setOnTouchListener true }
-//        view.enterCode.hint = otp
         val mobile = SharedPreferencesHelper.getString(
             this.context,
             Constants.SharedPrefs.User.MOBILE_NUMBER,
@@ -67,10 +51,14 @@ class VerifyMobileFragment : BaseFragment() {
         )
         view.mobileDescription.text =
             (getString(R.string.code) + " " + replaceCentreFour(mobile.toString()))
-
-//        view.termsOfUseTV.text = Html.fromHtml("By clicking to “VERIFY”, I agree to the <font color=#4A90E2><u> Terms of Use </u></font> and <font color=#4A90E2><u>Privacy Policy</u></font> ")
         view.termsOfUseTV.text =
-            Html.fromHtml("By clicking to “VERIFY”, I agree to the <font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_termscondition.html\"> Terms of Use</a> </u></font> and <font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_privacypolicy.html\">Privacy Policy</a></u></font> ")
+            Html.fromHtml(
+                getString(R.string.verify_1) + " " + "<font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_termscondition.html\"> " + getString(
+                    R.string.verify_2
+                ) + "</a> </u></font> & <font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_privacypolicy.html\">" + getString(
+                    R.string.verify_3
+                ) + "</a></u></font> "
+            )
         view.termsOfUseTV.movementMethod = LinkMovementMethod.getInstance()
 
         view.termsCheckBox.setOnClickListener {
@@ -82,9 +70,8 @@ class VerifyMobileFragment : BaseFragment() {
         val otpET3 = view.findViewById<AppCompatEditText>(R.id.et_otp3)
         val otpET4 = view.findViewById<AppCompatEditText>(R.id.et_otp4)
         var otpText = ""
-
+        otpET1.requestFocus()
         GenericOtpTextWatcher.handleOtpTextWatcher(otpET1, otpET2, otpET3, otpET4)
-
         view.verifyButton.setOnClickListener {
             otpText =
                 otpET1.text.toString() + otpET2.text.toString() + otpET3.text.toString() + otpET4.text.toString()
@@ -117,8 +104,6 @@ class VerifyMobileFragment : BaseFragment() {
                 verifyMobile(header.toString(), otpText, email.toString(), mobile.toString())
             }
         }
-
-
         return view
     }
 
@@ -185,5 +170,11 @@ class VerifyMobileFragment : BaseFragment() {
             Constants.GlobalSettings.signupTerms = false
         view!!.termsCheckBox.isChecked = true
         super.onResume()
+    }
+
+
+    interface NextFragmentInterfaceThree {
+        fun toNextFragmentThree(otp: String)
+        fun termsAndConditions()
     }
 }

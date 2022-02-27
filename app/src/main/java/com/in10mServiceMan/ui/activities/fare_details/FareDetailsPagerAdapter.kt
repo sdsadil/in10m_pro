@@ -9,9 +9,13 @@ import android.view.View
 import com.in10mServiceMan.R
 import kotlinx.android.synthetic.main.fare_tab_view.view.*
 
-class FareDetailsPagerAdapter(fm: FragmentManager?, private var titles: Array<String> = arrayOf(),
-                              private var tabImages: Array<Int> = arrayOf(),
-                              private var fragments:List<Fragment> = ArrayList()) : FragmentStatePagerAdapter(fm) {
+class FareDetailsPagerAdapter(
+    fm: FragmentManager?, private var titles: Array<String> = arrayOf(),
+    private var tabImages: Array<Int> = arrayOf(),
+    private var fragments: List<Fragment> = ArrayList()
+) : FragmentStatePagerAdapter(
+    fm!!
+) {
 
     override fun getItem(position: Int): Fragment = fragments[position]
 
@@ -19,9 +23,9 @@ class FareDetailsPagerAdapter(fm: FragmentManager?, private var titles: Array<St
 
     fun getTabView(context: Context?, position: Int): View {
 
-        val tabView= LayoutInflater.from(context).inflate(R.layout.fare_tab_view,null)
+        val tabView = LayoutInflater.from(context).inflate(R.layout.fare_tab_view, null)
         tabView.vehicleIV.setImageResource(tabImages[position])
-        tabView.vehicleNameTV.text= titles[position]
+        tabView.vehicleNameTV.text = titles[position]
         return tabView
     }
 }

@@ -439,4 +439,7 @@
     <string name="pick_image_intent_chooser_title">اختر مصدر</string>
     <string name="crop_image_activity_no_permissions">الإلغاء ، لا يتم منح الأذونات المطلوبة</string>
     <string name="where_do_you_live">Where do you live</string>
+    <string name="verify_1">بالنقر فوق "تحقق" ، أوافق على</string>
+    <string name="verify_2">شروط الاستخدام</string>
+    <string name="verify_3">سياسة خاصة</string>
 </resources>

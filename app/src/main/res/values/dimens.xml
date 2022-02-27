@@ -9,4 +9,10 @@
     <dimen name="back_btn_margin_top">25dp</dimen>
     <dimen name="back_btn_margin_start">20dp</dimen>
     <dimen name="personaldetail_frag_field_padding">16dp</dimen>
+
+    <dimen name="otp_view_item_size">48dp</dimen>
+    <dimen name="otp_view_item_radius">5dp</dimen>
+    <dimen name="otp_view_item_spacing">5dp</dimen>
+    <dimen name="otp_view_item_line_width">2dp</dimen>
+    <dimen name="otp_view_cursor_width">2dp</dimen>
 </resources>
