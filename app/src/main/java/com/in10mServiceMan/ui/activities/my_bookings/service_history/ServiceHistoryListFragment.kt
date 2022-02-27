@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
-import com.in10m.ui.activities.BaseFragment
+import com.in10mServiceMan.ui.activities.BaseFragment
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.my_bookings.BookingHistoryInterface
 import com.in10mServiceMan.ui.activities.my_bookings.ServiceHistoryData

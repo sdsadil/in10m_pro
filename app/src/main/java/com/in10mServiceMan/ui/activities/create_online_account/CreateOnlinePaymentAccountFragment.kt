@@ -12,7 +12,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
-import com.in10m.ui.activities.BaseFragment
+import com.in10mServiceMan.ui.activities.BaseFragment
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.signup.*
 import com.in10mServiceMan.ui.apis.APIClient

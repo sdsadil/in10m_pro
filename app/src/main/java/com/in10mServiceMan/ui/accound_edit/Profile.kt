@@ -1,7 +1,6 @@
 package com.in10mServiceMan.ui.accound_edit
 
 
-import android.R.attr
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -17,7 +16,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
-import com.in10m.ui.activities.BaseFragment
+import com.in10mServiceMan.ui.activities.BaseFragment
 import com.in10mServiceMan.models.CompleteProfile
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
@@ -29,7 +28,6 @@ import com.in10mServiceMan.ui.activities.profile.ImageUpdateResponse
 import com.in10mServiceMan.ui.activities.profile.ProfilePresenter
 import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
-import com.in10mServiceMan.ui.activities.signup.ProfilePictureFragment
 import com.in10mServiceMan.ui.activities.signup.State
 import com.in10mServiceMan.ui.activities.signup.StatesResponse
 import com.in10mServiceMan.ui.apis.APIClient
@@ -40,16 +38,13 @@ import com.in10mServiceMan.utils.spinnerAdapter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
-import kotlinx.android.synthetic.main.fragment_profile_picture.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import android.R.attr.data
 import android.content.Context
 
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.core.content.FileProvider
 

@@ -27,6 +27,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
 
 import com.in10mServiceMan.R;
+import com.in10mServiceMan.utils.AppProgressBar;
 import com.in10mServiceMan.utils.Constants;
 import com.in10mServiceMan.utils.LoadingDialog;
 import com.in10mServiceMan.utils.SharedPreferencesHelper;
@@ -79,41 +80,46 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
     }
 
     public void showProgressDialog(int mContent) {
-        mProgressDialog = new LoadingDialog(this);
-        mProgressDialog.showProgressDialog(getString(mContent));
+//        mProgressDialog = new LoadingDialog(this);
+//        mProgressDialog.showProgressDialog(getString(mContent));
+        AppProgressBar.showProgressDialog(this);
     }
 
     public void showProgressDialog(String mContent) {
-        mProgressDialog = new LoadingDialog(this);
-        mProgressDialog.showProgressDialog(mContent);
-
+//        mProgressDialog = new LoadingDialog(this);
+//        mProgressDialog.showProgressDialog(mContent);
+        AppProgressBar.showProgressDialog(this);
     }
 
     public void showProgressDialog(String mContent, boolean mCancelable) {
-        mProgressDialog = new LoadingDialog(this);
-        mProgressDialog.showProgressDialog(mContent, mCancelable);
+//        mProgressDialog = new LoadingDialog(this);
+//        mProgressDialog.showProgressDialog(mContent, mCancelable);
+        AppProgressBar.showProgressDialog(this);
     }
 
     public void showProgressDialog(String mContent, boolean mCancelable, int progress) {
-        mProgressDialog = new LoadingDialog(this);
-        mProgressDialog.showProgressDialog(mContent, mCancelable);
+//        mProgressDialog = new LoadingDialog(this);
+//        mProgressDialog.showProgressDialog(mContent, mCancelable);
+        AppProgressBar.showProgressDialog(this);
 
     }
 
     public void updateProgress(int progress) {
-        mProgressDialog = new LoadingDialog(this);
-        mProgressDialog.showProgressDialog("" + progress + "%");
+//        mProgressDialog = new LoadingDialog(this);
+//        mProgressDialog.showProgressDialog("" + progress + "%");
+        AppProgressBar.showProgressDialog(this);
     }
 
 
     public void destroyDialog() {
-        try {
+      /*  try {
             if (mProgressDialog != null) {
                 mProgressDialog.destroyDialog();
             }
             mProgressDialog = null;
         } catch (Exception mE) {
-        }
+        }*/
+        AppProgressBar.dismissProgressDialog();
     }
 
     @Override

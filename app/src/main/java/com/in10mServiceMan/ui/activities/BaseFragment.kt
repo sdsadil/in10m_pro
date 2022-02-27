@@ -1,4 +1,4 @@
-package com.in10m.ui.activities
+package com.in10mServiceMan.ui.activities
 
 import android.app.Dialog
 import android.content.Context
@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.in10mServiceMan.R
+import com.in10mServiceMan.utils.AppProgressBar
 import com.in10mServiceMan.utils.LoadingDialog
+import androidx.appcompat.app.AppCompatActivity
 
 
 open class BaseFragment : Fragment() {
@@ -27,8 +27,12 @@ open class BaseFragment : Fragment() {
         try {
             val view = activity!!.currentFocus
             if (view != null) {
-                val inputManager = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+                val inputManager =
+                    activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputManager.hideSoftInputFromWindow(
+                    view.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -38,7 +42,10 @@ open class BaseFragment : Fragment() {
 
     fun openFragment(fragment: Fragment) {
         val transaction = activity!!.supportFragmentManager.beginTransaction()
-        activity!!.supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        activity!!.supportFragmentManager.popBackStack(
+            null,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
         if (fragment.isAdded)
             transaction.show(fragment)
         else {
@@ -71,26 +78,30 @@ open class BaseFragment : Fragment() {
     }
 
     fun showProgressDialog(mContent: String) {
-        mProgressDialog = LoadingDialog(activity)
-        mProgressDialog!!.showProgressDialog(mContent, false)
+//        mProgressDialog = LoadingDialog(activity)
+//        mProgressDialog!!.showProgressDialog(mContent, false)
+
+//        mProgressDialog = new LoadingDialog(this);
+//        mProgressDialog.showProgressDialog(getString(mContent));
+        AppProgressBar.showProgressDialog(activity as AppCompatActivity?)
 
     }
 
     fun showProgressDialog(mContent: String, mCancelable: Boolean) {
-        mProgressDialog = LoadingDialog(activity)
-        mProgressDialog!!.showProgressDialog(mContent, mCancelable)
-
+//        mProgressDialog = LoadingDialog(activity)
+//        mProgressDialog!!.showProgressDialog(mContent, mCancelable)
+        AppProgressBar.showProgressDialog(activity as AppCompatActivity?)
     }
 
     fun destroyDialog() {
-        try {
-            if (mProgressDialog != null) {
-                mProgressDialog!!.destroyDialog()
-            }
-            mProgressDialog = null
-        } catch (mE: Exception) {
-        }
-
+        /*  try {
+           if (mProgressDialog != null) {
+               mProgressDialog.destroyDialog();
+           }
+           mProgressDialog = null;
+       } catch (Exception mE) {
+       }*/
+        AppProgressBar.dismissProgressDialog()
     }
 
 }
