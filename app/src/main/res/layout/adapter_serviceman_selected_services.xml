@@ -110,10 +110,10 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_toEndOf="@+id/exp_year"
                 android:background="@drawable/et_bg"
-                android:paddingStart="@dimen/_10sdp"
+                android:gravity="center"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
-                android:text=""
+                android:text="0"
                 android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>

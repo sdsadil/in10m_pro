@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.services.ServiceData;
+import com.in10mServiceMan.utils.Constants;
+import com.in10mServiceMan.utils.SharedPreferencesHelper;
 import com.in10mServiceMan.utils.localStorage;
 
 import java.util.List;
@@ -26,6 +28,7 @@ public class ServiceOfferAdapter extends RecyclerView.Adapter<ServiceOfferAdapte
 
     private List<ServiceData> selectedServiceModelArrayList;
     private Context context;
+    boolean isLangArabic;
    /* private RemoveServiceExperienceListener removeServiceExperienceListener;
     private EditSubServicesListener editSubServicesListener;
     private EditTextValuePass textValuePasser;*/
@@ -54,8 +57,13 @@ public class ServiceOfferAdapter extends RecyclerView.Adapter<ServiceOfferAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ServiceOfferAdapter.ServiceOfferAdapterViewHolder holder, int position) {
-
-        holder.textViewServiceName.setText(selectedServiceModelArrayList.get(position).getServiceName());
+        isLangArabic = SharedPreferencesHelper.INSTANCE.getBoolean(context,
+                Constants.SharedPrefs.User.IS_LANG_ARB, false);
+        if (isLangArabic) {
+            holder.textViewServiceName.setText(selectedServiceModelArrayList.get(position).getArName());
+        } else {
+            holder.textViewServiceName.setText(selectedServiceModelArrayList.get(position).getServiceName());
+        }
         Drawable mDrawable = ContextCompat.getDrawable(context, R.drawable.r_circle).getConstantState().newDrawable().mutate();//holder.ImageViewColor.getDrawable();
         mDrawable.setColorFilter(new PorterDuffColorFilter(Color.parseColor(selectedServiceModelArrayList.get(position).getServiceColor()), PorterDuff.Mode.SRC_IN));
         holder.ImageViewColor.setImageDrawable(mDrawable);

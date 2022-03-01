@@ -19,6 +19,8 @@ data class ServiceData(
         val experience: Int?=0,
         @SerializedName("service_ar_name")
         val serviceArName: String?="",
+        @SerializedName("ar_name")
+        val arName: String?="",
         @SerializedName("service_color")
         val serviceColor: String?="",
         @SerializedName("service_icon")
