@@ -1,17 +1,15 @@
 <resources>
     <string name="app_name">in10m Pro</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="sign_in">SIGN IN</string>
-    <string name="otp_help">We have sent 6 digit OTP to the number 09876 54321</string>
-    <string name="otp">OTP</string>
-    <string name="verify_otp">VERIFY</string>
-
-    <string name="setup_profile">SETUP PROFILE</string>
-    <string name="name">Name</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="otp_help">تم إرسال رمز OTP المكون من 4 أرقام إلى رقمكم.</string>
+    <string name="otp">رمز OTP</string>
+    <string name="verify_otp">تحق</string>
+    <string name="setup_profile">إنشاء حساب</string>
+    <string name="name">الإسم</string>
     <string name="email">البريد الإلكتروني</string>
-    <string name="referal_promo">Referral / Promo Code</string>
-    <string name="complete_profile">Complete Profile</string>
-
+    <string name="referal_promo">الإحالة / الرمز الترويجي</string>
+    <string name="complete_profile">إكمال الحساب</string>
     <string name="my_account">حسابي</string>
     <string name="company_pros">Company Pros</string>
     <string name="service_history">Service History</string>
@@ -21,7 +19,6 @@
     <string name="privacy">سياسة الخصوصية</string>
     <string name="contact">اتصل بنا</string>
     <string name="settings">الإعدادات</string>
-
     <string name="enter_personal_details">أدخل معلوماتك الشخصية</string>
     <string name="legal_name">الإسم الرسمي</string>
     <string name="first_name">الإسم الأول</string>
@@ -39,14 +36,10 @@
     <string name="city">CITY</string>
     <string name="state">STATE</string>
     <string name="zip_code">ZIP CODE</string>
-
-    <string name="invite_friends">Invite Friends</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="upcoming">Upcoming</string>
-    <string name="all">All</string>
-    <string name="favorite">Favorites</string>
+    <string name="invite_friends">دعوة أصدقاء</string>
+    <string name="upcoming">التالية</string>
+    <string name="all">الكل</string>
+    <string name="favorite">المفضلة</string>
 
     <string name="past_bookings">Past Bookings</string>
     <string name="when_a_friend_rides_with_your_code_you_earn">When a friend rides with your code, you earn</string>
@@ -193,7 +186,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="plumbing_text">PLUMBING</string>
-    <string name="in10m_privacy_policy"><![CDATA[in10m Privacy & Policy]]></string>
+    <string name="in10m_privacy_policy"><![CDATA[in10m سياسة الخصوصية]]></string>
     <string name="your_accont_created">تم إنشاء حسابك بنجاح</string>
     <string name="completed_service_so_far">Completed services so far</string>
     <string name="sms_code_verification">SMS Code Verification</string>
@@ -307,7 +300,7 @@
     <string name="terms_updated"><![CDATA[تحديث الشروط و الأحكام]]></string>
     <string name="desc_terms_updated"><![CDATA[هل ترغب بمراجعتها الآن؟]]></string>
     <string name="desc_logout">هل ترغب بالخروج؟</string>
-    <string name="invalid_booking_data">Invalid booking data received</string>
+    <string name="invalid_booking_data">تم استلام بيانات حجز غير صالحة</string>
     <string name="work_status">مؤشر أعمالي</string>
     <string name="you_have_reached">لقد وصلت</string>
     <string name="enter_price_estimate">أدخل تقدير السعر</string>
@@ -343,7 +336,7 @@
     <string name="select_your_gender">Select your gender</string>
     <string name="referral_code_1234wag">Referral code : 1234WAG</string>
     <string name="no_bookings">لا حجوزات</string>
-    <string name="error_in_loading">Error in loading Complete profile</string>
+    <string name="error_in_loading">خطأ في تحميل ملف التعريف الكامل</string>
     <string name="user_name">إسم المستخدم</string>
     <string name="enter_your_username">أدخل اسم المستخدم الخاص بك</string>
     <string name="enter_your_password">ادخل رقمك السري</string>
@@ -351,7 +344,7 @@
     <string name="or">أو</string>
     <string name="your_query_successfully">تم الإرسال</string>
     <string name="please_enter_name">نرجو إدخال إسم</string>
-    <string name="please_enter_last_name">Please enter last name</string>
+    <string name="please_enter_last_name">الرجاء إدخال الاسم الأخير</string>
     <string name="select_your_dob">اختر تاريخ الميلاد</string>
     <string name="age_must_be_greater_than">العمر يجب أن يكون أكبر من 18 عاما</string>
     <string name="please_enter_street_address">الرجاء إدخال عنوان الشارع</string>
@@ -380,7 +373,7 @@
     <string name="apartment_no">شقة</string>
     <string name="office_no">مكتب</string>
     <string name="avenue">Avenue</string>
-    <string name="governorate">المحافظة (Optional)</string>
+    <string name="governorate">المحافظة (اختياري)</string>
     <string name="house">منزل</string>
     <string name="house_no">رقم المنزل</string>
     <string name="apartment">شقة</string>
@@ -438,7 +431,7 @@
     <string name="crop_image_menu_flip_vertically">انعكاس عمودي</string>
     <string name="pick_image_intent_chooser_title">اختر مصدر</string>
     <string name="crop_image_activity_no_permissions">الإلغاء ، لا يتم منح الأذونات المطلوبة</string>
-    <string name="where_do_you_live">Where do you live</string>
+    <string name="where_do_you_live">أين تعيش</string>
     <string name="verify_1">بالنقر فوق "تحقق" ، أوافق على</string>
     <string name="verify_2">شروط الاستخدام</string>
     <string name="verify_3">سياسة خاصة</string>
