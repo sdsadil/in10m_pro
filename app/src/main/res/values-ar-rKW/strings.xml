@@ -283,7 +283,7 @@
     <string name="free_estimate">تسعير للخدمة مجاني</string>
     <string name="trip_charge">ESTIMATE / TRIP CHARGE</string>
     <string name="free_estimate_promotion">Free estimates is a great marketing tool</string>
-    <string name="success_message">Your account has been created</string>
+    <string name="success_message">تم إنشاء حسابك بنجاح</string>
     <string name="add_company_services">Add field staff/technicians</string>
 
     <string name="outstanding">دفعات متبقية للتحصيل</string>

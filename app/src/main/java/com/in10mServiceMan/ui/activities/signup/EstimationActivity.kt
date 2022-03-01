@@ -141,7 +141,15 @@ class EstimationActivity : In10mBaseActivity(), ISignupview {
                 showProgressDialog("")
                 mPresenter.signupLevelThreeDirectCash(
                     userID.toString(),
-                    userEmail.toString(), mEtimateType, estimationFess, "1"
+                    userEmail.toString(),
+                    mEtimateType,
+                    estimationFess,
+                    SharedPreferencesHelper.getString(
+                        this,
+                        Constants.SharedPrefs.User.DATE_OF_BIRTH,
+                        ""
+                    ).toString(),
+                    "1"
                 )
             } else {
                 if (Constants.GlobalSettings.isBankAccount && !Constants.GlobalSettings.isDebitCard) {

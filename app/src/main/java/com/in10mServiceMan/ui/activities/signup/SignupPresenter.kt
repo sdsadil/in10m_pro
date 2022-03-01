@@ -20,8 +20,8 @@ class SignupPresenter(val view: ISignupview) : ISignupInteractor, ISignupInterac
         mInteractor.signupLevelThreeBankPay(userID, email, estimateType, estimationFee, payoutType, accountNumer, RoutingNumber, SSN, paymentType, street, houseNo, city, state, country, zip)
     }
 
-    override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String) {
-        mInteractor.signupLevelThreeDirectCash(userID, email, estimateType, estimationFee, payoutType)
+    override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, dob: String, payoutType: String) {
+        mInteractor.signupLevelThreeDirectCash(userID, email, estimateType, estimationFee, dob,payoutType)
     }
 
     override fun onStepThreeCompleted(mData: SignupThreeResponse) {

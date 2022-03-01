@@ -129,8 +129,8 @@ class CompanySignupInteractor(val listener: ICompanySignupInteractorListener) : 
         })
     }
 
-    override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String) {
-        val request = APIClient.getApiInterface().registrationLevelThreeCash("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType)
+    override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, dob: String, payoutType: String) {
+        val request = APIClient.getApiInterface().registrationLevelThreeCash("Bearer " + APIClient.token, userID, email, estimateType, estimationFee,dob, payoutType)
         request.enqueue(object : Callback<SignupThreeResponse> {
             override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
                 if (response.isSuccessful) {

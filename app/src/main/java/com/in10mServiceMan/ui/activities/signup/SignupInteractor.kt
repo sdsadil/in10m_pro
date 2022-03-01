@@ -17,7 +17,10 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
 
         val request = APIClient.getApiInterface().verifyOtp("Bearer $header", otp, mobile, email)
         request.enqueue(object : Callback<SignupOneResponse> {
-            override fun onResponse(call: Call<SignupOneResponse>, response: Response<SignupOneResponse>) {
+            override fun onResponse(
+                call: Call<SignupOneResponse>,
+                response: Response<SignupOneResponse>
+            ) {
                 if (response.isSuccessful) {
                     Log.d("response ", response.body().toString())
                     listener.onNumberVerified(response.body()!!)
@@ -32,11 +35,29 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
         })
     }
 
-    override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String) {
+    override fun signupLevelThreeDirectCash(
+        userID: String,
+        email: String,
+        estimateType: String,
+        estimationFee: String,
+        dob: String,
+        payoutType: String
+    ) {
 
-        val request = APIClient.getApiInterface().registrationLevelThreeCash("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType)
+        val request = APIClient.getApiInterface().registrationLevelThreeCash(
+            "Bearer " + APIClient.token,
+            userID,
+            email,
+            estimateType,
+            estimationFee,
+            dob,
+            payoutType
+        )
         request.enqueue(object : Callback<SignupThreeResponse> {
-            override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
+            override fun onResponse(
+                call: Call<SignupThreeResponse>,
+                response: Response<SignupThreeResponse>
+            ) {
                 if (response.isSuccessful) {
                     listener.onStepThreeCompleted(response.body()!!)
                 } else {
@@ -51,10 +72,48 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
         })
     }
 
-    override fun signupLevelThreeDebitCard(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String, expiryMonth: String, expiryYear: String, cardNumber: String, paymentType: String, street: String, houseNo: String, city: String, state: String, country: String, SSN: String, zip: String) {
-        val request = APIClient.getApiInterface().registrationLevelDebitCard("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType, expiryMonth, expiryYear, cardNumber, paymentType, street, houseNo, city, state, country, SSN, zip)
+    override fun signupLevelThreeDebitCard(
+        userID: String,
+        email: String,
+        estimateType: String,
+        estimationFee: String,
+        payoutType: String,
+        expiryMonth: String,
+        expiryYear: String,
+        cardNumber: String,
+        paymentType: String,
+        street: String,
+        houseNo: String,
+        city: String,
+        state: String,
+        country: String,
+        SSN: String,
+        zip: String
+    ) {
+        val request = APIClient.getApiInterface().registrationLevelDebitCard(
+            "Bearer " + APIClient.token,
+            userID,
+            email,
+            estimateType,
+            estimationFee,
+            payoutType,
+            expiryMonth,
+            expiryYear,
+            cardNumber,
+            paymentType,
+            street,
+            houseNo,
+            city,
+            state,
+            country,
+            SSN,
+            zip
+        )
         request.enqueue(object : Callback<SignupThreeResponse> {
-            override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
+            override fun onResponse(
+                call: Call<SignupThreeResponse>,
+                response: Response<SignupThreeResponse>
+            ) {
                 if (response.isSuccessful) {
                     Log.d("Message from backend", response.body().toString())
                     listener.onStepThreeCompleted(response.body()!!)
@@ -72,11 +131,47 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
 
     }
 
-    override fun signupLevelThreeBankPay(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String, accountNumer: String, RoutingNumber: String, SSN: String, paymentType: String, street: String, houseNo: String, city: String, state: String, country: String, zip: String) {
+    override fun signupLevelThreeBankPay(
+        userID: String,
+        email: String,
+        estimateType: String,
+        estimationFee: String,
+        payoutType: String,
+        accountNumer: String,
+        RoutingNumber: String,
+        SSN: String,
+        paymentType: String,
+        street: String,
+        houseNo: String,
+        city: String,
+        state: String,
+        country: String,
+        zip: String
+    ) {
 
-        val request = APIClient.getApiInterface().registrationLevelBankPay("Bearer " + APIClient.token, userID, email, estimateType, estimationFee, payoutType, accountNumer, RoutingNumber, SSN, paymentType, street, houseNo, city, state, country, zip)
+        val request = APIClient.getApiInterface().registrationLevelBankPay(
+            "Bearer " + APIClient.token,
+            userID,
+            email,
+            estimateType,
+            estimationFee,
+            payoutType,
+            accountNumer,
+            RoutingNumber,
+            SSN,
+            paymentType,
+            street,
+            houseNo,
+            city,
+            state,
+            country,
+            zip
+        )
         request.enqueue(object : Callback<SignupThreeResponse> {
-            override fun onResponse(call: Call<SignupThreeResponse>, response: Response<SignupThreeResponse>) {
+            override fun onResponse(
+                call: Call<SignupThreeResponse>,
+                response: Response<SignupThreeResponse>
+            ) {
                 if (response.isSuccessful) {
                     Log.d("Message from backend", response.body().toString())
                     listener.onStepThreeCompleted(response.body()!!)
@@ -91,7 +186,13 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
         })
     }
 
-    override fun signupLevelTwo(header: String, userID: String, profilePicData: String, stateId: String, certificate: String) {
+    override fun signupLevelTwo(
+        header: String,
+        userID: String,
+        profilePicData: String,
+        stateId: String,
+        certificate: String
+    ) {
         val userId = RequestBody.create(MediaType.parse("text/plain"), userID)
         val stateID = RequestBody.create(MediaType.parse("text/plain"), stateId)
         val certificateBody = RequestBody.create(MediaType.parse("text/plain"), certificate)
@@ -100,9 +201,13 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
         val reqFile = RequestBody.create(MediaType.parse("image/*"), file)
         body = MultipartBody.Part.createFormData("profile_picture", file.name, reqFile)
 
-        val profilePicRequest = APIClient.getApiInterface().profilePictureUpdate(header, userId, stateID, certificateBody, body)
+        val profilePicRequest = APIClient.getApiInterface()
+            .profilePictureUpdate(header, userId, stateID, certificateBody, body)
         profilePicRequest.enqueue(object : Callback<SignupstepTwoResponse> {
-            override fun onResponse(call: Call<SignupstepTwoResponse>, response: Response<SignupstepTwoResponse>) {
+            override fun onResponse(
+                call: Call<SignupstepTwoResponse>,
+                response: Response<SignupstepTwoResponse>
+            ) {
                 if (response.isSuccessful) {
                     Log.d("response ", response.body().toString())
                     listener.onProfilePictureUpdated(response.body()!!)
@@ -118,27 +223,46 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
 
     }
 
-    override fun signUpUser(type: Int, firstName: String, lastName: String, dob: String, street: String, houseNo: String, city: String, state: String, country: String, zip: String, email: String, countryCode: String, phone: String, password: String, services: String) {
+    override fun signUpUser(
+        type: Int,
+        firstName: String,
+        lastName: String,
+        dob: String,
+        street: String,
+        houseNo: String,
+        city: String,
+        state: String,
+        country: String,
+        zip: String,
+        email: String,
+        countryCode: String,
+        phone: String,
+        password: String,
+        services: String
+    ) {
 
         val registerStepOne = APIClient.getApiInterface().SignupOne(
-                type,
-                firstName,
-                lastName,
-                dob,
-                street,
-                houseNo,
-                city,
-                state,
-                country,
-                zip,
-                email,
-                countryCode,
-                phone,
-                password,
-                services
+            type,
+            firstName,
+            lastName,
+            dob,
+            street,
+            houseNo,
+            city,
+            state,
+            country,
+            zip,
+            email,
+            countryCode,
+            phone,
+            password,
+            services
         )
         registerStepOne.enqueue(object : Callback<SignupOneResponse> {
-            override fun onResponse(call: Call<SignupOneResponse>, response: Response<SignupOneResponse>) {
+            override fun onResponse(
+                call: Call<SignupOneResponse>,
+                response: Response<SignupOneResponse>
+            ) {
                 if (response.isSuccessful) {
                     Log.d("Message from backend", response.body().toString())
                     listener.onSignUpFirstCompleted(response.body()!!)

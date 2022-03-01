@@ -41,7 +41,7 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                     signUpPhaseViewPager.currentItem = 2
                 }
                 intent.getStringExtra("step") == "2" -> {
-                    signUpPhaseViewPager.currentItem = 4
+                    signUpPhaseViewPager.currentItem = 3
                 }
                 intent.getStringExtra("step") == "3" -> {
                     startActivity(Intent(this, MapTrackingActivity::class.java))
@@ -57,7 +57,7 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
         adapter.addFragment(SignupContactFragment.newInstance(this), "2")
         adapter.addFragment(ProfilePictureFragment.newInstance(this), "3")
 //        adapter.addFragment(CertificationDetailsFragment.newInstance(this), "4")
-        adapter.addFragment(PaymentTypeFragment.newInstance(this), "4")
+//        adapter.addFragment(PaymentTypeFragment.newInstance(this), "4")
         signUpPhaseViewPager.adapter = adapter
         signUpPhaseViewPagerIndicator.setDotsClickable(false)
         signUpPhaseViewPagerIndicator.setViewPager(signUpPhaseViewPager)
@@ -148,8 +148,6 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
             ShowToast(mData.message)
         }
     }
-
-
 
 
     @SuppressLint("LogNotTimber")
@@ -328,12 +326,17 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
         val userEmail =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.EMAIL, "")
-
         mPresenter.signupLevelThreeDirectCash(
             userID.toString(),
-            userEmail.toString(), "1", "", "1"
+            userEmail.toString(),
+            "1",
+            "",
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.DATE_OF_BIRTH, "")
+                .toString(),
+            "1"
         )
     }
+
     override fun onSignUpFirstCompleted(mResponse: SignupOneResponse) {
         destroyDialog()
         if (mResponse.status == 1) {

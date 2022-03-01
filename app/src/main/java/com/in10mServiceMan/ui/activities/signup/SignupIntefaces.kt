@@ -68,6 +68,7 @@ interface ISignupPresenter {
                                    email: String,
                                    estimateType: String,
                                    estimationFee: String,
+                                   dob: String,
                                    payoutType: String)
 }
 

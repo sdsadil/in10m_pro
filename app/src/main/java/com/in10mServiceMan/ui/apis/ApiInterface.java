@@ -278,6 +278,7 @@ public interface ApiInterface {
                                                          @Field("email") String email,
                                                          @Field("free_estimate") String free_estimate,
                                                          @Field("estimation_fee") String estimation_fee,
+                                                         @Field("dob") String dob,
                                                          @Field("payment_type") String payout_type);
 
     @FormUrlEncoded
