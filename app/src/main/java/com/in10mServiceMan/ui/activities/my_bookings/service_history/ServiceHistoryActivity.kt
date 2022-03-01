@@ -27,7 +27,7 @@ class ServiceHistoryActivity : In10mBaseActivity() {
         setContentView(R.layout.activity_service_history)
 
         backBtn.setOnClickListener {
-            finish()
+           onBackPressed()
         }
 
         val adapter = ServiceHistoryViewpagerAdapter(supportFragmentManager)
@@ -36,69 +36,13 @@ class ServiceHistoryActivity : In10mBaseActivity() {
         adapter.addFragment(CanceledHistory(), resources.getString(R.string.canceled))
         pager_service_history.adapter = adapter
         tab_service_history.setupWithViewPager(pager_service_history)
-        //getServiceHistory()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        overridePendingTransition(0,0)
     }
 
 
-    private fun getServiceHistory() {
-        showProgressDialog("")
-        val user = localStorage(this).loggedInUser
-        val token =
-            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-        if (!token.isNullOrEmpty()) {
-            val header =
-                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val userId =
-                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
-                    .toInt()
-            val callServiceProviders = APIClient.getApiInterface()
-                .getServiceHistory("Bearer $header", userId, "5", 150, 1)//user.customerId
-            callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
-                override fun onResponse(
-                    call: Call<ServiceHistoryResponse>,
-                    response: Response<ServiceHistoryResponse>
-                ) {
-                    destroyDialog()
-                    Log.i("response data", Gson().toJson(response.body()).toString())
-                    if (response.isSuccessful) {
-                        destroyDialog()
-                        if (response.body()!!.data?.size!! > 0) {
-
-                            adapter = ServiceHistoryViewpagerAdapter(supportFragmentManager)
-                            adapter?.addFragment(
-                                ServiceHistoryListFragment.getInstance(
-                                    Gson().toJson(
-                                        response?.body()
-                                    ), true
-                                ), "Completed"
-                            )
-                            adapter?.addFragment(
-                                ServiceHistoryListFragment.getInstance(
-                                    Gson().toJson(
-                                        response?.body()
-                                    ), false
-                                ), "Canceled"
-                            )
-                            tab_service_history.setupWithViewPager(pager_service_history)
-                            pager_service_history.adapter = adapter
-                        } else {
-                            destroyDialog()
-                            //somethingWentWrong()
-                        }
-                    } else {
-                        destroyDialog()
-                        //somethingWentWrong()
-                    }
-                }
-
-                override fun onFailure(call: Call<ServiceHistoryResponse>, t: Throwable) {
-                    destroyDialog()
-
-                    //somethingWentWrong()
-                }
-            })
-        } else {
-            //somethingWentWrong()
-        }
-    }
 }

@@ -158,7 +158,7 @@
     <string name="street_name">STREET NAME</string>
     <string name="book_now">Book Now</string>
     <string name="eta">ETA: <b>12 mins</b></string>
-    <string name="rate_review"><![CDATA[Rate & Review]]></string>
+    <string name="rate_review"><![CDATA[التقييم]]></string>
     <string name="how_was_the_service">How was the service ?</string>
     <string name="short_note">Short Note</string>
     <string name="description">الوصف</string>
@@ -169,7 +169,7 @@
     <string name="we_have_your_back">We have your back</string>
     <string name="our_expert_support_team">Our expert support team are ready \n24/7 to assist you in times of need</string>
     <string name="next">Next</string>
-    <string name="skip">Skip</string>
+    <string name="skip">تخطي</string>
     <string name="otp_verification">OTP Verification</string>
     <string name="an_otp_has_been">An OTP has been sent to the \nregistered number 32****32</string>
     <string name="intro_heading_one">Get Seen On The Map!</string>
@@ -218,8 +218,8 @@
     <string name="cancel">إلغاء</string>
     <string name="arrived_at_location">وصل الى الموقع</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
-    <string name="slide_to_end_service">انزلق لإكمال الوظيفة</string>
-    <string name="swipte_to_start_service">انزلق لبدء الخدمة</string>
+    <string name="slide_to_end_service">اسحب عند إكمال العمل</string>
+    <string name="swipte_to_start_service">اسحب لبدـء العمل</string>
 
     <string name="confirmation">التحقق</string>
     <string name="confirmation_description">نروح التأكد من صحة المعلومات ، لأن إدخالها لمرة واحد فقط.</string>
@@ -405,14 +405,14 @@
     <string name="no_data_found">لا يوجد بيانات</string>
     <string name="requested">أمر عمل</string>
     <string name="accepted">قبول</string>
-    <string name="arrived">وصول</string>
+    <string name="arrived">تم الوصول إلى الموقع</string>
     <string name="ongoing">جاري</string>
     <string name="reached">وصول</string>
     <string name="customer_canceled">ألغي من قبل العميل</string>
     <string name="serviceman_canceled">ألغي من قبل العامل</string>
     <string name="invoice_details">تفاصيل الفاتورة</string>
-    <string name="total_amount">الإستلام تم نقدا</string>
-    <string name="received_by_cash">Received by Cash</string>
+    <string name="total_amount">المبلغ الإجمالي</string>
+    <string name="received_by_cash">تم التحصيل نقدا</string>
     <string name="received_by_online_payment">Received by Online Payment</string>
     <string name="no_invoice_found">لا يوجد فاتورة</string>
     <string name="earnings">المدخول</string>
@@ -443,4 +443,7 @@
     <string name="verify_2">شروط الاستخدام</string>
     <string name="verify_3">سياسة خاصة</string>
     <string name="direction">اتجاه</string>
+    <string name="payment_completed">تم الدفع</string>
+    <string name="how_was_the_customer">كيف كانت تجربتك مع الزبون</string>
+
 </resources>

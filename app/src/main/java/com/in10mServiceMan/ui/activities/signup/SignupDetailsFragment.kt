@@ -191,7 +191,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.COUNTRY_CODE,
-                        "+965"
+                        "965"
                     )//country_id
 
                     displayAlertDialog()

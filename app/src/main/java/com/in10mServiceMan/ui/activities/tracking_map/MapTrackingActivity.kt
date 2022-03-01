@@ -2012,7 +2012,6 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     }
 
     override fun myBookings() {
-
         val userType =
             SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
         if (userType == 3) {

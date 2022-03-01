@@ -17,6 +17,7 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_company_resource.xml" value="0.17119565217391305" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_confirm_address.xml" value="0.121875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_contact_us.xml" value="0.21920289855072464" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_customer_rating.xml" value="0.22509057971014493" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_earnings.xml" value="0.264" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_enter_location.xml" value="0.2421875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/activity_enter_phone_no.xml" value="0.2421875" />
@@ -58,9 +59,11 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/custom_state_spinner_list.xml" value="0.121875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/diaglog_progressbar.xml" value="0.23007246376811594" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/drawyer_layout.xml" value="0.2" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_canceled_history.xml" value="0.22509057971014493" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_certification_details.xml" value="0.4" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_company_payment_type.xml" value="0.2" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_company_profile_picture.xml" value="0.2421875" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_completed_history.xml" value="0.22509057971014493" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_create_online_payment_account.xml" value="0.121875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_estimates.xml" value="0.17119565217391305" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_payment.xml" value="0.176" />

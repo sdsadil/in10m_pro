@@ -243,8 +243,8 @@
     <string name="cancel">CANCEL</string>
     <string name="arrived_at_location">Arrived at location</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
-    <string name="slide_to_end_service">SLIDE TO COMPLETE JOB</string>
-    <string name="swipte_to_start_service">SLIDE TO START THE SERVICE</string>
+    <string name="slide_to_end_service">Slide to complete the work</string>
+    <string name="swipte_to_start_service">Slide to start the work</string>
 
     <string name="confirmation">CONFIRMATION</string>
     <string name="confirmation_description">You may submit this information only once, so please make sure it is accurate.</string>
@@ -469,4 +469,6 @@
     <string name="verify_2">Terms of Use</string>
     <string name="verify_3">Privacy Policy</string>
     <string name="direction">Direction</string>
+    <string name="payment_completed">Payment Completed</string>
+    <string name="how_was_the_customer">How was the customer?</string>
 </resources>

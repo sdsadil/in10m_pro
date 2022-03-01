@@ -22,6 +22,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/white"
+            android:orientation="vertical"
             android:paddingBottom="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -189,6 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailET">
@@ -251,13 +253,13 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.in10mServiceMan.widgets.textview.CustomBookTextView
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/tv223"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/home_address"
+                android:text="@string/where_do_you_live"
                 android:textColor="@color/colorPrimaryDark"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
@@ -290,6 +292,7 @@
                     android:textColor="@color/textColor"
                     android:textSize="15sp"
                     android:theme="@style/EditTextHint"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
@@ -314,6 +317,7 @@
                     android:textAlignment="viewStart"
                     android:textColor="@color/textColor"
                     android:textSize="14sp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etAreaName_EditProfLay" />
@@ -326,6 +330,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorLight"
+                    android:visibility="gone"
                     android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center|start"
                     android:hint="@string/block"
@@ -351,6 +356,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorLight"
                     android:drawablePadding="@dimen/_10sdp"
+                    android:visibility="gone"
                     android:gravity="center|start"
                     android:hint="@string/street"
                     android:inputType="text"
@@ -372,6 +378,7 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorLight"
                     android:drawablePadding="@dimen/_10sdp"
@@ -395,6 +402,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorLight"

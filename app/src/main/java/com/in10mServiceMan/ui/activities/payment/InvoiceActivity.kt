@@ -153,7 +153,7 @@ class InvoiceActivity : In10mBaseActivity() {
                             //mDatabase.child(bookingId).setValue(null)
                             displayAlertDialogConfirmation(
                                 totalAmount,
-                                "Received by cash payment",
+                                resources.getString(R.string.received_by_cash),
                                 false
                             )
 
@@ -284,11 +284,7 @@ class InvoiceActivity : In10mBaseActivity() {
             ) {
                 destroyDialog()
                 if (response.isSuccessful) {
-                    Log.i("code", response.code().toString())
-                    Log.i("response", Gson().toJson(response.body()))
-                    //Log.i("error", response.errorBody()!!.string())
                     if (response.body()?.status == 1) {
-
                         request.booking_Id = bookingID
                         if (response.body()!!.data!!.applicationFee != null)
                             request.applicationFee = response.body()!!.data!!.applicationFee!!
@@ -328,9 +324,7 @@ class InvoiceActivity : In10mBaseActivity() {
                         } else
                             request.total_amount = ""
 
-                        Log.d("request class", request.toString())
                         try {
-                            Log.d("Request class", Gson().toJson(request).toString())
                             if (!isRequote) {
                                 mDatabase.child(bookingID).setValue(request)
                             } else {
@@ -346,8 +340,6 @@ class InvoiceActivity : In10mBaseActivity() {
                     } else {
                         ShowToast(response.body()?.message!!)
                     }
-                } else {
-                    Log.i("error response", Gson().toJson(response.errorBody()?.string()))
                 }
             }
 

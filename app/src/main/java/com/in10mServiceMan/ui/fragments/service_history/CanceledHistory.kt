@@ -30,41 +30,56 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 class CanceledHistory : BaseFragment(), BookingHistoryInterface {
-    override fun adapterTransaction() {
-        Toast.makeText(activity, resources.getString(R.string.no_invoice_found), Toast.LENGTH_LONG).show()
-    }
-
+    private var isStarted = false
+    private var isVisiblee = false
     private lateinit var bookingsAdapter: BookingsAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_canceled_history, container, false)
-
-        getServiceHistory()
-
         return view
     }
 
     private fun getServiceHistory() {
         showProgressDialog("")
         val user = localStorage(activity).loggedInUser
-        val token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val token =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         if (!token.isNullOrEmpty()) {
-            val header = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-            val userId = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
+            val header = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.AUTH_TOKEN,
+                ""
+            )
+            val userId = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!
                 .toInt()
-            val callServiceProviders = APIClient.getApiInterface().getServiceHistory("Bearer $header", userId, "7,8", 150, 1)//user.customerId
+            val callServiceProviders = APIClient.getApiInterface()
+                .getServiceHistory("Bearer $header", userId, "7,8", 150, 1)//user.customerId
             callServiceProviders.enqueue(object : Callback<ServiceHistoryResponse> {
-                override fun onResponse(call: Call<ServiceHistoryResponse>, response: Response<ServiceHistoryResponse>) {
+                override fun onResponse(
+                    call: Call<ServiceHistoryResponse>,
+                    response: Response<ServiceHistoryResponse>
+                ) {
                     destroyDialog()
                     Log.i("response data", Gson().toJson(response.body()).toString())
                     if (response.isSuccessful) {
                         destroyDialog()
                         if (response.body()!!.data?.size!! > 0) {
                             view!!.noDataFound.visibility = View.GONE
-                            bookingsAdapter = BookingsAdapter(this@CanceledHistory.requireContext(), response.body()!!.data as List<ServiceHistoryData>, this@CanceledHistory)
-                            view!!.canceledRV.layoutManager = LinearLayoutManager(this@CanceledHistory.requireContext())
+                            bookingsAdapter = BookingsAdapter(
+                                this@CanceledHistory.requireContext(),
+                                response.body()!!.data as List<ServiceHistoryData>,
+                                this@CanceledHistory
+                            )
+                            view!!.canceledRV.layoutManager =
+                                LinearLayoutManager(this@CanceledHistory.requireContext())
                             view!!.canceledRV.adapter = bookingsAdapter
                         } else {
                             destroyDialog()
@@ -84,8 +99,31 @@ class CanceledHistory : BaseFragment(), BookingHistoryInterface {
                     //somethingWentWrong()
                 }
             })
-        } else {
-            //somethingWentWrong()
         }
+    }
+
+    override fun adapterTransaction() {
+        Toast.makeText(activity, resources.getString(R.string.no_invoice_found), Toast.LENGTH_LONG)
+            .show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isStarted = true
+        if (isVisiblee) getServiceHistory()
+
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isStarted = false
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        isVisiblee = isVisibleToUser
+        if (isVisiblee && isStarted) getServiceHistory()
+
     }
 }

@@ -24,8 +24,8 @@ class MyAccountEdit : In10mBaseActivity() {
         } else {
             adapter.addFragment(Profile(), resources.getString(R.string.profile))
             adapter.addFragment(Services(), resources.getString(R.string.services))
-            adapter.addFragment(Payment(), resources.getString(R.string.payment))
-            adapter.addFragment(Estimates(), resources.getString(R.string.estimates))
+//            adapter.addFragment(Payment(), resources.getString(R.string.payment))
+//            adapter.addFragment(Estimates(), resources.getString(R.string.estimates))
         }
         pager_service_history.adapter = adapter
         tab_service_history.setupWithViewPager(pager_service_history)

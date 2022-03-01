@@ -32,9 +32,11 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetailsView {
-
     private lateinit var bookingsAdapter: BookingsAdapter
     var mPresenter = InvoiceDetailsPresenter(this)
+
+    private var isStarted = false
+    private var isVisiblee = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +44,6 @@ class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetail
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_completed_history, container, false)
-        getServiceHistory()
         return view
     }
 
@@ -144,6 +145,25 @@ class CompletedHistory : BaseFragment(), BookingHistoryInterface, IInvoiceDetail
                 0
             ), userId, 2
         )
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isStarted = true
+        if (isVisiblee) getServiceHistory()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isStarted = false
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        isVisiblee = isVisibleToUser
+        if (isVisiblee && isStarted) getServiceHistory()
+
     }
 
 }
