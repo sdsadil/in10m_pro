@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import com.google.gson.Gson
 import com.in10mServiceMan.models.HomeService
 import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
+import com.in10mServiceMan.ui.accound_edit.addService.IServiceInteractorListener
+import com.in10mServiceMan.ui.accound_edit.addService.ServiceInteractor
+import com.in10mServiceMan.ui.accound_edit.addService.ServiceResponse
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
 import com.in10mServiceMan.ui.activities.signup.SignUpActivity
@@ -17,7 +19,11 @@ import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_available_services.*
 
-class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.SelectedServiceCallback {
+class AvailableServices : BaseActivity(), IServicesView, IServiceInteractorListener, ServicesAdapter.SelectedServiceCallback {
+
+    val mPresenterr = ServiceInteractor(this)
+
+
     override fun openSubService(item: Service) {
     }
 
@@ -99,10 +105,11 @@ class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.Selecte
                         startActivity(Intent(this, SignUpActivity::class.java))
                     }
                 } else {
-
+                    val userId =
+                        SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
+                            .toInt()
+                    mPresenterr.services(userId,newServiceListString)
                 }
-
-
             }
         }
     }
@@ -118,5 +125,14 @@ class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.Selecte
             Constants.GlobalSettings.fromAccount = false
 
         super.onBackPressed()
+    }
+
+    override fun onServiceCompleted(mPost: ServiceResponse) {
+        ShowToast(getString(R.string.service_added_successfully))
+        onBackPressed()
+    }
+
+    override fun onServiceFailed(msg: String) {
+
     }
 }

@@ -10,9 +10,9 @@ import android.widget.Toast
 import com.in10mServiceMan.ui.activities.BaseFragment
 
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.accound_edit.UpdateEstimate.IUpdateEstimateView
-import com.in10mServiceMan.ui.accound_edit.UpdateEstimate.UpdateEstimatePresenter
-import com.in10mServiceMan.ui.accound_edit.UpdateEstimate.UpdateEstimateResponse
+import com.in10mServiceMan.ui.accound_edit.updateEstimate.IUpdateEstimateView
+import com.in10mServiceMan.ui.accound_edit.updateEstimate.UpdateEstimatePresenter
+import com.in10mServiceMan.ui.accound_edit.updateEstimate.UpdateEstimateResponse
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.fragment_estimates.view.*

@@ -445,5 +445,5 @@
     <string name="direction">اتجاه</string>
     <string name="payment_completed">تم الدفع</string>
     <string name="how_was_the_customer">كيف كانت تجربتك مع الزبون</string>
-
+    <string name="service_added_successfully">تمت إضافة الخدمة بنجاح</string>
 </resources>

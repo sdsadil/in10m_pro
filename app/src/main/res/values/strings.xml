@@ -471,4 +471,5 @@
     <string name="direction">Direction</string>
     <string name="payment_completed">Payment Completed</string>
     <string name="how_was_the_customer">How was the customer?</string>
+    <string name="service_added_successfully">Service added successfully</string>
 </resources>
