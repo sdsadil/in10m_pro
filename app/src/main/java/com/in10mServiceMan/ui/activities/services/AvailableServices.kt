@@ -45,6 +45,7 @@ class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.Selecte
     val mPresenter = ServicesPresenter(this)
     var serviceList: ArrayList<Service> = ArrayList()
     var serviceListString: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_available_services)
@@ -65,19 +66,43 @@ class AvailableServices : BaseActivity(), IServicesView, ServicesAdapter.Selecte
                 for (i in 0 until serviceList.size) {
                     serviceListString = serviceListString + serviceList[i].serviceId + ","
                 }
-                SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.SERVICES_PROVIDED, responseString)
+                SharedPreferencesHelper.putString(
+                    this,
+                    Constants.SharedPrefs.User.SERVICES_PROVIDED,
+                    responseString
+                )
 /*
                 var newServiceListString = serviceListString.substring(0, serviceListString.length-1)
 */
-                val newServiceListString = serviceListString.replace(",", " ").trim().replace(" ", ",")
-                SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING, newServiceListString)
+                val newServiceListString =
+                    serviceListString.replace(",", " ").trim().replace(" ", ",")
+                SharedPreferencesHelper.putString(
+                    this,
+                    Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING,
+                    newServiceListString
+                )
                 serviceListString = ""
-                if (SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2") == "2") {
-                    startActivity(Intent(this, CompanySignupActivity::class.java))
+                if (!Constants.GlobalSettings.fromAccount) {
+                    if (SharedPreferencesHelper.getString(
+                            this,
+                            Constants.SharedPrefs.User.ACCOUNT_TYPE,
+                            "2"
+                        ) == "2"
+                    ) {
+                        startActivity(Intent(this, CompanySignupActivity::class.java))
+                    } else if (SharedPreferencesHelper.getString(
+                            this,
+                            Constants.SharedPrefs.User.ACCOUNT_TYPE,
+                            "1"
+                        ) == "1"
+                    ) {
+                        startActivity(Intent(this, SignUpActivity::class.java))
+                    }
+                } else {
 
-                } else if (SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "1") == "1") {
-                    startActivity(Intent(this, SignUpActivity::class.java))
                 }
+
+
             }
         }
     }

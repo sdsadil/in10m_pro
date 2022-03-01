@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.accound_edit.Services">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,43 +26,43 @@
             android:id="@+id/btnAddServices"
             android:layout_width="wrap_content"
             android:layout_height="34dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bggg"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_services"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_services">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/addServices"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/ic_add_black_24dp"
                     android:tint="@color/white_text_selector"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_add_black_24dp" />
 
                 <com.in10mServiceMan.widgets.textview.CustomBookTextView
                     android:id="@+id/tv11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:text="@string/add_more"
                     android:textColor="@color/white_text_selector"
-                    app:layout_constraintStart_toEndOf="@+id/addServices"
-                    app:layout_constraintTop_toTopOf="@+id/addServices"
                     app:layout_constraintBottom_toBottomOf="@+id/addServices"
-                    android:layout_marginStart="4dp"/>
+                    app:layout_constraintStart_toEndOf="@+id/addServices"
+                    app:layout_constraintTop_toTopOf="@+id/addServices" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -71,7 +71,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnAddServices"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnAddServices" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

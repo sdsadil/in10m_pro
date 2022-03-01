@@ -27,15 +27,18 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 class Services : BaseFragment() {
+    private var isStarted = false
+    private var isVisiblee = false
 
     private var servicemanSelectedServiceAdapter: ServiceOfferAdapter? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_services, container, false)
-
-        getPreServices()
-
         view.btnAddServices.setOnClickListener {
             Constants.GlobalSettings.fromAccount = true
             startActivity(Intent(activity, AvailableServices::class.java))
@@ -44,13 +47,41 @@ class Services : BaseFragment() {
         return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        isStarted = true
+        if (isVisiblee) getPreServices()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isStarted = false
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        isVisiblee = isVisibleToUser
+        if (isVisiblee && isStarted) getPreServices()
+
+    }
+
     private fun getPreServices() {
-        APIClient.token = SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        APIClient.token =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")
-                ?.let { APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience("Bearer " + APIClient.token, it.toInt()) }
+                ?.let {
+                    APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
+                        "Bearer " + APIClient.token,
+                        it.toInt()
+                    )
+                }
         homeCall?.enqueue(object : Callback<ServicesResponse> {
-            override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>) {
+            override fun onResponse(
+                call: Call<ServicesResponse>,
+                response: Response<ServicesResponse>
+            ) {
                 if (response.isSuccessful) {
                     bindOfferedServiceRecyclerView(response.body()!!)
                 }

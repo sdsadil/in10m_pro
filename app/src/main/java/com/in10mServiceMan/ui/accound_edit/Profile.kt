@@ -60,6 +60,9 @@ import java.io.File
  */
 class Profile : BaseFragment(), IProfileView {
 
+    private var isStarted = false
+    private var isVisiblee = false
+
     var country: String = ""
     var country_id: String = ""
     private var myUserId = 0
@@ -128,10 +131,7 @@ class Profile : BaseFragment(), IProfileView {
                         R.style.CalendarThemeOne,
                         DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
                             val month = mmonth + 1
-
                             view.edt_age.setText("$month-$mdayOfMonth-$myear")//"$myear-$month-$mdayOfMonth"
-
-
                         },
                         startDateYear,
                         startDateMonth,
@@ -162,9 +162,7 @@ class Profile : BaseFragment(), IProfileView {
             }
         }
 
-        loadProfile()
-        getPreServices()
-        getStates()
+
 
         view.btnSaveProfile.setOnClickListener {
             val mAuthToken = SharedPreferencesHelper.getString(
@@ -238,6 +236,32 @@ class Profile : BaseFragment(), IProfileView {
         }
 
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isStarted = true
+        if (isVisiblee) {
+            loadProfile()
+            getPreServices()
+            getStates()
+        }
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isStarted = false
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        isVisiblee = isVisibleToUser
+        if (isVisiblee && isStarted) {
+            loadProfile()
+            getPreServices()
+            getStates()
+        }
     }
 
     private fun getStates() {
