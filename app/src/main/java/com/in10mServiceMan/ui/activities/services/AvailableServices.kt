@@ -2,6 +2,7 @@ package com.in10mServiceMan.ui.activities.services
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -9,6 +10,8 @@ import com.google.gson.Gson
 import com.in10mServiceMan.models.HomeService
 import com.in10mServiceMan.models.Service
 import com.in10mServiceMan.R
+import com.in10mServiceMan.db.WagonItem
+import com.in10mServiceMan.models.AddServicePojo
 import com.in10mServiceMan.ui.accound_edit.addService.IServiceInteractorListener
 import com.in10mServiceMan.ui.accound_edit.addService.ServiceInteractor
 import com.in10mServiceMan.ui.accound_edit.addService.ServiceResponse
@@ -18,8 +21,10 @@ import com.in10mServiceMan.ui.activities.signup.SignUpActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_available_services.*
+import org.json.JSONArray
 
-class AvailableServices : BaseActivity(), IServicesView, IServiceInteractorListener, ServicesAdapter.SelectedServiceCallback {
+class AvailableServices : BaseActivity(), IServicesView, IServiceInteractorListener,
+    ServicesAdapter.SelectedServiceCallback {
 
     val mPresenterr = ServiceInteractor(this)
 
@@ -69,9 +74,19 @@ class AvailableServices : BaseActivity(), IServicesView, IServiceInteractorListe
             } else {
                 val gson = Gson()
                 val responseString = gson.toJson(serviceList)
+                val addServiceList: MutableList<AddServicePojo> = ArrayList()
+
                 for (i in 0 until serviceList.size) {
                     serviceListString = serviceListString + serviceList[i].serviceId + ","
+                    val addServicePojo = AddServicePojo()
+                    addServicePojo.certificate = ""
+                    addServicePojo.service_id = serviceList[i].serviceId.toString()
+                    addServicePojo.total_experience = ""
+                    addServiceList.add(addServicePojo)
                 }
+
+                val addServiceParam = Gson().toJson(addServiceList)
+
                 SharedPreferencesHelper.putString(
                     this,
                     Constants.SharedPrefs.User.SERVICES_PROVIDED,
@@ -106,9 +121,13 @@ class AvailableServices : BaseActivity(), IServicesView, IServiceInteractorListe
                     }
                 } else {
                     val userId =
-                        SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")!!
+                        SharedPreferencesHelper.getString(
+                            this,
+                            Constants.SharedPrefs.User.USER_ID,
+                            "0"
+                        )!!
                             .toInt()
-                    mPresenterr.services(userId,newServiceListString)
+                    mPresenterr.services(userId, addServiceParam)
                 }
             }
         }
