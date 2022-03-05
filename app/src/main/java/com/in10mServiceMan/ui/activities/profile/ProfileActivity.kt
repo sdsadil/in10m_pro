@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.in10mServiceMan.models.*
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile_page.*
@@ -463,7 +463,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun gotohome() {
-        startActivity(Intent(this@ProfileActivity, MapTrackingActivity::class.java))
+        startActivity(Intent(this@ProfileActivity, DashboardActivity::class.java))
         finishAffinity()
     }
 

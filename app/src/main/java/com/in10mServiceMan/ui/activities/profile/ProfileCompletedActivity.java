@@ -10,7 +10,7 @@ import com.in10mServiceMan.ui.base.In10mBaseActivity;
 
 import com.in10mServiceMan.models.CompleteProfile;
 import com.in10mServiceMan.R;
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity;
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity;
 import com.in10mServiceMan.utils.localStorage;
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +34,7 @@ public class ProfileCompletedActivity extends In10mBaseActivity {
         imgStartService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileCompletedActivity.this,MapTrackingActivity.class));
+                startActivity(new Intent(ProfileCompletedActivity.this, DashboardActivity.class));
             }
         });
     }

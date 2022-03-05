@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import com.google.android.material.textfield.TextInputEditText
 import androidx.appcompat.app.AlertDialog
 import android.text.Html
 import android.view.LayoutInflater
@@ -14,7 +13,6 @@ import com.in10mServiceMan.ui.activities.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import android.util.Patterns
 import android.text.TextUtils
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -23,11 +21,9 @@ import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
 import com.in10mServiceMan.ui.activities.services.AvailableServices
-import com.in10mServiceMan.ui.activities.signup.AccountType
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
-import com.in10mServiceMan.utils.GenericOtpTextWatcher
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_account_type.*
@@ -134,7 +130,7 @@ class LoginActivity : BaseActivity(), ILoginView {
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
-                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
                     }
                 }
             } else if (user == 3) {
@@ -166,7 +162,7 @@ class LoginActivity : BaseActivity(), ILoginView {
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
-                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
                     }
                 }
             } else {
@@ -189,12 +185,12 @@ class LoginActivity : BaseActivity(), ILoginView {
                     }
                     3 -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
-                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
                         //startActivity(Intent(this@LoginActivity, SignUpActivity::class.java).putExtra("step", "3"))
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
-                        startActivity(Intent(this@LoginActivity, MapTrackingActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
                     }
                 }
             }

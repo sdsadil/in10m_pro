@@ -253,7 +253,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activities.tracking_map.MapTrackingActivity"
+            android:name=".ui.activities.dashboard.DashboardActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity

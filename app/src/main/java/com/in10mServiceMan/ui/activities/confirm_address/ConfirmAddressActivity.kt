@@ -1,7 +1,6 @@
 package com.in10mServiceMan.ui.activities.confirm_address
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -24,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_confirm_address.*
 import android.view.WindowManager
 import android.view.Gravity
 import androidx.core.app.ActivityCompat
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import android.content.pm.PackageManager
 
 import android.os.Build
@@ -206,7 +205,7 @@ class ConfirmAddressActivity : In10mBaseActivity(), OnMapReadyCallback {
         handler.postDelayed({
 
             dialog.dismiss()
-            startActivity(Intent(this, MapTrackingActivity::class.java))
+            startActivity(Intent(this, DashboardActivity::class.java))
             finishAffinity() //close all recent activities
             // navigate to the serviceman tracking page
         }, 3000)

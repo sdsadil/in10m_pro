@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.localStorage
 import com.in10mServiceMan.ui.activities.intro.IntroActivity
@@ -32,7 +32,7 @@ class SplashActivity : In10mBaseActivity() {
             val loginAPI = APIClient()
             loginAPI.publicAccessToken = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")//storage.token
             // open home page
-            val intent1 = Intent(this@SplashActivity, MapTrackingActivity::class.java)
+            val intent1 = Intent(this@SplashActivity, DashboardActivity::class.java)
             proceedNext(intent1)
         } else {
             // skip select language

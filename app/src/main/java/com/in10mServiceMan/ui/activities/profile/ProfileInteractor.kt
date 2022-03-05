@@ -1,7 +1,5 @@
 package com.in10mServiceMan.ui.activities.profile
 
-import android.util.Log
-import com.google.gson.Gson
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
 import com.in10mServiceMan.models.RequestUpdateServiceMan
@@ -16,7 +14,6 @@ import java.io.File
 
 class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInteractor {
     override fun getCompleteProfile(userId: String) {
-
         val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(userId.toInt())
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
             override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
@@ -40,7 +37,6 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
         val callServiceProviders = APIClient.getApiInterface().updateServiceManProfile(request)
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfileAfterUpdate> {
             override fun onResponse(call: Call<CustomerCompleteProfileAfterUpdate>, response: Response<CustomerCompleteProfileAfterUpdate>) {
-                Log.e("eeee", Gson().toJson(response))
                 listener.onProfileUpdated(response.body()!!)
             }
 
@@ -61,7 +57,6 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
         profilePicRequest.enqueue(object : Callback<ImageUpdateResponse> {
             override fun onResponse(call: Call<ImageUpdateResponse>, response: Response<ImageUpdateResponse>) {
                 if (response.isSuccessful) {
-                    Log.d("response ", response.body().toString())
                     listener.onDPUpdated(response.body()!!)
                 } else {
                     listener.onFailed("Something went wrong")

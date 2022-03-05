@@ -9,7 +9,7 @@ import com.in10mServiceMan.models.ResponseVerifyMobile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.LoadingDialog
 import com.in10mServiceMan.utils.localStorage
@@ -125,7 +125,7 @@ class OtpVerificationActivity : BaseActivity() {
                 if (response.isSuccessful) {
                     val profile = response.body()!!.data
                     localStorage(this@OtpVerificationActivity).saveCompleteCustomer(profile)
-                    startActivity(Intent(this@OtpVerificationActivity, MapTrackingActivity::class.java))
+                    startActivity(Intent(this@OtpVerificationActivity, DashboardActivity::class.java))
                     finishAffinity()
                 }
             }

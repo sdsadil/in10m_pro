@@ -1,4 +1,4 @@
-package com.in10mServiceMan.ui.activities.tracking_map
+package com.in10mServiceMan.ui.activities.dashboard
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -79,7 +79,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
+class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallbacks,
     OnMapReadyCallback, Mapss.RouteStatus,
     ServiceManCallBack, GoogleMap.OnCameraMoveStartedListener,
     GoogleMap.OnCameraMoveListener,
@@ -273,7 +273,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         val mapFragment = SupportMapFragment.newInstance()
 
         fm.beginTransaction().replace(R.id.mapContainer, mapFragment).commit()
-        mapFragment.getMapAsync(this@MapTrackingActivity)
+        mapFragment.getMapAsync(this@DashboardActivity)
 
         initDrawer(savedInstanceState)
 
@@ -364,7 +364,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             } finally {
                                 if (request == null) {
                                     Toast.makeText(
-                                        this@MapTrackingActivity,
+                                        this@DashboardActivity,
                                         resources.getString(R.string.invalid_booking_data),
                                         Toast.LENGTH_SHORT
                                     ).show()
@@ -465,7 +465,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                     //mDatabase.child(bookingId.toString()).setValue(null)
                                     startActivity(
                                         Intent(
-                                            this@MapTrackingActivity,
+                                            this@DashboardActivity,
                                             InvoiceActivity::class.java
                                         ).putExtra("bookingId", myBookingId)
                                             .putExtra("customerId", customerID)
@@ -484,7 +484,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                                     freezCurrentLocation = false
                                     loadDashboardCount()
                                     val user =
-                                        localStorage(this@MapTrackingActivity).completeCustomer
+                                        localStorage(this@DashboardActivity).completeCustomer
                                     if (user != null) ServiceManNameTOP.text =
                                         (resources.getString(R.string.hello) + " " + user.name)
                                     selectedCV.visibility = View.VISIBLE
@@ -876,7 +876,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
         }
 
         if (mapss == null)
-            mapss = Mapss(map, userLocation, destinationLocation, this@MapTrackingActivity, this);
+            mapss = Mapss(map, userLocation, destinationLocation, this@DashboardActivity, this);
         else {
             mapss!!.updateRoute(map, userLocation, destinationLocation)
         }
@@ -917,7 +917,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     }
 
     private fun callRequestAcceptFdB(showMsg: Boolean = true) {
-        val servicemenImage = localStorage(this@MapTrackingActivity).completeCustomer.image
+        val servicemenImage = localStorage(this@DashboardActivity).completeCustomer.image
         request?.servicemen_image = servicemenImage
 
         request!!.status = BookingStatus.Accepted.toString()
@@ -1024,14 +1024,14 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             when {
                 scope.isEmpty() -> {
                     Toast.makeText(
-                        this@MapTrackingActivity,
+                        this@DashboardActivity,
                         resources.getString(R.string.please_enter_work_scope),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 amt.isEmpty() -> {
                     Toast.makeText(
-                        this@MapTrackingActivity,
+                        this@DashboardActivity,
                         resources.getString(R.string.Please_enter_price_estimate),
                         Toast.LENGTH_SHORT
                     ).show()
@@ -1169,7 +1169,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         //mDatabase.child(bookingId.toString()).setValue(null)
                         startActivity(
                             Intent(
-                                this@MapTrackingActivity,
+                                this@DashboardActivity,
                                 InvoiceActivity::class.java
                             ).putExtra("bookingId", myBookingId)
                                 .putExtra("customerId", customerID)
@@ -1187,7 +1187,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             mapss!!.removePolyLine()
                         freezCurrentLocation = false
                         loadDashboardCount()
-                        val user = localStorage(this@MapTrackingActivity).completeCustomer
+                        val user = localStorage(this@DashboardActivity).completeCustomer
                         if (user != null) ServiceManNameTOP.text =
                             (resources.getString(R.string.hello) + " " + user.name)
                         selectedCV.visibility = View.VISIBLE
@@ -1259,12 +1259,12 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                 if (response.isSuccessful) {
                     try {
                         if (response.body()!!.status == 1) {
-                            localStorage(this@MapTrackingActivity).logoutUser()
-                            SharedPreferencesHelper.clearPreferences(this@MapTrackingActivity)
-                            setLanguage(this@MapTrackingActivity, "en")
+                            localStorage(this@DashboardActivity).logoutUser()
+                            SharedPreferencesHelper.clearPreferences(this@DashboardActivity)
+                            setLanguage(this@DashboardActivity, "en")
                             startActivity(
                                 Intent(
-                                    this@MapTrackingActivity,
+                                    this@DashboardActivity,
                                     LoginActivity::class.java
                                 )
                             )
@@ -1274,9 +1274,9 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         e.printStackTrace()
                     }
                 } else {
-                    localStorage(this@MapTrackingActivity).logoutUser()
-                    SharedPreferencesHelper.clearPreferences(this@MapTrackingActivity)
-                    startActivity(Intent(this@MapTrackingActivity, LoginActivity::class.java))
+                    localStorage(this@DashboardActivity).logoutUser()
+                    SharedPreferencesHelper.clearPreferences(this@DashboardActivity)
+                    startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
                     finishAffinity()
                 }
 
@@ -1284,9 +1284,9 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
 
             override fun onFailure(call: Call<CommonApiResponse>, t: Throwable) {
                 try {
-                    localStorage(this@MapTrackingActivity).logoutUser()
-                    SharedPreferencesHelper.clearPreferences(this@MapTrackingActivity)
-                    startActivity(Intent(this@MapTrackingActivity, LoginActivity::class.java))
+                    localStorage(this@DashboardActivity).logoutUser()
+                    SharedPreferencesHelper.clearPreferences(this@DashboardActivity)
+                    startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
                     finishAffinity()
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -1380,7 +1380,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                             if (reviewsData.data!!.isNullOrEmpty()) {
                                 slidingRootNav?.closeMenu(true)
                                 Toast.makeText(
-                                    this@MapTrackingActivity,
+                                    this@DashboardActivity,
                                     resources.getString(R.string.no_reviews_found),
                                     Toast.LENGTH_LONG
                                 ).show()
@@ -1533,7 +1533,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         try {
                             val resolvableApiException = ex as ResolvableApiException
                             resolvableApiException.startResolutionForResult(
-                                this@MapTrackingActivity,
+                                this@DashboardActivity,
                                 REQUEST_CHECK_SETTINGS
                             )
                         } catch (e: Exception) {
@@ -1637,7 +1637,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             map = googleMap
             setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
-                    this@MapTrackingActivity,
+                    this@DashboardActivity,
                     R.raw.map_style
                 )
             )
@@ -1646,7 +1646,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
             map2 = googleMap
             setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
-                    this@MapTrackingActivity,
+                    this@DashboardActivity,
                     R.raw.map_style
                 )
             )
@@ -1723,7 +1723,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
                         .directionsRoute(currentRoute)
                         .shouldSimulateRoute(simulateRoute)
                         .build()
-                    NavigationLauncher.startNavigation(this@MapTrackingActivity, options)
+                    NavigationLauncher.startNavigation(this@DashboardActivity, options)
                     // Draw the route on the map
 //                    if (navigationMapRoute != null) {
 //                        navigationMapRoute!!.removeRoute()
@@ -2040,7 +2040,7 @@ class MapTrackingActivity : In10mBaseActivity(), NavigationAdapter.NavigationCal
     override fun logout() {
         try {
             val builder =
-                AlertDialog.Builder(this@MapTrackingActivity, R.style.AlertDialogDanger)
+                AlertDialog.Builder(this@DashboardActivity, R.style.AlertDialogDanger)
             builder.setTitle(resources.getString(R.string.log_out))
             builder.setMessage(resources.getString(R.string.desc_logout))
             builder.setPositiveButton(

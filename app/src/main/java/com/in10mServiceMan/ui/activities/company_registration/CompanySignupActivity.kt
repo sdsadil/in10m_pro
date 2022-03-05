@@ -18,7 +18,7 @@ import com.in10mServiceMan.ui.activities.signup.SignupOneResponse
 import com.in10mServiceMan.ui.activities.signup.SignupThreeResponse
 import com.in10mServiceMan.ui.activities.signup.SignupViewPagerAdapter
 import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
@@ -261,7 +261,7 @@ class CompanySignupActivity : BaseActivity(), ICompanySignupView,
                 if (intent.getStringExtra("step") == "1") {
                     signUpPhaseViewPager.currentItem = 2
                 } else if (intent.getStringExtra("step") == "2") {
-                    startActivity(Intent(this, MapTrackingActivity::class.java))
+                    startActivity(Intent(this, DashboardActivity::class.java))
                 }
             }
         } else {
@@ -271,7 +271,7 @@ class CompanySignupActivity : BaseActivity(), ICompanySignupView,
                 } else if (intent.getStringExtra("step") == "2") {
                     signUpPhaseViewPager.currentItem = 3
                 } else if (intent.getStringExtra("step") == "3") {
-                    startActivity(Intent(this, MapTrackingActivity::class.java))
+                    startActivity(Intent(this, DashboardActivity::class.java))
                 }
             }
         }
@@ -339,7 +339,7 @@ class CompanySignupActivity : BaseActivity(), ICompanySignupView,
         destroyDialog()
         if (metaData.status == 1) {
             localStorage(this).saveCompleteCustomer(metaData.data)
-            val intent = Intent(baseContext, MapTrackingActivity::class.java)
+            val intent = Intent(baseContext, DashboardActivity::class.java)
             startActivity(intent)
             finish()
         } else {

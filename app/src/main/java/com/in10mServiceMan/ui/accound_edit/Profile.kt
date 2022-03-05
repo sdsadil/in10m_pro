@@ -1,9 +1,9 @@
 package com.in10mServiceMan.ui.accound_edit
 
-
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -49,9 +49,18 @@ import android.net.Uri
 import androidx.core.content.FileProvider
 
 import android.os.Build
+import com.amazonaws.mobile.client.AWSMobileClient
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
+import com.amazonaws.services.s3.AmazonS3Client
 import com.in10mServiceMan.BuildConfig
+import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
 import com.in10mServiceMan.utils.cropper.CropImage
 import com.in10mServiceMan.utils.cropper.CropImageView
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.io.File
 
 
@@ -62,6 +71,8 @@ class Profile : BaseFragment(), IProfileView {
 
     private var isStarted = false
     private var isVisiblee = false
+    private var isNewImage: Boolean = false
+    private val BUCKET_NAME: String = "in10mdevimages"
 
     var country: String = ""
     var country_id: String = ""
@@ -116,7 +127,7 @@ class Profile : BaseFragment(), IProfileView {
             view.streetNameET1.isEnabled = true
             view.landMarkNameET1.isEnabled = true
             view.stateNameET1.visibility = View.GONE
-            view.txt_view_state.visibility = View.VISIBLE
+            view.txt_view_state.visibility = View.GONE
             view.pinCodeET1.isEnabled = true
 
             view.edt_age.setOnClickListener {
@@ -129,7 +140,7 @@ class Profile : BaseFragment(), IProfileView {
                     DatePickerDialog(
                         it1,
                         R.style.CalendarThemeOne,
-                        DatePickerDialog.OnDateSetListener { v, myear, mmonth, mdayOfMonth ->
+                        { v, myear, mmonth, mdayOfMonth ->
                             val month = mmonth + 1
                             view.edt_age.setText("$month-$mdayOfMonth-$myear")//"$myear-$month-$mdayOfMonth"
                         },
@@ -143,7 +154,7 @@ class Profile : BaseFragment(), IProfileView {
             }
         }
 
-        var myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
+        val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
 
         myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -162,96 +173,180 @@ class Profile : BaseFragment(), IProfileView {
             }
         }
 
-
-
         view.btnSaveProfile.setOnClickListener {
-            val mAuthToken = SharedPreferencesHelper.getString(
-                activity,
-                Constants.SharedPrefs.User.AUTH_TOKEN,
-                ""
-            )
-            val mServiceManId =
-                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
-
-            val email = view.emailET.text.toString()
-            val mobile = view.mobileET.text.toString()
-            val fullname = view.fullnameET.text.toString()
-            val dob = getFormattedDateRequest(view.edt_age.text.toString().trim())
-            val address1 = view.apartmentNameET1.text.toString()
-            val address2 = view.streetNameET1.text.toString()
-            val city = view.landMarkNameET1.text.toString()
-            val pincode = view.pinCodeET1.text.toString()
-
-            if (fullname.isEmpty()) {
-                Showtoast("Enter the name")
-            } else if (mobile.isEmpty() || mobile.length != 10) {
-                Showtoast("Enter valid mobile number")
-            } else if (dob.isEmpty()) {
-                Showtoast("Please select a DOB")
-            } else if (!isValidEmail(email)) {
-                Showtoast("Enter a valid email address")
-            } else if (address1.isEmpty()) {
-                Showtoast("Enter Suite or Apt. Number")
-            } else if (address2.isEmpty()) {
-                Showtoast("Enter your Address")
-            } else if (city.isEmpty()) {
-                Showtoast("Enter your city")
-            } else if (state.isEmpty()) {
-                Showtoast("Please select your state")
-            } else if (pincode.isEmpty()) {
-                Showtoast("Enter pincode")
+            if (isNewImage) {
+                /*val header =
+                    SharedPreferencesHelper.getString(
+                        activity,
+                        Constants.SharedPrefs.User.AUTH_TOKEN,
+                        ""
+                    )
+                profileUpdate(
+                    "Bearer $header",
+                    SharedPreferencesHelper.getString(
+                        activity,
+                        Constants.SharedPrefs.User.USER_ID,
+                        ""
+                    ).toString(),
+                    SharedPreferencesHelper.getString(
+                        activity,
+                        Constants.SharedPrefs.User.SELECTED_IMAGE,
+                        ""
+                    ).toString()
+                )*/
+                uploadImageToAWS()
             } else {
-                rq.serviceproviderId = SharedPreferencesHelper.getString(
-                    activity,
-                    Constants.SharedPrefs.User.USER_ID,
-                    "0"
-                )
-                rq.serviceproviderName = fullname
-                rq.serviceproviderMobile = mobile
-                rq.serviceproviderCountryCode = "+1"
-                rq.serviceproviderEmail = email
-                rq.serviceproviderLastname = ""
-                rq.serviceproviderAddress1 = address1
-                rq.serviceproviderAdddress2 = address2
-                rq.serviceproviderStreetName = profile.streetName
-                rq.serviceproviderPincode = pincode
-                rq.serviceproviderWorkingAs = profile.workingAs
-                rq.serviceproviderExperience =
-                    profile.experience//edit_text_total_eperiance.text.toString()
-                rq.serviceproviderDob = dob
-                rq.serviceproviderCity = city
-                rq.serviceproviderCountry = profile.country
-                rq.serviceproviderCivilId = profile.civilId
-                rq.serviceproviderLanguage = profile.language
-                rq.serviceproviderLatitude = profile.latitude
-                rq.serviceproviderLongitude = profile.longitude
-                rq.serviceproviderGender = profile.gender
-                rq.serviceproviderGender = state
-
-                showProgressDialog("")
-                if (mAuthToken != null) {
-                    mPresenter.updateProfile(mAuthToken, rq)
-                }
+                updateProf("")
             }
         }
-
-        return view
-    }
-
-    override fun onStart() {
-        super.onStart()
         isStarted = true
         if (isVisiblee) {
             loadProfile()
             getPreServices()
-            getStates()
+//            getStates()
         }
-
+        return view
     }
 
-    override fun onStop() {
-        super.onStop()
-        isStarted = false
+    fun profileUpdate(
+        header: String,
+        userID: String,
+        profilePicData: String
+    ) {
+        val userId = RequestBody.create(MediaType.parse("text/plain"), userID)
+        var body: MultipartBody.Part? = null
+        val file = File(profilePicData)
+        val reqFile = RequestBody.create(MediaType.parse("image/*"), file)
+        body = MultipartBody.Part.createFormData("profile_picture", file.name, reqFile)
+
+        val profilePicRequest = APIClient.getApiInterface()
+            .UpdateServiceManProfilePicture(header, userId, body)
+        profilePicRequest.enqueue(object : Callback<ImageUpdateResponse> {
+            override fun onResponse(
+                call: Call<ImageUpdateResponse>,
+                response: Response<ImageUpdateResponse>
+            ) {
+                if (response.isSuccessful) {
+                    isNewImage = false
+                    updateProf("")
+                }
+            }
+
+            override fun onFailure(call: Call<ImageUpdateResponse>, t: Throwable) {
+            }
+        })
+    }
+
+
+    private fun uploadImageToAWS() {
+        try {
+            AWSMobileClient.getInstance().initialize(activity).execute()
+            uploadWithTransferUtility(BUCKET_NAME, imageUri)
+        } catch (e: UninitializedPropertyAccessException) {
+            updateProf("")
+        }
+    }
+
+    private fun uploadWithTransferUtility(remote: String, filePath: String) {
+
+        val localFile = File(filePath)
+        val txUtil = TransferUtility.builder().context(activity)
+            .awsConfiguration(AWSMobileClient.getInstance().configuration)
+            .s3Client(AmazonS3Client(AWSMobileClient.getInstance().credentialsProvider))
+            .build()
+
+        val fileKey: String =
+            profile.id.toString() + "_" + System.currentTimeMillis() + localFile.name
+
+        val txObserver = txUtil.upload(remote, fileKey, localFile)
+
+        txObserver.setTransferListener(object : TransferListener {
+            override fun onStateChanged(id: Int, state: TransferState) {
+                if (state == TransferState.COMPLETED) {
+                    // Handle a completed upload
+                    state.declaringClass.getResource(state.name)
+                    Log.e(
+                        "uploadWithTransfer",
+                        "URL : " + "https://" + txObserver.bucket + ".s3.amazonaws.com/" + fileKey
+                    )
+                    val finalUrl: String =
+                        "https://" + txObserver.bucket + ".s3.amazonaws.com/" + fileKey
+                    isNewImage = false
+                    updateProf(finalUrl)
+
+                    //txObserver.bucket
+                }
+            }
+
+            override fun onProgressChanged(id: Int, current: Long, total: Long) {
+                /*val done = (((current / total) * 100.0) as Float) as Int
+                Log.d(TAG, "AWS ID: $id, percent done = $done")*/
+            }
+
+            override fun onError(id: Int, ex: Exception) {
+                // Handle errors
+            }
+        })
+    }
+
+    private fun updateProf(imageUrl: String) {
+        val mAuthToken = SharedPreferencesHelper.getString(
+            activity,
+            Constants.SharedPrefs.User.AUTH_TOKEN,
+            ""
+        )
+        val mServiceManId =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+
+        val email = view!!.emailET.text.toString()
+        val mobile = view!!.mobileET.text.toString()
+        val fullname = view!!.fullnameET.text.toString()
+        val dob = getFormattedDateRequest(view!!.edt_age.text.toString().trim())
+        val address1 = view!!.apartmentNameET1.text.toString()
+        val address2 = view!!.streetNameET1.text.toString()
+        val city = view!!.landMarkNameET1.text.toString()
+        val pincode = view!!.pinCodeET1.text.toString()
+
+        rq.serviceproviderId = SharedPreferencesHelper.getString(
+            activity,
+            Constants.SharedPrefs.User.USER_ID,
+            "0"
+        )
+        rq.serviceproviderName = fullname
+        rq.serviceproviderMobile = mobile
+        rq.serviceproviderCountryCode = "965"
+        rq.serviceproviderEmail = email
+        rq.serviceproviderLastname = ""
+        rq.serviceproviderAddress1 = address1
+        rq.serviceproviderAdddress2 = address2
+        rq.serviceproviderStreetName = profile.streetName
+        rq.serviceproviderPincode = pincode
+        rq.serviceproviderWorkingAs = profile.workingAs
+        rq.serviceproviderExperience =
+            profile.experience//edit_text_total_eperiance.text.toString()
+        rq.serviceproviderDob = dob
+        rq.serviceproviderCity = city
+        rq.serviceproviderCountry = profile.country
+        rq.serviceproviderCivilId = profile.civilId
+        rq.serviceproviderLanguage = profile.language
+        rq.serviceproviderLatitude = profile.latitude
+        rq.serviceproviderLongitude = profile.longitude
+        rq.serviceproviderGender = profile.gender
+        rq.serviceproviderGender = state
+        rq.serviceproviderImage = imageUri
+
+        showProgressDialog("")
+        if (fullname.isEmpty()) {
+            showToastMsg(context!!.resources.getString(R.string.enter_the_name))
+        } else if (mobile.isEmpty() || mobile.length != 8) {
+            showToastMsg(context!!.resources.getString(R.string.enter_valid_mobile_number))
+        } else if (dob.isEmpty()) {
+            showToastMsg(context!!.resources.getString(R.string.please_select_a_dob))
+        } else {
+            if (mAuthToken != null) {
+                mPresenter.updateProfile(mAuthToken, rq)
+            }
+        }
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -260,7 +355,7 @@ class Profile : BaseFragment(), IProfileView {
         if (isVisiblee && isStarted) {
             loadProfile()
             getPreServices()
-            getStates()
+//            getStates()
         }
     }
 
@@ -273,8 +368,6 @@ class Profile : BaseFragment(), IProfileView {
             ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
-                } else {
-
                 }
             }
 
@@ -288,7 +381,7 @@ class Profile : BaseFragment(), IProfileView {
         mStatesList = body.data?.states
         country = body.data?.countryCode!!
         country_id = body.data.countryId.toString()
-        var myStateList: ArrayList<String>? = ArrayList()
+        val myStateList: ArrayList<String>? = ArrayList()
         if (mStatesList?.size!! > 0) {
             for (i in 0 until mStatesList!!.size) {
                 myStateList?.add(mStatesList?.get(i)?.name!!)
@@ -303,10 +396,9 @@ class Profile : BaseFragment(), IProfileView {
 
     private fun loadProfile() {
         /*val isLoggedIn = localStorage(this@ProfileActivity).isLoggedIn*/
-        var isLoggedIn = false //localStorage(context).isLoggedIn
-        isLoggedIn =
+        val isLoggedIn: Boolean =
             !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
-                .isNullOrEmpty()
+                .isNullOrEmpty() //localStorage(context).isLoggedIn
         if (isLoggedIn) {
             myUserId = SharedPreferencesHelper.getString(
                 activity,
@@ -355,7 +447,7 @@ class Profile : BaseFragment(), IProfileView {
                             rq.serviceproviderPincode = profile.pincode
                             rq.serviceproviderState = profile.state
                             rq.serviceproviderStreetName = profile.streetName
-
+                            imageUri = profile.image
                             if (profile.lastname != null)
                                 view!!.fullnameET.setText(profile.name.toString() + " " + profile.lastname)
                             else
@@ -378,7 +470,7 @@ class Profile : BaseFragment(), IProfileView {
                                 .into(view!!.serviceManProfile)
                         }
                     } else {
-                        Showtoast("Error in loading Complete profile")
+                        showToastMsg("Error in loading Complete profile")
                     }
                 }
 
@@ -477,7 +569,7 @@ class Profile : BaseFragment(), IProfileView {
         }
     }
 
-    fun Showtoast(msg: String) {
+    fun showToastMsg(msg: String) {
         Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
     }
 
@@ -550,13 +642,13 @@ class Profile : BaseFragment(), IProfileView {
             if (mServiceManId != null) {
                 mPresenter.getCompleteProfile(mServiceManId)
             }
-            Showtoast(mData.message!!)
+            showToastMsg(mData.message!!)
         }
     }
 
     override fun onFailed(msg: String) {
         destroyDialog()
-        Showtoast(msg)
+        showToastMsg(msg)
     }
 
     override fun onProfileUpdated(mData: CustomerCompleteProfileAfterUpdate) {
@@ -583,7 +675,7 @@ class Profile : BaseFragment(), IProfileView {
                 }
             }
         } else {
-            Showtoast(mData.message)
+            showToastMsg(mData.message)
         }
     }
 
@@ -600,8 +692,9 @@ class Profile : BaseFragment(), IProfileView {
             val result = CropImage.getActivityResult(data)
             if (resultCode == Activity.RESULT_OK) {
                 val resultUri = result.uri
-                var imageUri = resultUri.path.toString()
+                imageUri = resultUri.path.toString()
                 serviceManProfile.setImageURI(resultUri)
+                isNewImage = true
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
             }

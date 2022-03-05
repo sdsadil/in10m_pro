@@ -13,7 +13,7 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
 import com.in10mServiceMan.ui.activities.company_registration.CompanyResourceActivity
 import com.in10mServiceMan.ui.activities.splash.SplashActivity
-import com.in10mServiceMan.ui.activities.tracking_map.MapTrackingActivity
+import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
@@ -44,7 +44,7 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                     signUpPhaseViewPager.currentItem = 3
                 }
                 intent.getStringExtra("step") == "3" -> {
-                    startActivity(Intent(this, MapTrackingActivity::class.java))
+                    startActivity(Intent(this, DashboardActivity::class.java))
                 }
             }
 
