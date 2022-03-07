@@ -92,20 +92,7 @@ class Profile : BaseFragment(), IProfileView {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        view.btnSaveProfile.visibility = View.GONE
-        view.btnEditProfile.visibility = View.VISIBLE
-        view.btnChangeImage.visibility = View.GONE
-        view.fullnameET.isEnabled = false
-        view.mobileET.isEnabled = false
-        view.edt_age.isEnabled = false
-        view.emailET.isEnabled = false
-        view.apartmentNameET1.isEnabled = false
-        view.streetNameET1.isEnabled = false
-        view.landMarkNameET1.isEnabled = false
-        view.stateNameET1.isEnabled = false
-        view.pinCodeET1.isEnabled = false
-
-
+        setDisable()
         view.tvAddressType_EditProfLay.setOnClickListener {
             openAddressTypePopUp()
         }
@@ -206,6 +193,21 @@ class Profile : BaseFragment(), IProfileView {
 //            getStates()
         }
         return view
+    }
+
+    fun setDisable() {
+        view?.btnSaveProfile?.visibility = View.GONE
+        view?.btnEditProfile?.visibility = View.VISIBLE
+        view?.btnChangeImage?.visibility = View.GONE
+        view?.fullnameET?.isEnabled = false
+        view?.mobileET?.isEnabled = false
+        view?.edt_age?.isEnabled = false
+        view?.emailET?.isEnabled = false
+        view?.apartmentNameET1?.isEnabled = false
+        view?.streetNameET1?.isEnabled = false
+        view?.landMarkNameET1?.isEnabled = false
+        view?.stateNameET1?.isEnabled = false
+        view?.pinCodeET1?.isEnabled = false
     }
 
     fun profileUpdate(
@@ -416,6 +418,7 @@ class Profile : BaseFragment(), IProfileView {
                         val data = response.body()
                         if (data!!.data != null) {
                             profile = data.data
+                            localStorage(context).saveCompleteCustomer(profile)
 
                             rq.serviceproviderExperience = profile.experience
                             rq.serviceproviderWorkingAs = profile.workingAs
@@ -448,9 +451,9 @@ class Profile : BaseFragment(), IProfileView {
                             rq.serviceproviderState = profile.state
                             rq.serviceproviderStreetName = profile.streetName
                             imageUri = profile.image
-                            if (profile.lastname != null)
-                                view!!.fullnameET.setText(profile.name.toString() + " " + profile.lastname)
-                            else
+//                            if (profile.lastname != null)
+//                                view!!.fullnameET.setText(profile.name.toString() + " " + profile.lastname)
+//                            else
                                 view!!.fullnameET.setText(profile.name.toString())
 
                             view!!.mobileET.setText(profile.mobile.toString())
@@ -654,26 +657,9 @@ class Profile : BaseFragment(), IProfileView {
     override fun onProfileUpdated(mData: CustomerCompleteProfileAfterUpdate) {
         destroyDialog()
         if (mData.status == 1) {
-            val mAuthToken = SharedPreferencesHelper.getString(
-                activity,
-                Constants.SharedPrefs.User.AUTH_TOKEN,
-                ""
-            )
-            val mServiceManId =
-                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
-
-            if (imageUri.isNotEmpty()) {
-                showProgressDialog("")
-                if (mAuthToken != null) {
-                    if (mServiceManId != null) {
-                        mPresenter.updateProfilePicture(mAuthToken, mServiceManId, imageUri)
-                    }
-                }
-            } else {
-                if (mServiceManId != null) {
-                    mPresenter.getCompleteProfile(mServiceManId)
-                }
-            }
+            showToastMsg(mData.message)
+            setDisable()
+            loadProfile()
         } else {
             showToastMsg(mData.message)
         }

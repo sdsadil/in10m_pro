@@ -57,6 +57,7 @@ import com.in10mServiceMan.ui.complete_profile_api.CompleteProfileResponse
 import com.in10mServiceMan.ui.complete_profile_api.ICompleteProfileView
 import com.in10mServiceMan.ui.fragments.home.ServiceManCallBack
 import com.in10mServiceMan.utils.*
+import com.in10mServiceMan.utils.SharedPreferencesHelper.getBoolean
 import com.mapbox.api.directions.v5.models.DirectionsResponse
 import com.mapbox.api.directions.v5.models.DirectionsRoute
 import com.mapbox.geojson.Point
@@ -94,8 +95,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         Manifest.permission.READ_PHONE_STATE,
         Manifest.permission.CALL_PHONE
     )
-    var permsRequestCode = 1
-    var polyline: Polyline? = null
+    private var permsRequestCode = 1
+    private var polyline: Polyline? = null
     var currentWorkStatus: Int = 0
     var thread = Thread()
 
@@ -109,7 +110,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     val mZoomLevel = 16f
     var mCurrLocationMarker: Marker? = null
-    var destinationMarker: Marker? = null
+    private var destinationMarker: Marker? = null
     var map: GoogleMap? = null
     var map2: GoogleMap? = null
 
@@ -208,58 +209,56 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     }
 
                     if (map != null) {
-                        if (true) {
-                            userLocation = LatLng(location.latitude, location.longitude)
-                            if (mCurrLocationMarker == null) {
-                                val markerOptions = MarkerOptions()
-                                markerOptions.position(userLocation)
-                                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.user_icon_two))
-                                mCurrLocationMarker = map!!.addMarker(markerOptions)
-                            }
-                            mCurrLocationMarker?.position = userLocation
-                            if (!freezCurrentLocation)
-                                map!!.animateCamera(
-                                    CameraUpdateFactory.newLatLngZoom(
-                                        userLocation,
-                                        mZoomLevel
-                                    ), 1000, null
-                                )
+                        userLocation = LatLng(location.latitude, location.longitude)
+                        if (mCurrLocationMarker == null) {
+                            val markerOptions = MarkerOptions()
+                            markerOptions.position(userLocation)
+                            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.user_icon_two))
+                            mCurrLocationMarker = map!!.addMarker(markerOptions)
+                        }
+                        mCurrLocationMarker?.position = userLocation
+                        if (!freezCurrentLocation)
+                            map!!.animateCamera(
+                                CameraUpdateFactory.newLatLngZoom(
+                                    userLocation,
+                                    mZoomLevel
+                                ), 1000, null
+                            )
 
-                            if (bookingId != 0 && bookingAccpted && !isJobDone) {
-                                if (lastLat != location.latitude || lastLng != location.longitude) {
-                                    request!!.servicemen_lat = location.latitude.toString()
-                                    request!!.servicemen_long = location.longitude.toString()
-                                    //mDatabase.child(bookingId.toString()).setValue(request)
-                                    mDatabase.child(bookingId.toString()).child("servicemen_lat")
-                                        .setValue(location.latitude.toString())
-                                    mDatabase.child(bookingId.toString()).child("servicemen_long")
-                                        .setValue(location.longitude.toString())
+                        if (bookingId != 0 && bookingAccpted && !isJobDone) {
+                            if (lastLat != location.latitude || lastLng != location.longitude) {
+                                request!!.servicemen_lat = location.latitude.toString()
+                                request!!.servicemen_long = location.longitude.toString()
+                                //mDatabase.child(bookingId.toString()).setValue(request)
+                                mDatabase.child(bookingId.toString()).child("servicemen_lat")
+                                    .setValue(location.latitude.toString())
+                                mDatabase.child(bookingId.toString()).child("servicemen_long")
+                                    .setValue(location.longitude.toString())
 
-                                    mDatabaseCustomer.child("servicemen_lat")
-                                        .setValue(location.latitude.toString())
-                                    mDatabaseCustomer.child("servicemen_long")
-                                        .setValue(location.longitude.toString())
+                                mDatabaseCustomer.child("servicemen_lat")
+                                    .setValue(location.latitude.toString())
+                                mDatabaseCustomer.child("servicemen_long")
+                                    .setValue(location.longitude.toString())
 
-                                    /*if (!thread.isAlive && !isLocationReayForChange) {
-                                        thread = Thread(Runnable {
-                                            Thread.sleep(15000)
-                                            this@MapTrackingActivity.runOnUiThread(Runnable {
-                                                isLocationReayForChange = true
-                                                thread.interrupt()
-                                            })
+                                /*if (!thread.isAlive && !isLocationReayForChange) {
+                                    thread = Thread(Runnable {
+                                        Thread.sleep(15000)
+                                        this@MapTrackingActivity.runOnUiThread(Runnable {
+                                            isLocationReayForChange = true
+                                            thread.interrupt()
                                         })
-                                        thread.start()
-                                    }
-
-                                    if (isLocationReayForChange) {
-                                        isLocationReayForChange = false
-                                        mDatabaseCustomer.child("servicemen_lat").setValue(location.latitude.toString())
-                                        mDatabaseCustomer.child("servicemen_long").setValue(location.longitude.toString())
-                                    }*/
-                                    lastLat = location.latitude
-                                    lastLng = location.longitude
-                                    drawPolyLine()
+                                    })
+                                    thread.start()
                                 }
+
+                                if (isLocationReayForChange) {
+                                    isLocationReayForChange = false
+                                    mDatabaseCustomer.child("servicemen_lat").setValue(location.latitude.toString())
+                                    mDatabaseCustomer.child("servicemen_long").setValue(location.longitude.toString())
+                                }*/
+                                lastLat = location.latitude
+                                lastLng = location.longitude
+                                drawPolyLine()
                             }
                         }
                     }
@@ -310,7 +309,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             getRoute(destinationPosition, orginPosition)
         }
 
-        btnDirection_HomeBottomBtn . setOnClickListener {
+        btnDirection_HomeBottomBtn.setOnClickListener {
             orginPosition = Point.fromLngLat(userLocation.longitude, userLocation.latitude)
             destinationPosition =
                 Point.fromLngLat(destinationLocation.longitude, destinationLocation.latitude)
@@ -568,7 +567,18 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         loadCustomerProfile(request!!.customer_id)
         loadServiceDetails(request!!.service_id)
         addressTV.text = request!!.address
-        serviceRequestedTV.text = request!!.service_name
+        val isLangArabic = getBoolean(
+            this,
+            Constants.SharedPrefs.User.IS_LANG_ARB, false
+        )!!
+        when {
+            isLangArabic -> {
+                serviceRequestedTV.text = request!!.service_ar_name
+            }
+            else -> {
+                serviceRequestedTV.text = request!!.service_name
+            }
+        }
         subServiceRequestedTV.text = "Sub service : ${request!!.sub_service_name}"
         llCancel_HomeBottomBtn.setTag(R.string.request_id, key.toString())
         llAccept_HomeBottomBtn.setTag(R.string.request_id2, key.toString())
@@ -652,7 +662,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             ) {
                 if (response.isSuccessful) {
                     customerProfile = response.body()!!.data!![0]
-                    var cName = ""
+                    var cName: String
                     if (customerProfile.lastname != null)
                         cName = customerProfile.name + " " + customerProfile.lastname
                     else
@@ -876,7 +886,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         }
 
         if (mapss == null)
-            mapss = Mapss(map, userLocation, destinationLocation, this@DashboardActivity, this);
+            mapss = Mapss(map, userLocation, destinationLocation, this@DashboardActivity, this)
         else {
             mapss!!.updateRoute(map, userLocation, destinationLocation)
         }
@@ -1342,6 +1352,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         permissions: Array<String>,
         grantResults: IntArray
     ) {
+        if (requestCode == permsRequestCode) {// If request is cancelled, the result arrays are empty.
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onLocationFetched()
+            }
+        }
     }
 
 
@@ -1426,7 +1441,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
             .inject()
 
-        slidingRootNav?.layout?.setOnTouchListener { v, event ->
+        slidingRootNav?.layout?.setOnTouchListener { _, event ->
 
             if (event.action == MotionEvent.ACTION_DOWN) {
                 if (slidingRootNav != null && slidingRootNav!!.isMenuOpened) {
@@ -1447,9 +1462,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         navigationRV.adapter = NavigationAdapter(this, this)
 
         menuIV.setOnClickListener {
-
             if (!isLocationSelected) {
-
                 slidingRootNav?.openMenu(true)
             } else {
                 // hideBottomWagonSelectionCard()
@@ -1585,54 +1598,47 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             // for ActivityCompat#requestPermissions for more details.
             return
         }
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener { location: Location? ->
+        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+            if (location != null) {
+                //val location=LatLng(29.374009, 47.976461)
+                if (map != null) {
 
-                if (location != null) {
-                    //val location=LatLng(29.374009, 47.976461)
-                    if (map != null) {
+                    map!!.setOnCameraIdleListener(this)
+                    map!!.setOnCameraMoveStartedListener(this)
+                    map!!.setOnCameraMoveListener(this)
+                    map!!.setOnCameraMoveCanceledListener(this)
 
-                        map!!.setOnCameraIdleListener(this)
-                        map!!.setOnCameraMoveStartedListener(this)
-                        map!!.setOnCameraMoveListener(this)
-                        map!!.setOnCameraMoveCanceledListener(this)
-
-                        userLocation = LatLng(location.latitude, location.longitude)
-                        if (mCurrLocationMarker != null) {
-                            mCurrLocationMarker?.remove()
-                        }
-
-                        updateMyLocationToDB(
-                            location.latitude.toString(),
-                            location.longitude.toString()
-                        )
-                        val latLng = userLocation
-
-                        if (false) {
-                            // GetImageFromURL(mapboxMap, markerList, latLng, this@MapTrackingActivity).execute(imageURI)
-                        } else {
-                            val markerOptions = MarkerOptions()
-                            markerOptions.position(latLng)
-                            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.user_icon_two))//
-                            mCurrLocationMarker = map!!.addMarker(markerOptions)
-                        }
-
-
-                        map!!.animateCamera(
-                            CameraUpdateFactory.newLatLngZoom(latLng, mZoomLevel),
-                            1000,
-                            null
-                        )
-
+                    userLocation = LatLng(location.latitude, location.longitude)
+                    if (mCurrLocationMarker != null) {
+                        mCurrLocationMarker?.remove()
                     }
-                } else {
-                    checkLocationServices()
+
+                    updateMyLocationToDB(
+                        location.latitude.toString(),
+                        location.longitude.toString()
+                    )
+                    val latLng = userLocation
+
+                    val markerOptions = MarkerOptions()
+                    markerOptions.position(latLng)
+                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.user_icon_two))//
+                    mCurrLocationMarker = map!!.addMarker(markerOptions)
+
+
+                    map!!.animateCamera(
+                        CameraUpdateFactory.newLatLngZoom(latLng, mZoomLevel),
+                        1000,
+                        null
+                    )
+
                 }
+            } else {
+                checkLocationServices()
             }
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        googleMap ?: return
         with(googleMap) {
             map = googleMap
             setMapStyle(
@@ -1789,10 +1795,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     private fun showAlertDutyChangeAfterWorkAccepted() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setMessage(resources.getString(R.string.are_you_sure_to_cancel_the_booking))
-        builder.setPositiveButton(resources.getString(R.string.yes)) { dialog, which ->
+        builder.setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
             callRequestCancelApi()
         }
-        builder.setNegativeButton(resources.getString(R.string.no)) { dialog, which ->
+        builder.setNegativeButton(resources.getString(R.string.no)) { dialog, _ ->
             dialog.dismiss()
         }
         val alert: AlertDialog = builder.create()
@@ -1923,7 +1929,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val device: OSDeviceState? = OneSignal.getDeviceState()
         val userId: String = device!!.userId
 //        val registrationId: String = device.emailUserId
-        val registrationId: String = device.userId;
+        val registrationId: String = device.userId
 
         var text = "OneSignal UserID:\n$userId\n\n"
         text += "Google Registration Id:\n$registrationId"

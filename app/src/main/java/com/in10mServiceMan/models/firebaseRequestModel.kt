@@ -20,6 +20,7 @@ data class firebaseRequestModel(
         var service_men_rating: String? = "",
         var servicemen_image: String? = "",
         var service_name: String? = "",
+        var service_ar_name: String? = "",
         var status: String? = "",
         var sub_service_id: String? = "",
         var sub_service_name: String? = "",
