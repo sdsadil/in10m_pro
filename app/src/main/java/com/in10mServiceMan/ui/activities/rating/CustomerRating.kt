@@ -44,14 +44,14 @@ class CustomerRating : In10mBaseActivity() {
         }
 
         reviewThumpsUpIV.setOnClickListener {
-            reviewThumpsUpIV.setImageResource(R.drawable.tumbsupblue)
-            reviewThumpsDownIV.setImageResource(R.drawable.tumbsdowngray)
+            reviewThumpsUpIV.setImageResource(R.drawable.ic_happy_smilee_icon_large)
+            reviewThumpsDownIV.setImageResource(R.drawable.ic_sad_smilee_uncheck)
             overAllRating = 1
         }
 
         reviewThumpsDownIV.setOnClickListener {
-            reviewThumpsUpIV.setImageResource(R.drawable.tumbsupgray)
-            reviewThumpsDownIV.setImageResource(R.drawable.tumbsdownblue)
+            reviewThumpsUpIV.setImageResource(R.drawable.ic_happy_smilee_uncheck)
+            reviewThumpsDownIV.setImageResource(R.drawable.ic_sad_smilee_icon_large)
             overAllRating = 0
         }
         lvBtnSkip.setOnClickListener {

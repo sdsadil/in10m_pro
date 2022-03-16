@@ -188,7 +188,7 @@
                 android:id="@+id/reviewThumpsUpIV"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/tumbsupgray"
+                android:src="@drawable/ic_happy_smilee_uncheck"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -198,7 +198,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:src="@drawable/tumbsdowngray"
+                android:src="@drawable/ic_sad_smilee_uncheck"
                 app:layout_constraintStart_toEndOf="@+id/reviewThumpsUpIV"
                 app:layout_constraintTop_toTopOf="parent" />
 
