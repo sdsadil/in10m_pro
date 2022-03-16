@@ -361,6 +361,7 @@
     <string name="enter_your_password1">ادخل كلمة المرور</string>
     <string name="enter_your_password2">كلمة المرور يجب أن تكون مكونة من 8 خانات</string>
     <string name="enter_the_received_OTP">أدخل الكود الذي استلمته على هاتفك من الرسائل</string>
+    <string name="please_accept_terms_privacy">Please accept our Terms of Use and Privacy Policy</string>
     <string name="arabic">عربى</string>
     <string name="english">English</string>
     <string name="guest_user">مستخدم ضيف</string>
@@ -445,4 +446,6 @@
     <string name="payment_completed">تم الدفع</string>
     <string name="how_was_the_customer">كيف كانت تجربتك مع الزبون</string>
     <string name="service_added_successfully">تمت إضافة الخدمة بنجاح</string>
+    <string name="resend_30">إعادة إرسال خلال</string>
+    <string name="resend_otp">إعادة  إرسال</string>
 </resources>

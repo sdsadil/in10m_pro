@@ -392,6 +392,7 @@
     <string name="enter_your_password1">Please enter your password</string>
     <string name="enter_your_password2">Password must be at least 8 characters</string>
     <string name="enter_the_received_OTP">Enter the received OTP</string>
+    <string name="please_accept_terms_privacy">Please accept our Terms of Use and Privacy Policy</string>
     <string name="arabic">عربى</string>
     <string name="english">English</string>
     <string name="guest_user">Guest User</string>
@@ -477,4 +478,6 @@
     <string name="payment_completed">Payment Completed</string>
     <string name="how_was_the_customer">How was the customer?</string>
     <string name="service_added_successfully">Service added successfully</string>
+    <string name="resend_30">Resend in</string>
+    <string name="resend_otp">Resend Code</string>
 </resources>
