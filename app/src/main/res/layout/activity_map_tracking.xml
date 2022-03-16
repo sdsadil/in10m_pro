@@ -376,7 +376,7 @@
                     android:maxLines="3"
                     android:textAlignment="viewStart"
                     android:textColor="@color/text_colour_light"
-                    android:textSize="11sp"/>
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -476,6 +476,8 @@
                         android:id="@+id/subServiceRequestedTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
                         android:visibility="gone" />
 
                 </LinearLayout>
