@@ -48,6 +48,9 @@
                 android:id="@+id/txt_view_we_have"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center"
                 android:text="@string/intro_heading_two"
                 android:textColor="@color/textColor"
@@ -57,11 +60,37 @@
                 android:id="@+id/txt_view_our_expert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:gravity="center"
                 android:text="@string/intro_info_two"
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/_12sdp" />
+
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
+                android:id="@+id/txt_view_we_have1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/intro_heading_two1"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
+
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/txt_view_our_expert1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/intro_info_two1"
+                android:textColor="@color/textColor"
+                android:textSize="15sp" />
 
 
             <LinearLayout

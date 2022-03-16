@@ -165,12 +165,18 @@
     <string name="skip">تخطي</string>
     <string name="otp_verification">OTP Verification</string>
     <string name="an_otp_has_been">An OTP has been sent to the \nregistered number 32****32</string>
-    <string name="intro_heading_one">Get Seen On The Map!</string>
-    <string name="intro_info_one">Let everybody knows that your service is within easy reach.</string>
-    <string name="intro_heading_two">On Duty, Off Duty Switch</string>
-    <string name="intro_info_two">You want your next job when you are looking for one..right!</string>
-    <string name="intro_heading_three">How Well I\'am Doing</string>
-    <string name="intro_info_three">Monitor your Service performance, and ratings</string>
+    <string name="intro_heading_one">أنت على الخريطة</string>
+    <string name="intro_info_one">قريب جدا لتقديم خدمتك</string>
+    <string name="intro_heading_one1">أنت على الخريطة</string>
+    <string name="intro_info_one1">قريب جدا لتقديم خدمتك</string>
+    <string name="intro_heading_two">في الوقت الذي تريد</string>
+    <string name="intro_info_two">تحصل على العمل عندما تريد</string>
+    <string name="intro_heading_two1">في الوقت الذي تريد</string>
+    <string name="intro_info_two1">تحصل على العمل عندما تريد</string>
+    <string name="intro_heading_three">كيف كان أدائي</string>
+    <string name="intro_info_three">مراقبة الأداء و التقييم الخاصة بعملي</string>
+    <string name="intro_heading_three1">كيف كان أدائي</string>
+    <string name="intro_info_three1">مراقبة الأداء و التقييم الخاصة بعملي</string>
 
 
     <string name="your_service_and_experiences">Enter your services &amp;\nexperiences</string>
