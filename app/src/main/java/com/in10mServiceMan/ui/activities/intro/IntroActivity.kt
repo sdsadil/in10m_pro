@@ -42,7 +42,7 @@ class IntroActivity : In10mBaseActivity() {
         }
         addBottomDots(0)
 
-        var myViewPagerAdapter = MyViewPagerAdapter()
+        val myViewPagerAdapter = MyViewPagerAdapter()
         intro_view_pager.adapter = myViewPagerAdapter
         // val numbers: IntArray = intArrayOf(R.layout.intro_first_screen,R.layout.intro_second_screen,R.layout.intro_third_screen);
 

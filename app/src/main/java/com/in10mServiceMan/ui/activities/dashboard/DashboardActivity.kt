@@ -1836,7 +1836,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 Constants.GlobalSettings.termsConditions = true
             }
 
-            when {
+            bannerCard_HO.visibility = View.GONE
+
+            /*when {
                 mPost.data.privacy_policy_accept == 0 -> {
                     bannerCard_HO.visibility = View.VISIBLE
                     header_HO.text = resources.getString(R.string.privacy_updated)
@@ -1856,7 +1858,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 else -> {
                     bannerCard_HO.visibility = View.GONE
                 }
-            }
+            }*/
         }
     }
 
