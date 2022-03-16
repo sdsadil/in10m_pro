@@ -37,7 +37,8 @@ public class CallScreenActivity extends BaseActivity {
     // private TextView mCallState;
     private TextView mCallerName;
     private CircleImageView circleImageView;
-    private String customername="";
+    private String customername = "";
+
     private class UpdateCallDurationTask extends TimerTask {
 
         @Override
@@ -62,8 +63,8 @@ public class CallScreenActivity extends BaseActivity {
 
         mCallId = getIntent().getStringExtra(SinchService.CALL_ID);
         mProfilePic = getIntent().getStringExtra("profile_image");
-        customername=getIntent().getStringExtra("customer_name");
-            }
+        customername = getIntent().getStringExtra("customer_name");
+    }
 
     @Override
     public void onServiceConnected() {
@@ -79,7 +80,7 @@ public class CallScreenActivity extends BaseActivity {
             CircleImageView serviceManIVR = (CircleImageView) findViewById(R.id.serviceManIVR);
 //            if (callerId.length > 1)
 //                Picasso.get().load(UserImage + callerId[1]).placeholder(R.drawable.dummy_user).fit().into(serviceManIVR);
-            if (mProfilePic !=null)
+            if (mProfilePic != null)
                 Picasso.get().load(mProfilePic).error(R.drawable.user_dummy_avatar).placeholder(R.drawable.user_dummy_avatar).into(serviceManIVR);
 
             // mCallState.setText(call.getState().toString());

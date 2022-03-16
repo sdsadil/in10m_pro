@@ -345,7 +345,7 @@
     <string name="please_enter_work_scope">Please enter work scope</string>
     <string name="Please_enter_price_estimate">Please enter price estimate</string>
     <string name="home_owner_rejected_the_estimate">Home owner rejected the estimate</string>
-    <string name="job_in_progress">Job in progress</string>
+    <string name="job_in_progress">Work in progress</string>
     <string name="hello">Hello</string>
     <string name="overall">Overall</string>
     <string name="value_for_money">Value for money</string>

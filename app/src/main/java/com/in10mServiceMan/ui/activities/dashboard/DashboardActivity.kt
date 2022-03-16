@@ -418,6 +418,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     imgBtnNavigate.visibility = View.GONE
                                     ServiceManNameTOP.text =
                                         resources.getString(R.string.you_have_reached)
+
+                                    llAccept_HomeBottomBtn.visibility = View.GONE
+                                    llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
                                     llEstimate_HomeBottomBtn.visibility = View.GONE
                                     llStart_HomeBottomBtn.visibility = View.VISIBLE
@@ -430,9 +433,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     drawPolyLine()
 //                                    updateTOStart(false)
                                     currentWorkStatus = BookingStatus.Ongoing
-
                                     ServiceManNameTOP.text =
                                         resources.getString(R.string.job_in_progress)
+                                    llCall_HomeBottomBtn.visibility = View.VISIBLE
+                                    llAccept_HomeBottomBtn.visibility = View.GONE
                                     llStart_HomeBottomBtn.visibility = View.GONE
                                     llEnd_HomeBottomBtn.visibility = View.VISIBLE
                                     imgBtnNavigate.visibility = View.GONE

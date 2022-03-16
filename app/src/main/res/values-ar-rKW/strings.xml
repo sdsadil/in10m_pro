@@ -314,7 +314,7 @@
     <string name="please_enter_work_scope">الرجاء إدخال نطاق العمل</string>
     <string name="Please_enter_price_estimate">الرجاء إدخال تقدير السعر</string>
     <string name="home_owner_rejected_the_estimate">صاحب المنزل رفض التقدير</string>
-    <string name="job_in_progress">الوظيفة قيد التقدم</string>
+    <string name="job_in_progress">العمل جاري</string>
     <string name="hello">أهلا</string>
     <string name="overall">Overall</string>
     <string name="value_for_money">Value for money</string>
