@@ -259,7 +259,7 @@ class VerifyMobileFragment : BaseFragment() {
                             response.body()?.data!![0]?.apiToken!!
                         )
                         APIClient().publicAccessToken = response.body()?.data!![0]?.apiToken!!
-
+                        countDownTime!!.cancel()
                         mListener?.toNextFragmentThree("")
                     } else {
                         Toast.makeText(context, response.body()?.message!!, Toast.LENGTH_SHORT)
