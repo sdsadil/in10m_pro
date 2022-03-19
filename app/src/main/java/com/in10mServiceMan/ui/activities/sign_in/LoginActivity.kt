@@ -23,13 +23,14 @@ import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActiv
 import com.in10mServiceMan.ui.activities.services.AvailableServices
 import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_account_type.*
 
 
-class LoginActivity : BaseActivity(), ILoginView {
+class LoginActivity : In10mBaseActivity(), ILoginView {
 
     private var mRegistrationStep: Int = 0
     private var user: Int = 1

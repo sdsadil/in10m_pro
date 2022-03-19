@@ -18,12 +18,13 @@ import com.in10mServiceMan.ui.accound_edit.addService.ServiceResponse
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
 import com.in10mServiceMan.ui.activities.signup.SignUpActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_available_services.*
 import org.json.JSONArray
 
-class AvailableServices : BaseActivity(), IServicesView, IServiceInteractorListener,
+class AvailableServices : In10mBaseActivity(), IServicesView, IServiceInteractorListener,
     ServicesAdapter.SelectedServiceCallback {
 
     val mPresenterr = ServiceInteractor(this)
