@@ -11,6 +11,7 @@ import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity
 import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.LoadingDialog
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_otp_verification.*
@@ -18,7 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class OtpVerificationActivity : BaseActivity() {
+class OtpVerificationActivity : In10mBaseActivity() {
 
     var alreadyRegistered = 0
     internal lateinit var loadingDialog: LoadingDialog

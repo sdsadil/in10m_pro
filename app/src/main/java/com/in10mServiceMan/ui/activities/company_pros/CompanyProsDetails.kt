@@ -16,7 +16,7 @@ import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_company_pros_details.*
 
-class CompanyProsDetails : BaseActivity(), IServicemanDetailsView {
+class CompanyProsDetails : In10mBaseActivity(), IServicemanDetailsView {
     override fun onServicemanDetailsCompleted(mPost: ServicemanDetailsResponse) {
         destroyDialog()
         if (mPost.status == 1)  {

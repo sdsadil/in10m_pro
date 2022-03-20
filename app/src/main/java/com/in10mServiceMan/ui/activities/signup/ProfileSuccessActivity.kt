@@ -10,13 +10,14 @@ import com.in10mServiceMan.ui.activities.sign_in.LinkSendResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginPresenter
 import com.in10mServiceMan.ui.activities.sign_in.LoginResponse
 import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile_success.*
 
-class ProfileSuccessActivity : BaseActivity(), ILoginView {
+class ProfileSuccessActivity : In10mBaseActivity(), ILoginView {
 
     override fun onLoginCompleted(mResponse: LoginResponse) {
     }

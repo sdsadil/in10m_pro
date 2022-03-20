@@ -6,10 +6,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import kotlinx.android.synthetic.main.activity_sign_up_terms_conditions.*
 
-class SignUpTermsConditions : BaseActivity() {
+class SignUpTermsConditions : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

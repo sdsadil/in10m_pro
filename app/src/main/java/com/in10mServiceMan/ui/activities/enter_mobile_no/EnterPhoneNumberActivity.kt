@@ -11,12 +11,13 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.otp_verification.OtpVerificationActivity
 import com.in10mServiceMan.ui.apis.APIClient
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import kotlinx.android.synthetic.main.activity_your_mobile_no.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EnterPhoneNumberActivity : BaseActivity() {
+class EnterPhoneNumberActivity : In10mBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_mobile_no)

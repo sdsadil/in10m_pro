@@ -20,12 +20,13 @@ import com.in10mServiceMan.ui.activities.signup.SignupViewPagerAdapter
 import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
 import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_company_signup.*
 
-class CompanySignupActivity : BaseActivity(), ICompanySignupView,
+class CompanySignupActivity : In10mBaseActivity(), ICompanySignupView,
     SignupCompanyDetailsFragment.NextFragmentInterfaceOne,
     SignupCompanyContactFragment.NextFragmentInterfaceTwo,
     VerifyCompanyMobileFragment.NextFragmentInterfaceThree,
