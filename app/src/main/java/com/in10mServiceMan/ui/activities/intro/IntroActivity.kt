@@ -2,6 +2,7 @@ package com.in10mServiceMan.ui.activities.intro
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import com.in10mServiceMan.R
 import android.os.Build
@@ -16,9 +17,14 @@ import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.enter_mobile_no.EnterPhoneNumberActivity
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
 import com.in10mServiceMan.ui.base.In10mBaseActivity
+import com.in10mServiceMan.utils.Constants
+import com.in10mServiceMan.utils.SharedPreferencesHelper
+import com.in10mServiceMan.utils.SharedPreferencesHelper.getBoolean
+import com.in10mServiceMan.utils.SharedPreferencesHelper.putBoolean
 import com.in10mServiceMan.utils.localStorage
 import kotlinx.android.synthetic.main.activity_intro.*
 import kotlinx.android.synthetic.main.intro_first_screen.*
+import java.util.*
 
 
 class IntroActivity : In10mBaseActivity() {
@@ -28,8 +34,13 @@ class IntroActivity : In10mBaseActivity() {
 //     var viewPager: ViewPager? = findViewById(R.id.view_pager)
     //val numbers: IntArray = intArrayOf();
     var number = IntArray(3)
+
     //    val viewPager:ViewPager = intro_view_pager;
-    val layouts: IntArray = intArrayOf(R.layout.intro_first_screen, R.layout.intro_second_screen, R.layout.intro_third_screen)
+    val layouts: IntArray = intArrayOf(
+        R.layout.intro_first_screen,
+        R.layout.intro_second_screen,
+        R.layout.intro_third_screen
+    )
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +49,8 @@ class IntroActivity : In10mBaseActivity() {
 
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
         addBottomDots(0)
 
@@ -51,18 +63,23 @@ class IntroActivity : In10mBaseActivity() {
             startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity
         }
         button.setOnClickListener {
-            localStorage(this@IntroActivity).introDone = true
-            startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity
-            finish()
+            putBoolean(this@IntroActivity, Constants.SharedPrefs.User.IS_LANG_ARB, false)
+            setLangFunc1()
         }
-
-
+        button1.setOnClickListener {
+            putBoolean(this@IntroActivity, Constants.SharedPrefs.User.IS_LANG_ARB, true)
+            setLangFunc1()
+        }
 
         intro_view_pager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
 
 
             }
@@ -124,7 +141,7 @@ class IntroActivity : In10mBaseActivity() {
         val colorsInactive = resources.getIntArray(R.array.array_dot_inactive)
 
         layoutDots.removeAllViews()
-        for (i in 0 until dots.size) {
+        for (i in dots.indices) {
             dots[i] = TextView(this)
             dots[i]!!.text = Html.fromHtml("&#8226;")
             dots[i]!!.textSize = 35.0f
@@ -151,40 +168,34 @@ class IntroActivity : In10mBaseActivity() {
             View.VISIBLE
         }
     }
+
+
+    fun setLangFunc1() {
+        val isLangArabic = getBoolean(
+            this@IntroActivity,
+            Constants.SharedPrefs.User.IS_LANG_ARB, false
+        )!!
+        if (isLangArabic) {
+            setLanguage1(this, "ar")
+        } else {
+            setLanguage1(this, "en")
+        }
+    }
+
+    fun setLanguage1(c: Context, lang: String?) {
+        val localeNew = Locale(lang)
+        Locale.setDefault(localeNew)
+        val res = c.resources
+        val newConfig = Configuration(res.configuration)
+        newConfig.locale = localeNew
+        newConfig.setLayoutDirection(localeNew)
+        res.updateConfiguration(newConfig, res.displayMetrics)
+        newConfig.setLocale(localeNew)
+        c.createConfigurationContext(newConfig)
+
+        localStorage(this@IntroActivity).introDone = true
+        startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity
+        finishAffinity()
+        overridePendingTransition(0, 0)
+    }
 }
-
-/**
- * View pager adapter
-
-public class MyViewPagerAdapter : PagerAdapter()
-{
-
-
-override fun getCount(): Int {
-
-return num
-//TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-}
-
-override fun isViewFromObject(view: View, `object`: Any): Boolean {
-return view == `object`
-// TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-}
-
-override fun instantiateItem(container: ViewGroup, position: Int): Any {
-
-// var layoutInflater: LayoutInflater
-var view:View
-
-//layoutInflater =
-//view = LayoutInflater.from(con)(layout[position],container,false);
-
-val view = LayoutInflater.from().inflate(intArrayOf()[position],container,false)
-view.tvErrorTitle.text = "test"
-
-container.addView(view)
-return view;
-// return super.instantiateItem(container, position)
-}
-
-}*/
