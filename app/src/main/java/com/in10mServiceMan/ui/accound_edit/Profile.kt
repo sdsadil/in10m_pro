@@ -107,7 +107,7 @@ class Profile : BaseFragment(), IProfileView {
             view.btnEditProfile.visibility = View.GONE
             view.btnChangeImage.visibility = View.VISIBLE
             view.fullnameET.isEnabled = true
-            view.mobileET.isEnabled = true
+            view.mobileET.isEnabled = false
             view.edt_age.isEnabled = true
             view.emailET.isEnabled = true
             view.apartmentNameET1.isEnabled = true
@@ -337,7 +337,6 @@ class Profile : BaseFragment(), IProfileView {
         rq.serviceproviderGender = state
         rq.serviceproviderImage = imageUri
 
-        showProgressDialog("")
         if (fullname.isEmpty()) {
             showToastMsg(context!!.resources.getString(R.string.enter_the_name))
         } else if (mobile.isEmpty() || mobile.length != 8) {
@@ -346,6 +345,7 @@ class Profile : BaseFragment(), IProfileView {
             showToastMsg(context!!.resources.getString(R.string.please_select_a_dob))
         } else {
             if (mAuthToken != null) {
+                showProgressDialog("")
                 mPresenter.updateProfile(mAuthToken, rq)
             }
         }

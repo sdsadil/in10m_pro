@@ -448,5 +448,5 @@
     <string name="how_was_the_customer">كيف كانت تجربتك مع الزبون</string>
     <string name="service_added_successfully">تمت إضافة الخدمة بنجاح</string>
     <string name="resend_30">إعادة إرسال خلال</string>
-    <string name="resend_otp">إعادة  إرسال</string>
+    <string name="resend_otp">إعادة إرسال</string>
 </resources>

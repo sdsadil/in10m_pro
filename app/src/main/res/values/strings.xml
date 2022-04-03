@@ -68,11 +68,9 @@
         <item>@string/log_out</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="upcoming">Upcoming</string>
     <string name="all">All</string>
     <string name="favorite">Favorites</string>
-
     <string name="past_bookings">Past Bookings</string>
     <string name="when_a_friend_rides_with_your_code_you_earn">When a friend rides with your code, you earn</string>
     <string name="share_via">Share via</string>
