@@ -37,6 +37,15 @@
     <string name="state">STATE</string>
     <string name="zip_code">ZIP CODE</string>
     <string name="invite_friends">دعوة أصدقاء</string>
+
+    <string name="governorate0">الأحمدي</string>
+    <string name="governorate1">الفروانية</string>
+    <string name="governorate2">حولي</string>
+    <string name="governorate3">الجهراء</string>
+    <string name="governorate4">مبارك الكبير</string>
+    <string name="governorate5">العاصمة</string>
+
+
     <string name="upcoming">التالية</string>
     <string name="all">الكل</string>
     <string name="favorite">المفضلة</string>
@@ -219,7 +228,7 @@
     <string name="arrived_at_location">وصل الى الموقع</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
     <string name="slide_to_end_service">اسحب عند إكمال العمل</string>
-    <string name="swipte_to_start_service">اسحب لبدـء العمل</string>
+    <string name="swipte_to_start_service">بدأ العمل</string>
 
     <string name="confirmation">التحقق</string>
     <string name="confirmation_description">نروح التأكد من صحة المعلومات ، لأن إدخالها لمرة واحد فقط.</string>
@@ -449,4 +458,5 @@
     <string name="service_added_successfully">تمت إضافة الخدمة بنجاح</string>
     <string name="resend_30">إعادة إرسال خلال</string>
     <string name="resend_otp">إعادة إرسال</string>
+    <string name="governorate_title">Governorate</string>
 </resources>

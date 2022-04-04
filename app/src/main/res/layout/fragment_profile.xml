@@ -474,8 +474,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etFloorNo_EditProfLay" />
 
-                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-                    android:id="@+id/etGovernorate_EditProfLay"
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
+                    android:id="@+id/tvGovernorate_EditProfLay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -486,14 +486,14 @@
                     android:gravity="center|start"
                     android:hint="@string/governorate"
                     android:inputType="text"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down"
                     android:paddingStart="10dp"
                     android:paddingTop="8dp"
-                    android:paddingEnd="24dp"
+                    android:paddingEnd="10dp"
                     android:paddingBottom="4dp"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
-                    android:theme="@style/EditTextHint"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etAptOffNo_EditProfLay" />

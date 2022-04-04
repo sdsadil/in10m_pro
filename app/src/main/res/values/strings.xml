@@ -45,6 +45,13 @@
 
     <string name="invite_friends">Invite Friends</string>
 
+    <string name="governorate0">Al-Ahmadi</string>
+    <string name="governorate1">Al-Farwaniya</string>
+    <string name="governorate2">Hawalli</string>
+    <string name="governorate3">Jahra</string>
+    <string name="governorate4">Mubarak Al-Kabeer</string>
+    <string name="governorate5">Al Asimah</string>
+
     <string-array name="nav_titles">
         <item>@string/my_account</item>
         <item>@string/my_bookings</item>
@@ -248,7 +255,7 @@
     <string name="arrived_at_location">Arrived at location</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
     <string name="slide_to_end_service">Slide to complete the work</string>
-    <string name="swipte_to_start_service">Slide to start the work</string>
+    <string name="swipte_to_start_service">Start service</string>
 
     <string name="confirmation">CONFIRMATION</string>
     <string name="confirmation_description">You may submit this information only once, so please make sure it is accurate.</string>
@@ -479,4 +486,5 @@
     <string name="service_added_successfully">Service added successfully</string>
     <string name="resend_30">Resend in</string>
     <string name="resend_otp">Resend Code</string>
+    <string name="governorate_title">Governorate</string>
 </resources>

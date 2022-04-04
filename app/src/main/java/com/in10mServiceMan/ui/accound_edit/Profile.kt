@@ -10,10 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.*
-import android.widget.AdapterView
-import android.widget.RadioGroup
-import android.widget.Spinner
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import com.in10mServiceMan.ui.activities.BaseFragment
@@ -44,17 +40,22 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 
 import android.net.Uri
 import androidx.core.content.FileProvider
 
 import android.os.Build
+import android.widget.*
+import androidx.appcompat.widget.AppCompatTextView
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
 import com.amazonaws.services.s3.AmazonS3Client
 import com.in10mServiceMan.BuildConfig
+import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
 import com.in10mServiceMan.utils.cropper.CropImage
 import com.in10mServiceMan.utils.cropper.CropImageView
@@ -62,6 +63,7 @@ import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
+import com.in10mServiceMan.utils.SharedPreferencesHelper.putBoolean
 
 
 /**
@@ -93,6 +95,11 @@ class Profile : BaseFragment(), IProfileView {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         setDisable()
+
+
+        view.tvGovernorate_EditProfLay.setOnClickListener {
+            showGovernorateDialog()
+        }
         view.tvAddressType_EditProfLay.setOnClickListener {
             openAddressTypePopUp()
         }
@@ -193,6 +200,58 @@ class Profile : BaseFragment(), IProfileView {
 //            getStates()
         }
         return view
+    }
+
+    private fun showGovernorateDialog() {
+        val dialog = Dialog(activity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.governorate_popup)
+        val window = dialog.window
+        Objects.requireNonNull(window).setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.MATCH_PARENT
+        )
+        window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val tv1_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv1_GovernoratePopUp)
+        val tv2_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv2_GovernoratePopUp)
+        val tv3_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv3_GovernoratePopUp)
+        val tv4_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv4_GovernoratePopUp)
+        val tv5_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv5_GovernoratePopUp)
+        val tv6_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv6_GovernoratePopUp)
+        val ivClose_GovernoratePopUp: AppCompatImageView =
+            dialog.findViewById(R.id.ivClose_GovernoratePopUp)
+        tv1_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.tvGovernorate_EditProfLay?.text = tv1_GovernoratePopUp.text.toString()
+        }
+        tv2_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.tvGovernorate_EditProfLay?.text = tv2_GovernoratePopUp.text.toString()
+        }
+        tv3_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.tvGovernorate_EditProfLay?.text = tv3_GovernoratePopUp.text.toString()
+        }
+        tv4_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.tvGovernorate_EditProfLay?.text = tv4_GovernoratePopUp.text.toString()
+        }
+        tv5_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.tvGovernorate_EditProfLay?.text = tv5_GovernoratePopUp.text.toString()
+        }
+        tv6_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.tvGovernorate_EditProfLay?.text = tv6_GovernoratePopUp.text.toString()
+        }
+        ivClose_GovernoratePopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        dialog.show()
     }
 
     fun setDisable() {
@@ -454,7 +513,7 @@ class Profile : BaseFragment(), IProfileView {
 //                            if (profile.lastname != null)
 //                                view!!.fullnameET.setText(profile.name.toString() + " " + profile.lastname)
 //                            else
-                                view!!.fullnameET.setText(profile.name.toString())
+                            view!!.fullnameET.setText(profile.name.toString())
 
                             view!!.mobileET.setText(profile.mobile.toString())
                             view!!.emailET.setText(if (profile.email == null) "" else profile.email)

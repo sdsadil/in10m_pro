@@ -15,6 +15,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.common.ConnectionResult
@@ -30,6 +31,7 @@ import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.spinnerAdapter
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_signup_details.*
 import kotlinx.android.synthetic.main.fragment_signup_details.view.*
 import retrofit2.Call
@@ -106,6 +108,9 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         view.tvAddressType_SignUpProfLay.setOnClickListener {
             openAddressTypePopUp()
         }
+        view.etGovernorate_SignUpProfLay.setOnClickListener {
+            showGovernorateDialog()
+        }
 
         view.signUpPhaseDetailsOkTickIV.setOnClickListener {
 
@@ -160,17 +165,17 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.STREET,"Street 12"
+                        Constants.SharedPrefs.User.STREET, "Street 12"
 //                        view.etStreet_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.SUITE,"Kaifan"
+                        Constants.SharedPrefs.User.SUITE, "Kaifan"
 //                        view.etAreaName_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.CITY,"Block 1"
+                        Constants.SharedPrefs.User.CITY, "Block 1"
 //                        view.etBlock_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
@@ -396,4 +401,57 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     interface NextFragmentInterfaceOne {
         fun toNextFragmentOne()
     }
+
+    private fun showGovernorateDialog() {
+        val dialog = Dialog(activity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.governorate_popup)
+        val window = dialog.window
+        Objects.requireNonNull(window).setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.MATCH_PARENT
+        )
+        window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val tv1_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv1_GovernoratePopUp)
+        val tv2_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv2_GovernoratePopUp)
+        val tv3_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv3_GovernoratePopUp)
+        val tv4_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv4_GovernoratePopUp)
+        val tv5_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv5_GovernoratePopUp)
+        val tv6_GovernoratePopUp =
+            dialog.findViewById<AppCompatTextView>(R.id.tv6_GovernoratePopUp)
+        val ivClose_GovernoratePopUp: AppCompatImageView =
+            dialog.findViewById(R.id.ivClose_GovernoratePopUp)
+        tv1_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.etGovernorate_SignUpProfLay?.text = tv1_GovernoratePopUp.text.toString()
+        }
+        tv2_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.etGovernorate_SignUpProfLay?.text = tv2_GovernoratePopUp.text.toString()
+        }
+        tv3_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.etGovernorate_SignUpProfLay?.text = tv3_GovernoratePopUp.text.toString()
+        }
+        tv4_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.etGovernorate_SignUpProfLay?.text = tv4_GovernoratePopUp.text.toString()
+        }
+        tv5_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.etGovernorate_SignUpProfLay?.text = tv5_GovernoratePopUp.text.toString()
+        }
+        tv6_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+            view?.etGovernorate_SignUpProfLay?.text = tv6_GovernoratePopUp.text.toString()
+        }
+        ivClose_GovernoratePopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        dialog.show()
+    }
+
 }
