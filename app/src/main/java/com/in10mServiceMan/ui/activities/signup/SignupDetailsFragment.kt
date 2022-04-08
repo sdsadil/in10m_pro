@@ -321,11 +321,11 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     var addressType = "1"
 
     private fun openAddressTypePopUp() {
-        val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
+        val dialog = Dialog(context!!, android.R.style.Theme_Translucent_NoTitleBar)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         val window = dialog.window
         dialog.setContentView(R.layout.addresstype_popup)
-        val wlp = window.attributes
+        val wlp = window!!.attributes
         wlp.gravity = Gravity.CENTER
         wlp.flags = WindowManager.LayoutParams.FLAG_BLUR_BEHIND
         window.attributes = wlp
@@ -403,15 +403,15 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     }
 
     private fun showGovernorateDialog() {
-        val dialog = Dialog(activity)
+        val dialog = Dialog(activity!!)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.governorate_popup)
         val window = dialog.window
-        Objects.requireNonNull(window).setLayout(
+        Objects.requireNonNull(window)!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT
         )
-        window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val tv1_GovernoratePopUp =
             dialog.findViewById<AppCompatTextView>(R.id.tv1_GovernoratePopUp)
         val tv2_GovernoratePopUp =
