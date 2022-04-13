@@ -72,6 +72,7 @@ class Constants {
                 const val CARD_NUMBER = "card_number"
                 const val PAYMENT_TYPE = "payment_type"
                 const val IS_LANG_ARB = "isLangArb"
+                const val IS_DEVICETOKEN_UPDATED = "isDeviceTokenUpdated"
                 const val FREE_ESTIMATE = "free_estimate"
 
                 const val LEVEL_THREE_DATA = "level_three_data"

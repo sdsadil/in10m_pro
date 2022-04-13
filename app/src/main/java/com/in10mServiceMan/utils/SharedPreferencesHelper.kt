@@ -10,10 +10,12 @@ import android.preference.PreferenceManager
 
 object SharedPreferencesHelper {
     private const val userData = "userdata"
+    private const val fcmData = "fcmData"
+    private const val fcmDeviceToken = "fcmDeviceToken"
 
     fun putInt(mContext: Context?, key: String, value: Int) {
         val preferences = PreferenceManager
-                .getDefaultSharedPreferences(mContext)
+            .getDefaultSharedPreferences(mContext)
         val edit = preferences.edit()
         edit.putInt(key, value)
         //edit.clear();
@@ -26,15 +28,15 @@ object SharedPreferencesHelper {
 
     fun getInt(mContext: Context?, key: String, _default: Int): Int {
         val preferences = PreferenceManager
-                  .getDefaultSharedPreferences(mContext)
-          return preferences.getInt(key, _default)
+            .getDefaultSharedPreferences(mContext)
+        return preferences.getInt(key, _default)
 
         /*val prefs: SharedPreferences =
             mContext!!.getSharedPreferences(userData, Context.MODE_PRIVATE)
         return prefs.getInt(key, _default)*/
     }
 
-     fun putBoolean(mContext: Context?, key: String, value: Boolean?) {
+    fun putBoolean(mContext: Context?, key: String, value: Boolean?) {
         val preferences = PreferenceManager
             .getDefaultSharedPreferences(mContext)
         val edit = preferences.edit()
@@ -94,6 +96,18 @@ object SharedPreferencesHelper {
         val preferences = PreferenceManager
             .getDefaultSharedPreferences(mContext)
         return preferences.getBoolean(key, _default!!)
+    }
+
+    fun setfcmDeviceToken(context: Context?, deviceToken: String?) {
+        val editor: SharedPreferences.Editor =
+            context!!.getSharedPreferences(fcmData, Context.MODE_PRIVATE).edit()
+        editor.putString(fcmDeviceToken, deviceToken)
+        editor.apply()
+    }
+
+    fun getfcmDeviceToken(context: Context?): String? {
+        val prefs: SharedPreferences = context!!.getSharedPreferences(fcmData, Context.MODE_PRIVATE)
+        return prefs.getString(fcmDeviceToken, "")
     }
 
 

@@ -1,11 +1,13 @@
 package com.in10mServiceMan.ui.apis;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.in10mServiceMan.models.BookingHistoryResponse;
 import com.in10mServiceMan.models.CompanyHomeCountResponse;
 import com.in10mServiceMan.models.CompanyServicemanLocationResponse;
 import com.in10mServiceMan.models.CustomerCompleteProfile;
 import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate;
+import com.in10mServiceMan.models.DeviceTokenPojo;
 import com.in10mServiceMan.models.EarningsResponse;
 import com.in10mServiceMan.models.HomeCountResponse;
 import com.in10mServiceMan.models.HomeService;
@@ -59,6 +61,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -409,4 +412,6 @@ public interface ApiInterface {
                                                              @Field("country") String country,
                                                              @Field("ssn") String SSN,
                                                              @Field("zipcode") String zipcode);
+    @PUT("customer/api/customers/{id}/save_device_token")
+    Call<DeviceTokenPojo> updateDeviceToken(@Path("id") int UserId, @Body JsonObject params);
 }

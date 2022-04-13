@@ -15,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,14 +27,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.in10mServiceMan.R;
+import com.in10mServiceMan.models.DeviceTokenPojo;
+import com.in10mServiceMan.ui.apis.APIClient;
 import com.in10mServiceMan.utils.AppProgressBar;
 import com.in10mServiceMan.utils.Constants;
 import com.in10mServiceMan.utils.LoadingDialog;
 import com.in10mServiceMan.utils.SharedPreferencesHelper;
 
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Locale;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public abstract class BaseActivity extends AppCompatActivity implements ServiceConnection {
@@ -77,6 +90,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         super.onResume();
         hideKeyboard();
         setLangFunc();
+//        callDeviceTokenApi();
     }
 
     public void showProgressDialog(int mContent) {
@@ -243,4 +257,43 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         c.createConfigurationContext(newConfig);
     }
 
+    public void callDeviceTokenApi() {
+        String isLoggedIn = SharedPreferencesHelper.INSTANCE.getString(mContext,
+                Constants.SharedPrefs.User.Companion.getAUTH_TOKEN(), "");
+        boolean isDeviceTokenUpdated = SharedPreferencesHelper.INSTANCE.getBoolean(mContext,
+                Constants.SharedPrefs.User.IS_DEVICETOKEN_UPDATED, false);
+        if (!isLoggedIn.equals("")) {
+            if (!isDeviceTokenUpdated) {
+                String userId = SharedPreferencesHelper.INSTANCE.getString(mContext,
+                        Constants.SharedPrefs.User.Companion.getUSER_ID(), "");
+                String deviceToken = SharedPreferencesHelper.INSTANCE.getfcmDeviceToken(mContext);
+                JsonObject jsonObject = null;
+                JSONObject jsonBody = new JSONObject();
+                try {
+                    jsonBody.put("device_token", deviceToken);
+                    JsonParser jsonParser = new JsonParser();
+                    jsonObject = (JsonObject) jsonParser.parse(jsonBody.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Call<DeviceTokenPojo> modelObservable = APIClient.getApiInterface().updateDeviceToken(Integer.parseInt(userId), jsonObject);
+                modelObservable.enqueue(new Callback<DeviceTokenPojo>() {
+                    @Override
+                    public void onResponse(@NotNull Call<DeviceTokenPojo> call, @NotNull Response<DeviceTokenPojo> response) {
+                        Log.e("onResponse ", "" + response.isSuccessful());
+                        SharedPreferencesHelper.INSTANCE.getBoolean(mContext,
+                                Constants.SharedPrefs.User.IS_DEVICETOKEN_UPDATED, true);
+                    }
+
+                    @Override
+                    public void onFailure(@NotNull Call<DeviceTokenPojo> call, @NotNull Throwable t) {
+                        Log.e("onFailure", t.getMessage());
+                        SharedPreferencesHelper.INSTANCE.getBoolean(mContext,
+                                Constants.SharedPrefs.User.IS_DEVICETOKEN_UPDATED, false);
+                    }
+                });
+            }
+        }
+    }
 }
