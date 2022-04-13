@@ -61,7 +61,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void sendNotification(String aMessage) {
         final int NOTIFY_ID = 1002;
         final int _random = generateRandom();
-        String name = "com.in10m";
+        String name = "com.in10mServiceMan";
         String id = "" + _random; // The user-visible name of the channel.
 
         NotificationCompat.Builder builder;
