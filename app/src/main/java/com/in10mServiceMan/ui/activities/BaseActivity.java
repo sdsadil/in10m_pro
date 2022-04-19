@@ -90,7 +90,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         super.onResume();
         hideKeyboard();
         setLangFunc();
-//        callDeviceTokenApi();
+        callDeviceTokenApi();
     }
 
     public void showProgressDialog(int mContent) {
@@ -271,6 +271,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
                 JSONObject jsonBody = new JSONObject();
                 try {
                     jsonBody.put("device_token", deviceToken);
+                    jsonBody.put("device_type", "android");
                     JsonParser jsonParser = new JsonParser();
                     jsonObject = (JsonObject) jsonParser.parse(jsonBody.toString());
                 } catch (JSONException e) {
