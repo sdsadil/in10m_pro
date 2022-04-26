@@ -296,6 +296,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         llCall_HomeBottomBtn.setOnClickListener {
             callToCustomer()
         }
+        llEstimate_HomeBottomBtn.setOnClickListener {
+            askEstimate()
+        }
         btnMaximizeRequestCV.setOnClickListener {
             requestCV.visibility = View.VISIBLE
 //            imgBtnNavigate.visibility = View.VISIBLE
@@ -422,8 +425,15 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llAccept_HomeBottomBtn.visibility = View.GONE
                                     llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
+                                   
+                                    //Before 26042022
                                     llEstimate_HomeBottomBtn.visibility = View.GONE
                                     llStart_HomeBottomBtn.visibility = View.VISIBLE
+
+                                    //After 26042022
+                                    llEstimate_HomeBottomBtn.visibility = View.VISIBLE
+                                    llStart_HomeBottomBtn.visibility = View.GONE
+                                    
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     request!!.status = BookingStatus.Arrived.toString()
                                     bookingAccpted = true
@@ -992,8 +1002,14 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         imgBtnNavigate.visibility = View.GONE
                         ServiceManNameTOP.text = resources.getString(R.string.you_have_reached)
                         llArrived_HomeBottomBtn.visibility = View.GONE
+                        //Before 26042022
                         llEstimate_HomeBottomBtn.visibility = View.GONE
                         llStart_HomeBottomBtn.visibility = View.VISIBLE
+
+                        //After 26042022
+                        llEstimate_HomeBottomBtn.visibility = View.VISIBLE
+                        llStart_HomeBottomBtn.visibility = View.GONE
+                        
                         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
                         request!!.status = BookingStatus.Arrived.toString()
@@ -1011,13 +1027,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 }
             })
         }
-        llEstimate_HomeBottomBtn.setOnClickListener {
-            askEstimate()
-        }
+
     }
 
     private fun askEstimate() {
-        // TODO(create popup for asking estimate)
         // on success asking
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.popup_service_estimate, null)
         val mBuilder = android.app.AlertDialog.Builder(this).setView(mDialogView)
@@ -1075,13 +1088,13 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         mDatabase.child(bookingId.toString()).child(estimateAcceptKey).ref
                     estimateAcceptKeyListener =
                         estimateAcceptKeyRef.addValueEventListener(object : ValueEventListener {
-                            override fun onCancelled(p0: DatabaseError) {
+                            override fun onCancelled(databaseError: DatabaseError) {
 
                             }
 
-                            override fun onDataChange(p0: DataSnapshot) {
-                                if (p0.exists()) {
-                                    val status = p0.getValue(Boolean::class.java)
+                            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                if (dataSnapshot.exists()) {
+                                    val status = dataSnapshot.getValue(Boolean::class.java)
                                     if (status != null)
                                         onEstimateChange(status)
                                 }

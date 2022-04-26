@@ -346,7 +346,7 @@
     <string name="invalid_booking_data">Invalid booking data received</string>
     <string name="work_status">Work Status</string>
     <string name="you_have_reached">You have reached</string>
-    <string name="enter_price_estimate">Enter price Estimate</string>
+    <string name="enter_price_estimate">Enter estimate price </string>
     <string name="please_wait_while_homeowner_confirms_your_estimate">Please wait while homeowner confirms your estimate</string>
     <string name="please_enter_work_scope">Please enter work scope</string>
     <string name="Please_enter_price_estimate">Please enter price estimate</string>
