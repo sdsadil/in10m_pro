@@ -425,7 +425,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llAccept_HomeBottomBtn.visibility = View.GONE
                                     llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
-                                   
+
                                     //Before 26042022
                                     llEstimate_HomeBottomBtn.visibility = View.GONE
                                     llStart_HomeBottomBtn.visibility = View.VISIBLE
@@ -433,7 +433,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     //After 26042022
                                     llEstimate_HomeBottomBtn.visibility = View.VISIBLE
                                     llStart_HomeBottomBtn.visibility = View.GONE
-                                    
+
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     request!!.status = BookingStatus.Arrived.toString()
                                     bookingAccpted = true
@@ -1009,7 +1009,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         //After 26042022
                         llEstimate_HomeBottomBtn.visibility = View.VISIBLE
                         llStart_HomeBottomBtn.visibility = View.GONE
-                        
+
                         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
                         request!!.status = BookingStatus.Arrived.toString()
@@ -1094,9 +1094,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
                                 if (dataSnapshot.exists()) {
-                                    val status = dataSnapshot.getValue(Boolean::class.java)
-                                    if (status != null)
+                                    val status = dataSnapshot.getValue(String::class.java)
+                                    if (status != null && status != "") {
                                         onEstimateChange(status)
+                                    }
                                 }
                             }
 
@@ -1107,19 +1108,19 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
     }
 
-    private fun onEstimateChange(acceptStatus: Boolean) {
+    private fun onEstimateChange(acceptStatus: String) {
         if (::estimateAcceptKeyRef.isInitialized && ::estimateAcceptKeyListener.isInitialized) {
             estimateAcceptKeyRef.removeEventListener(estimateAcceptKeyListener)
         }
         mAlertDialog?.dismiss()
-        if (acceptStatus) {
+        if (acceptStatus == "true") {
             llEstimate_HomeBottomBtn.visibility = View.GONE
             llStart_HomeBottomBtn.visibility = View.VISIBLE
-        } else if (!acceptStatus && freeEstimate == 0) {
+        } else if (acceptStatus == "false" && freeEstimate == 0) {
             // pay charge of the trip
             ShowToast(resources.getString(R.string.home_owner_rejected_the_estimate))
             serviceDone1()
-        } else if (!acceptStatus && freeEstimate == 1) {
+        } else if (acceptStatus == "false" && freeEstimate == 1) {
             canceledByTheCustomer()
         }
     }

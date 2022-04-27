@@ -254,8 +254,8 @@
     <string name="cancel">CANCEL</string>
     <string name="arrived_at_location">Arrived at location</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
-    <string name="slide_to_end_service">Slide to complete the work</string>
-    <string name="swipte_to_start_service">Start service</string>
+    <string name="slide_to_end_service">SLIDE TO COMPLETE THE WORK</string>
+    <string name="swipte_to_start_service">START SERVICE</string>
 
     <string name="confirmation">CONFIRMATION</string>
     <string name="confirmation_description">You may submit this information only once, so please make sure it is accurate.</string>
