@@ -34,6 +34,7 @@ class InvoiceActivity : In10mBaseActivity() {
     var customerId = ""
     var serviceId = ""
     var paymentSelected = "1"
+    var estimate_amount = ""
 
     //    var paymentSelected = "2"
     lateinit var mDatabase: DatabaseReference
@@ -64,6 +65,7 @@ class InvoiceActivity : In10mBaseActivity() {
 
         backButton.setOnClickListener {
             finish()
+            overridePendingTransition(0,0)
         }
 
         if (intent.extras != null) {
@@ -72,6 +74,15 @@ class InvoiceActivity : In10mBaseActivity() {
             tripCharge = intent.getDoubleExtra("tripCharge", 0.0)
             serviceId = intent.getStringExtra("serviceId").toString()
         }
+        estimate_amount = SharedPreferencesHelper.getString(
+            this@InvoiceActivity,
+            Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
+            ""
+        ).toString()
+
+        feePayDescriptionET.setText(estimate_amount)
+
+        Log.i("estimate_amount", "$estimate_amount")
         Log.i("booking / customer", "$bookingId $customerId")
 
         val paymentNodePath = "payments/$customerId"//"payments/$bookingId"
@@ -102,9 +113,9 @@ class InvoiceActivity : In10mBaseActivity() {
                 )
             )
         }
-        if (tripCharge > 0.0) {
+        /*if (tripCharge > 0.0) {
             feePayDescriptionET.setText(tripCharge.toString())
-        }
+        }*/
         submitClickLL.setOnClickListener {
 
             if (feePayDescriptionET.text.toString().trim()
@@ -130,6 +141,7 @@ class InvoiceActivity : In10mBaseActivity() {
                 if (data?.booking_Id == bookingId) {
 
                     if (!data.accepted_status) {
+
                         mAlertDialog?.cancel()
                         isRequote = true
                         customerCancelQuoteMessageTV.visibility = View.VISIBLE
@@ -149,6 +161,7 @@ class InvoiceActivity : In10mBaseActivity() {
                             )
 
                         } else if (paymentSelected == "1") {
+
                             mAlertDialog?.cancel()
                             //mDatabase.child(bookingId).setValue(null)
                             displayAlertDialogConfirmation(
@@ -250,6 +263,11 @@ class InvoiceActivity : In10mBaseActivity() {
             mAlertDialogConfirm!!.cancel()
             mDatabase.child(bookingId).removeValue()//.setValue(null)
             dbServiceMan.child(bookingId).removeValue()
+            SharedPreferencesHelper.putString(
+                this@InvoiceActivity,
+                Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
+                ""
+            )
             startActivity(
                 Intent(this@InvoiceActivity, CustomerRating::class.java).putExtra(
                     "bookingId",
@@ -259,6 +277,7 @@ class InvoiceActivity : In10mBaseActivity() {
                     .putExtra("serviceId", serviceId)
             )
             finish()
+            overridePendingTransition(0,0)
         }
     }
 

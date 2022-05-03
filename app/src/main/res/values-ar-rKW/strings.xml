@@ -459,4 +459,5 @@
     <string name="resend_30">إعادة إرسال خلال</string>
     <string name="resend_otp">إعادة إرسال</string>
     <string name="governorate_title">Governorate</string>
+    <string name="thankyou_feedback">شكرا لك على ملاحظاتك</string>
 </resources>

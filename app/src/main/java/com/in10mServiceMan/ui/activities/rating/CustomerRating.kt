@@ -38,9 +38,11 @@ class CustomerRating : In10mBaseActivity() {
 
         backButton.setOnClickListener {
             finish()
+            overridePendingTransition(0,0)
         }
         SkipButtonTV.setOnClickListener {
             finish()
+            overridePendingTransition(0,0)
         }
 
         reviewThumpsUpIV.setOnClickListener {
@@ -56,6 +58,7 @@ class CustomerRating : In10mBaseActivity() {
         }
         lvBtnSkip.setOnClickListener {
             finish()
+            overridePendingTransition(0,0)
         }
         lvBtnSubmit.setOnClickListener {
             var header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
@@ -82,14 +85,16 @@ class CustomerRating : In10mBaseActivity() {
             callServicProviders.enqueue(object : Callback<JsonElement> {
                 override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
                     destroyDialog()
-                    ShowToast("Thank you for the feedback")
+                    ShowToast(getString(R.string.thankyou_feedback))
                     finish()
+                    overridePendingTransition(0,0)
                 }
 
                 override fun onFailure(call: Call<JsonElement>, t: Throwable) {
                     destroyDialog()
                     finish()
                     ShowToast(t.localizedMessage)
+                    overridePendingTransition(0,0)
                 }
             })
 

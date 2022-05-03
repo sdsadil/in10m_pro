@@ -360,7 +360,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         if (bookingId != it.key!!.toInt() && !bookingAccpted && currentStatus == 1) {
                             try {
                                 request = it.getValue(firebaseRequestModel::class.java)
-                                bookingId = it.key!!.toInt()
+//                                bookingId = it.key!!.toInt()
+                                bookingId = request?.booking_id!!.toInt()
+                                customerID = request!!.customer_id
+                                serviceId = request!!.service_id
                             } catch (e: Exception) {
                                 e.printStackTrace()
                             } finally {
@@ -474,18 +477,16 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     mDatabase.child(bookingId.toString()).child("status")
                                         .setValue(BookingStatus.Complete.toString())//Serviceman status update
                                     isJobDone = true
-
-                                    //mDatabase.child(bookingId.toString()).setValue(null)
                                     startActivity(
                                         Intent(
                                             this@DashboardActivity,
                                             InvoiceActivity::class.java
-                                        ).putExtra("bookingId", myBookingId)
-                                            .putExtra("customerId", customerID)
+                                        ).putExtra("bookingId", request!!.booking_id)
+                                            .putExtra("customerId", request!!.customer_id)
                                             .putExtra("tripCharge", estimationFee)
-                                            .putExtra("serviceId", serviceId)
+                                            .putExtra("serviceId", request!!.service_id)
                                     )
-                                    //finish()
+                                    overridePendingTransition(0, 0)
                                     requestCV.visibility = View.INVISIBLE
                                     DutyChangeImage.visibility = View.VISIBLE
                                     bookingAccpted = false
@@ -514,6 +515,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     ElapsedTimerTV.visibility = View.GONE
                                     //changeStatusOfServiceMan()
                                     map?.clear()
+
+
+
                                 }
                             }
 
@@ -1084,6 +1088,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     mDatabase.child(bookingId.toString()).child(estimateScopeKey).setValue(scope)
                     mDatabaseCustomer.child(estimateAMTKey).setValue(amt)
                     mDatabaseCustomer.child(estimateScopeKey).setValue(scope)
+                    SharedPreferencesHelper.putString(
+                        this@DashboardActivity,
+                        Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
+                        amt
+                    )
                     estimateAcceptKeyRef =
                         mDatabase.child(bookingId.toString()).child(estimateAcceptKey).ref
                     estimateAcceptKeyListener =
@@ -1204,6 +1213,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                 .putExtra("tripCharge", estimationFee)
                                 .putExtra("serviceId", serviceId)
                         )
+                        overridePendingTransition(0, 0)
+
                         //finish()
                         requestCV.visibility = View.INVISIBLE
                         DutyChangeImage.visibility = View.VISIBLE
@@ -1297,6 +1308,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                 )
                             )
                             finishAffinity()
+                            overridePendingTransition(0, 0)
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
@@ -1306,6 +1318,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     SharedPreferencesHelper.clearPreferences(this@DashboardActivity)
                     startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
                     finishAffinity()
+                    overridePendingTransition(0, 0)
                 }
 
             }
@@ -1316,6 +1329,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     SharedPreferencesHelper.clearPreferences(this@DashboardActivity)
                     startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
                     finishAffinity()
+                    overridePendingTransition(0, 0)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

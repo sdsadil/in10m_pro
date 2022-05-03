@@ -77,7 +77,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:gravity="center"
-            android:text="Received by online payment"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/greenAssetIV"
             app:layout_constraintStart_toEndOf="@+id/greenAssetIV"
