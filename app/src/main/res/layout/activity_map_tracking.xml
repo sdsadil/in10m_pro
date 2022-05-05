@@ -60,7 +60,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -410,7 +409,6 @@
                     android:layout_marginStart="8dp"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="Appt no. # , floor no. #"
                     android:textColor="@color/colorPrimary"
                     android:visibility="visible" />
 
@@ -531,6 +529,16 @@
                 app:layout_constraintTop_toTopOf="@+id/view5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <include
+        android:id="@+id/arrivedLay"
+        layout="@layout/arrived_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/btnMaximizeRequestCV"

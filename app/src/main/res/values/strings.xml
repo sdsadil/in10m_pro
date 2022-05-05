@@ -252,7 +252,7 @@
     <string name="services_completed">Services Completed</string>
     <string name="decline">DECLINE</string>
     <string name="cancel">CANCEL</string>
-    <string name="arrived_at_location">Arrived at location</string>
+    <string name="arrived_at_location">Reached at location</string>
     <!--<string name="slide_to_end_service">SWIPE TO END THE SERVICE</string>-->
     <string name="slide_to_end_service">SLIDE TO COMPLETE THE WORK</string>
     <string name="swipte_to_start_service">START SERVICE</string>
@@ -349,7 +349,7 @@
     <string name="enter_price_estimate">Enter estimate price </string>
     <string name="please_wait_while_homeowner_confirms_your_estimate">Please wait while homeowner confirms your estimate</string>
     <string name="please_enter_work_scope">Please enter work scope</string>
-    <string name="Please_enter_price_estimate">Please enter price estimate</string>
+    <string name="please_enter_price_estimate">Please enter price estimate</string>
     <string name="home_owner_rejected_the_estimate">Home owner rejected the estimate</string>
     <string name="job_in_progress">Work in progress</string>
     <string name="hello">Hello</string>
@@ -488,4 +488,5 @@
     <string name="resend_otp">Resend Code</string>
     <string name="governorate_title">Governorate</string>
     <string name="thankyou_feedback">Thank you for the feedback</string>
+    <string name="direction_for_location">Direction for location</string>
 </resources>

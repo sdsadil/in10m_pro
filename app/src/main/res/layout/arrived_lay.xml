@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/requestCV1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="0dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv11111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/you_have_a_new_service_request_from"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/serviceManIVR1"
+                app:layout_constraintStart_toEndOf="@+id/serviceManIVR1"
+                app:layout_constraintTop_toTopOf="@+id/serviceManIVR1" />
+
+            <ImageView
+                android:id="@+id/imgBtnNavigate1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/navigate"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/closeCV1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/closeCV1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/serviceManIVR1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/user_dummy_avatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/requestorName1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:gravity="center|start"
+                android:maxLines="1"
+                android:text=""
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/serviceManIVR1"
+                app:layout_constraintEnd_toStartOf="@+id/imgBtnNavigate1"
+                app:layout_constraintStart_toEndOf="@+id/serviceManIVR1"
+                app:layout_constraintTop_toTopOf="@+id/serviceManIVR1" />
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout21"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/serviceManIVR1">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_marker"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
+
+                <com.in10mServiceMan.widgets.textview.CustomBookTextView
+                    android:id="@+id/addressTV1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:gravity="center|start"
+                    android:maxLines="3"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_colour_light"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout31"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout21">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_marker"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
+
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                    android:id="@+id/apptFloorTV1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view61"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:alpha="0.2"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout31">
+
+            </View>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lv31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view61">
+
+                <ImageView
+                    android:id="@+id/imgServiceIcon1"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginStart="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ServiceNameContainerLL1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/ivCall1"
+                    app:layout_constraintStart_toEndOf="@+id/imgServiceIcon1"
+                    app:layout_constraintTop_toTopOf="@+id/imgServiceIcon1">
+
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                        android:id="@+id/serviceRequestedTV1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/service"
+                        android:textAllCaps="false"
+                        android:textSize="14sp" />
+
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                        android:id="@+id/subserviceRequestedTV1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivCall1"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/ic_brightness_1"
+                    android:padding="@dimen/_12sdp"
+                    android:src="@drawable/callgreen"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/view51"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.2"
+                android:background="@color/colorPrimary"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lv31">
+
+            </View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view51">
+
+                <LinearLayout
+                    android:id="@+id/llDirection_HomeBottomBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/accept_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="25dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="visible">
+
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
+                        android:id="@+id/btnDirection_HomeBottomBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:background="@color/accept_button"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:text="@string/direction_for_location"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_text_selector"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llArrived_HomeBottomBtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/decline_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="25dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="visible">
+
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
+                        android:id="@+id/btnAccept_HomeBottomBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:text="@string/arrived_at_location"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

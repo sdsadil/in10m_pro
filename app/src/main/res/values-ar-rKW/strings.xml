@@ -307,8 +307,8 @@
     <string name="service_estimate">Please enter an estimated amount for the requested service</string>
     <string name="service_cost">رسوم التطبيق</string>
     <string name="in10m_charges">المبلغ الإجمالي</string>
-    <string name="provide_estimate">تقديم تقدير</string>
-    <string name="estimate_description">أدخل نطاق العمل</string>
+    <string name="provide_estimate">السعر التقديري</string>
+    <string name="estimate_description">أدخل تفاصيل العمل</string>
     <string name="work_scope_and_estimate">نطاق العمل والتقدير</string>
 
     <string name="privacy_updated"><![CDATA[تحديث سياسة الخصوصية]]></string>
@@ -319,10 +319,10 @@
     <string name="invalid_booking_data">تم استلام بيانات حجز غير صالحة</string>
     <string name="work_status">مؤشر أعمالي</string>
     <string name="you_have_reached">لقد وصلت</string>
-    <string name="enter_price_estimate">أدخل تقدير السعر</string>
+    <string name="enter_price_estimate">أدخل السعر التقديري</string>
     <string name="please_wait_while_homeowner_confirms_your_estimate">يرجى الانتظار بينما يؤكد صاحب المنزل تقديرك</string>
     <string name="please_enter_work_scope">الرجاء إدخال نطاق العمل</string>
-    <string name="Please_enter_price_estimate">الرجاء إدخال تقدير السعر</string>
+    <string name="please_enter_price_estimate">أدخل السعر التقديري</string>
     <string name="home_owner_rejected_the_estimate">صاحب المنزل رفض التقدير</string>
     <string name="job_in_progress">العمل جاري</string>
     <string name="hello">أهلا</string>
@@ -460,4 +460,5 @@
     <string name="resend_otp">إعادة إرسال</string>
     <string name="governorate_title">Governorate</string>
     <string name="thankyou_feedback">شكرا لك على ملاحظاتك</string>
+    <string name="direction_for_location">Direction for location</string>
 </resources>

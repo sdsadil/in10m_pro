@@ -74,8 +74,11 @@ import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_map_tracking.*
+import kotlinx.android.synthetic.main.arrived_lay.*
 import kotlinx.android.synthetic.main.drawyer_layout.*
 import kotlinx.android.synthetic.main.home_bottom_buttons.*
+import kotlinx.android.synthetic.main.home_bottom_buttons.btnDirection_HomeBottomBtn
+import kotlinx.android.synthetic.main.home_bottom_buttons.llArrived_HomeBottomBtn
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -283,6 +286,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         llCancel_HomeBottomBtn.setOnClickListener {
             callRequestCancelApi()
         }
+        closeCV1.setOnClickListener {
+            callRequestCancelApi()
+        }
         closeCV.setOnClickListener {
             callRequestCancelApi()
 
@@ -294,6 +300,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             serviceDone1()
         }
         llCall_HomeBottomBtn.setOnClickListener {
+            callToCustomer()
+        }
+        ivCall1.setOnClickListener {
             callToCustomer()
         }
         llEstimate_HomeBottomBtn.setOnClickListener {
@@ -313,6 +322,12 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         }
 
         btnDirection_HomeBottomBtn.setOnClickListener {
+            orginPosition = Point.fromLngLat(userLocation.longitude, userLocation.latitude)
+            destinationPosition =
+                Point.fromLngLat(destinationLocation.longitude, destinationLocation.latitude)
+            getRoute(destinationPosition, orginPosition)
+        }
+        llDirection_HomeBottomBtn.setOnClickListener {
             orginPosition = Point.fromLngLat(userLocation.longitude, userLocation.latitude)
             destinationPosition =
                 Point.fromLngLat(destinationLocation.longitude, destinationLocation.latitude)
@@ -406,6 +421,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     bookingAccpted = true
                                     llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llArrived_HomeBottomBtn.visibility = View.VISIBLE
+                                    arrivedLay.visibility = View.VISIBLE
+                                    selectedCV.visibility = View.GONE
+                                    requestCV.visibility = View.GONE
                                     llAccept_HomeBottomBtn.visibility = View.GONE
                                     tv1111.visibility = View.GONE
                                     closeCV.visibility = View.GONE
@@ -428,7 +446,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llAccept_HomeBottomBtn.visibility = View.GONE
                                     llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
-
+                                    arrivedLay.visibility = View.GONE
+                                    requestCV.visibility = View.VISIBLE
                                     //Before 26042022
                                     llEstimate_HomeBottomBtn.visibility = View.GONE
                                     llStart_HomeBottomBtn.visibility = View.VISIBLE
@@ -506,6 +525,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llAccept_HomeBottomBtn.visibility = View.VISIBLE
                                     llCall_HomeBottomBtn.visibility = View.GONE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
+                                    arrivedLay.visibility = View.GONE
                                     llStart_HomeBottomBtn.visibility = View.GONE
                                     llEnd_HomeBottomBtn.visibility = View.GONE
                                     imgBtnNavigate.visibility = View.GONE
@@ -515,7 +535,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     ElapsedTimerTV.visibility = View.GONE
                                     //changeStatusOfServiceMan()
                                     map?.clear()
-
 
 
                                 }
@@ -542,6 +561,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         }
 
         llArrived_HomeBottomBtn.setOnClickListener {
+            updateToArrived()
+        }
+        llArrived_HomeBottomBtn1.setOnClickListener {
             updateToArrived()
         }
 
@@ -585,6 +607,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         loadCustomerProfile(request!!.customer_id)
         loadServiceDetails(request!!.service_id)
         addressTV.text = request!!.address
+        addressTV1.text = request!!.address
         val isLangArabic = getBoolean(
             this,
             Constants.SharedPrefs.User.IS_LANG_ARB, false
@@ -592,12 +615,15 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         when {
             isLangArabic -> {
                 serviceRequestedTV.text = request!!.service_ar_name
+                serviceRequestedTV1.text = request!!.service_ar_name
             }
             else -> {
                 serviceRequestedTV.text = request!!.service_name
+                serviceRequestedTV1.text = request!!.service_name
             }
         }
         subServiceRequestedTV.text = "Sub service : ${request!!.sub_service_name}"
+        subserviceRequestedTV1.text = "Sub service : ${request!!.sub_service_name}"
         llCancel_HomeBottomBtn.setTag(R.string.request_id, key.toString())
         llAccept_HomeBottomBtn.setTag(R.string.request_id2, key.toString())
         requestCV.visibility = View.VISIBLE
@@ -623,6 +649,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         if (serviceWithSUbServices.serviceIcon != null && !serviceWithSUbServices.serviceIcon.isNullOrBlank()) {
                             Picasso.get().load(serviceWithSUbServices.serviceIcon)
                                 .placeholder(R.drawable.icon_plumbing).into(imgServiceIcon)
+                            Picasso.get().load(serviceWithSUbServices.serviceIcon)
+                                .placeholder(R.drawable.icon_plumbing).into(imgServiceIcon1)
                         }
                     }
                 }
@@ -662,6 +690,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         llAccept_HomeBottomBtn.visibility = View.VISIBLE
         llCall_HomeBottomBtn.visibility = View.GONE
         llArrived_HomeBottomBtn.visibility = View.GONE
+        arrivedLay.visibility = View.GONE
+        requestCV.visibility = View.VISIBLE
         llStart_HomeBottomBtn.visibility = View.GONE
         llEnd_HomeBottomBtn.visibility = View.GONE
         imgBtnNavigate.visibility = View.GONE
@@ -680,16 +710,20 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             ) {
                 if (response.isSuccessful) {
                     customerProfile = response.body()!!.data!![0]
-                    var cName: String
-                    if (customerProfile.lastname != null)
-                        cName = customerProfile.name + " " + customerProfile.lastname
+                    val cName: String
+                    cName = if (customerProfile.lastname != null)
+                        customerProfile.name + " " + customerProfile.lastname
                     else
-                        cName = customerProfile.name
+                        customerProfile.name
                     requestorName.text = cName
+                    requestorName1.text = cName
 
-                    if (customerProfile.image != null && customerProfile.image.isNotEmpty())
+                    if (customerProfile.image != null && customerProfile.image.isNotEmpty()) {
                         Picasso.get().load(customerProfile.image)
                             .placeholder(R.drawable.dummy_user).fit().into(serviceManIVR)
+                        Picasso.get().load(customerProfile.image)
+                            .placeholder(R.drawable.dummy_user).fit().into(serviceManIVR1)
+                    }
                 }
             }
 
@@ -967,6 +1001,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                             tv1111.visibility = View.GONE
                             closeCV.visibility = View.GONE
                             llArrived_HomeBottomBtn.visibility = View.VISIBLE
+                            arrivedLay.visibility = View.VISIBLE
+                            requestCV.visibility = View.GONE
+                            selectedCV.visibility = View.GONE
                             ServiceManNameTOP.text = getString(R.string.you_are_on_the_way)
 //                            imgBtnNavigate.visibility = View.VISIBLE
                             imgBtnNavigate.visibility = View.INVISIBLE
@@ -1006,6 +1043,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         imgBtnNavigate.visibility = View.GONE
                         ServiceManNameTOP.text = resources.getString(R.string.you_have_reached)
                         llArrived_HomeBottomBtn.visibility = View.GONE
+                        arrivedLay.visibility = View.GONE
+                        requestCV.visibility = View.VISIBLE
                         //Before 26042022
                         llEstimate_HomeBottomBtn.visibility = View.GONE
                         llStart_HomeBottomBtn.visibility = View.VISIBLE
@@ -1063,7 +1102,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 amt.isEmpty() -> {
                     Toast.makeText(
                         this@DashboardActivity,
-                        resources.getString(R.string.Please_enter_price_estimate),
+                        resources.getString(R.string.please_enter_price_estimate),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -1234,6 +1273,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         llAccept_HomeBottomBtn.visibility = View.VISIBLE
                         llCall_HomeBottomBtn.visibility = View.GONE
                         llArrived_HomeBottomBtn.visibility = View.GONE
+                        arrivedLay.visibility = View.GONE
                         llStart_HomeBottomBtn.visibility = View.GONE
                         llEnd_HomeBottomBtn.visibility = View.GONE
                         imgBtnNavigate.visibility = View.GONE
