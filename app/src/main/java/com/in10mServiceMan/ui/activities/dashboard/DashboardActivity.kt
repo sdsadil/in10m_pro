@@ -1132,6 +1132,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
                         amt
                     )
+                    SharedPreferencesHelper.putString(
+                        this@DashboardActivity,
+                        Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+                        scope
+                    )
                     estimateAcceptKeyRef =
                         mDatabase.child(bookingId.toString()).child(estimateAcceptKey).ref
                     estimateAcceptKeyListener =

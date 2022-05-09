@@ -51,6 +51,7 @@ class Constants {
                 const val COMPLETE_LOGIN_DETAILS = "complete_login_details"
                 const val ACCOUNT_TYPE = "account_type"
                 const val ESTIMATE_AMOUNT = "estimate_amount"
+                const val ESTIMATE_DESCRIPTION = "estimate_desc"
 
                 const val SERVICES_PROVIDED = "services_provided"
                 const val SERVICES_PROVIDED_STRING = "services_provided_string"

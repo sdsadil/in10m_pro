@@ -50,14 +50,11 @@ class InvoiceActivity : In10mBaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.e("Invoice Activity", "onResume")
-
         setOnlinVisibility()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("Invoice Activity", "onCreate")
         setContentView(R.layout.activity_invoice)
         val userid =
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "0")
@@ -65,7 +62,7 @@ class InvoiceActivity : In10mBaseActivity() {
 
         backButton.setOnClickListener {
             finish()
-            overridePendingTransition(0,0)
+            overridePendingTransition(0, 0)
         }
 
         if (intent.extras != null) {
@@ -82,8 +79,13 @@ class InvoiceActivity : In10mBaseActivity() {
 
         feePayDescriptionET.setText(estimate_amount)
 
-        Log.i("estimate_amount", "$estimate_amount")
-        Log.i("booking / customer", "$bookingId $customerId")
+        workDescription = SharedPreferencesHelper.getString(
+            this@InvoiceActivity,
+            Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+            ""
+        ).toString()
+
+        workDescriptionET.setText(workDescription)
 
         val paymentNodePath = "payments/$customerId"//"payments/$bookingId"
         mDatabase = FirebaseDatabase.getInstance().getReference(paymentNodePath)
@@ -268,6 +270,11 @@ class InvoiceActivity : In10mBaseActivity() {
                 Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
                 ""
             )
+            SharedPreferencesHelper.putString(
+                this@InvoiceActivity,
+                Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+                ""
+            )
             startActivity(
                 Intent(this@InvoiceActivity, CustomerRating::class.java).putExtra(
                     "bookingId",
@@ -277,7 +284,7 @@ class InvoiceActivity : In10mBaseActivity() {
                     .putExtra("serviceId", serviceId)
             )
             finish()
-            overridePendingTransition(0,0)
+            overridePendingTransition(0, 0)
         }
     }
 
@@ -318,6 +325,7 @@ class InvoiceActivity : In10mBaseActivity() {
                         request.pay_status = false
                         request.accepted_status = true
                         request.editing_status = false
+                        request.work_scope = workDescription
                         if (response.body()!!.data!!.serviceFee != null)
                             request.service_amount =
                                 response.body()!!.data!!.servicemanServiceAmount
