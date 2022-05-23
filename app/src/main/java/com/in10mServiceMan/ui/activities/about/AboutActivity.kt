@@ -8,7 +8,7 @@ import android.webkit.WebViewClient
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.apis.APIClient
 import kotlinx.android.synthetic.main.activity_about.*
-
+//TEST
 class AboutActivity : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
