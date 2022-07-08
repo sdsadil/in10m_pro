@@ -143,7 +143,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     lateinit var destinationPosition: Point
     lateinit var orginPosition: Point
     private var currentRoute: DirectionsRoute? = null
-    private var TAG = "DirectionsActivity"
     val completeProfilePresenter = CompleteProfilePresenter(this)
 
     var sec = 0
@@ -710,8 +709,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             ) {
                 if (response.isSuccessful) {
                     customerProfile = response.body()!!.data!![0]
-                    val cName: String
-                    cName = if (customerProfile.lastname != null)
+                    val cName: String = if (customerProfile.lastname != null)
                         customerProfile.name + " " + customerProfile.lastname
                     else
                         customerProfile.name
@@ -810,17 +808,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 mInfo.name = cData[i]?.name
                 if (!cData[i]?.services.isNullOrEmpty())
                     mInfo.serviceName = cData[i]?.services!![0]?.serviceName
-
-                val owner = SharedPreferencesHelper.getString(
-                    this,
-                    Constants.SharedPrefs.User.FIRST_NAME,
-                    ""
-                )
-                val img = SharedPreferencesHelper.getString(
-                    this,
-                    Constants.SharedPrefs.User.USER_IMAGE,
-                    ""
-                )
                 Constants.GlobalSettings.owner = localStorage(this).completeCustomer.name
                 Constants.GlobalSettings.image = localStorage(this).completeCustomer.image
 
@@ -880,10 +867,13 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
     private fun getCountVal(cVal: Int): String {
         var aa = ""
-        if (cVal < 10) {
-            aa = "0$cVal"
-        } else {
-            aa = cVal.toString()
+        when {
+            cVal < 10 -> {
+                aa = "0$cVal"
+            }
+            else -> {
+                aa = cVal.toString()
+            }
         }
         return aa
     }
@@ -1640,7 +1630,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val LocationUpdates = data?.let { LocationSettingsStates.fromIntent(it) }
+        data?.let { LocationSettingsStates.fromIntent(it) }
         when (requestCode) {
             REQUEST_CHECK_SETTINGS -> {
                 when (resultCode) {

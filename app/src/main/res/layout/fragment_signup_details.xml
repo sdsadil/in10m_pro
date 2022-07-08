@@ -26,8 +26,8 @@
             android:layout_marginTop="35dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:text="@string/enter_personal_details"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,16 +76,6 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsDOB1" />
 
-        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
-            android:id="@+id/personalDetailsHomeAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/where_do_you_live"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
-            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyTIL" />
 
         <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsFirstName"
@@ -408,6 +398,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etFloorNo_SignUpProfLay" />
 
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+            android:id="@+id/personalDetailsHomeAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/where_do_you_live"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyTIL" />
+
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/etGovernorate_SignUpProfLay"
             android:layout_width="match_parent"
@@ -416,11 +417,11 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
             android:drawablePadding="@dimen/_10sdp"
             android:gravity="center|start"
             android:hint="@string/governorate"
             android:inputType="text"
-            android:drawableEnd="@drawable/ic_arrow_drop_down"
             android:paddingStart="10dp"
             android:paddingTop="8dp"
             android:paddingEnd="10dp"
@@ -431,6 +432,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAptOffNo_SignUpProfLay" />
+
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+            android:id="@+id/tvTitleCountry_SignUpProfLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/where_are_you_from"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/etGovernorate_SignUpProfLay"
+            app:layout_constraintTop_toBottomOf="@+id/etGovernorate_SignUpProfLay" />
+
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
+            android:id="@+id/tvTitleCountry1_SignUpProfLay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@color/colorLight"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
+            android:drawablePadding="@dimen/_10sdp"
+            android:gravity="center|start"
+            android:hint="@string/india"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleCountry_SignUpProfLay" />
 
         <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsLastStreetAddress"

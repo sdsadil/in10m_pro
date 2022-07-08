@@ -62,6 +62,9 @@ class AvailableServices : In10mBaseActivity(), IServicesView, IServiceInteractor
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_available_services)
 
+        ivClose.setOnClickListener {
+            onBackPressed()
+        }
         initViews()
     }
 

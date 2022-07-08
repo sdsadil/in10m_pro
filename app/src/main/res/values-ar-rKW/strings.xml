@@ -461,4 +461,7 @@
     <string name="governorate_title">Governorate</string>
     <string name="thankyou_feedback">شكرا لك على ملاحظاتك</string>
     <string name="direction_for_location">Direction for location</string>
+    <string name="where_are_you_from">.بلدك الأصلي</string>
+    <string name="india">India</string>
+    <string name="sms_code_been_sent_to_the_registered_number">تم إرسال رسالة قصيرة آلى رقم هاتفك المسجل</string>
 </resources>

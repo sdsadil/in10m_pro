@@ -6,17 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.services.AvailableServices">
 
-    <com.in10mServiceMan.widgets.textview.CustomBookTextView
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="@dimen/back_btn_width"
+        android:layout_height="@dimen/back_btn_height"
+        android:layout_marginStart="@dimen/back_btn_margin_start"
+        android:layout_marginTop="@dimen/back_btn_margin_top"
+        android:background="@drawable/ic_arrow_back_black_24dp"
+        android:foregroundGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
         android:id="@+id/selectServicesTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:text="@string/select_services_offered"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivClose" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/availableServicesRV"

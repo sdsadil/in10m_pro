@@ -17,7 +17,7 @@
         android:background="@android:color/white"
         android:paddingBottom="20dp">
 
-        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/dialogue_confirmation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

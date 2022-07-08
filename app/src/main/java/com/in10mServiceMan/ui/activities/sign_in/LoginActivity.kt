@@ -50,6 +50,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
             SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "1")
             SharedPreferencesHelper.putInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
             startActivity(Intent(this, AvailableServices::class.java))
+            overridePendingTransition(0,0)
         }
         tvChooseLang_LoginLay.setOnClickListener {
             languageChangeDialogView()
@@ -112,6 +113,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "1")
                         )
+                        overridePendingTransition(0,0)
                     }
                     2 -> {
                         startActivity(
@@ -120,6 +122,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "2")
                         )
+                        overridePendingTransition(0,0)
                     }
                     3 -> {
                         startActivity(
@@ -128,10 +131,12 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "3")
                         )
+                        overridePendingTransition(0,0)
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                        overridePendingTransition(0,0)
                     }
                 }
             } else if (user == 3) {
@@ -144,6 +149,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "1")
                         )
+                        overridePendingTransition(0,0)
                     }
                     2 -> {
                         startActivity(
@@ -152,6 +158,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "2")
                         )
+                        overridePendingTransition(0,0)
                     }
                     3 -> {
                         startActivity(
@@ -160,10 +167,12 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "3")
                         )
+                        overridePendingTransition(0,0)
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                        overridePendingTransition(0,0)
                     }
                 }
             } else {
@@ -175,6 +184,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 SignUpActivity::class.java
                             ).putExtra("step", "1")
                         )
+                        overridePendingTransition(0,0)
                     }
                     2 -> {
                         startActivity(
@@ -183,15 +193,18 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 SignUpActivity::class.java
                             ).putExtra("step", "2")
                         )
+                        overridePendingTransition(0,0)
                     }
                     3 -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                        overridePendingTransition(0,0)
                         //startActivity(Intent(this@LoginActivity, SignUpActivity::class.java).putExtra("step", "3"))
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                        overridePendingTransition(0,0)
                     }
                 }
             }

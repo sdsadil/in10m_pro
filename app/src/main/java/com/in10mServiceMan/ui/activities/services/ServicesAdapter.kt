@@ -27,7 +27,7 @@ class ServicesAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceVH {
-        val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_services, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_services, parent, false)
         return ServiceVH(v)
     }
 

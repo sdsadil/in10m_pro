@@ -13,7 +13,7 @@
         android:layout_marginEnd="@dimen/_20sdp"
         android:text="@string/enter_your_contact_details"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

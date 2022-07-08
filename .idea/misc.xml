@@ -8,6 +8,7 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.25435897435897437" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_happy_smilee_icon_large.xml" value="0.25833333333333336" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_otp_bg.xml" value="0.2385" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_radio_button_checked.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_sad_smilee_icon_large.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout-large/drawyer_layout.xml" value="0.1290983606557377" />
@@ -81,12 +82,13 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_contact.xml" value="0.21920289855072464" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_details.xml" value="0.4518950437317784" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_verify_company_mobile.xml" value="0.121875" />
-        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_verify_mobile.xml" value="0.264" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_verify_mobile.xml" value="0.536" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/governorate_popup.xml" value="0.4" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/home_bottom_buttons.xml" value="0.264" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/intro_first_screen.xml" value="0.176" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/intro_second_screen.xml" value="0.2421875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/intro_third_screen.xml" value="0.176" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/item_services.xml" value="0.2421875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/item_sub_service.xml" value="0.21920289855072464" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/language_popup.xml" value="0.4" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/layout_invoice_dialog.xml" value="0.4721878862793572" />

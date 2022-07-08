@@ -29,34 +29,13 @@
             android:layout_marginStart="38dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="38dp"
-            android:text="@string/code"
+            android:text="@string/sms_code_been_sent_to_the_registered_number"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileVerification" />
 
-        <!--<com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-            android:id="@+id/enterCode"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginEnd="38dp"
-            android:background="@color/colorLight"
-            android:hint="@string/enter_code"
-            android:inputType="number"
-            android:maxLength="6"
-            android:paddingStart="10dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimary"
-            android:textCursorDrawable="@null"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mobileDescription" />-->
 
         <LinearLayout
             android:id="@+id/ll_otp"
@@ -65,69 +44,105 @@
             android:layout_marginStart="38dp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="38dp"
+            android:gravity="center"
             android:layoutDirection="ltr"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mobileDescription">
 
-            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-                android:id="@+id/et_otp1"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/colorLight"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textAllCaps="true"
-                android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:orientation="vertical">
 
-            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-                android:id="@+id/et_otp2"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_5sdp"
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
+                    android:id="@+id/et_otp1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_otp_bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/colorLight"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textAllCaps="true"
-                android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:orientation="vertical">
 
-            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-                android:id="@+id/et_otp3"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_5sdp"
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
+                    android:id="@+id/et_otp2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_otp_bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/colorLight"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textAllCaps="true"
-                android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                android:orientation="vertical">
 
-            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-                android:id="@+id/et_otp4"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/colorLight"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textAllCaps="true"
-                android:textCursorDrawable="@null"
-                android:textSize="15sp" />
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
+                    android:id="@+id/et_otp3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_otp_bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
+                    android:id="@+id/et_otp4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_otp_bg" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <com.in10mServiceMan.widgets.textview.CustomBookTextView

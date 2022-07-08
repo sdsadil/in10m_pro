@@ -206,7 +206,7 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
-    @POST("auth/api/register_step1")
+        @POST("auth/api/register_step1")
     Call<SignupOneResponse> SignupOne(@Field("type") int type,
                                       @Field("fname") String fname,
                                       @Field("lname") String lname,

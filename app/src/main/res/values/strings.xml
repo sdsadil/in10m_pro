@@ -26,7 +26,7 @@
     <string name="contact">Contact us</string>
     <string name="settings">Settings</string>
 
-    <string name="enter_personal_details">Enter your Personal details</string>
+    <string name="enter_personal_details">Enter your personal details</string>
     <string name="legal_name">Legal Name</string>
     <string name="first_name">FIRST NAME</string>
     <string name="last_name">LAST NAME</string>
@@ -489,4 +489,7 @@
     <string name="governorate_title">Governorate</string>
     <string name="thankyou_feedback">Thank you for the feedback</string>
     <string name="direction_for_location">Direction for location</string>
+    <string name="where_are_you_from">Where are you from</string>
+    <string name="india">India</string>
+    <string name="sms_code_been_sent_to_the_registered_number">SMS code been sent to the registered number</string>
 </resources>
