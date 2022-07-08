@@ -336,7 +336,7 @@
     <string name="in10m_charges">In10m Charges</string>
     <string name="provide_estimate">PROVIDE ESTIMATE</string>
     <string name="estimate_description">Enter Work Scope</string>
-    <string name="work_scope_and_estimate">Work Scope and Estimate</string>
+    <string name="work_scope_and_estimate">Work Scope &amp; Estimate</string>
 
     <string name="privacy_updated"><![CDATA[Privacy & Policy Updated]]></string>
     <string name="desc_privacy_updated"><![CDATA[Would you like to review Privacy & Policy now?]]></string>
@@ -346,7 +346,7 @@
     <string name="invalid_booking_data">Invalid booking data received</string>
     <string name="work_status">Work Status</string>
     <string name="you_have_reached">You have reached</string>
-    <string name="enter_price_estimate">Enter estimate price </string>
+    <string name="enter_price_estimate">Enter price estimate</string>
     <string name="please_wait_while_homeowner_confirms_your_estimate">Please wait while homeowner confirms your estimate</string>
     <string name="please_enter_work_scope">Please enter work scope</string>
     <string name="please_enter_price_estimate">Please enter price estimate</string>
@@ -492,4 +492,10 @@
     <string name="where_are_you_from">Where are you from</string>
     <string name="india">India</string>
     <string name="sms_code_been_sent_to_the_registered_number">SMS code been sent to the registered number</string>
+    <string name="service_requested">Service Requested</string>
+    <string name="reject">Reject</string>
+    <string name="go_to_the_location">GO TO THE LOCATION</string>
+    <string name="click_here_when_you_reach">Click here when you reach....</string>
+    <string name="send_to_customer">SEND TO CUSTOMER</string>
+    <string name="please_wait_while_customer_approve_estimate">PLease wait while customer approve estimate</string>
 </resources>

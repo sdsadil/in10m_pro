@@ -170,20 +170,33 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout31">
 
             </View>
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/tvTitle_MapTracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/service_requested"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view61" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lv31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/_2sdp"
                 android:paddingBottom="@dimen/_2sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view61">
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle_MapTracking">
 
                 <ImageView
                     android:id="@+id/imgServiceIcon1"
@@ -191,15 +204,17 @@
                     android:layout_height="@dimen/_25sdp"
                     android:layout_marginStart="1dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/ServiceNameContainerLL1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
+                    android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/ivCall1"
                     app:layout_constraintStart_toEndOf="@+id/imgServiceIcon1"
                     app:layout_constraintTop_toTopOf="@+id/imgServiceIcon1">
@@ -292,7 +307,7 @@
                         android:focusable="false"
                         android:paddingTop="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
-                        android:text="@string/direction_for_location"
+                        android:text="@string/go_to_the_location"
                         android:textAllCaps="true"
                         android:textColor="@color/white_text_selector"
                         android:textSize="15sp"
@@ -307,7 +322,6 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@color/decline_button"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
@@ -328,7 +342,7 @@
                         android:focusable="false"
                         android:paddingTop="@dimen/_6sdp"
                         android:paddingBottom="@dimen/_6sdp"
-                        android:text="@string/arrived_at_location"
+                        android:text="@string/click_here_when_you_reach"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlack"
                         android:textSize="15sp"

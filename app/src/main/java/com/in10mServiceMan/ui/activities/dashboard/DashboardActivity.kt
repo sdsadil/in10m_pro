@@ -443,13 +443,14 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                         resources.getString(R.string.you_have_reached)
 
                                     llAccept_HomeBottomBtn.visibility = View.GONE
-                                    llCall_HomeBottomBtn.visibility = View.VISIBLE
+                                    llCall_HomeBottomBtn.visibility = View.GONE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
                                     arrivedLay.visibility = View.GONE
                                     requestCV.visibility = View.VISIBLE
+                                    llCancel_HomeBottomBtn.visibility = View.GONE
                                     //Before 26042022
-                                    llEstimate_HomeBottomBtn.visibility = View.GONE
-                                    llStart_HomeBottomBtn.visibility = View.VISIBLE
+//                                    llEstimate_HomeBottomBtn.visibility = View.GONE
+//                                    llStart_HomeBottomBtn.visibility = View.VISIBLE
 
                                     //After 26042022
                                     llEstimate_HomeBottomBtn.visibility = View.VISIBLE
@@ -1034,10 +1035,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         ServiceManNameTOP.text = resources.getString(R.string.you_have_reached)
                         llArrived_HomeBottomBtn.visibility = View.GONE
                         arrivedLay.visibility = View.GONE
+                        llCancel_HomeBottomBtn.visibility = View.GONE
                         requestCV.visibility = View.VISIBLE
                         //Before 26042022
-                        llEstimate_HomeBottomBtn.visibility = View.GONE
-                        llStart_HomeBottomBtn.visibility = View.VISIBLE
+//                        llEstimate_HomeBottomBtn.visibility = View.GONE
+//                        llStart_HomeBottomBtn.visibility = View.VISIBLE
 
                         //After 26042022
                         llEstimate_HomeBottomBtn.visibility = View.VISIBLE

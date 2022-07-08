@@ -148,6 +148,7 @@ class AvailableServices : In10mBaseActivity(), IServicesView, IServiceInteractor
             Constants.GlobalSettings.fromAccount = false
 
         super.onBackPressed()
+        overridePendingTransition(0,0)
     }
 
     override fun onServiceCompleted(mPost: ServiceResponse) {

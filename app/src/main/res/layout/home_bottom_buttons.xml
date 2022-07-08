@@ -40,7 +40,7 @@
             android:focusable="false"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_6sdp"
-            android:text="@string/decline"
+            android:text="@string/reject"
             android:textAllCaps="true"
             android:textColor="@color/danger"
             android:textSize="15sp"

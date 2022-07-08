@@ -117,6 +117,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic__ionicons_svg_md_arrow_dropup" />
@@ -125,8 +126,7 @@
                 android:id="@+id/LVdashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@+id/btnServicesDashBoardToggle">
+                app:layout_constraintTop_toBottomOf="@+id/ServiceManName">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/today"
@@ -249,6 +249,7 @@
                     android:text="@string/leads_deals"
                     android:textColor="@color/colorPrimary"
                     android:textSize="12sp"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -267,10 +268,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="0dp"
-        android:visibility="gone"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -319,7 +320,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/user_dummy_avatar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -349,7 +350,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -441,13 +442,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view6">
 
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                    android:id="@+id/tvTitle_MapTracking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/service_requested"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:id="@+id/imgServiceIcon"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_marginStart="1dp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle_MapTracking" />
 
                 <LinearLayout
                     android:id="@+id/ServiceNameContainerLL"
@@ -456,6 +471,7 @@
                     android:layout_gravity="start"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imgServiceIcon"
                     app:layout_constraintTop_toTopOf="@+id/imgServiceIcon">

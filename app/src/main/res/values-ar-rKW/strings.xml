@@ -464,4 +464,10 @@
     <string name="where_are_you_from">.بلدك الأصلي</string>
     <string name="india">India</string>
     <string name="sms_code_been_sent_to_the_registered_number">تم إرسال رسالة قصيرة آلى رقم هاتفك المسجل</string>
+    <string name="service_requested">الخدمة المطلوبة</string>
+    <string name="reject">رفض</string>
+    <string name="go_to_the_location">انطلق إلى موقع العمل</string>
+    <string name="click_here_when_you_reach">إضغط هنا عند وصولك الموقع</string>
+    <string name="send_to_customer">SEND TO CUSTOMER</string>
+    <string name="please_wait_while_customer_approve_estimate">في أنتظار موافقة الزبون</string>
 </resources>
