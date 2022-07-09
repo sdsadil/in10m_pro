@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.in10mServiceMan.models.BookingHistoryResponse;
 import com.in10mServiceMan.models.CompanyHomeCountResponse;
 import com.in10mServiceMan.models.CompanyServicemanLocationResponse;
+import com.in10mServiceMan.models.CountryPojo;
 import com.in10mServiceMan.models.CustomerCompleteProfile;
 import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate;
 import com.in10mServiceMan.models.DeviceTokenPojo;
@@ -206,7 +207,7 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
-        @POST("auth/api/register_step1")
+    @POST("auth/api/register_step1")
     Call<SignupOneResponse> SignupOne(@Field("type") int type,
                                       @Field("fname") String fname,
                                       @Field("lname") String lname,
@@ -412,6 +413,10 @@ public interface ApiInterface {
                                                              @Field("country") String country,
                                                              @Field("ssn") String SSN,
                                                              @Field("zipcode") String zipcode);
+
     @PUT("customer/api/customers/{id}/save_device_token")
     Call<DeviceTokenPojo> updateDeviceToken(@Path("id") int UserId, @Body JsonObject params);
+
+    @GET("customer/api/get_country")
+    Call<CountryPojo> getCountry();
 }

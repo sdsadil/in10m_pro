@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/custom_radiobtn.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/default_background.xml" value="0.25833333333333336" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/gradient_spinner.xml" value="0.2235" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.25435897435897437" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.25833333333333336" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/drawable/ic_happy_smilee_icon_large.xml" value="0.25833333333333336" />
@@ -81,7 +82,7 @@
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_company_contact.xml" value="0.4" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_company_details.xml" value="0.4" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_contact.xml" value="0.21920289855072464" />
-        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_details.xml" value="0.4518950437317784" />
+        <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_signup_details.xml" value="0.264" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_verify_company_mobile.xml" value="0.121875" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/fragment_verify_mobile.xml" value="0.176" />
         <entry key="..\:/MyStuff/Proj/in10m/in10m_pro/app/src/main/res/layout/governorate_popup.xml" value="0.4" />

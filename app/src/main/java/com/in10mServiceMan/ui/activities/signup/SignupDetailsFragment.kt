@@ -20,18 +20,15 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.common.api.ResultCallback
 import com.google.android.gms.location.places.AutocompleteFilter
-import com.google.android.gms.location.places.PlaceBuffer
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 
 import com.in10mServiceMan.R
+import com.in10mServiceMan.models.CountryPojo
+import com.in10mServiceMan.models.CountryPojoArray
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.spinnerAdapter
-import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_signup_details.*
 import kotlinx.android.synthetic.main.fragment_signup_details.view.*
 import retrofit2.Call
@@ -49,16 +46,15 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
 
     var state: String = "Kuwait City"
     var city: String = "Mirqab"
-    var country: String = "Kuwait"
-    var country_id: String = "12"
+    var country: String = ""
+    var country_id: String = ""
 
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mPlaceArrayAdapter: PlaceArrayAdapter? = null
     private var mStatesList: List<State?>? = null
     var filter: AutocompleteFilter? = null
-    private val BOUNDS_MOUNTAIN_VIEW =
-        LatLngBounds(LatLng(37.398160, -122.180831), LatLng(37.430610, -121.972090))
-    val GOOGLE_API_CLIENT_ID = 0
+
+    private var mCountryList: List<CountryPojoArray?>? = null
 
     companion object {
         private var mListener: NextFragmentInterfaceOne? = null
@@ -73,21 +69,10 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_signup_details, container, false)
         filter = AutocompleteFilter.Builder().setCountry("KW").build()
-        getStates()
-
-        /*if (SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2") == "2") {
-            view.personalDetailsCompanyDetailsTV.visibility = View.VISIBLE
-            view.personalDetailsCompanyTIL.visibility = View.VISIBLE
-        } else {
-            view.personalDetailsCompanyDetailsTV.visibility = View.GONE
-            view.personalDetailsCompanyTIL.visibility = View.GONE
-
-        }*/
+        getCountry()
         val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
-
         myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -105,6 +90,32 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             }
         }
 
+        val spCountry1_SignUpProfLay = view.findViewById(R.id.spCountry1_SignUpProfLay) as Spinner
+        spCountry1_SignUpProfLay.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    when {
+                        mCountryList != null -> {
+                            if (spCountry1_SignUpProfLay.selectedItem.toString() != context?.resources?.getString(
+                                    R.string.india
+                                )
+                            ) {
+                                country_id = mCountryList!![position]!!.id.toString()
+                                country = spCountry1_SignUpProfLay.selectedItem.toString()
+                            }
+                        }
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                }
+            }
+
         view.tvAddressType_SignUpProfLay.setOnClickListener {
             openAddressTypePopUp()
         }
@@ -116,42 +127,17 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
 
             when {
                 view.personalDetailsFirstName.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_name))
+                    showErrorMsg(resources.getString(R.string.please_enter_name))
                 }
                 view.personalDetailsLastName.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_last_name))
+                    showErrorMsg(resources.getString(R.string.please_enter_last_name))
                 }
                 view.personalDetailsLastDOB.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.select_your_dob))
+                    showErrorMsg(resources.getString(R.string.select_your_dob))
                 }
                 ageCalculator(view.personalDetailsLastDOB.text.toString()) < 13 -> {
-                    ShowToast(resources.getString(R.string.age_must_be_greater_than))
+                    showErrorMsg(resources.getString(R.string.age_must_be_greater_than))
                 }
-                /*view.etAreaName_SignUpProfLay.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_your_area_name))
-                }
-                view.etBlock_SignUpProfLay.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_your_block))
-                }
-                view.etStreet_SignUpProfLay.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_your_street))
-                }*/
-
-                /*view.personalDetailsLastStreetAddress.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_street_address))
-                }
-                view.personalDetailsLastSuite.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_apartment_number))
-                }
-                view.personalDetailsStreetAddress.text.toString().trim().isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_enter_your_city))
-                }
-                state.isEmpty() -> {
-                    ShowToast(resources.getString(R.string.please_select_your_state))
-                }
-                view.personalDetailsZip.text.toString().trim().length != 5 -> {
-                    ShowToast(resources.getString(R.string.please_enter_valid_zipcode))
-                }*/
                 else -> {
                     SharedPreferencesHelper.putString(
                         this.context!!,
@@ -249,7 +235,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         }
     }
 
-    private fun ShowToast(msg: String) {
+    private fun showErrorMsg(msg: String) {
         Toast.makeText(this.context!!, msg, Toast.LENGTH_SHORT).show()
     }
 
@@ -269,6 +255,41 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
 
             }
         })
+    }
+
+    private fun getCountry() {
+        val homeCall = APIClient.getApiInterface().country
+        homeCall.enqueue(object : Callback<CountryPojo> {
+            override fun onResponse(
+                call: Call<CountryPojo>,
+                response: Response<CountryPojo>
+            ) {
+                if (response.isSuccessful) {
+                    bindDataCountry(response.body()!!)
+                }
+            }
+
+            override fun onFailure(call: Call<CountryPojo>, t: Throwable) {
+
+            }
+        })
+    }
+
+    fun bindDataCountry(countryPojo: CountryPojo) {
+        mCountryList = countryPojo.countryPojoArray
+        val mCountryListDummy: ArrayList<String> = ArrayList()
+        if (mCountryList?.size!! > 0) {
+            for (i in mCountryList!!.indices) {
+                mCountryListDummy.add(mCountryList?.get(i)?.name!!)
+            }
+        }
+        val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)
+        if (mCountryListDummy != null) {
+            adapter.addAll(mCountryListDummy)
+        }
+        adapter.add(context?.resources?.getString(R.string.india))
+        spCountry1_SignUpProfLay.adapter = adapter
+        spCountry1_SignUpProfLay.setSelection(adapter.count)
     }
 
     fun bindData(body: StatesResponse) {
@@ -407,7 +428,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.governorate_popup)
         val window = dialog.window
-        Objects.requireNonNull(window)!!.setLayout(
+        Objects.requireNonNull(window)?.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT
         )
