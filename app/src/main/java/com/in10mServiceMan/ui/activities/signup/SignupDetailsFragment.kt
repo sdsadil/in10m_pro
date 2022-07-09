@@ -1,6 +1,5 @@
 package com.in10mServiceMan.ui.activities.signup
 
-
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.graphics.Color
@@ -39,7 +38,6 @@ import java.time.LocalDate
 import java.time.Period
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
