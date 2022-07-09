@@ -324,7 +324,7 @@
     <string name="please_enter_work_scope">الرجاء إدخال نطاق العمل</string>
     <string name="please_enter_price_estimate">أدخل السعر التقديري</string>
     <string name="home_owner_rejected_the_estimate">صاحب المنزل رفض التقدير</string>
-    <string name="job_in_progress">العمل جاري</string>
+    <string name="job_in_progress">العمل جاري…</string>
     <string name="hello">أهلا</string>
     <string name="overall">Overall</string>
     <string name="value_for_money">Value for money</string>
@@ -467,7 +467,13 @@
     <string name="service_requested">الخدمة المطلوبة</string>
     <string name="reject">رفض</string>
     <string name="go_to_the_location">انطلق إلى موقع العمل</string>
-    <string name="click_here_when_you_reach">إضغط هنا عند وصولك الموقع</string>
-    <string name="send_to_customer">SEND TO CUSTOMER</string>
+    <string name="click_here_when_you_reach"><u>إضغط هنا عند وصولك الموقع</u></string>
+    <string name="send_to_customer">أرسل للزبون</string>
     <string name="please_wait_while_customer_approve_estimate">في أنتظار موافقة الزبون</string>
+    <string name="work_scope">تفاصيل العمل</string>
+    <string name="approved_estimate_for">قبل التسعير للأعمال التالية</string>
+    <string name="click_when_work_is_finish">تم إنجاز العمل</string>
+    <string name="send_invoice">أرسل الفاتورة</string>
+    <string name="waiting_for_the_customer">في انتظار الزبون</string>
+    <string name="enter_your_review_here">Enter your review here</string>
 </resources>

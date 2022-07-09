@@ -268,10 +268,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="0dp"
+        android:visibility="gone"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -443,7 +443,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/view6">
 
                 <com.in10mServiceMan.widgets.textview.CustomRegularTextView
-                    android:id="@+id/tvTitle_MapTracking"
+                    android:id="@+id/tvTitle_MapTracking1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
@@ -473,6 +473,7 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivCall_MapTrackingLay"
                     app:layout_constraintStart_toEndOf="@+id/imgServiceIcon"
                     app:layout_constraintTop_toTopOf="@+id/imgServiceIcon">
 
@@ -495,6 +496,19 @@
                         android:visibility="gone" />
 
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivCall_MapTrackingLay"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/ic_brightness_1"
+                    android:padding="@dimen/_12sdp"
+                    android:src="@drawable/callgreen"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                     android:id="@+id/ElapsedTimerTV"
@@ -549,6 +563,16 @@
     <include
         android:id="@+id/arrivedLay"
         layout="@layout/arrived_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/startfinishlay"
+        layout="@layout/startservice_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"

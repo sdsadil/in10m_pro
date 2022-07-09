@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
-        android:text="@string/invoice"
+        android:text="@string/send_invoice"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_15sdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_40sdp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -223,7 +224,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="false"
             android:focusable="false"
-            android:src="@drawable/greenarrowirght" />
+            android:src="@drawable/greentick_universal" />
 
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/EnterBtn"
@@ -235,7 +236,7 @@
             android:clickable="false"
             android:focusable="false"
             android:padding="@dimen/_10sdp"
-            android:text="@string/submit"
+            android:text="@string/send_to_customer"
             android:textAllCaps="true"
             android:textColor="@color/white_text_selector"
             android:textSize="15sp"

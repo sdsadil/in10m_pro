@@ -495,7 +495,13 @@
     <string name="service_requested">Service Requested</string>
     <string name="reject">Reject</string>
     <string name="go_to_the_location">GO TO THE LOCATION</string>
-    <string name="click_here_when_you_reach">Click here when you reach....</string>
+    <string name="click_here_when_you_reach"><u>Click here when you reach....</u></string>
     <string name="send_to_customer">SEND TO CUSTOMER</string>
     <string name="please_wait_while_customer_approve_estimate">PLease wait while customer approve estimate</string>
+    <string name="work_scope">Work Scope</string>
+    <string name="approved_estimate_for">Approved Estimate for</string>
+    <string name="click_when_work_is_finish">CLICK WHEN WORK IS FINISH</string>
+    <string name="send_invoice">Send Invoice</string>
+    <string name="waiting_for_the_customer">Waiting for the Customer.....</string>
+    <string name="enter_your_review_here">Enter your review here</string>
 </resources>

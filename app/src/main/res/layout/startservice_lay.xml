@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/requestCV1_StartServiceLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="0dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/closeCV1_StartServiceLay"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/serviceManIVR1_StartServiceLay"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/user_dummy_avatar"
+
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle_StartServiceLay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/requestorName1_StartServiceLay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:gravity="center|start"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/serviceManIVR1_StartServiceLay"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/tvTitle_StartServiceLay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/approved_estimate_for"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/serviceManIVR1_StartServiceLay"
+                app:layout_constraintTop_toBottomOf="@+id/requestorName1_StartServiceLay" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lv31_StartServiceLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle_StartServiceLay">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llElapsedTimerTV_StartServiceLay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivCall1_StartServiceLay"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                        android:id="@+id/ElapsedTimerTV_StartServiceLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:text="@string/elapsed_time"
+                        android:textColor="@color/text_colour_light"
+                        android:textSize="12sp" />
+
+                    <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                        android:id="@+id/workStatusTimerTV_StartServiceLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:gravity="end"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:textColor="@color/text_colour_light"
+                        android:textSize="12sp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                    android:id="@+id/tvWorkScope_StartServiceLay"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/textview_background"
+                    android:hint="@string/work_scope"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivCall1_StartServiceLay"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivCall1_StartServiceLay"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="1dp"
+                    android:background="@drawable/ic_brightness_1"
+                    android:padding="@dimen/_12sdp"
+                    android:src="@drawable/callgreen"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/view51_StartServiceLay"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.2"
+                android:background="@color/colorPrimary"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lv31_StartServiceLay">
+
+            </View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view51_StartServiceLay">
+
+                <LinearLayout
+                    android:id="@+id/llStartService_StartServiceLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@color/accept_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingStart="25dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="visible">
+
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
+                        android:id="@+id/btnStartService_StartServiceLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:background="@color/accept_button"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:text="@string/swipte_to_start_service"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_text_selector"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llFinishService_StartServiceLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@color/danger"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingStart="25dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="25dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="visible">
+
+                    <com.in10mServiceMan.widgets.textview.CustomBookTextView
+                        android:id="@+id/btnFinishService_StartServiceLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:background="@color/danger"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:text="@string/click_when_work_is_finish"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_text_selector"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

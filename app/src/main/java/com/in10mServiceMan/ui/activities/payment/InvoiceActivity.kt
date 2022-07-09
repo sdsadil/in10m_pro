@@ -95,8 +95,6 @@ class InvoiceActivity : In10mBaseActivity() {
 
         val storage = localStorage(this@InvoiceActivity)
 
-
-
         OnlinePayCL.setOnClickListener {
             selectRoundIVOnlineOnly.setImageResource(R.drawable.select_radio_one)
             selectRoundIVCash.setImageResource(R.drawable.unselect_radio_one)

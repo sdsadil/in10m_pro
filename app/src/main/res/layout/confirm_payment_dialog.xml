@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/_20sdp">
 
-        <com.in10mServiceMan.widgets.textview.CustomBookTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/headingTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/payment_completed"
+            android:text="@string/received_by_cash"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,35 +38,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TotalAmountTV" />
 
-        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+        <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/TotalAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="@string/total_amount"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/headingTV" />
 
-        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
-            android:id="@+id/AmountTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="34dp"
-            android:gravity="center"
-            android:text=""
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/headingTV" />
 
         <ImageView
             android:id="@+id/greenAssetIV"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             android:src="@drawable/online_green_card"
             app:layout_constraintStart_toStartOf="@id/TotalAmountTV"
             app:layout_constraintTop_toBottomOf="@id/lineView" />
@@ -78,22 +68,36 @@
             android:layout_marginStart="10dp"
             android:gravity="center"
             android:textSize="18sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/greenAssetIV"
             app:layout_constraintStart_toEndOf="@+id/greenAssetIV"
             app:layout_constraintTop_toTopOf="@id/greenAssetIV" />
+
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+            android:id="@+id/AmountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lineView" />
+
 
         <LinearLayout
             android:id="@+id/submitClickLL"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/default_background"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/lineView"
             app:layout_constraintStart_toStartOf="@+id/lineView"
-            app:layout_constraintTop_toBottomOf="@+id/cashReceiveStatusTV">
+            app:layout_constraintTop_toBottomOf="@+id/AmountTV">
 
             <ImageView
                 android:layout_width="15dp"
@@ -101,7 +105,7 @@
                 android:layout_gravity="center_vertical"
                 android:clickable="false"
                 android:focusable="false"
-                android:src="@drawable/greenarrowirght" />
+                android:src="@drawable/greentick" />
 
             <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/EnterBtn"

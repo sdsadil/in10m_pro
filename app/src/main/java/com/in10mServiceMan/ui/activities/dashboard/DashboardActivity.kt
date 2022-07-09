@@ -79,6 +79,7 @@ import kotlinx.android.synthetic.main.drawyer_layout.*
 import kotlinx.android.synthetic.main.home_bottom_buttons.*
 import kotlinx.android.synthetic.main.home_bottom_buttons.btnDirection_HomeBottomBtn
 import kotlinx.android.synthetic.main.home_bottom_buttons.llArrived_HomeBottomBtn
+import kotlinx.android.synthetic.main.startservice_lay.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -290,18 +291,23 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         }
         closeCV.setOnClickListener {
             callRequestCancelApi()
-
         }
-        sbStart_HomeBottomBtn.setOnActiveListener {
+        llStartService_StartServiceLay.setOnClickListener {
             updateTOStart()
         }
-        sbEnd_HomeBottomBtn.setOnActiveListener {
+        llFinishService_StartServiceLay.setOnClickListener {
             serviceDone1()
         }
         llCall_HomeBottomBtn.setOnClickListener {
             callToCustomer()
         }
         ivCall1.setOnClickListener {
+            callToCustomer()
+        }
+        ivCall1_StartServiceLay.setOnClickListener {
+            callToCustomer()
+        }
+        ivCall_MapTrackingLay.setOnClickListener {
             callToCustomer()
         }
         llEstimate_HomeBottomBtn.setOnClickListener {
@@ -448,13 +454,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     arrivedLay.visibility = View.GONE
                                     requestCV.visibility = View.VISIBLE
                                     llCancel_HomeBottomBtn.visibility = View.GONE
-                                    //Before 26042022
-//                                    llEstimate_HomeBottomBtn.visibility = View.GONE
-//                                    llStart_HomeBottomBtn.visibility = View.VISIBLE
-
-                                    //After 26042022
+                                    tvTitle_MapTracking1.visibility = View.GONE
                                     llEstimate_HomeBottomBtn.visibility = View.VISIBLE
-                                    llStart_HomeBottomBtn.visibility = View.GONE
+                                    ivCall_MapTrackingLay.visibility = View.VISIBLE
+                                    startfinishlay.visibility = View.GONE
 
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     request!!.status = BookingStatus.Arrived.toString()
@@ -465,12 +468,16 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     drawPolyLine()
 //                                    updateTOStart(false)
                                     currentWorkStatus = BookingStatus.Ongoing
-                                    ServiceManNameTOP.text =
+                                    tvTitle_StartServiceLay.text =
                                         resources.getString(R.string.job_in_progress)
                                     llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llAccept_HomeBottomBtn.visibility = View.GONE
-                                    llStart_HomeBottomBtn.visibility = View.GONE
-                                    llEnd_HomeBottomBtn.visibility = View.VISIBLE
+                                    requestCV.visibility = View.GONE
+                                    selectedCV.visibility = View.GONE
+                                    startfinishlay.visibility = View.VISIBLE
+                                    llStartService_StartServiceLay.visibility = View.GONE
+                                    llFinishService_StartServiceLay.visibility = View.VISIBLE
+
                                     imgBtnNavigate.visibility = View.GONE
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     llCancel_HomeBottomBtn.isEnabled = false
@@ -526,13 +533,15 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llCall_HomeBottomBtn.visibility = View.GONE
                                     llArrived_HomeBottomBtn.visibility = View.GONE
                                     arrivedLay.visibility = View.GONE
-                                    llStart_HomeBottomBtn.visibility = View.GONE
-                                    llEnd_HomeBottomBtn.visibility = View.GONE
+
+                                    startfinishlay.visibility = View.GONE
+
                                     imgBtnNavigate.visibility = View.GONE
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     llCancel_HomeBottomBtn.isEnabled = false
-                                    workStatusTimerTV.visibility = View.GONE
-                                    ElapsedTimerTV.visibility = View.GONE
+
+                                    llElapsedTimerTV_StartServiceLay.visibility = View.GONE
+                                    tvWorkScope_StartServiceLay.visibility = View.GONE
                                     //changeStatusOfServiceMan()
                                     map?.clear()
 
@@ -692,8 +701,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         llArrived_HomeBottomBtn.visibility = View.GONE
         arrivedLay.visibility = View.GONE
         requestCV.visibility = View.VISIBLE
-        llStart_HomeBottomBtn.visibility = View.GONE
-        llEnd_HomeBottomBtn.visibility = View.GONE
+        startfinishlay.visibility = View.GONE
         imgBtnNavigate.visibility = View.GONE
         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
         changeStatusOfServiceMan()
@@ -716,12 +724,17 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         customerProfile.name
                     requestorName.text = cName
                     requestorName1.text = cName
+                    requestorName1_StartServiceLay.text = cName
 
                     if (customerProfile.image != null && customerProfile.image.isNotEmpty()) {
                         Picasso.get().load(customerProfile.image)
                             .placeholder(R.drawable.dummy_user).fit().into(serviceManIVR)
                         Picasso.get().load(customerProfile.image)
-                            .placeholder(R.drawable.dummy_user).fit().into(serviceManIVR1)
+                            .placeholder(R.drawable.dummy_user).fit()
+                            .into(serviceManIVR1)
+                        Picasso.get().load(customerProfile.image)
+                            .placeholder(R.drawable.dummy_user).fit()
+                            .into(serviceManIVR1_StartServiceLay)
                     }
                 }
             }
@@ -1037,14 +1050,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         arrivedLay.visibility = View.GONE
                         llCancel_HomeBottomBtn.visibility = View.GONE
                         requestCV.visibility = View.VISIBLE
-                        //Before 26042022
-//                        llEstimate_HomeBottomBtn.visibility = View.GONE
-//                        llStart_HomeBottomBtn.visibility = View.VISIBLE
-
-                        //After 26042022
                         llEstimate_HomeBottomBtn.visibility = View.VISIBLE
-                        llStart_HomeBottomBtn.visibility = View.GONE
-
+                        tvTitle_MapTracking1.visibility = View.GONE
+                        ivCall_MapTrackingLay.visibility = View.VISIBLE
+                        startfinishlay.visibility = View.GONE
                         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
                         request!!.status = BookingStatus.Arrived.toString()
@@ -1160,7 +1169,20 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         mAlertDialog?.dismiss()
         if (acceptStatus == "true") {
             llEstimate_HomeBottomBtn.visibility = View.GONE
-            llStart_HomeBottomBtn.visibility = View.VISIBLE
+            ivCall_MapTrackingLay.visibility = View.GONE
+//            llStart_HomeBottomBtn.visibility = View.VISIBLE
+            requestCV.visibility = View.GONE
+            selectedCV.visibility = View.GONE
+            startfinishlay.visibility = View.VISIBLE
+            tvWorkScope_StartServiceLay.text =
+                SharedPreferencesHelper.getString(
+                    this@DashboardActivity,
+                    Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+                    ""
+                ).toString()
+            llStartService_StartServiceLay.visibility = View.VISIBLE
+            llFinishService_StartServiceLay.visibility = View.GONE
+            tvTitle_StartServiceLay.text = resources.getString(R.string.approved_estimate_for)
         } else if (acceptStatus == "false" && freeEstimate == 0) {
             // pay charge of the trip
             ShowToast(resources.getString(R.string.home_owner_rejected_the_estimate))
@@ -1182,9 +1204,14 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     destroyDialog()
                     if (response.isSuccessful) {
-                        ServiceManNameTOP.text = resources.getString(R.string.job_in_progress)
-                        llStart_HomeBottomBtn.visibility = View.GONE
-                        llEnd_HomeBottomBtn.visibility = View.VISIBLE
+                        tvTitle_StartServiceLay.text = resources.getString(R.string.job_in_progress)
+                        requestCV.visibility = View.GONE
+                        selectedCV.visibility = View.GONE
+                        startfinishlay.visibility = View.VISIBLE
+
+                        llStartService_StartServiceLay.visibility = View.GONE
+                        llFinishService_StartServiceLay.visibility = View.VISIBLE
+
                         imgBtnNavigate.visibility = View.GONE
                         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                         llCancel_HomeBottomBtn.isEnabled = false
@@ -1209,8 +1236,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     private fun serviceDone1(showMsg: Boolean = true) {
         if (timer != null) {
             timer?.cancel()
-            workStatusTimerTV.visibility = View.VISIBLE
-            ElapsedTimerTV.visibility = View.VISIBLE
+            llElapsedTimerTV_StartServiceLay.visibility = View.VISIBLE
+            tvWorkScope_StartServiceLay.visibility = View.GONE
             sec = 0
             min = 0
             hr = 0
@@ -1271,13 +1298,14 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         llCall_HomeBottomBtn.visibility = View.GONE
                         llArrived_HomeBottomBtn.visibility = View.GONE
                         arrivedLay.visibility = View.GONE
-                        llStart_HomeBottomBtn.visibility = View.GONE
+                        startfinishlay.visibility = View.GONE
                         llEnd_HomeBottomBtn.visibility = View.GONE
                         imgBtnNavigate.visibility = View.GONE
                         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                         llCancel_HomeBottomBtn.isEnabled = false
-                        workStatusTimerTV.visibility = View.GONE
-                        ElapsedTimerTV.visibility = View.GONE
+
+                        llElapsedTimerTV_StartServiceLay.visibility = View.VISIBLE
+                        tvWorkScope_StartServiceLay.visibility = View.GONE
                         //changeStatusOfServiceMan()
                         map?.clear()
                     }
@@ -1816,12 +1844,12 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     }
 
     private fun timerStartCreation() {
-        workStatusTimerTV.text = "0:0:0"
+        workStatusTimerTV_StartServiceLay.text = "0:0:0"
         sec = 0
         min = 0
         hr = 0
-        workStatusTimerTV.visibility = View.VISIBLE
-        ElapsedTimerTV.visibility = View.VISIBLE
+        llElapsedTimerTV_StartServiceLay.visibility = View.VISIBLE
+        tvWorkScope_StartServiceLay.visibility = View.GONE
         timer = object : CountDownTimer(300000000, 1000) {
             var hour = ""
             var minute = ""
@@ -1839,17 +1867,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 if (hr == 23) {
                     hr = 0
                 }
-                /*if (sec < 10) {
-                    second = "0$sec"
-                }
-                if (min < 10) {
-                    minute = "0$min"
-                }
-                if (hr < 10) {
-                    hour = "0$hour"
-                }*/
 
-                workStatusTimerTV.text = "$hr : $min : $sec"
+                workStatusTimerTV_StartServiceLay.text = "$hr : $min : $sec"
                 hour = ""
                 minute = ""
                 second = ""
