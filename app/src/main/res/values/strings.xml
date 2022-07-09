@@ -396,6 +396,7 @@
     <string name="please_select_your_state">Please select your state</string>
     <string name="please_enter_valid_zipcode">Please enter valid zipcode</string>
     <string name="enter_your_password1">Please enter your password</string>
+    <string name="select_your_country">Please select your country</string>
     <string name="enter_your_password2">Password must be at least 8 characters</string>
     <string name="enter_the_received_OTP">Enter the received OTP</string>
     <string name="please_accept_terms_privacy">Please accept our Terms of Use and Privacy Policy</string>

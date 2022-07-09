@@ -105,7 +105,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                                     R.string.india
                                 )
                             ) {
-                                country_id = mCountryList!![position]!!.id.toString()
+                                country_id = mCountryList!![position]!!.phonecode.toString()
                                 country = spCountry1_SignUpProfLay.selectedItem.toString()
                             }
                         }
@@ -137,6 +137,12 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 }
                 ageCalculator(view.personalDetailsLastDOB.text.toString()) < 13 -> {
                     showErrorMsg(resources.getString(R.string.age_must_be_greater_than))
+                }
+                country.trim().isEmpty() -> {
+                    showErrorMsg(resources.getString(R.string.select_your_country))
+                }
+                country.equals(context?.resources?.getString(R.string.india)) -> {
+                    showErrorMsg(resources.getString(R.string.select_your_country))
                 }
                 else -> {
                     SharedPreferencesHelper.putString(

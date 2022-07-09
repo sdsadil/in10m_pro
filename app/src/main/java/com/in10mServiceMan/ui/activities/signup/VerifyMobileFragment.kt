@@ -57,8 +57,8 @@ class VerifyMobileFragment : BaseFragment() {
             Constants.SharedPrefs.User.MOBILE_NUMBER,
             ""
         )
-        view.mobileDescription.text =
-            (getString(R.string.code) + " " + replaceCentreFour(mobile.toString()))
+//        view.mobileDescription.text =
+//            (getString(R.string.code) + " " + replaceCentreFour(mobile.toString()))
         view.termsOfUseTV.text =
             Html.fromHtml(
                 getString(R.string.verify_1) + " " + "<font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_termscondition.html\"> " + getString(
