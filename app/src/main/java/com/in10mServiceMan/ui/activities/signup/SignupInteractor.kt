@@ -238,7 +238,8 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
         countryCode: String,
         phone: String,
         password: String,
-        services: String
+        services: String,
+        country_id: String
     ) {
 
         val registerStepOne = APIClient.getApiInterface().SignupOne(
@@ -256,7 +257,8 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
             countryCode,
             phone,
             password,
-            services
+            services,
+            country_id
         )
         registerStepOne.enqueue(object : Callback<SignupOneResponse> {
             override fun onResponse(

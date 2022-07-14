@@ -28,7 +28,8 @@ interface ISignupPresenter {
                    countryCode: String,
                    phone: String,
                    password: String,
-                   services: String
+                   services: String,
+                   country_id: String
     )
     fun signupLevelTwo(header: String, userID: String, profilePicData: String, stateId: String, certificate: String)
     fun signupLevelThreeDebitCard(userID: String,

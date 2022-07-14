@@ -223,7 +223,8 @@ public interface ApiInterface {
                                       @Field("country_code") String country_code,
                                       @Field("contact_no") String contact_no,
                                       @Field("password") String password,
-                                      @Field("services") String services);
+                                      @Field("services") String services,
+                                      @Field("country_id") String country_id);
 
 
     @FormUrlEncoded

@@ -187,8 +187,13 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                         this.context!!,
                         Constants.SharedPrefs.User.COUNTRY_CODE,
                         "965"
-                    )//country_id
+                    )
 
+                    SharedPreferencesHelper.putString(
+                        this.context!!,
+                        Constants.SharedPrefs.User.USER_COUNTRY_ID,
+                        country_id
+                    )
                     displayAlertDialog()
                 }
             }
@@ -298,8 +303,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
 
     fun bindData(body: StatesResponse) {
         mStatesList = body.data?.states
-        country = "Kuwait"
-        country_id = body.data?.countryId.toString()
+//        country = "Kuwait"
+//        country_id = body.data?.countryId.toString()
         val myStateList: ArrayList<String> = ArrayList()
         if (mStatesList?.size!! > 0) {
             for (i in mStatesList!!.indices) {

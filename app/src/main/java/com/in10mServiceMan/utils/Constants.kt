@@ -55,6 +55,7 @@ class Constants {
 
                 const val SERVICES_PROVIDED = "services_provided"
                 const val SERVICES_PROVIDED_STRING = "services_provided_string"
+                const val USER_COUNTRY_ID = "country_id"
                 const val SELECTED_IMAGE = "selected_image"
 
                 const val SM_ADDRESS_ONE = "sm_address_one"

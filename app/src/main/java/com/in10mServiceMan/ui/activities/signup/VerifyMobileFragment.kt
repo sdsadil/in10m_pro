@@ -170,7 +170,13 @@ class VerifyMobileFragment : BaseFragment() {
                 activity,
                 Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING,
                 ""
+            ).toString(),
+            SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.USER_COUNTRY_ID,
+                ""
             ).toString()
+
         )
         registerStepOne.enqueue(object : Callback<SignupOneResponse> {
             override fun onResponse(

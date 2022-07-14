@@ -12,23 +12,109 @@ class SignupPresenter(val view: ISignupview) : ISignupInteractor, ISignupInterac
         mInteractor.verifyMobile(header, otp, email, mobile)
     }
 
-    override fun signupLevelThreeDebitCard(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String, expiryMonth: String, expiryYear: String, cardNumber: String, paymentType: String, street: String, houseNo: String, city: String, state: String, country: String, SSN: String, zip: String) {
-        mInteractor.signupLevelThreeDebitCard(userID, email, estimateType, estimationFee, payoutType, expiryMonth, expiryYear, cardNumber, paymentType, street, houseNo, city, state, country, SSN, zip)
+    override fun signupLevelThreeDebitCard(
+        userID: String,
+        email: String,
+        estimateType: String,
+        estimationFee: String,
+        payoutType: String,
+        expiryMonth: String,
+        expiryYear: String,
+        cardNumber: String,
+        paymentType: String,
+        street: String,
+        houseNo: String,
+        city: String,
+        state: String,
+        country: String,
+        SSN: String,
+        zip: String
+    ) {
+        mInteractor.signupLevelThreeDebitCard(
+            userID,
+            email,
+            estimateType,
+            estimationFee,
+            payoutType,
+            expiryMonth,
+            expiryYear,
+            cardNumber,
+            paymentType,
+            street,
+            houseNo,
+            city,
+            state,
+            country,
+            SSN,
+            zip
+        )
     }
 
-    override fun signupLevelThreeBankPay(userID: String, email: String, estimateType: String, estimationFee: String, payoutType: String, accountNumer: String, RoutingNumber: String, SSN: String, paymentType: String, street: String, houseNo: String, city: String, state: String, country: String, zip: String) {
-        mInteractor.signupLevelThreeBankPay(userID, email, estimateType, estimationFee, payoutType, accountNumer, RoutingNumber, SSN, paymentType, street, houseNo, city, state, country, zip)
+    override fun signupLevelThreeBankPay(
+        userID: String,
+        email: String,
+        estimateType: String,
+        estimationFee: String,
+        payoutType: String,
+        accountNumer: String,
+        RoutingNumber: String,
+        SSN: String,
+        paymentType: String,
+        street: String,
+        houseNo: String,
+        city: String,
+        state: String,
+        country: String,
+        zip: String
+    ) {
+        mInteractor.signupLevelThreeBankPay(
+            userID,
+            email,
+            estimateType,
+            estimationFee,
+            payoutType,
+            accountNumer,
+            RoutingNumber,
+            SSN,
+            paymentType,
+            street,
+            houseNo,
+            city,
+            state,
+            country,
+            zip
+        )
     }
 
-    override fun signupLevelThreeDirectCash(userID: String, email: String, estimateType: String, estimationFee: String, dob: String, payoutType: String) {
-        mInteractor.signupLevelThreeDirectCash(userID, email, estimateType, estimationFee, dob,payoutType)
+    override fun signupLevelThreeDirectCash(
+        userID: String,
+        email: String,
+        estimateType: String,
+        estimationFee: String,
+        dob: String,
+        payoutType: String
+    ) {
+        mInteractor.signupLevelThreeDirectCash(
+            userID,
+            email,
+            estimateType,
+            estimationFee,
+            dob,
+            payoutType
+        )
     }
 
     override fun onStepThreeCompleted(mData: SignupThreeResponse) {
         view.onStepThreeCompleted(mData)
     }
 
-    override fun signupLevelTwo(header: String, userID: String, profilePicData: String, stateId: String, certificate: String) {
+    override fun signupLevelTwo(
+        header: String,
+        userID: String,
+        profilePicData: String,
+        stateId: String,
+        certificate: String
+    ) {
         mInteractor.signupLevelTwo(header, userID, profilePicData, stateId, certificate)
     }
 
@@ -45,23 +131,29 @@ class SignupPresenter(val view: ISignupview) : ISignupInteractor, ISignupInterac
         view.onFailed(msg)
     }
 
-    override fun signUpUser(type: Int, firstName: String, lastName: String, dob: String, street: String, houseNo: String, city: String, state: String, country: String, zip: String, email: String, countryCode: String, phone: String, password: String, services: String) {
+    override fun signUpUser(
+        type: Int, firstName: String, lastName: String, dob: String, street: String,
+        houseNo: String, city: String, state: String, country: String, zip: String,
+        email: String, countryCode: String, phone: String, password: String, services: String,
+        country_id: String
+    ) {
         mInteractor.signUpUser(
-                type,
-                firstName,
-                lastName,
-                dob,
-                street,
-                houseNo,
-                city,
-                state,
-                country,
-                zip,
-                email,
-                countryCode,
-                phone,
-                password,
-                services
+            type,
+            firstName,
+            lastName,
+            dob,
+            street,
+            houseNo,
+            city,
+            state,
+            country,
+            zip,
+            email,
+            countryCode,
+            phone,
+            password,
+            services,
+            country_id
         )
     }
 

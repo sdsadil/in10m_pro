@@ -262,6 +262,11 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 this,
                 Constants.SharedPrefs.User.SERVICES_PROVIDED_STRING,
                 ""
+            ).toString(),
+            SharedPreferencesHelper.getString(
+                this,
+                Constants.SharedPrefs.User.USER_COUNTRY_ID,
+                ""
             ).toString()
         )
 
