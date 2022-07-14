@@ -24,6 +24,7 @@ class MyAccountEdit : In10mBaseActivity() {
         } else {
             adapter.addFragment(Profile(), resources.getString(R.string.profile))
             adapter.addFragment(Services(), resources.getString(R.string.services))
+            adapter.addFragment(AddPortFolio(), resources.getString(R.string.my_work))
 //            adapter.addFragment(Payment(), resources.getString(R.string.payment))
 //            adapter.addFragment(Estimates(), resources.getString(R.string.estimates))
         }
@@ -32,6 +33,7 @@ class MyAccountEdit : In10mBaseActivity() {
 
         backBtn.setOnClickListener {
             finish()
+            overridePendingTransition(0, 0)
         }
     }
 }

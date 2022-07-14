@@ -116,12 +116,12 @@
                 android:background="@color/colorLight"
                 android:clickable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="center|start"
                 android:hint="@string/mobile_number"
                 android:maxLength="8"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingTop="10dp"
-                android:enabled="false"
                 android:paddingEnd="@dimen/_8sdp"
                 android:paddingBottom="10dp"
                 android:textAlignment="viewStart"
@@ -482,11 +482,11 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="16dp"
                     android:background="@color/colorLight"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down"
                     android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center|start"
                     android:hint="@string/governorate"
                     android:inputType="text"
-                    android:drawableEnd="@drawable/ic_arrow_drop_down"
                     android:paddingStart="10dp"
                     android:paddingTop="8dp"
                     android:paddingEnd="10dp"
@@ -497,6 +497,33 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etAptOffNo_EditProfLay" />
+
+                <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                    android:id="@+id/tvTitleCountry_EditProfLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/where_are_you_from"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvGovernorate_EditProfLay"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGovernorate_EditProfLay" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spCountry1_EditProfLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btndropdown"
+                    android:hint="@string/india"
+                    android:paddingStart="8dp"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitleCountry_EditProfLay" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/apartmentNameET1"

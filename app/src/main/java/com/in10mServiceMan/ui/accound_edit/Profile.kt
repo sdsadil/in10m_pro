@@ -3,7 +3,6 @@ package com.in10mServiceMan.ui.accound_edit
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,10 +12,6 @@ import android.view.*
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import com.in10mServiceMan.ui.activities.BaseFragment
-import com.in10mServiceMan.models.CompleteProfile
-import com.in10mServiceMan.models.CustomerCompleteProfile
-import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate
-import com.in10mServiceMan.models.RequestUpdateServiceMan
 
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.profile.IProfileView
@@ -55,15 +50,14 @@ import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
 import com.amazonaws.services.s3.AmazonS3Client
 import com.in10mServiceMan.BuildConfig
-import com.in10mServiceMan.ui.activities.BaseActivity
-import com.in10mServiceMan.ui.activities.signup.SignupstepTwoResponse
+import com.in10mServiceMan.models.*
 import com.in10mServiceMan.utils.cropper.CropImage
 import com.in10mServiceMan.utils.cropper.CropImageView
+import kotlinx.android.synthetic.main.fragment_signup_details.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
-import com.in10mServiceMan.utils.SharedPreferencesHelper.putBoolean
 
 
 /**
@@ -86,16 +80,15 @@ class Profile : BaseFragment(), IProfileView {
     private var servicemanSelectedServiceAdapter: ServiceOfferAdapter? = null
     private var mStatesList: List<State?>? = null
     var state: String = ""
+    private var mCountryList: List<CountryPojoArray?>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         setDisable()
-
 
         view.tvGovernorate_EditProfLay.setOnClickListener {
             showGovernorateDialog()
@@ -158,7 +151,6 @@ class Profile : BaseFragment(), IProfileView {
                 id: Long
             ) {
                 if (mStatesList != null) {
-                    /*state = mStatesList!![position]!!.name!!*/
                     state = myTypeSpinner.selectedItem.toString()
                 }
             }
@@ -169,36 +161,43 @@ class Profile : BaseFragment(), IProfileView {
 
         view.btnSaveProfile.setOnClickListener {
             if (isNewImage) {
-                /*val header =
-                    SharedPreferencesHelper.getString(
-                        activity,
-                        Constants.SharedPrefs.User.AUTH_TOKEN,
-                        ""
-                    )
-                profileUpdate(
-                    "Bearer $header",
-                    SharedPreferencesHelper.getString(
-                        activity,
-                        Constants.SharedPrefs.User.USER_ID,
-                        ""
-                    ).toString(),
-                    SharedPreferencesHelper.getString(
-                        activity,
-                        Constants.SharedPrefs.User.SELECTED_IMAGE,
-                        ""
-                    ).toString()
-                )*/
                 uploadImageToAWS()
             } else {
                 updateProf("")
             }
         }
+//        view.spCountry1_SignUpProfLay.
         isStarted = true
         if (isVisiblee) {
             loadProfile()
             getPreServices()
-//            getStates()
         }
+
+        val spCountry1_EditProfLay = view.findViewById(R.id.spCountry1_EditProfLay) as Spinner
+        spCountry1_EditProfLay.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    when {
+                        mCountryList != null -> {
+                            if (spCountry1_EditProfLay.selectedItem.toString() != context?.resources?.getString(
+                                    R.string.india
+                                )
+                            ) {
+                                country_id = mCountryList!![position]!!.phonecode.toString()
+                                country = spCountry1_EditProfLay.selectedItem.toString()
+                            }
+                        }
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                }
+            }
         return view
     }
 
@@ -395,6 +394,8 @@ class Profile : BaseFragment(), IProfileView {
         rq.serviceproviderGender = profile.gender
         rq.serviceproviderGender = state
         rq.serviceproviderImage = imageUri
+        rq.serviceproviderCountry = country
+//        rq.serviceproviderCountryCode = country_id
 
         if (fullname.isEmpty()) {
             showToastMsg(context!!.resources.getString(R.string.enter_the_name))
@@ -416,7 +417,6 @@ class Profile : BaseFragment(), IProfileView {
         if (isVisiblee && isStarted) {
             loadProfile()
             getPreServices()
-//            getStates()
         }
     }
 
@@ -530,6 +530,8 @@ class Profile : BaseFragment(), IProfileView {
                                 .error(R.drawable.dummy_user)
                                 .placeholder(R.drawable.dummy_user)
                                 .into(view!!.serviceManProfile)
+                            getCountry()
+
                         }
                     } else {
                         showToastMsg("Error in loading Complete profile")
@@ -760,5 +762,51 @@ class Profile : BaseFragment(), IProfileView {
             }
         }
         return outputFileUri
+    }
+
+    private fun getCountry() {
+        val homeCall = APIClient.getApiInterface().country
+        homeCall.enqueue(object : Callback<CountryPojo> {
+            override fun onResponse(
+                call: Call<CountryPojo>,
+                response: Response<CountryPojo>
+            ) {
+                if (response.isSuccessful) {
+
+                    bindDataCountry(response.body()!!)
+                }
+            }
+
+            override fun onFailure(call: Call<CountryPojo>, t: Throwable) {
+
+            }
+        })
+    }
+
+    fun bindDataCountry(countryPojo: CountryPojo) {
+        mCountryList = countryPojo.countryPojoArray
+        val mCountryListDummy: ArrayList<String> = ArrayList()
+        if (mCountryList?.size!! > 0) {
+            for (i in mCountryList!!.indices) {
+                mCountryListDummy.add(mCountryList?.get(i)?.name!!)
+            }
+        }
+        val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)
+        if (mCountryListDummy != null) {
+            adapter.addAll(mCountryListDummy)
+        }
+        adapter.add(context?.resources?.getString(R.string.india))
+        spCountry1_EditProfLay.adapter = adapter
+        spCountry1_EditProfLay.setSelection(adapter.count)
+
+        for (i in 0 until mCountryList!!.size) {
+            when (mCountryList!![i]?.name) {
+                profile.country -> {
+                    country_id = mCountryList!![i]!!.phonecode.toString()
+                    country = mCountryList!![i]!!.name.toString()
+                    view!!.spCountry1_EditProfLay.setSelection(i)
+                }
+            }
+        }
     }
 }
