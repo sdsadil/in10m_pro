@@ -12,6 +12,7 @@ import com.in10mServiceMan.models.DeviceTokenPojo;
 import com.in10mServiceMan.models.EarningsResponse;
 import com.in10mServiceMan.models.HomeCountResponse;
 import com.in10mServiceMan.models.HomeService;
+import com.in10mServiceMan.models.PortfolioPojo;
 import com.in10mServiceMan.models.RequestLinkServiceWithServiceMan;
 import com.in10mServiceMan.models.RequestRemoveSubServicesModel;
 import com.in10mServiceMan.models.RequestReviewModel;
@@ -267,6 +268,12 @@ public interface ApiInterface {
                                                      @Part("state_id") RequestBody stateId,
                                                      @Part("certificate") RequestBody certificate,
                                                      @Part MultipartBody.Part file);
+
+    @Multipart
+    @POST("auth/api/update_profile_pictures")
+    Call<PortfolioPojo> addPortfolio(@Header("Authorization") String header,
+                                     @Part("user_id") RequestBody id,
+                                     @Part MultipartBody.Part file);
 
     @Multipart
     @POST("auth/api/register_step2")
