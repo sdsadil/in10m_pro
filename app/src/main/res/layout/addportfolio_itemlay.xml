@@ -6,10 +6,11 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivPortFolio_PortFolioItemLay"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_100sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
         android:layout_margin="@dimen/_10sdp"
         android:padding="@dimen/_5sdp"
+        android:src="@drawable/user_dummy_avatar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
