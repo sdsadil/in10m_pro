@@ -52,6 +52,7 @@ import com.in10mServiceMan.ui.activities.signup.StatesResponse;
 import com.in10mServiceMan.ui.complete_profile_api.CompleteProfileResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -274,7 +275,8 @@ public interface ApiInterface {
     @POST("auth/api/update_profile_pictures")
     Call<PortfolioPojo> addPortfolio(@Header("Authorization") String header,
                                      @Part("user_id") RequestBody id,
-                                     @Part MultipartBody.Part file);
+                                     @Part List<MultipartBody.Part> files);
+//                                   @Part   MultipartBody.Part file
 
     @Multipart
     @POST("auth/api/register_step2")
