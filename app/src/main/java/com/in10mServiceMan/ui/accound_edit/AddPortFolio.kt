@@ -3,13 +3,13 @@ package com.in10mServiceMan.ui.accound_edit
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.in10mServiceMan.R
+import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.models.PortfolioPojo
 import com.in10mServiceMan.ui.activities.BaseFragment
 import com.in10mServiceMan.ui.adapter.PortFolioAdapter
@@ -30,8 +30,11 @@ import java.io.File
 
 class AddPortFolio : BaseFragment() {
     val imageUriList: ArrayList<String> = ArrayList()
+    val dummyimageUriList: ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
     var portFolioAdapter: PortFolioAdapter? = null
+    private var isStarted = false
+    private var isVisiblee = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +60,11 @@ class AddPortFolio : BaseFragment() {
         view.ivSend_PortFolioLay.setOnClickListener {
             addPortFolio()
         }
+
+        isStarted = true
+        if (isVisiblee) {
+            loadProfile()
+        }
         return view
     }
 
@@ -67,8 +75,9 @@ class AddPortFolio : BaseFragment() {
             if (resultCode == Activity.RESULT_OK) {
                 val resultUri = result.uri
                 imageUriList.add(resultUri.path.toString())
+                dummyimageUriList.add(resultUri.path.toString())
                 portFolioAdapter?.notifyDataSetChanged()
-                if (imageUriList.size > 0) {
+                if (dummyimageUriList.size > 0) {
                     ivSend_PortFolioLay.visibility = View.VISIBLE
                     rvPortfolioList_PortFolioLay.visibility = View.VISIBLE
                     tvPortfolioList_PortFolioLay.visibility = View.GONE
@@ -96,8 +105,8 @@ class AddPortFolio : BaseFragment() {
 
         //Multiple Multipart
         val bodyList: ArrayList<MultipartBody.Part> = ArrayList()
-        for (i in 0 until imageUriList.size) {
-            val file1 = File(imageUriList[i])
+        for (i in 0 until dummyimageUriList.size) {
+            val file1 = File(dummyimageUriList[i])
             val reqFile1 = RequestBody.create(MediaType.parse("image/*"), file1)
             val body1: MultipartBody.Part? = MultipartBody.Part.createFormData(
                 "profile_pictures[$i]",
@@ -134,5 +143,56 @@ class AddPortFolio : BaseFragment() {
                 ).show()
             }
         })
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        isVisiblee = isVisibleToUser
+        if (isVisiblee && isStarted) {
+            loadProfile()
+        }
+    }
+
+    private fun loadProfile() {
+        val isLoggedIn: Boolean =
+            !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+                .isNullOrEmpty()
+        if (isLoggedIn) {
+            val myUserId = SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!.toInt()
+            val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(myUserId)
+            callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
+                override fun onResponse(
+                    call: Call<CustomerCompleteProfile>,
+                    response: Response<CustomerCompleteProfile>
+                ) {
+                    if (response.isSuccessful) {
+                        val response = response.body()
+                        for (i in 0 until response!!.data.profilePictures.size) {
+                            imageUriList.add(response.data.profilePictures[i].imageUrl)
+                        }
+                        if (imageUriList.size > 0) {
+                            ivSend_PortFolioLay.visibility = View.GONE
+                            rvPortfolioList_PortFolioLay.visibility = View.VISIBLE
+                            tvPortfolioList_PortFolioLay.visibility = View.GONE
+                        }
+                        portFolioAdapter?.notifyDataSetChanged()
+                    } else {
+                        showToastMsg("Error in loading Complete profile")
+                    }
+                }
+
+                override fun onFailure(call: Call<CustomerCompleteProfile>, t: Throwable) {
+
+                }
+            })
+        }
+    }
+
+    fun showToastMsg(msg: String) {
+        Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
     }
 }

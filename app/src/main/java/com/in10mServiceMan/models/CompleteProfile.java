@@ -4,6 +4,8 @@ package com.in10mServiceMan.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class CompleteProfile {
 
 
@@ -95,11 +97,13 @@ public class CompleteProfile {
     @SerializedName("working_as")
     @Expose
     private String workingAs;
-
-
     @SerializedName("experience")
     @Expose
     private String experience;
+    @SerializedName("profile_pictures")
+    @Expose
+    private ArrayList<ProfilePicturesArray> profilePictures;
+
 
     public String getExperience() {
         return experience;
@@ -341,4 +345,11 @@ public class CompleteProfile {
         this.estimation_fee = estimation_fee;
     }
 
+    public ArrayList<ProfilePicturesArray> getProfilePictures() {
+        return profilePictures;
+    }
+
+    public void setProfilePictures(ArrayList<ProfilePicturesArray> profilePictures) {
+        this.profilePictures = profilePictures;
+    }
 }

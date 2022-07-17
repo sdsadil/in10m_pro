@@ -166,7 +166,7 @@ class Profile : BaseFragment(), IProfileView {
                 updateProf("")
             }
         }
-//        view.spCountry1_SignUpProfLay.
+
         isStarted = true
         if (isVisiblee) {
             loadProfile()
@@ -531,7 +531,6 @@ class Profile : BaseFragment(), IProfileView {
                                 .placeholder(R.drawable.dummy_user)
                                 .into(view!!.serviceManProfile)
                             getCountry()
-
                         }
                     } else {
                         showToastMsg("Error in loading Complete profile")
