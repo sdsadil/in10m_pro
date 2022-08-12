@@ -33,34 +33,51 @@ class MenuNavigation(val context: Context, val handler: Handler) {
     fun loadUserDetails(navigationView: View, serviceManNameTOP: TextView) {
         /*val isLoggedIn = localStorage(context).isLoggedIn*/
         var isLoggedIn = false //localStorage(context).isLoggedIn
-        isLoggedIn = !SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.AUTH_TOKEN, "").isNullOrEmpty()
+        isLoggedIn = !SharedPreferencesHelper.getString(
+            this.context,
+            Constants.SharedPrefs.User.AUTH_TOKEN,
+            ""
+        ).isNullOrEmpty()
 
         if (isLoggedIn) {
-            val userId = SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.USER_ID, "0")!!
+            val userId = SharedPreferencesHelper.getString(
+                this.context,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!
                 .toInt()//localStorage(context).loggedInUser.customerId
 
             val callServicProviders = APIClient.getApiInterface().getCompleteProfile(userId)
             callServicProviders.enqueue(object : Callback<CustomerCompleteProfile> {
-                override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
+                override fun onResponse(
+                    call: Call<CustomerCompleteProfile>,
+                    response: Response<CustomerCompleteProfile>
+                ) {
                     if (response.isSuccessful) {
                         val data = response.body()
                         if (data!!.data != null) {
                             val profile = data.data
                             localStorage(context).saveCompleteCustomer(profile)
-                            navigationView.findViewById<TextView>(userNameTVM).text = profile.name.toString()
-                            navigationView.findViewById<TextView>(userNameTVM).text = profile.name.toString()
-                            serviceManNameTOP.text = (context.resources.getString(com.in10mServiceMan.R.string.hello)+" " + profile.name.toString())
-                            navigationView.findViewById<TextView>(thumbsUpTVM).text = profile.totalTumbsUp.toString()
-                            val asd = navigationView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(serviceManIV)
+                            val userNameTVM = navigationView.findViewById<TextView>(userNameTVM)
+                            userNameTVM.text = profile.name.toString()
+                            serviceManNameTOP.text =
+                                (context.resources.getString(com.in10mServiceMan.R.string.hello) + " " + profile.name.toString())
+                            navigationView.findViewById<TextView>(thumbsUpTVM).text =
+                                profile.totalTumbsUp.toString()
+                            val asd =
+                                navigationView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(
+                                    serviceManIV
+                                )
                             /*Picasso.with(context).load(profile.image).placeholder(com.in10mServiceMan.R.drawable.dummy_user).fit().into(asd)*/
                             Picasso.get()
-                                    .load(profile.image) // web image url
-                                    .fit().centerInside()
-                                    .rotate(0f)                    //if you want to rotate by 90 degrees give 90f
-                                    .error(com.in10mServiceMan.R.drawable.dummy_user)
-                                    .placeholder(com.in10mServiceMan.R.drawable.dummy_user)
-                                    .into(asd)
-                            navigationView.findViewById<TextView>(thumbsDownTVM).text = profile.totalTumbsDown.toString()
+                                .load(profile.image) // web image url
+                                .fit().centerInside()
+                                .rotate(0f)                    //if you want to rotate by 90 degrees give 90f
+                                .error(com.in10mServiceMan.R.drawable.dummy_user)
+                                .placeholder(com.in10mServiceMan.R.drawable.dummy_user)
+                                .into(asd)
+                            navigationView.findViewById<TextView>(thumbsDownTVM).text =
+                                profile.totalTumbsDown.toString()
                             navigationView.findViewById<TextView>(thumbsUpTVM).setOnClickListener {
                                 handler.postDelayed({
                                     val myIntent = Intent(context, ReviewsActivity::class.java)
@@ -70,7 +87,8 @@ class MenuNavigation(val context: Context, val handler: Handler) {
                         }
 
                     } else {
-                        Toast.makeText(context, "Not Loaded Complete Profile", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Not Loaded Complete Profile", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
 
@@ -91,7 +109,11 @@ class MenuNavigation(val context: Context, val handler: Handler) {
 
     fun OpenMyAccount() {
         var isLoggedIn = false //localStorage(context).isLoggedIn
-        isLoggedIn = !SharedPreferencesHelper.getString(this.context, Constants.SharedPrefs.User.AUTH_TOKEN, "").isNullOrEmpty()
+        isLoggedIn = !SharedPreferencesHelper.getString(
+            this.context,
+            Constants.SharedPrefs.User.AUTH_TOKEN,
+            ""
+        ).isNullOrEmpty()
 
         if (isLoggedIn) {
             OpenAccount()
@@ -113,7 +135,10 @@ class MenuNavigation(val context: Context, val handler: Handler) {
         wlp.gravity = Gravity.CENTER
         wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_BLUR_BEHIND.inv()
         window.attributes = wlp
-        dialog.window?.setLayout(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT)
+        dialog.window?.setLayout(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.MATCH_PARENT
+        )
 
 
         val btnClose = dialog.findViewById<ImageView>(closeBtn)
@@ -148,15 +173,23 @@ class MenuNavigation(val context: Context, val handler: Handler) {
             var requestVerifyMobile = RequestVerifyMobile()
             requestVerifyMobile.code = "91"
             requestVerifyMobile.mobile = mobilenumberVal.toString();
-            val callServicProviders = APIClient.getApiInterface().postVerifyMobile(requestVerifyMobile)
+            val callServicProviders =
+                APIClient.getApiInterface().postVerifyMobile(requestVerifyMobile)
             callServicProviders.enqueue(object : Callback<ResponseVerifyMobile> {
-                override fun onResponse(call: Call<ResponseVerifyMobile>, response: Response<ResponseVerifyMobile>) {
+                override fun onResponse(
+                    call: Call<ResponseVerifyMobile>,
+                    response: Response<ResponseVerifyMobile>
+                ) {
                     if (response.isSuccessful) {
                         val data = response.body()
                         if (data!!.data.size > 0 && data!!.data[0].customerData.size > 0) {
                             dialog.dismiss()
                             // proceed to otp dialogue
-                            Toast.makeText(context, data!!.message + " \n otp is : " + data!!.data[0].customerData[0].otp, Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                context,
+                                data!!.message + " \n otp is : " + data!!.data[0].customerData[0].otp,
+                                Toast.LENGTH_LONG
+                            ).show()
                             presentOtp(data)
                         } else {
                             somethingWentWrong(data.message)
@@ -194,7 +227,10 @@ class MenuNavigation(val context: Context, val handler: Handler) {
         wlp.gravity = Gravity.CENTER
         wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_BLUR_BEHIND.inv()
         window.attributes = wlp
-        dialog.window!!.setLayout(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT)
+        dialog.window!!.setLayout(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.MATCH_PARENT
+        )
 
 
         val btnClose = dialog.findViewById<ImageView>(closeBtn)
@@ -237,7 +273,10 @@ class MenuNavigation(val context: Context, val handler: Handler) {
 
             val callServicProviders = APIClient.getApiInterface().postOtpMobile(requestVerifyMobile)
             callServicProviders.enqueue(object : Callback<ResponseVerifyMobile> {
-                override fun onResponse(call: Call<ResponseVerifyMobile>, response: Response<ResponseVerifyMobile>) {
+                override fun onResponse(
+                    call: Call<ResponseVerifyMobile>,
+                    response: Response<ResponseVerifyMobile>
+                ) {
 
                     Log.i("eee11", Gson().toJson(requestVerifyMobile))
                     Log.i("eee12", Gson().toJson(call.request().url()))

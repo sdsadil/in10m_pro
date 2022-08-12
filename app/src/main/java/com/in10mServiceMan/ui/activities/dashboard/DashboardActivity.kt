@@ -159,6 +159,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     lateinit var estimateAcceptKeyRef: DatabaseReference
     lateinit var estimateAcceptKeyListener: ValueEventListener
 
+    lateinit var userNameTVM: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (!hasPermissions(this, *permissions)) {
@@ -1569,7 +1571,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 // toggleLocationCard(true)
             }
         }
-
+        userNameTVM = navigationView.findViewById(R.id.userNameTVM)
         MenuNavigation(this, handler).loadUserDetails(navigationView, ServiceManNameTOP)
     }
 
@@ -1925,6 +1927,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             }
 
             bannerCard_HO.visibility = View.GONE
+            ServiceManNameTOP.text =
+                (resources.getString(R.string.hello) + " " + mPost.data.name)
+            userNameTVM.text =  mPost.data.name.toString()
 
             /*when {
                 mPost.data.privacy_policy_accept == 0 -> {

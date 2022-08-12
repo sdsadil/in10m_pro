@@ -21,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,7 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
     LoadingDialog mProgressDialog;
     static Context mContext;
     private SinchService.SinchServiceInterface mSinchServiceInterface;
-//    private SharedPreferencesHelper sharedPreferencesHelper;
+    //    private SharedPreferencesHelper sharedPreferencesHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
