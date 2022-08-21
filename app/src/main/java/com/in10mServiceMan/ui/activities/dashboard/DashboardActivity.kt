@@ -203,7 +203,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
-                locationResult
                 for (location in locationResult.locations) {
                     if (!dbUpdated) {
                         updateMyLocationToDB(
@@ -1156,7 +1155,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     }
                                 }
                             }
-
                         })
                 }
             }
@@ -1929,7 +1927,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             bannerCard_HO.visibility = View.GONE
             ServiceManNameTOP.text =
                 (resources.getString(R.string.hello) + " " + mPost.data.name)
-            userNameTVM.text =  mPost.data.name.toString()
+            userNameTVM.text = mPost.data.name.toString()
 
             /*when {
                 mPost.data.privacy_policy_accept == 0 -> {

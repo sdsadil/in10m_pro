@@ -29,11 +29,19 @@ public class APIClient {
 //    public static final String termsAndCondition = "http://in10m.com/in10mTermsandCondition.pdf";
 
     //Dev
-    private static final String BaseUrl = "http://34.224.101.230/in10m/public/";
-    public static final String UserImage = "http://34.224.101.230/in10m/public/serviceprovider/api/get_servicemen_image/";
-    public static final String privacyPolicy = "http://34.224.101.230/in10mPrivacyPolicy.pdf";
-    public static final String aboutUs = "http://34.224.101.230/in10m_about_serviceman.html";
-    public static final String termsAndCondition = "http://34.224.101.230/in10mTermsandCondition.pdf";
+//    private static final String BaseUrl = "http://34.224.101.230/in10m/public/";
+//    public static final String UserImage = "http://34.224.101.230/in10m/public/serviceprovider/api/get_servicemen_image/";
+//    public static final String privacyPolicy = "http://34.224.101.230/in10mPrivacyPolicy.pdf";
+//    public static final String aboutUs = "http://34.224.101.230/in10m_about_serviceman.html";
+//    public static final String termsAndCondition = "http://34.224.101.230/in10mTermsandCondition.pdf";
+
+
+    //Dev
+    private static final String BaseUrl = "http://www.in10m.com/in10m/public/";
+    public static final String UserImage = "http://www.in10m.com/in10m/public/serviceprovider/api/get_servicemen_image/";
+    public static final String privacyPolicy = "http://www.in10m.com/in10mPrivacyPolicy.pdf";
+    public static final String aboutUs = "http://www.in10m.com/in10m_about_serviceman.html";
+    public static final String termsAndCondition = "http://www.in10m.com/in10mTermsandCondition.pdf";
 
     public static ApiInterface apiInterface = null;
 

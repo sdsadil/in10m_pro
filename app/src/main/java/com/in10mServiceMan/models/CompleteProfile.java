@@ -329,6 +329,7 @@ public class CompleteProfile {
     public void setCivilId(String civilId) {
         this.civilId = civilId;
     }
+
     public Integer getFree_estimate() {
         return free_estimate;
     }
