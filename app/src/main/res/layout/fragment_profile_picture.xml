@@ -23,21 +23,21 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userAvatar"
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="@dimen/_180sdp"
-            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:src="@drawable/user_dummy_avatar"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
         <ImageView
             android:id="@+id/camera"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:src="@drawable/camera"
             app:layout_constraintEnd_toEndOf="@+id/userAvatar"
-            app:layout_constraintTop_toTopOf="@+id/userAvatar" />
+            app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
         <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/smile"
@@ -47,20 +47,135 @@
             android:text="@string/smile"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userAvatar" />
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@color/grey300"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smile" />
+
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+            android:id="@+id/tvCivilId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="38dp"
+            android:text="@string/add_civil_id_picture"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewLine" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCivilFront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCivilId">
+
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/tvFrontCivil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/front"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFrontCivilID"
+                android:layout_width="@dimen/_125sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:scaleType="fitCenter"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/id_card_placeholder"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivFrontCivilIDcamera"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivFrontCivilID" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCivilBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clCivilFront">
+
+            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+                android:id="@+id/tvBackCivil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBackCivilID"
+                android:layout_width="@dimen/_125sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:scaleType="fitCenter"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/id_card_placeholder"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/ivBackCivilIDcamera"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivBackCivilID" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/profilePictureOkButton"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
-            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:src="@drawable/darktickbubble"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/smile" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clCivilBack" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

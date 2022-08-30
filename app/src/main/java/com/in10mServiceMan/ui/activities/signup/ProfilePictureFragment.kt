@@ -20,12 +20,18 @@ import kotlinx.android.synthetic.main.fragment_profile_picture.view.*
 
 class ProfilePictureFragment : Fragment() {
 
+    var isProfileImage = "";
+    var isFrontImage = "";
+    var isBackImage = "";
+
     interface NextFragmentInterfaceFour {
         fun toNextFragmentFour(imageUri: String)
     }
 
     companion object {
         var imageUri = ""
+        var frontimageUri = ""
+        var backimageUri = ""
         private var mListener: NextFragmentInterfaceFour? = null
         fun newInstance(mNextFragmentListener: NextFragmentInterfaceFour): ProfilePictureFragment {
             mListener = mNextFragmentListener
@@ -33,19 +39,61 @@ class ProfilePictureFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile_picture, container, false)
 
         view.camera.setOnClickListener {
-            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).setOutputCompressQuality(50)
-                    .setFixAspectRatio(false)
-                    .start(context!!, this)
+            isProfileImage = "true"
+            isFrontImage = "false"
+            isBackImage = "false"
+            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
+                .setOutputCompressQuality(50)
+                .setFixAspectRatio(false)
+                .start(context!!, this)
+        }
+
+        view.ivFrontCivilIDcamera.setOnClickListener {
+            isProfileImage = "false"
+            isFrontImage = "true"
+            isBackImage = "false"
+
+            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
+                .setOutputCompressQuality(50)
+                .setFixAspectRatio(false)
+                .start(context!!, this)
+        }
+        view.ivBackCivilIDcamera.setOnClickListener {
+            isProfileImage = "false"
+            isFrontImage = "false"
+            isBackImage = "true"
+            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
+                .setOutputCompressQuality(50)
+                .setFixAspectRatio(false)
+                .start(context!!, this)
         }
         view.profilePictureOkButton.setOnClickListener {
             if (imageUri.isEmpty()) {
-                Toast.makeText(this.context, getString(R.string.please_select_an_image), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this.context,
+                    getString(R.string.please_select_an_image),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else if (frontimageUri.isEmpty()) {
+                Toast.makeText(
+                    this.context,
+                    getString(R.string.please_select_an_image1),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else if (backimageUri.isEmpty()) {
+                Toast.makeText(
+                    this.context,
+                    getString(R.string.please_select_an_image2),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 mListener?.toNextFragmentFour(imageUri)
             }
@@ -59,9 +107,31 @@ class ProfilePictureFragment : Fragment() {
             val result = CropImage.getActivityResult(data)
             if (resultCode == Activity.RESULT_OK) {
                 val resultUri = result.uri
-                imageUri = resultUri.path.toString()
-                userAvatar.setImageURI(resultUri)
-                SharedPreferencesHelper.putString(this.context, Constants.SharedPrefs.User.USER_IMAGE, resultUri.toString())
+                if (isProfileImage == "true") {
+                    imageUri = resultUri.path.toString()
+                    userAvatar.setImageURI(resultUri)
+                    SharedPreferencesHelper.putString(
+                        this.context,
+                        Constants.SharedPrefs.User.USER_IMAGE,
+                        resultUri.toString()
+                    )
+                } else if (isFrontImage == "true") {
+                    frontimageUri = resultUri.path.toString()
+                    ivFrontCivilID.setImageURI(resultUri)
+                    SharedPreferencesHelper.putString(
+                        this.context,
+                        Constants.SharedPrefs.User.CIVIL_FRONT_IMAGE,
+                        resultUri.toString()
+                    )
+                } else if (isBackImage == "true") {
+                    backimageUri = resultUri.path.toString()
+                    ivBackCivilID.setImageURI(resultUri)
+                    SharedPreferencesHelper.putString(
+                        this.context,
+                        Constants.SharedPrefs.User.CIVIL_BACK_IMAGE,
+                        resultUri.toString()
+                    )
+                }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
             }

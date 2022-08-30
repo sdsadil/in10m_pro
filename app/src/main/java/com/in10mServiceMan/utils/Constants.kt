@@ -32,6 +32,8 @@ class Constants {
                 val COMMON_ID = "common_id"
 
                 val USER_IMAGE = "user_image"
+                val CIVIL_FRONT_IMAGE = "civil_front_image"
+                val CIVIL_BACK_IMAGE = "civil_back_image"
                 const val FIRST_NAME = "first_name"
                 const val LAST_NAME = "last_name"
                 const val DATE_OF_BIRTH = "date_of_birth"

@@ -409,6 +409,8 @@
     <string name="invoice">Invoice</string>
     <string name="you_are_on_the_way">You are on the way</string>
     <string name="please_select_an_image">Please select an Image</string>
+    <string name="please_select_an_image1">Please add your front civil id</string>
+    <string name="please_select_an_image2">Please add your back civil id</string>
     <string name="payment_type_accepted">Payment type accepted</string>
     <string name="area_name">Area</string>
     <string name="street">Street</string>
@@ -507,4 +509,7 @@
     <string name="enter_your_review_here">Enter your review here</string>
     <string name="my_work">My Works</string>
     <string name="add_your_portfolio">Add your works</string>
+    <string name="add_civil_id_picture">Add Civil ID picture</string>
+    <string name="front">Front</string>
+    <string name="back">Back</string>
 </resources>
