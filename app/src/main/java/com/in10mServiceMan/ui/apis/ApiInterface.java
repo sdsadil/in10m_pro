@@ -3,6 +3,7 @@ package com.in10mServiceMan.ui.apis;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.in10mServiceMan.models.BookingHistoryResponse;
+import com.in10mServiceMan.models.CivilIdPojo;
 import com.in10mServiceMan.models.CompanyHomeCountResponse;
 import com.in10mServiceMan.models.CompanyServicemanLocationResponse;
 import com.in10mServiceMan.models.CountryPojo;
@@ -270,6 +271,12 @@ public interface ApiInterface {
                                                      @Part("state_id") RequestBody stateId,
                                                      @Part("certificate") RequestBody certificate,
                                                      @Part MultipartBody.Part file);
+
+    @Multipart
+    @POST("auth/api/upload_idproof_images")
+    Call<CivilIdPojo> uploadCivilID(@Header("Authorization") String header,
+                                    @Part("user_id") RequestBody id,
+                                    @Part MultipartBody.Part idproof_image1, @Part MultipartBody.Part idproof_image2);
 
     @Multipart
     @POST("auth/api/update_profile_pictures")
