@@ -636,6 +636,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         subserviceRequestedTV1.text = "Sub service : ${request!!.sub_service_name}"
         llCancel_HomeBottomBtn.setTag(R.string.request_id, key.toString())
         llAccept_HomeBottomBtn.setTag(R.string.request_id2, key.toString())
+        btnCancel_HomeBottomBtn.text = getString(R.string.reject)
+        llCancel_HomeBottomBtn.isEnabled = true
+        llCancel_HomeBottomBtn.visibility = View.VISIBLE
         requestCV.visibility = View.VISIBLE
         imgBtnNavigate.visibility = View.GONE
     }

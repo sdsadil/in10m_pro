@@ -44,8 +44,12 @@ public class SinchService extends Service {
      - sinch-rtc-sample-video-push (for video calls)
     */
 
-    private static final String APP_KEY = "50ccf3af-5f40-4731-9b5d-10b5b56a4b40";
-    private static final String APP_SECRET = "CxIAwF+cR0Gr71n8muNXIg==";
+//    private static final String APP_KEY = "50ccf3af-5f40-4731-9b5d-10b5b56a4b40";
+//    private static final String APP_SECRET = "CxIAwF+cR0Gr71n8muNXIg==";
+
+    private static final String APP_KEY = "536d46b2-61bc-4821-a315-c88e3def530d";
+    private static final String APP_SECRET = "cQ1DD46whkOuRPUKTmbl0Q==";
+
     private static final String ENVIRONMENT = "clientapi.sinch.com";
 
     public static final int MESSAGE_PERMISSIONS_NEEDED = 1;
