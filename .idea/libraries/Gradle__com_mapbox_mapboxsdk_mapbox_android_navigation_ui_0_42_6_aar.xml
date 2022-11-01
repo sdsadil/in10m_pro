@@ -2,11 +2,18 @@
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.42.6@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2895bf463ed689adc181d232dc341259/jetified-mapbox-android-navigation-ui-0.42.6/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49466eb1985181ac951b0acd5c77db5f/jetified-mapbox-android-navigation-ui-0.42.6/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d31a435c0244c91136873a7134af15/jetified-mapbox-android-navigation-ui-0.42.6/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2895bf463ed689adc181d232dc341259/jetified-mapbox-android-navigation-ui-0.42.6/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2895bf463ed689adc181d232dc341259/jetified-mapbox-android-navigation-ui-0.42.6/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2895bf463ed689adc181d232dc341259/jetified-mapbox-android-navigation-ui-0.42.6/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49466eb1985181ac951b0acd5c77db5f/jetified-mapbox-android-navigation-ui-0.42.6/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49466eb1985181ac951b0acd5c77db5f/jetified-mapbox-android-navigation-ui-0.42.6/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d31a435c0244c91136873a7134af15/jetified-mapbox-android-navigation-ui-0.42.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d31a435c0244c91136873a7134af15/jetified-mapbox-android-navigation-ui-0.42.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d31a435c0244c91136873a7134af15/jetified-mapbox-android-navigation-ui-0.42.6/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-navigation-ui/0.42.6/f42b8336dd5bc6be5b2ab613479a6cbc33e68f3e/mapbox-android-navigation-ui-0.42.6-javadoc.jar!/" />

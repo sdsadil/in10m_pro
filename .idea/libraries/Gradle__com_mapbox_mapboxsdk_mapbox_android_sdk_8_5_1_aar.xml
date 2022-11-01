@@ -2,11 +2,18 @@
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-sdk:8.5.1@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42aeaf3456d178247768ee24828fa95b/jetified-mapbox-android-sdk-8.5.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5025a68599831459b6ce27dbeb9ff7c/jetified-mapbox-android-sdk-8.5.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df2e451d249e48c75621a75af27fa267/jetified-mapbox-android-sdk-8.5.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42aeaf3456d178247768ee24828fa95b/jetified-mapbox-android-sdk-8.5.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42aeaf3456d178247768ee24828fa95b/jetified-mapbox-android-sdk-8.5.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42aeaf3456d178247768ee24828fa95b/jetified-mapbox-android-sdk-8.5.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5025a68599831459b6ce27dbeb9ff7c/jetified-mapbox-android-sdk-8.5.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5025a68599831459b6ce27dbeb9ff7c/jetified-mapbox-android-sdk-8.5.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df2e451d249e48c75621a75af27fa267/jetified-mapbox-android-sdk-8.5.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df2e451d249e48c75621a75af27fa267/jetified-mapbox-android-sdk-8.5.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df2e451d249e48c75621a75af27fa267/jetified-mapbox-android-sdk-8.5.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-sdk/8.5.1/400d2989f69f6623860efad0abe8b4020cdb7062/mapbox-android-sdk-8.5.1-javadoc.jar!/" />

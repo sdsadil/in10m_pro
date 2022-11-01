@@ -4,6 +4,12 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5325feee33098f6a069b8a5c4a2c5ed2/jetified-mapbox-navigation-native-7.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5325feee33098f6a069b8a5c4a2c5ed2/jetified-mapbox-navigation-native-7.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5325feee33098f6a069b8a5c4a2c5ed2/jetified-mapbox-navigation-native-7.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/65ab47696bd7de75c551474caff69896/jetified-mapbox-navigation-native-7.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/65ab47696bd7de75c551474caff69896/jetified-mapbox-navigation-native-7.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/65ab47696bd7de75c551474caff69896/jetified-mapbox-navigation-native-7.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a35a7482247ff87653916f38dd125540/jetified-mapbox-navigation-native-7.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a35a7482247ff87653916f38dd125540/jetified-mapbox-navigation-native-7.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a35a7482247ff87653916f38dd125540/jetified-mapbox-navigation-native-7.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
