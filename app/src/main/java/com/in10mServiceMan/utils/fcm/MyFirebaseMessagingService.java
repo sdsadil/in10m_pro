@@ -116,7 +116,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private int getNotificationIcon(NotificationCompat.Builder notificationBuilder) {
         notificationBuilder.setColor(ContextCompat.getColor(getApplicationContext(), R.color.darkText));
-        return R.mipmap.ic_launcher;
+        return R.mipmap.ic_launcher1;
     }
 
     public static boolean isAppIsInBackground(Context context) {

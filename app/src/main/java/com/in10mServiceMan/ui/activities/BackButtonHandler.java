@@ -20,7 +20,7 @@ public class BackButtonHandler {
     public void onClick() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context, R.style.AlertDialogDanger);
         alertDialog.setTitle(context.getResources().getString(R.string.app_name));
-        alertDialog.setIcon(R.mipmap.ic_launcher_logo_one_round);
+        alertDialog.setIcon(R.mipmap.ic_launcher1);
         alertDialog.setMessage(context.getResources().getString(R.string.are_you_sure_you_want_to_leave_the_application));
         alertDialog.setPositiveButton(context.getResources().getString(R.string.yes),
                 (dialog, which) -> {

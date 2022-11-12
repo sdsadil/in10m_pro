@@ -154,6 +154,7 @@ class AddPortFolio : BaseFragment() {
     }
 
     private fun loadProfile() {
+        showProgressDialog("")
         val isLoggedIn: Boolean =
             !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
                 .isNullOrEmpty()
@@ -169,6 +170,7 @@ class AddPortFolio : BaseFragment() {
                     call: Call<CustomerCompleteProfile>,
                     response: Response<CustomerCompleteProfile>
                 ) {
+                    destroyDialog()
                     if (response.isSuccessful) {
                         val response = response.body()
                         for (i in 0 until response!!.data.profilePictures.size) {
@@ -186,7 +188,7 @@ class AddPortFolio : BaseFragment() {
                 }
 
                 override fun onFailure(call: Call<CustomerCompleteProfile>, t: Throwable) {
-
+                    destroyDialog()
                 }
             })
         }

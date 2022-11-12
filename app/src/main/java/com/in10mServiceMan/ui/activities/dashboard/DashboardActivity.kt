@@ -104,10 +104,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     var currentWorkStatus: Int = 0
     var thread = Thread()
 
-
     private var slidingRootNav: SlidingRootNav? = null
-
-
     private var handler = Handler()
     private val navigationDelay = 180L
     private var isLocationSelected = false
@@ -655,7 +652,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             callServicProviders.enqueue(object : Callback<ResponseServiceWithSubService> {
                 override fun onResponse(
                     call: Call<ResponseServiceWithSubService>,
-                    response: Response<ResponseServiceWithSubService>
+                    response: Response<ResponseServiceWithSubService>,
                 ) {
                     if (response.isSuccessful) {
                         val serviceWithSUbServices = response.body()!!.data!![0]
@@ -718,7 +715,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfileAfterUpdate> {
             override fun onResponse(
                 call: Call<CustomerCompleteProfileAfterUpdate>,
-                response: Response<CustomerCompleteProfileAfterUpdate>
+                response: Response<CustomerCompleteProfileAfterUpdate>,
             ) {
                 if (response.isSuccessful) {
                     customerProfile = response.body()!!.data!![0]
@@ -753,7 +750,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             .enqueue(object : Callback<CustomerCompleteProfile> {
                 override fun onResponse(
                     call: Call<CustomerCompleteProfile>,
-                    response: Response<CustomerCompleteProfile>
+                    response: Response<CustomerCompleteProfile>,
                 ) {
                     if (response.isSuccessful) {
                         val data = response.body()
@@ -788,7 +785,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         callServiceProviders.enqueue(object : Callback<CompanyServicemanLocationResponse> {
             override fun onResponse(
                 call: Call<CompanyServicemanLocationResponse>,
-                response: Response<CompanyServicemanLocationResponse>
+                response: Response<CompanyServicemanLocationResponse>,
             ) {
                 if (response.isSuccessful) {
                     val cData = response.body()!!.data
@@ -831,7 +828,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
             }
         }
-
     }
 
     private fun loadDashboardCount() {
@@ -847,7 +843,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             callServiceProviders.enqueue(object : Callback<CompanyHomeCountResponse> {
                 override fun onResponse(
                     call: Call<CompanyHomeCountResponse>,
-                    response: Response<CompanyHomeCountResponse>
+                    response: Response<CompanyHomeCountResponse>,
                 ) {
                     if (response.isSuccessful) {
                         val cData = response.body()!!.data
@@ -866,13 +862,19 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             callServicProviders.enqueue(object : Callback<HomeCountResponse> {
                 override fun onResponse(
                     call: Call<HomeCountResponse>,
-                    response: Response<HomeCountResponse>
+                    response: Response<HomeCountResponse>,
                 ) {
                     if (response.isSuccessful) {
-                        val cData = response.body()!!.data[0]
-                        countTodayTV.text = getCountVal(cData!!.dateWise)
-                        countMonthTV.text = getCountVal(cData.monthWise)
-                        countYearTV.text = getCountVal(cData.yearWise)
+                        if (response.body()!!.data.size > 0) {
+                            val cData = response.body()!!.data[0]
+                            countTodayTV.text = getCountVal(cData!!.dateWise)
+                            countMonthTV.text = getCountVal(cData.monthWise)
+                            countYearTV.text = getCountVal(cData.yearWise)
+                        } else {
+                            countTodayTV.text = ""
+                            countMonthTV.text = ""
+                            countYearTV.text = ""
+                        }
                     }
                 }
 
@@ -885,12 +887,12 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
     private fun getCountVal(cVal: Int): String {
         var aa = ""
-        when {
+        aa = when {
             cVal < 10 -> {
-                aa = "0$cVal"
+                "0$cVal"
             }
             else -> {
-                aa = cVal.toString()
+                cVal.toString()
             }
         }
         return aa
@@ -1361,7 +1363,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         callServiceProviders.enqueue(object : Callback<CommonApiResponse> {
             override fun onResponse(
                 call: Call<CommonApiResponse>,
-                response: Response<CommonApiResponse>
+                response: Response<CommonApiResponse>,
             ) {
                 if (response.isSuccessful) {
                     try {
@@ -1450,7 +1452,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         if (requestCode == permsRequestCode) {// If request is cancelled, the result arrays are empty.
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -1486,7 +1488,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             callServiceProviders.enqueue(object : Callback<ReviewsResponse> {
                 override fun onResponse(
                     call: Call<ReviewsResponse>,
-                    response: Response<ReviewsResponse>
+                    response: Response<ReviewsResponse>,
                 ) {
                     destroyDialog()
                     if (response.isSuccessful) {
@@ -1775,12 +1777,14 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 //     Toast.LENGTH_SHORT).show();
             }
             GoogleMap.OnCameraMoveStartedListener
-                .REASON_API_ANIMATION -> {
+                .REASON_API_ANIMATION,
+            -> {
                 // Toast.makeText(this, "The user tapped something on the map.",
                 //       Toast.LENGTH_SHORT).show();
             }
             GoogleMap.OnCameraMoveStartedListener
-                .REASON_DEVELOPER_ANIMATION -> {
+                .REASON_DEVELOPER_ANIMATION,
+            -> {
                 //  Toast.makeText(this, "The app moved the camera.",
                 //        Toast.LENGTH_SHORT).show();
             }
@@ -1814,7 +1818,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             .getRoute(object : Callback<DirectionsResponse> {
                 override fun onResponse(
                     call: Call<DirectionsResponse>,
-                    response: Response<DirectionsResponse>
+                    response: Response<DirectionsResponse>,
                 ) {
                     // You can get the generic HTTP info about the response
                     if (response.body() == null) {

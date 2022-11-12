@@ -25,41 +25,40 @@ import java.util.List;
 public class Mapss {
 
     private GoogleMap mMap;
-    private  LatLng origin;
-    private  LatLng destination;
+    private LatLng origin;
+    private LatLng destination;
     private Context context;
-    private Polyline polyline=null;
+    private Polyline polyline = null;
     private RouteStatus routeStatus;
 
-    public Mapss(GoogleMap googleMap,LatLng origin,LatLng destination,Context context,RouteStatus routeStatus){
-        this.mMap=googleMap;
-        this.origin=origin;
-        this.destination=destination;
-        this.context=context;
-        this.routeStatus=routeStatus;
+    public Mapss(GoogleMap googleMap, LatLng origin, LatLng destination, Context context, RouteStatus routeStatus) {
+        this.mMap = googleMap;
+        this.origin = origin;
+        this.destination = destination;
+        this.context = context;
+        this.routeStatus = routeStatus;
         setRoute();
     }
-    public void updateRoute(GoogleMap googleMap,LatLng origin,LatLng destination){
-        this.mMap=googleMap;
-        this.destination=destination;
-        this.origin=origin;
+
+    public void updateRoute(GoogleMap googleMap, LatLng origin, LatLng destination) {
+        this.mMap = googleMap;
+        this.destination = destination;
+        this.origin = origin;
         setRoute();
     }
 
     public void removePolyLine() {
-        if(polyline!=null)
-        {
+        if (polyline != null) {
             polyline.remove();
         }
     }
 
-    private void setRoute(){
+    private void setRoute() {
 
-        if(polyline!=null)
-       {
-           Log.d("eeePOLYLINE", "Removing the polyline");
-           polyline.remove();
-       }else{
+        if (polyline != null) {
+            Log.d("eeePOLYLINE", "Removing the polyline");
+            polyline.remove();
+        } else {
             Log.d("eeePOLYLINE", "NOT REMOVING");
         }
 
@@ -70,8 +69,6 @@ public class Mapss {
         // Start downloading json data from Google Directions API
         downloadTask.execute(url);
     }
-
-
 
 
     private class DownloadTask extends AsyncTask<String, Void, String> {
@@ -96,7 +93,7 @@ public class Mapss {
             ParserTask parserTask = new ParserTask();
             routeStatus.jobDone1();
 
-           // Log.i("eeeeResult",result);
+            // Log.i("eeeeResult",result);
 
             parserTask.execute(result);
 
@@ -131,7 +128,7 @@ public class Mapss {
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
             ArrayList<LatLng> points = null;
             PolylineOptions lineOptions = null;
-          //  MarkerOptions markerOptions = new MarkerOptions();
+            //  MarkerOptions markerOptions = new MarkerOptions();
 
             for (int i = 0; i < result.size(); i++) {
                 points = new ArrayList<>();
@@ -148,18 +145,17 @@ public class Mapss {
 
                     points.add(position);
                 }
-               // Log.i("eeeePOINTS",points.toString());
+                // Log.i("eeeePOINTS",points.toString());
 
                 lineOptions.addAll(points);
                 lineOptions.width(5);
-                lineOptions.color( context.getResources().getColor(R.color.greenyBlue));
+                lineOptions.color(context.getResources().getColor(R.color.greenyBlue));
                 lineOptions.geodesic(true);
 
             }
 
 // Drawing polyline in the Google Map for the i-th route
-            if(lineOptions!=null && mMap!=null)
-            {
+            if (lineOptions != null && mMap != null) {
                 polyline = mMap.addPolyline(lineOptions);
                 routeStatus.jobDone2(polyline);
             }
@@ -184,12 +180,7 @@ public class Mapss {
         // Output format
         String output = "json";
 
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters+ "&key=" + context.getResources().getString(R.string.google_maps_key);
-
-       // Log.i("EEEEEee",url);
-
-        return url;
+        return "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + context.getResources().getString(R.string.google_maps_key);
     }
 
     /**
@@ -229,8 +220,10 @@ public class Mapss {
         }
         return data;
     }
-   public interface RouteStatus{
+
+    public interface RouteStatus {
         public void jobDone1();
+
         public void jobDone2(Polyline polyline);
     }
 }

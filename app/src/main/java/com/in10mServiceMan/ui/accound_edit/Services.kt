@@ -35,7 +35,7 @@ class Services : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_services, container, false)
@@ -67,6 +67,7 @@ class Services : BaseFragment() {
     }
 
     private fun getPreServices() {
+        showProgressDialog("")
         APIClient.token =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall =
@@ -80,14 +81,16 @@ class Services : BaseFragment() {
         homeCall?.enqueue(object : Callback<ServicesResponse> {
             override fun onResponse(
                 call: Call<ServicesResponse>,
-                response: Response<ServicesResponse>
+                response: Response<ServicesResponse>,
             ) {
+                destroyDialog()
                 if (response.isSuccessful) {
                     bindOfferedServiceRecyclerView(response.body()!!)
                 }
             }
 
             override fun onFailure(call: Call<ServicesResponse>, t: Throwable) {
+                destroyDialog()
                 Log.d("error", "Error")
             }
         })

@@ -170,7 +170,7 @@ class Profile : BaseFragment(), IProfileView {
         isStarted = true
         if (isVisiblee) {
             loadProfile()
-            getPreServices()
+//            getPreServices()
         }
 
         val spCountry1_EditProfLay = view.findViewById(R.id.spCountry1_EditProfLay) as Spinner
@@ -416,7 +416,7 @@ class Profile : BaseFragment(), IProfileView {
         isVisiblee = isVisibleToUser
         if (isVisiblee && isStarted) {
             loadProfile()
-            getPreServices()
+//            getPreServices()
         }
     }
 
@@ -456,6 +456,7 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     private fun loadProfile() {
+        showProgressDialog("")
         /*val isLoggedIn = localStorage(this@ProfileActivity).isLoggedIn*/
         val isLoggedIn: Boolean =
             !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
@@ -473,6 +474,7 @@ class Profile : BaseFragment(), IProfileView {
                     call: Call<CustomerCompleteProfile>,
                     response: Response<CustomerCompleteProfile>
                 ) {
+                    destroyDialog()
                     if (response.isSuccessful) {
                         val data = response.body()
                         if (data!!.data != null) {
@@ -538,7 +540,7 @@ class Profile : BaseFragment(), IProfileView {
                 }
 
                 override fun onFailure(call: Call<CustomerCompleteProfile>, t: Throwable) {
-
+                    destroyDialog()
                 }
             })
         }
@@ -567,8 +569,6 @@ class Profile : BaseFragment(), IProfileView {
             ) {
                 if (response.isSuccessful) {
                     bindOfferedServiceRecyclerView(response.body()!!)
-                } else {
-                    Log.d("error", "Error")
                 }
             }
 
