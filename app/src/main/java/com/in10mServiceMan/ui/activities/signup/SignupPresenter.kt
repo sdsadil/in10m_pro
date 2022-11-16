@@ -1,5 +1,6 @@
 package com.in10mServiceMan.ui.activities.signup
 
+import android.util.Log
 import com.google.gson.JsonElement
 
 class SignupPresenter(val view: ISignupview) : ISignupInteractor, ISignupInteractorListener {
@@ -137,6 +138,7 @@ class SignupPresenter(val view: ISignupview) : ISignupInteractor, ISignupInterac
         email: String, countryCode: String, phone: String, password: String, services: String,
         country_id: String
     ) {
+        Log.e("signUpUser1_state",state)
         mInteractor.signUpUser(
             type,
             firstName,

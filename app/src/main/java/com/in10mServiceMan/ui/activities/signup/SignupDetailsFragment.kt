@@ -42,8 +42,8 @@ import kotlin.collections.ArrayList
 class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
 
-    var state: String = "Kuwait City"
-    var city: String = "Mirqab"
+    var state: String = ""
+    var city: String = ""
     var country: String = ""
     var country_id: String = ""
 
@@ -65,7 +65,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         val view = inflater.inflate(R.layout.fragment_signup_details, container, false)
         filter = AutocompleteFilter.Builder().setCountry("KW").build()
@@ -76,7 +76,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 parent: AdapterView<*>,
                 view: View,
                 position: Int,
-                id: Long
+                id: Long,
             ) {
                 if (mStatesList != null) {
                     /*state = mStatesList!![position]!!.name!!*/
@@ -95,7 +95,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     parent: AdapterView<*>,
                     view: View,
                     position: Int,
-                    id: Long
+                    id: Long,
                 ) {
                     when {
                         mCountryList != null -> {
@@ -155,28 +155,28 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.STREET, "Street 12"
+                        Constants.SharedPrefs.User.STREET, ""
 //                        view.etStreet_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.SUITE, "Kaifan"
+                        Constants.SharedPrefs.User.SUITE, ""
 //                        view.etAreaName_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
-                        Constants.SharedPrefs.User.CITY, "Block 1"
+                        Constants.SharedPrefs.User.CITY, ""
 //                        view.etBlock_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.STATE,
-                        state
+                        view.etGovernorate_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.ZIPCODE,
-                        "500051"
+                        ""
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
@@ -253,7 +253,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(
                 call: Call<StatesResponse>,
-                response: Response<StatesResponse>
+                response: Response<StatesResponse>,
             ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
@@ -271,7 +271,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         homeCall.enqueue(object : Callback<CountryPojo> {
             override fun onResponse(
                 call: Call<CountryPojo>,
-                response: Response<CountryPojo>
+                response: Response<CountryPojo>,
             ) {
                 if (response.isSuccessful) {
                     bindDataCountry(response.body()!!)
@@ -457,30 +457,62 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         val ivClose_GovernoratePopUp: AppCompatImageView =
             dialog.findViewById(R.id.ivClose_GovernoratePopUp)
         tv1_GovernoratePopUp.setOnClickListener { v: View? ->
-            dialog.dismiss()
             view?.etGovernorate_SignUpProfLay?.text = tv1_GovernoratePopUp.text.toString()
+            SharedPreferencesHelper.putString(
+                activity,
+                Constants.SharedPrefs.User.STATE,
+                view?.etGovernorate_SignUpProfLay?.text.toString()
+            )
+            dialog.dismiss()
         }
         tv2_GovernoratePopUp.setOnClickListener { v: View? ->
-            dialog.dismiss()
             view?.etGovernorate_SignUpProfLay?.text = tv2_GovernoratePopUp.text.toString()
+            SharedPreferencesHelper.putString(
+                activity,
+                Constants.SharedPrefs.User.STATE,
+                view?.etGovernorate_SignUpProfLay?.text.toString()
+            )
+            dialog.dismiss()
         }
         tv3_GovernoratePopUp.setOnClickListener { v: View? ->
-            dialog.dismiss()
             view?.etGovernorate_SignUpProfLay?.text = tv3_GovernoratePopUp.text.toString()
+            SharedPreferencesHelper.putString(
+                activity,
+                Constants.SharedPrefs.User.STATE,
+                view?.etGovernorate_SignUpProfLay?.text.toString()
+            )
+            dialog.dismiss()
         }
         tv4_GovernoratePopUp.setOnClickListener { v: View? ->
-            dialog.dismiss()
             view?.etGovernorate_SignUpProfLay?.text = tv4_GovernoratePopUp.text.toString()
+            SharedPreferencesHelper.putString(
+                activity,
+                Constants.SharedPrefs.User.STATE,
+                view?.etGovernorate_SignUpProfLay?.text.toString()
+            )
+            dialog.dismiss()
         }
         tv5_GovernoratePopUp.setOnClickListener { v: View? ->
-            dialog.dismiss()
             view?.etGovernorate_SignUpProfLay?.text = tv5_GovernoratePopUp.text.toString()
+            SharedPreferencesHelper.putString(
+                activity,
+                Constants.SharedPrefs.User.STATE,
+                view?.etGovernorate_SignUpProfLay?.text.toString()
+            )
+            dialog.dismiss()
         }
         tv6_GovernoratePopUp.setOnClickListener { v: View? ->
-            dialog.dismiss()
             view?.etGovernorate_SignUpProfLay?.text = tv6_GovernoratePopUp.text.toString()
+            SharedPreferencesHelper.putString(
+                activity,
+                Constants.SharedPrefs.User.STATE,
+                view?.etGovernorate_SignUpProfLay?.text.toString()
+            )
+            dialog.dismiss()
         }
-        ivClose_GovernoratePopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        ivClose_GovernoratePopUp.setOnClickListener { v: View? ->
+            dialog.dismiss()
+        }
         dialog.show()
     }
 

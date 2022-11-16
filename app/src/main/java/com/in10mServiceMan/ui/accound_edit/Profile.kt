@@ -366,6 +366,7 @@ class Profile : BaseFragment(), IProfileView {
         val address2 = view!!.streetNameET1.text.toString()
         val city = view!!.landMarkNameET1.text.toString()
         val pincode = view!!.pinCodeET1.text.toString()
+        val state = view!!.tvGovernorate_EditProfLay.text.toString()
 
         rq.serviceproviderId = SharedPreferencesHelper.getString(
             activity,
@@ -392,7 +393,7 @@ class Profile : BaseFragment(), IProfileView {
         rq.serviceproviderLatitude = profile.latitude
         rq.serviceproviderLongitude = profile.longitude
         rq.serviceproviderGender = profile.gender
-        rq.serviceproviderGender = state
+        rq.serviceproviderState = state
         rq.serviceproviderImage = imageUri
         rq.serviceproviderCountry = country
 //        rq.serviceproviderCountryCode = country_id
@@ -512,11 +513,8 @@ class Profile : BaseFragment(), IProfileView {
                             rq.serviceproviderState = profile.state
                             rq.serviceproviderStreetName = profile.streetName
                             imageUri = profile.image
-//                            if (profile.lastname != null)
-//                                view!!.fullnameET.setText(profile.name.toString() + " " + profile.lastname)
-//                            else
                             view!!.fullnameET.setText(profile.name.toString())
-
+                            view!!.tvGovernorate_EditProfLay.setText(profile.state.toString())
                             view!!.mobileET.setText(profile.mobile.toString())
                             view!!.emailET.setText(if (profile.email == null) "" else profile.email)
                             view!!.apartmentNameET1.setText(if (profile.address1 == null) "" else profile.address1)

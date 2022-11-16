@@ -161,7 +161,7 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                     Constants.SharedPrefs.User.PROFILE_PICTURE,
                     mData.data.imageUrl
                 )
-            if (mData.data?.address1?.isNotEmpty()!!) {
+            if (mData.data?.address1 != null && mData.data.address1.isNotEmpty()) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ADDRESS_ONE,
@@ -169,7 +169,8 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 )
                 Constants.GlobalSettings.streetName = mData.data.address1
             }
-            if (mData.data.address2?.isNotEmpty()!!) {
+
+            if (mData.data?.address2 != null && mData.data.address2.isNotEmpty()) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ADDRESS_TWO,
@@ -177,14 +178,17 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 )
                 Constants.GlobalSettings.aptNo = mData.data.address2
             }
-            if (mData.data.streetName != null) {
+
+            if (mData.data?.streetName != null && mData.data.streetName.isNotEmpty()) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_STREET_NAME,
                     mData.data.streetName
                 )
+//                Constants.GlobalSettings.aptNo = mData.data.streetName
             }
-            if (mData.data.city?.isNotEmpty()!!) {
+
+            if (mData.data?.city != null && mData.data.city.isNotEmpty()) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_CITY,
@@ -192,7 +196,8 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 )
                 Constants.GlobalSettings.cityName = mData.data.city
             }
-            if (mData.data.state?.isNotEmpty()!!) {
+
+            if (mData.data?.state != null && mData.data.state.isNotEmpty()) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_STATE,
@@ -200,7 +205,9 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 )
                 Constants.GlobalSettings.stateName = mData.data.state
             }
-            if (mData.data.zipcode?.isNotEmpty()!!) {
+
+
+            if (mData.data?.zipcode != null && mData.data.zipcode.isNotEmpty()) {
                 SharedPreferencesHelper.putString(
                     this@SignUpActivity,
                     Constants.SharedPrefs.User.SM_ZIP_CODE,
@@ -208,6 +215,7 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
                 )
                 Constants.GlobalSettings.zipCode = mData.data.zipcode
             }
+
 
 //            signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
 
@@ -231,6 +239,11 @@ class SignUpActivity : In10mBaseActivity(), ISignupview,
     override fun toNextFragmentTwo() {
         //SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "2").toInt()
         showProgressDialog("")
+        Log.e(
+            "NextFragmentTwo_state",
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.STATE, "")
+                .toString(),
+        )
         mPresenter.signUpUser(
             2,
             SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.FIRST_NAME, "")

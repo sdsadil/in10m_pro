@@ -33,6 +33,105 @@ class CompanySignupActivity : In10mBaseActivity(), ICompanySignupView,
     CompanyProfilePictureFragment.NextFragmentInterfaceFour,
     CompanyPaymentTypeFragment.NextFragmentInterfaceSix, ILoginView {
 
+    private val mPresenter = CompanySignupPresenter(this)
+    val mLoginPresenter = LoginPresenter(this)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_company_signup)
+
+        formViewpagerAdapter()
+        if (SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 0) == 2) {
+            if (intent.extras != null) {
+                if (intent.getStringExtra("step") == "1") {
+                    signUpPhaseViewPager.currentItem = 2
+                } else if (intent.getStringExtra("step") == "2") {
+                    startActivity(Intent(this, DashboardActivity::class.java))
+                }
+            }
+        } else {
+            if (intent.extras != null) {
+                if (intent.getStringExtra("step") == "1") {
+                    signUpPhaseViewPager.currentItem = 2
+                } else if (intent.getStringExtra("step") == "2") {
+                    signUpPhaseViewPager.currentItem = 3
+                } else if (intent.getStringExtra("step") == "3") {
+                    startActivity(Intent(this, DashboardActivity::class.java))
+                }
+            }
+        }
+    }
+
+    private fun formViewpagerAdapter() {
+
+        val adapter = SignupViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(SignupCompanyDetailsFragment.newInstance(this), "1")
+        adapter.addFragment(SignupCompanyContactFragment.newInstance(this), "2")
+        adapter.addFragment(CompanyProfilePictureFragment.newInstance(this), "3")
+        adapter.addFragment(CompanyPaymentTypeFragment.newInstance(this), "4")
+        /*adapter.addFragment(PaymentTypeFragment.newInstance(this), "5")*/
+        signUpPhaseViewPager.adapter = adapter
+        signUpPhaseViewPagerIndicator.setViewPager(signUpPhaseViewPager)
+        signUpPhaseViewPagerIndicator.setDotsClickable(false)
+    }
+
+    private fun openFragmentWithBack(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        if (fragment.isAdded)
+            transaction.show(fragment)
+        else {
+            transaction.replace(R.id.signUpPhaseContainer, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        if (fragment.isAdded)
+            transaction.show(fragment)
+        else {
+            transaction.replace(R.id.signUpPhaseContainer, fragment)
+            transaction.commit()
+        }
+    }
+
+    private fun removeFragment() {
+        supportFragmentManager.beginTransaction()
+            .remove(supportFragmentManager.findFragmentById(R.id.signUpPhaseContainer)!!).commit()
+    }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
+        if (signUpPhaseViewPager.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            BackButtonHandler(this).onClick()
+            return
+        }
+    }
+
+    override fun onLoginCompleted(mResponse: LoginResponse) {
+
+    }
+
+    override fun onResetLinkSend(mResposne: LinkSendResponse) {
+
+    }
+
+    override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
+        destroyDialog()
+        if (metaData.status == 1) {
+            localStorage(this).saveCompleteCustomer(metaData.data)
+            val intent = Intent(baseContext, DashboardActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            ShowToast(metaData?.message)
+        }
+    }
+
     override fun toNextFragmentSix() {
 
     }
@@ -81,7 +180,7 @@ class CompanySignupActivity : In10mBaseActivity(), ICompanySignupView,
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.USER_ID,
-                mResponse?.data!![0]?.customerData!![0]?.customerId.toString()
+                mResponse.data!![0]?.customerData!![0]?.customerId.toString()
             )
             SharedPreferencesHelper.putString(
                 this,
@@ -91,7 +190,7 @@ class CompanySignupActivity : In10mBaseActivity(), ICompanySignupView,
             SharedPreferencesHelper.putString(
                 this,
                 Constants.SharedPrefs.User.MOBILE_NUMBER,
-                mResponse?.data!![0]?.customerData!![0]?.customerMobile.toString()
+                mResponse.data!![0]?.customerData!![0]?.customerMobile.toString()
             )
 
             VerifyCompanyMobileFragment().arguments = bundle
@@ -248,103 +347,5 @@ class CompanySignupActivity : In10mBaseActivity(), ICompanySignupView,
 
     override fun toNextFragmentOne() {
         signUpPhaseViewPager.currentItem = signUpPhaseViewPager.currentItem + 1
-    }
-
-    private val mPresenter = CompanySignupPresenter(this)
-    val mLoginPresenter = LoginPresenter(this)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_company_signup)
-
-        formViewpagerAdapter()
-        if (SharedPreferencesHelper.getInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 0) == 2) {
-            if (intent.extras != null) {
-                if (intent.getStringExtra("step") == "1") {
-                    signUpPhaseViewPager.currentItem = 2
-                } else if (intent.getStringExtra("step") == "2") {
-                    startActivity(Intent(this, DashboardActivity::class.java))
-                }
-            }
-        } else {
-            if (intent.extras != null) {
-                if (intent.getStringExtra("step") == "1") {
-                    signUpPhaseViewPager.currentItem = 2
-                } else if (intent.getStringExtra("step") == "2") {
-                    signUpPhaseViewPager.currentItem = 3
-                } else if (intent.getStringExtra("step") == "3") {
-                    startActivity(Intent(this, DashboardActivity::class.java))
-                }
-            }
-        }
-    }
-
-    private fun formViewpagerAdapter() {
-
-        val adapter = SignupViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(SignupCompanyDetailsFragment.newInstance(this), "1")
-        adapter.addFragment(SignupCompanyContactFragment.newInstance(this), "2")
-        adapter.addFragment(CompanyProfilePictureFragment.newInstance(this), "3")
-        adapter.addFragment(CompanyPaymentTypeFragment.newInstance(this), "4")
-        /*adapter.addFragment(PaymentTypeFragment.newInstance(this), "5")*/
-        signUpPhaseViewPager.adapter = adapter
-        signUpPhaseViewPagerIndicator.setViewPager(signUpPhaseViewPager)
-        signUpPhaseViewPagerIndicator.setDotsClickable(false)
-    }
-
-    private fun openFragmentWithBack(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (fragment.isAdded)
-            transaction.show(fragment)
-        else {
-            transaction.replace(R.id.signUpPhaseContainer, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-    }
-
-    private fun openFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        if (fragment.isAdded)
-            transaction.show(fragment)
-        else {
-            transaction.replace(R.id.signUpPhaseContainer, fragment)
-            transaction.commit()
-        }
-    }
-
-    private fun removeFragment() {
-        supportFragmentManager.beginTransaction()
-            .remove(supportFragmentManager.findFragmentById(R.id.signUpPhaseContainer)!!).commit()
-    }
-
-    override fun onBackPressed() {
-        //super.onBackPressed()
-        if (signUpPhaseViewPager.currentItem == 0) {
-            super.onBackPressed()
-        } else {
-            BackButtonHandler(this).onClick()
-            return
-        }
-    }
-
-    override fun onLoginCompleted(mResponse: LoginResponse) {
-
-    }
-
-    override fun onResetLinkSend(mResposne: LinkSendResponse) {
-
-    }
-
-    override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
-        destroyDialog()
-        if (metaData.status == 1) {
-            localStorage(this).saveCompleteCustomer(metaData.data)
-            val intent = Intent(baseContext, DashboardActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            ShowToast(metaData?.message)
-        }
     }
 }

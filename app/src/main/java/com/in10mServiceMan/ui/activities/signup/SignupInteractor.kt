@@ -241,7 +241,7 @@ class SignupInteractor(var listener: ISignupInteractorListener) : ISignupInterac
         services: String,
         country_id: String
     ) {
-
+        Log.e("signUpUser2_state",state)
         val registerStepOne = APIClient.getApiInterface().SignupOne(
             type,
             firstName,
