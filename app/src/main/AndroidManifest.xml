@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.in10mServiceMan">
 
     <uses-feature
@@ -39,11 +40,13 @@
 
         <service
             android:name=".utils.fcm.MyFirebaseMessagingService"
+            android:exported="true"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <activity
             android:name=".ui.activities.signup.SignUpTermsConditions"
             android:exported="true"
@@ -58,6 +61,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.accound_edit.MyAccountEdit"
+            android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.create_online_account.CreateOnlinePaymentAccountActivity"
@@ -152,7 +156,8 @@
 
         <service
             android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
-            android:enabled="true" />
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
             android:name=".ui.activities.sign_in.SignInActivity"
@@ -160,6 +165,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".utils.cropper.CropImageActivity"
+            android:exported="true"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".ui.activities.set_up_profile.SetUpProfileActivity"
@@ -235,18 +241,17 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <!--
-<meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="872fcf8a48bf0781d78cafe0d70a308bcae53520" />
-        -->
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="3d4091c805f9fa54b15cc6bc154e42d482077be4" />
 
         <service
-            android:name=".ui.activities.SinchService"
+            android:name="com.sinch.android.rtc.internal.client.fcm.InstanceIDTokenService"
             android:exported="true" />
+        <service
+            android:name=".ui.activities.SinchService"
+            android:exported="true"
+            tools:node="merge" />
 
         <activity
             android:name=".ui.activities.services.ServicesActivity"
