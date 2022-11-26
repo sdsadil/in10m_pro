@@ -16,7 +16,10 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
     override fun getCompleteProfile(userId: String) {
         val callServiceProviders = APIClient.getApiInterface().getCompleteProfile(userId.toInt())
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
-            override fun onResponse(call: Call<CustomerCompleteProfile>, response: Response<CustomerCompleteProfile>) {
+            override fun onResponse(
+                call: Call<CustomerCompleteProfile>,
+                response: Response<CustomerCompleteProfile>,
+            ) {
                 if (response.isSuccessful) {
                     val data = response.body()
                     if (data!!.data != null) {
@@ -36,7 +39,10 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
     override fun updateProfile(header: String, request: RequestUpdateServiceMan) {
         val callServiceProviders = APIClient.getApiInterface().updateServiceManProfile(request)
         callServiceProviders.enqueue(object : Callback<CustomerCompleteProfileAfterUpdate> {
-            override fun onResponse(call: Call<CustomerCompleteProfileAfterUpdate>, response: Response<CustomerCompleteProfileAfterUpdate>) {
+            override fun onResponse(
+                call: Call<CustomerCompleteProfileAfterUpdate>,
+                response: Response<CustomerCompleteProfileAfterUpdate>,
+            ) {
                 listener.onProfileUpdated(response.body()!!)
             }
 
@@ -53,9 +59,13 @@ class ProfileInteractor(val listener: IProfileInteractorListener) : IProfileInte
         val reqFile = RequestBody.create(MediaType.parse("image/*"), file)
         body = MultipartBody.Part.createFormData("profile_picture", file.name, reqFile)
 
-        val profilePicRequest = APIClient.getApiInterface().UpdateServiceManProfilePicture("Bearer $header", serviceManIdBody, body)
+        val profilePicRequest = APIClient.getApiInterface()
+            .UpdateServiceManProfilePicture("Bearer $header", serviceManIdBody, body)
         profilePicRequest.enqueue(object : Callback<ImageUpdateResponse> {
-            override fun onResponse(call: Call<ImageUpdateResponse>, response: Response<ImageUpdateResponse>) {
+            override fun onResponse(
+                call: Call<ImageUpdateResponse>,
+                response: Response<ImageUpdateResponse>,
+            ) {
                 if (response.isSuccessful) {
                     listener.onDPUpdated(response.body()!!)
                 } else {

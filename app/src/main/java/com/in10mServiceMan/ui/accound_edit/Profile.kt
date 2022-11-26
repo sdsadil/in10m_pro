@@ -163,7 +163,7 @@ class Profile : BaseFragment(), IProfileView {
             if (isNewImage) {
                 uploadImageToAWS()
             } else {
-                updateProf("")
+                updateProf(imageUri)
             }
         }
 
@@ -269,11 +269,14 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     fun profileUpdate(
-        header: String,
-        userID: String,
         profilePicData: String
     ) {
-        val userId = RequestBody.create(MediaType.parse("text/plain"), userID)
+        val header =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val mServiceManId =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+
+        val userId = RequestBody.create(MediaType.parse("text/plain"), mServiceManId)
         var body: MultipartBody.Part? = null
         val file = File(profilePicData)
         val reqFile = RequestBody.create(MediaType.parse("image/*"), file)
@@ -288,7 +291,7 @@ class Profile : BaseFragment(), IProfileView {
             ) {
                 if (response.isSuccessful) {
                     isNewImage = false
-                    updateProf("")
+                    updateProf(imageUri)
                 }
             }
 
@@ -300,10 +303,11 @@ class Profile : BaseFragment(), IProfileView {
 
     private fun uploadImageToAWS() {
         try {
-            AWSMobileClient.getInstance().initialize(activity).execute()
-            uploadWithTransferUtility(BUCKET_NAME, imageUri)
+//            AWSMobileClient.getInstance().initialize(activity).execute()
+//            uploadWithTransferUtility(BUCKET_NAME, imageUri)
+            profileUpdate(imageUri)
         } catch (e: UninitializedPropertyAccessException) {
-            updateProf("")
+           e.printStackTrace()
         }
     }
 
@@ -394,7 +398,7 @@ class Profile : BaseFragment(), IProfileView {
         rq.serviceproviderLongitude = profile.longitude
         rq.serviceproviderGender = profile.gender
         rq.serviceproviderState = state
-        rq.serviceproviderImage = imageUri
+        rq.serviceproviderImage = imageUrl
         rq.serviceproviderCountry = country
 //        rq.serviceproviderCountryCode = country_id
 
@@ -739,6 +743,7 @@ class Profile : BaseFragment(), IProfileView {
                 imageUri = resultUri.path.toString()
                 serviceManProfile.setImageURI(resultUri)
                 isNewImage = true
+
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
             }

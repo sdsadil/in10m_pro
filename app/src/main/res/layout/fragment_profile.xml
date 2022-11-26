@@ -67,6 +67,7 @@
                 android:layout_marginStart="@dimen/_50sdp"
                 android:layout_marginTop="0dp"
                 android:src="@drawable/camera"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@+id/serviceManProfile"
                 app:layout_constraintTop_toTopOf="@+id/serviceManProfile" />
 
