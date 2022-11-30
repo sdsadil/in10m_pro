@@ -21,8 +21,8 @@
               <option value="$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" />
             </array>
           </option>
-          <option name="languageVersion" value="1.7" />
-          <option name="apiVersion" value="1.5" />
+          <option name="languageVersion" value="1.4" />
+          <option name="apiVersion" value="1.4" />
           <option name="pluginOptions">
             <array>
               <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />

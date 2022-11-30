@@ -196,6 +196,7 @@
             android:animateLayoutChanges="true"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/onlinePaymentLL">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -226,8 +227,8 @@
                 android:layout_height="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:padding="@dimen/_3sdp"
-                android:visibility="gone"
                 android:src="@drawable/dropdown_arrow"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/cashTitle"
                 app:layout_constraintStart_toEndOf="@+id/cashTitle"
                 app:layout_constraintTop_toTopOf="@+id/cashTitle" />
@@ -339,6 +340,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:alpha="0.5"
             android:background="@color/lineBg"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/cashPaymentLL" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -348,6 +350,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/viewTwo">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -356,6 +359,7 @@
                 android:layout_height="18dp"
                 android:background="@drawable/outstanding_three"
                 android:tint="@color/colorPrimary"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -403,30 +407,33 @@
         <LinearLayout
             android:id="@+id/totalEarningLL"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewFour">
 
-            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:text="@string/total_earning"
                 android:textColor="@color/darkGreyText"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_15sdp" />
 
-            <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+            <com.in10mServiceMan.widgets.textview.CustomBoldTextView
                 android:id="@+id/totalEarningValueTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
                 android:text="@string/kd_0_000"
                 android:textColor="@color/grey_text_selector"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_30sdp"
                 android:textStyle="bold" />
 
         </LinearLayout>

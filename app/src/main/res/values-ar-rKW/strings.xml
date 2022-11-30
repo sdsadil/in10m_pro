@@ -172,7 +172,8 @@
     <string name="our_expert_support_team">Our expert support team are ready \n24/7 to assist you in times of need</string>
     <string name="next">Next</string>
     <string name="skip">تخطي</string>
-    <string name="skip1">تخطي</string>
+    <string name="skip1">عربي</string>
+    <string name="skip2">English</string>
     <string name="otp_verification">OTP Verification</string>
     <string name="an_otp_has_been">An OTP has been sent to the \nregistered number 32****32</string>
     <string name="intro_heading_one">أنت على الخريطة</string>
