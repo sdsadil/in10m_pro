@@ -21,6 +21,7 @@ import com.in10mServiceMan.models.SubService;
 import com.in10mServiceMan.models.viewmodels.ServiceWithSubService;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity;
+import com.in10mServiceMan.ui.activities.services.ServiceData;
 import com.in10mServiceMan.ui.activities.services.ServicesActivity;
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity;
 import com.in10mServiceMan.ui.adapter.ServicemanSelectedServiceAdapter;
@@ -347,6 +348,11 @@ public class ServicemanServiceDetailsFragmentListener extends Fragment implement
             }
         });
 
+
+    }
+
+    @Override
+    public void onDeleteClick(int position, ServiceData serviceData) {
 
     }
 }

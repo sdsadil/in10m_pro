@@ -51,6 +51,9 @@ import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
 import com.amazonaws.services.s3.AmazonS3Client
 import com.in10mServiceMan.BuildConfig
 import com.in10mServiceMan.models.*
+import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
+import com.in10mServiceMan.ui.activities.services.ServiceData
+import com.in10mServiceMan.ui.listener.EditSubServicesListener
 import com.in10mServiceMan.utils.cropper.CropImage
 import com.in10mServiceMan.utils.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_signup_details.*
@@ -63,7 +66,7 @@ import java.io.File
 /**
  * A simple [Fragment] subclass.
  */
-class Profile : BaseFragment(), IProfileView {
+class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
 
     private var isStarted = false
     private var isVisiblee = false
@@ -84,7 +87,7 @@ class Profile : BaseFragment(), IProfileView {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
@@ -148,7 +151,7 @@ class Profile : BaseFragment(), IProfileView {
                 parent: AdapterView<*>,
                 view: View,
                 position: Int,
-                id: Long
+                id: Long,
             ) {
                 if (mStatesList != null) {
                     state = myTypeSpinner.selectedItem.toString()
@@ -180,7 +183,7 @@ class Profile : BaseFragment(), IProfileView {
                     parent: AdapterView<*>,
                     view: View,
                     position: Int,
-                    id: Long
+                    id: Long,
                 ) {
                     when {
                         mCountryList != null -> {
@@ -269,7 +272,7 @@ class Profile : BaseFragment(), IProfileView {
     }
 
     fun profileUpdate(
-        profilePicData: String
+        profilePicData: String,
     ) {
         val header =
             SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
@@ -287,7 +290,7 @@ class Profile : BaseFragment(), IProfileView {
         profilePicRequest.enqueue(object : Callback<ImageUpdateResponse> {
             override fun onResponse(
                 call: Call<ImageUpdateResponse>,
-                response: Response<ImageUpdateResponse>
+                response: Response<ImageUpdateResponse>,
             ) {
                 if (response.isSuccessful) {
                     isNewImage = false
@@ -307,7 +310,7 @@ class Profile : BaseFragment(), IProfileView {
 //            uploadWithTransferUtility(BUCKET_NAME, imageUri)
             profileUpdate(imageUri)
         } catch (e: UninitializedPropertyAccessException) {
-           e.printStackTrace()
+            e.printStackTrace()
         }
     }
 
@@ -430,7 +433,7 @@ class Profile : BaseFragment(), IProfileView {
         homeCall.enqueue(object : Callback<StatesResponse> {
             override fun onResponse(
                 call: Call<StatesResponse>,
-                response: Response<StatesResponse>
+                response: Response<StatesResponse>,
             ) {
                 if (response.isSuccessful) {
                     bindData(response.body()!!)
@@ -477,7 +480,7 @@ class Profile : BaseFragment(), IProfileView {
             callServiceProviders.enqueue(object : Callback<CustomerCompleteProfile> {
                 override fun onResponse(
                     call: Call<CustomerCompleteProfile>,
-                    response: Response<CustomerCompleteProfile>
+                    response: Response<CustomerCompleteProfile>,
                 ) {
                     destroyDialog()
                     if (response.isSuccessful) {
@@ -550,7 +553,7 @@ class Profile : BaseFragment(), IProfileView {
 
     fun bindOfferedServiceRecyclerView(body: ServicesResponse?) {
         val linearLayoutManager = LinearLayoutManager(activity)
-        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, activity)
+        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, activity, this)
         view!!.recycler_view.layoutManager = linearLayoutManager
         view!!.recycler_view.adapter = servicemanSelectedServiceAdapter
         view!!.recycler_view.isNestedScrollingEnabled = false
@@ -567,7 +570,7 @@ class Profile : BaseFragment(), IProfileView {
         homeCall.enqueue(object : Callback<ServicesResponse> {
             override fun onResponse(
                 call: Call<ServicesResponse>,
-                response: Response<ServicesResponse>
+                response: Response<ServicesResponse>,
             ) {
                 if (response.isSuccessful) {
                     bindOfferedServiceRecyclerView(response.body()!!)
@@ -753,15 +756,13 @@ class Profile : BaseFragment(), IProfileView {
     fun getCaptureImageOutputUri(context: Context): Uri? {
         var outputFileUri: Uri? = null
         val getImage: File = context.externalCacheDir!!
-        if (getImage != null) {
-            outputFileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                FileProvider.getUriForFile(
-                    context, BuildConfig.APPLICATION_ID.toString() + ".provider",
-                    File(getImage.path, "pickImageResult.jpeg")
-                )
-            } else {
-                Uri.fromFile(File(getImage.path, "pickImageResult.jpeg"))
-            }
+        outputFileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            FileProvider.getUriForFile(
+                context, BuildConfig.APPLICATION_ID.toString() + ".provider",
+                File(getImage.path, "pickImageResult.jpeg")
+            )
+        } else {
+            Uri.fromFile(File(getImage.path, "pickImageResult.jpeg"))
         }
         return outputFileUri
     }
@@ -771,7 +772,7 @@ class Profile : BaseFragment(), IProfileView {
         homeCall.enqueue(object : Callback<CountryPojo> {
             override fun onResponse(
                 call: Call<CountryPojo>,
-                response: Response<CountryPojo>
+                response: Response<CountryPojo>,
             ) {
                 if (response.isSuccessful) {
 
@@ -794,9 +795,7 @@ class Profile : BaseFragment(), IProfileView {
             }
         }
         val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)
-        if (mCountryListDummy != null) {
-            adapter.addAll(mCountryListDummy)
-        }
+        adapter.addAll(mCountryListDummy)
         adapter.add(context?.resources?.getString(R.string.india))
         spCountry1_EditProfLay.adapter = adapter
         spCountry1_EditProfLay.setSelection(adapter.count)
@@ -811,4 +810,10 @@ class Profile : BaseFragment(), IProfileView {
             }
         }
     }
+
+    override fun onEditClick(position: Int, serviceWithSubService: ServiceWithSubService?) {
+
+    }
+
+    override fun onDeleteClick(position: Int, serviceData: ServiceData?) {}
 }

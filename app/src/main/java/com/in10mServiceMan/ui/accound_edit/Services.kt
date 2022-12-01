@@ -9,13 +9,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.JsonElement
 import com.in10mServiceMan.ui.activities.BaseFragment
 
 import com.in10mServiceMan.R
+import com.in10mServiceMan.models.AddServicePojo
+import com.in10mServiceMan.models.RequestRemoveSubServicesModel
+import com.in10mServiceMan.models.UpdateService
+import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
 import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.AvailableServices
+import com.in10mServiceMan.ui.activities.services.ServiceData
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
 import com.in10mServiceMan.ui.apis.APIClient
+import com.in10mServiceMan.ui.listener.EditSubServicesListener
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.fragment_services.view.*
@@ -26,11 +35,13 @@ import retrofit2.Response
 /**
  * A simple [Fragment] subclass.
  */
-class Services : BaseFragment() {
+class Services : BaseFragment(), EditSubServicesListener {
     private var isStarted = false
     private var isVisiblee = false
 
     private var servicemanSelectedServiceAdapter: ServiceOfferAdapter? = null
+
+    var serviceListString: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +53,28 @@ class Services : BaseFragment() {
         view.btnAddServices.setOnClickListener {
             Constants.GlobalSettings.fromAccount = true
             startActivity(Intent(activity, AvailableServices::class.java))
+        }
+        view.btnEditProfile_view_services.setOnClickListener {
+            view.btnSaveProfile_view_services.visibility = View.VISIBLE
+            view.btnEditProfile_view_services.visibility = View.GONE
+            servicemanSelectedServiceAdapter?.setVisibleDelete(true)
+        }
+
+        view.btnSaveProfile_view_services.setOnClickListener {
+            val serviceList: List<ServiceData> = servicemanSelectedServiceAdapter!!.serviceDataList
+            val gson = Gson()
+            val addServiceList: MutableList<AddServicePojo> = ArrayList()
+
+            for (i in serviceList.indices) {
+                serviceListString = serviceListString + serviceList[i].serviceId + ","
+                val addServicePojo = AddServicePojo()
+                addServicePojo.certificate = ""
+                addServicePojo.service_id = serviceList[i].serviceId.toString()
+                addServicePojo.total_experience = serviceList[i].experience.toString()
+                addServiceList.add(addServicePojo)
+            }
+            val services = Gson().toJson(addServiceList)
+            updateProfile(services)
         }
 
         return view
@@ -66,6 +99,39 @@ class Services : BaseFragment() {
 
     }
 
+    private fun updateProfile(services: String) {
+        val userId =
+            SharedPreferencesHelper.getString(
+                activity,
+                Constants.SharedPrefs.User.USER_ID,
+                "0"
+            )!!.toInt()
+        showProgressDialog("")
+        val update_service = APIClient.getApiInterface().update_service(
+            userId,
+            services
+        )
+        update_service?.enqueue(object : Callback<UpdateService> {
+            override fun onResponse(
+                call: Call<UpdateService>,
+                response: Response<UpdateService>,
+            ) {
+                destroyDialog()
+                if (response.isSuccessful) {
+                    Toast.makeText(activity, response.body()?.message, Toast.LENGTH_SHORT).show()
+                    view!!.btnSaveProfile_view_services.visibility = View.GONE
+                    view!!.btnEditProfile_view_services.visibility = View.VISIBLE
+                    servicemanSelectedServiceAdapter?.setVisibleDelete(false)
+                }
+            }
+
+            override fun onFailure(call: Call<UpdateService>, t: Throwable) {
+                destroyDialog()
+                Log.d("onResponse", "Error")
+            }
+        })
+    }
+
     private fun getPreServices() {
         showProgressDialog("")
         APIClient.token =
@@ -85,6 +151,7 @@ class Services : BaseFragment() {
             ) {
                 destroyDialog()
                 if (response.isSuccessful) {
+
                     bindOfferedServiceRecyclerView(response.body()!!)
                 }
             }
@@ -94,16 +161,46 @@ class Services : BaseFragment() {
                 Log.d("error", "Error")
             }
         })
-
-        /*loadExistingServices()
-        loadServicemanExperience()*/
     }
 
     fun bindOfferedServiceRecyclerView(body: ServicesResponse?) {
         val linearLayoutManager = LinearLayoutManager(activity)
-        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, activity)
+        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, activity, this)
         view!!.recycler_view_services.layoutManager = linearLayoutManager
         view!!.recycler_view_services.adapter = servicemanSelectedServiceAdapter
         view!!.recycler_view_services.isNestedScrollingEnabled = false
     }
+
+    override fun onEditClick(position: Int, serviceWithSubService: ServiceWithSubService?) {
+
+    }
+
+    override fun onDeleteClick(position: Int, serviceData: ServiceData?) {
+        showProgressDialog("")
+        val removeSubServicesModel = RequestRemoveSubServicesModel()
+        removeSubServicesModel.servicemanId = serviceData?.serviceId
+        removeSubServicesModel.subServices = serviceData?.subService as MutableList<Int>?
+        val removeSubServices =
+            APIClient.getApiInterface().removeSubServices(removeSubServicesModel)
+        removeSubServices?.enqueue(object : Callback<JsonElement> {
+            override fun onResponse(
+                call: Call<JsonElement>,
+                response: Response<JsonElement>,
+            ) {
+                destroyDialog()
+                if (response.isSuccessful) {
+                    Log.e("onResponse", "" + response.body())
+                    getPreServices()
+//                    bindOfferedServiceRecyclerView(response.body()!!)
+                }
+            }
+
+            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
+                destroyDialog()
+                Log.e("onFailure", "Error")
+            }
+        })
+    }
+
+
 }

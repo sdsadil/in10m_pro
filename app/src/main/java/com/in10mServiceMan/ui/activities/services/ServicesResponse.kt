@@ -16,7 +16,7 @@ data class ServiceData(
         @SerializedName("certification")
         val certification: Int?=0,
         @SerializedName("experience")
-        val experience: Int?=0,
+        var experience: Int?=0,
         @SerializedName("service_ar_name")
         val serviceArName: String?="",
         @SerializedName("ar_name")

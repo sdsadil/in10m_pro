@@ -32,7 +32,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:gravity="start"
-                android:text="@string/plumbing_text"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/ImageViewColor"
                 app:layout_constraintTop_toTopOf="@+id/ImageViewColor" />
@@ -102,7 +101,7 @@
                 android:text="@string/total_experience"
                 android:textSize="14sp" />
 
-            <com.in10mServiceMan.widgets.textview.CustomBookTextView
+            <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
                 android:id="@+id/ServiceExperienceTV"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
@@ -113,7 +112,6 @@
                 android:gravity="center"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
-                android:text="0"
                 android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>

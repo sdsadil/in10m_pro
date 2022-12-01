@@ -26,6 +26,7 @@ import com.in10mServiceMan.models.ResponseVerifyMobile;
 import com.in10mServiceMan.models.UpdateBookingStatus;
 import com.in10mServiceMan.models.UpdateServemanLocation;
 import com.in10mServiceMan.models.UpdateServemanWorkingStatus;
+import com.in10mServiceMan.models.UpdateService;
 import com.in10mServiceMan.models.viewmodels.CommonApiResponse;
 import com.in10mServiceMan.ui.accound_edit.addService.ServiceResponse;
 import com.in10mServiceMan.ui.accound_edit.checkStripe.CheckStripeResponse;
@@ -59,6 +60,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -197,8 +199,13 @@ public interface ApiInterface {
     Call<ServicesResponse> getExistingServiceDetailsWithHeaderAndExperience(@Header("Authorization") String header, @Path("UserId") int UserId);
 
 
-    @POST("serviceprovider/api/remove_servicemen_service")
+    @DELETE("serviceprovider/api/remove_servicemen_service")
     Call<JsonElement> removeSubServices(@Body RequestRemoveSubServicesModel removeSubServicesModel);
+
+    @FormUrlEncoded
+    @POST("serviceman/api/update_service")
+    Call<UpdateService> update_service(@Field("serviceman_id") int serviceman_id,
+                                       @Field("services") String services);
 
     @POST("notification/api/register_device")
     Call<Void> saveDeviceId(@Body RequestUpdateDeviceUser requestUpdateDeviceUser);

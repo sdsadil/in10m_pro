@@ -22,6 +22,7 @@ import android.view.View
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
 import com.in10mServiceMan.ui.activities.profile_services.ProfileServices
+import com.in10mServiceMan.ui.activities.services.ServiceData
 import com.in10mServiceMan.ui.activities.services.ServicesActivity
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity
@@ -135,6 +136,10 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
                     destroyDialog()
                 }
             })
+    }
+
+    override fun onDeleteClick(position: Int, serviceData: ServiceData?) {
+        TODO("Not yet implemented")
     }
 
     private fun getServiceWithId(serviceId: Int): Service? {
@@ -724,7 +729,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
 
     fun bindOfferedServiceRecyclerView(body: ServicesResponse?) {
         val linearLayoutManager = LinearLayoutManager(this@ProfileActivity)
-        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, this@ProfileActivity)
+        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, this@ProfileActivity,this)
         recycler_view.layoutManager = linearLayoutManager
         recycler_view.adapter = servicemanSelectedServiceAdapter
         recycler_view.isNestedScrollingEnabled = false
