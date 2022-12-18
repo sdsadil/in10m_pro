@@ -91,7 +91,20 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        setDisable()
+//        setDisable()
+
+        view?.btnSaveProfile?.visibility = View.GONE
+        view?.btnEditProfile?.visibility = View.VISIBLE
+        view?.btnChangeImage?.visibility = View.GONE
+        view?.fullnameET?.isEnabled = false
+        view?.mobileET?.isEnabled = false
+        view?.edt_age?.isEnabled = false
+        view?.emailET?.isEnabled = false
+        view?.apartmentNameET1?.isEnabled = false
+        view?.streetNameET1?.isEnabled = false
+        view?.landMarkNameET1?.isEnabled = false
+        view?.stateNameET1?.isEnabled = false
+        view?.pinCodeET1?.isEnabled = false
 
         view.tvGovernorate_EditProfLay.setOnClickListener {
             showGovernorateDialog()
@@ -119,31 +132,31 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
             view.stateNameET1.visibility = View.GONE
             view.txt_view_state.visibility = View.GONE
             view.pinCodeET1.isEnabled = true
-
-            view.edt_age.setOnClickListener {
-                val cal = Calendar.getInstance()
-                val startDateYear = cal.get(Calendar.YEAR)
-                val startDateMonth = cal.get(Calendar.MONTH)
-                val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
-
-                val dpd_startdate = activity?.let { it1 ->
-                    DatePickerDialog(
-                        it1,
-                        R.style.CalendarThemeOne,
-                        { v, myear, mmonth, mdayOfMonth ->
-                            val month = mmonth + 1
-                            view.edt_age.setText("$month-$mdayOfMonth-$myear")//"$myear-$month-$mdayOfMonth"
-                        },
-                        startDateYear,
-                        startDateMonth,
-                        startDateDay
-                    )
-                }
-                // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
-                dpd_startdate!!.show()
-            }
         }
 
+        view.edt_age.setOnClickListener {
+            val cal = Calendar.getInstance()
+            val startDateYear = cal.get(Calendar.YEAR)
+            val startDateMonth = cal.get(Calendar.MONTH)
+            val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
+
+            val dpd_startdate = activity?.let { it1 ->
+                DatePickerDialog(
+                    it1,
+                    R.style.CalendarThemeOne,
+                    { v, myear, mmonth, mdayOfMonth ->
+                        val month = mmonth + 1
+                        view.edt_age.text =
+                            "$mdayOfMonth-$month-$myear"//"$myear-$month-$mdayOfMonth"
+                    },
+                    startDateYear,
+                    startDateMonth,
+                    startDateDay
+                )
+            }
+            // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
+            dpd_startdate!!.show()
+        }
         val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
 
         myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -201,6 +214,17 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                 override fun onNothingSelected(parent: AdapterView<*>) {
                 }
             }
+
+        /*  var cal = Calendar.getInstance()
+          val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+              cal.set(Calendar.YEAR, year)
+              cal.set(Calendar.MONTH, monthOfYear)
+              cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+              val myFormat = "dd-MM-yyyy" // mention the format you need
+              val sdf = SimpleDateFormat(myFormat, Locale.US)
+              textView.text = sdf.format(cal.time)
+          }*/
         return view
     }
 
@@ -497,7 +521,8 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                             rq.serviceproviderLastname = profile.lastname
                             rq.serviceproviderDob = profile.dob
                             if (profile.dob != null)
-                                view!!.edt_age.setText(getFormattedDateResponse(profile.dob.toString()))
+                                view!!.edt_age.text =
+                                    getFormattedDateResponse(profile.dob.toString())
                             if (profile.state != null)
                                 view!!.stateNameET1.setText(profile.state)
                             rq.serviceproviderMobile = profile.mobile
@@ -521,7 +546,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                             rq.serviceproviderStreetName = profile.streetName
                             imageUri = profile.image
                             view!!.fullnameET.setText(profile.name.toString())
-                            view!!.tvGovernorate_EditProfLay.setText(profile.state.toString())
+                            view!!.tvGovernorate_EditProfLay.text = profile.state.toString()
                             view!!.mobileET.setText(profile.mobile.toString())
                             view!!.emailET.setText(if (profile.email == null) "" else profile.email)
                             view!!.apartmentNameET1.setText(if (profile.address1 == null) "" else profile.address1)

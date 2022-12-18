@@ -135,8 +135,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/fullnameET"
                 app:mask="(999) 999-9999" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/edt_age"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/colorLight"
+                android:gravity="center|start"
+                android:hint="@string/dob_short"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mobileET" />
+
+            <!--<com.in10mServiceMan.widgets.textview.CustomBookTextView
+                android:id="@+id/"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
@@ -144,9 +166,7 @@
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorLight"
                 android:gravity="center|start"
-                android:hint="@string/dob_short"
-                android:imeOptions="actionNext"
-                android:inputType="date"
+                android:hint="@string/"
                 android:paddingStart="10dp"
                 android:paddingTop="8dp"
                 android:paddingEnd="24dp"
@@ -156,11 +176,10 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="12sp"
-                android:theme="@style/EditTextHint"
                 app:fontFamily="@font/unineuebook"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mobileET" />
+                app:layout_constraintTop_toBottomOf="@+id/mobileET" />-->
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailET"
@@ -507,7 +526,6 @@
                     android:layout_marginTop="15dp"
                     android:text="@string/where_are_you_from"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="@+id/tvGovernorate_EditProfLay"
                     app:layout_constraintTop_toBottomOf="@+id/tvGovernorate_EditProfLay" />
 
