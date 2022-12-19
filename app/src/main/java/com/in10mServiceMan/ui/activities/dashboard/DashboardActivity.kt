@@ -1343,11 +1343,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val callServiceProviders = APIClient.getApiInterface().updateServiceWorkingStatus(loc)
         callServiceProviders.enqueue(object : Callback<JsonElement> {
             override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-                Log.e("WorkingStatus_onResponse", response.body().toString())
+                Log.e("WorkingStatus", response.body().toString())
             }
 
             override fun onFailure(call: Call<JsonElement>, t: Throwable) {
-                Log.e("WorkingStatus_onFailure", t.message.toString())
+                t.printStackTrace()
             }
         })
     }
@@ -1420,11 +1420,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 if (response.code() == 401 && response.message() =="Unauthorized") {
                     onSessionExpired()
                 }
-                Log.e("UpdateService_onResponse", response.body().toString())
             }
 
             override fun onFailure(call: Call<ServiceProviderLocationUpdate>, t: Throwable) {
-                Log.e("UpdateService_onFailure", t.message.toString())
+                t.printStackTrace()
             }
         })
     }

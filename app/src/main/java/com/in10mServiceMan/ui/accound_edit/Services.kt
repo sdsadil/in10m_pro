@@ -15,9 +15,7 @@ import com.google.gson.JsonElement
 import com.in10mServiceMan.ui.activities.BaseFragment
 
 import com.in10mServiceMan.R
-import com.in10mServiceMan.models.AddServicePojo
-import com.in10mServiceMan.models.RequestRemoveSubServicesModel
-import com.in10mServiceMan.models.UpdateService
+import com.in10mServiceMan.models.*
 import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
 import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.AvailableServices
@@ -177,15 +175,17 @@ class Services : BaseFragment(), EditSubServicesListener {
 
     override fun onDeleteClick(position: Int, serviceData: ServiceData?) {
         showProgressDialog("")
-        val removeSubServicesModel = RequestRemoveSubServicesModel()
-        removeSubServicesModel.servicemanId = serviceData?.serviceId
-        removeSubServicesModel.subServices = serviceData?.subService as MutableList<Int>?
+        val homeCall =
+            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")
+        val removeSubServicesModel = RequestRemoveServicesModel()
+        removeSubServicesModel.servicemanId = homeCall?.toInt()
+        removeSubServicesModel.service_id = serviceData?.serviceId
         val removeSubServices =
-            APIClient.getApiInterface().removeSubServices(removeSubServicesModel)
-        removeSubServices?.enqueue(object : Callback<JsonElement> {
+            APIClient.getApiInterface().remove_service(removeSubServicesModel)
+        removeSubServices?.enqueue(object : Callback<RemoveServicePojo> {
             override fun onResponse(
-                call: Call<JsonElement>,
-                response: Response<JsonElement>,
+                call: Call<RemoveServicePojo>,
+                response: Response<RemoveServicePojo>,
             ) {
                 destroyDialog()
                 if (response.isSuccessful) {
@@ -195,7 +195,7 @@ class Services : BaseFragment(), EditSubServicesListener {
                 }
             }
 
-            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
+            override fun onFailure(call: Call<RemoveServicePojo>, t: Throwable) {
                 destroyDialog()
                 Log.e("onFailure", "Error")
             }

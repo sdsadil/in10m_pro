@@ -14,7 +14,9 @@ import com.in10mServiceMan.models.EarningsResponse;
 import com.in10mServiceMan.models.HomeCountResponse;
 import com.in10mServiceMan.models.HomeService;
 import com.in10mServiceMan.models.PortfolioPojo;
+import com.in10mServiceMan.models.RemoveServicePojo;
 import com.in10mServiceMan.models.RequestLinkServiceWithServiceMan;
+import com.in10mServiceMan.models.RequestRemoveServicesModel;
 import com.in10mServiceMan.models.RequestRemoveSubServicesModel;
 import com.in10mServiceMan.models.RequestReviewModel;
 import com.in10mServiceMan.models.RequestUpdateDeviceUser;
@@ -199,6 +201,9 @@ public interface ApiInterface {
     @GET("serviceprovider/api/get_servicemen_service/{UserId}")
     Call<ServicesResponse> getExistingServiceDetailsWithHeaderAndExperience(@Header("Authorization") String header, @Path("UserId") int UserId);
 
+
+    @POST("serviceman/api/remove_service")
+    Call<RemoveServicePojo> remove_service(@Body RequestRemoveServicesModel requestRemoveServicesModel);
 
     @DELETE("serviceprovider/api/remove_servicemen_service")
     Call<JsonElement> removeSubServices(@Body RequestRemoveSubServicesModel removeSubServicesModel);
