@@ -100,7 +100,7 @@ public class ServiceOfferAdapter extends RecyclerView.Adapter<ServiceOfferAdapte
             public void afterTextChanged(Editable s) {
                 if (!s.toString().equals("")) {
                     int exp = Integer.parseInt(s.toString());
-                    serviceData.setExperience(exp);
+                    selectedServiceModelArrayList.get(holder.getAdapterPosition()).setExperience(exp);
                 }
             }
         });
