@@ -25,19 +25,9 @@ open class In10mBaseActivity : BaseActivity(), IBaseView {
     override fun onSessionExpired() {
         if (!isFinishing || !!isDestroyed) {
             try {
-                /* val builder = AlertDialog.Builder(this@In10mBaseActivity, R.style.AlertDialogDanger)
-                 builder.setTitle("Session expired")
-                 builder.setMessage("Please re-login to use application")
-                 builder.setPositiveButton("OK"
-                 ) { dialog, which ->
-                     SharedPreferencesHelper.clearPreferences(this)
-                     localStorage(this).logoutUser()
-                     startActivity(Intent(this, LoginActivity::class.java))
-                     finishAffinity()
-                 }
-                 builder.show()*/
                 sessionOutCallLogin()
             } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
@@ -49,10 +39,12 @@ open class In10mBaseActivity : BaseActivity(), IBaseView {
     override fun onResume() {
         super.onResume()
         if (!APIClient().publicAccessToken.isNullOrEmpty()) {
-            val userId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
-            val header = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            val userId =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+            val header =
+                SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
 
-            mBasePresenter?.checkSession(header.toString(), userId.toString())
+//            mBasePresenter?.checkSession(header.toString(), userId.toString())
         }
     }
 

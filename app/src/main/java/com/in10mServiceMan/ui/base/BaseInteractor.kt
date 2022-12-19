@@ -8,11 +8,10 @@ import retrofit2.Response
 
 class BaseInteractor(val listener: IBaseInteractorListener) : IBaseInteractor {
     override fun checkSession(header:String,userId:String) {
-
         val callServiceProviders = APIClient.getApiInterface().getOwnReviews("Bearer $header", userId)
         callServiceProviders.enqueue(object : Callback<ReviewsResponse> {
             override fun onResponse(call: Call<ReviewsResponse>, response: Response<ReviewsResponse>) {
-                if (response?.code() == 401 && response?.message()=="Unauthorized") {
+                if (response.code() == 401 && response.message() =="Unauthorized") {
                     listener.onSessionExpired()
                 } else {
                     listener.onSessionValid()

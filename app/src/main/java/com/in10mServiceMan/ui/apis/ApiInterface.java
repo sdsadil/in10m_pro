@@ -23,6 +23,7 @@ import com.in10mServiceMan.models.RequestVerifyMobile;
 import com.in10mServiceMan.models.RequestVerifyOTP;
 import com.in10mServiceMan.models.ResponseServiceWithSubService;
 import com.in10mServiceMan.models.ResponseVerifyMobile;
+import com.in10mServiceMan.models.ServiceProviderLocationUpdate;
 import com.in10mServiceMan.models.UpdateBookingStatus;
 import com.in10mServiceMan.models.UpdateServemanLocation;
 import com.in10mServiceMan.models.UpdateServemanWorkingStatus;
@@ -141,7 +142,7 @@ public interface ApiInterface {
     Call<ActiveResponse> getActiveCompanyDetails(@Path("CompanyId") int CompanyId, @Query("crew_status") int crewStatus);
 
     @POST("serviceprovider/api/update_location")
-    Call<JsonElement> updateServiceManLocation(@Body UpdateServemanLocation servemanLocation);
+    Call<ServiceProviderLocationUpdate> updateServiceManLocation(@Body UpdateServemanLocation servemanLocation);
 
     @POST("serviceprovider/api/working_status")
     Call<JsonElement> updateServiceWorkingStatus(@Body UpdateServemanWorkingStatus status);

@@ -1343,11 +1343,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val callServiceProviders = APIClient.getApiInterface().updateServiceWorkingStatus(loc)
         callServiceProviders.enqueue(object : Callback<JsonElement> {
             override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-
+                Log.e("WorkingStatus_onResponse", response.body().toString())
             }
 
             override fun onFailure(call: Call<JsonElement>, t: Throwable) {
-
+                Log.e("WorkingStatus_onFailure", t.message.toString())
             }
         })
     }
@@ -1415,12 +1415,16 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         loc.longitude = lon
 
         val callServiceProviders = APIClient.getApiInterface().updateServiceManLocation(loc)
-        callServiceProviders.enqueue(object : Callback<JsonElement> {
-            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-
+        callServiceProviders.enqueue(object : Callback<ServiceProviderLocationUpdate> {
+            override fun onResponse(call: Call<ServiceProviderLocationUpdate>, response: Response<ServiceProviderLocationUpdate>) {
+                if (response.code() == 401 && response.message() =="Unauthorized") {
+                    onSessionExpired()
+                }
+                Log.e("UpdateService_onResponse", response.body().toString())
             }
 
-            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
+            override fun onFailure(call: Call<ServiceProviderLocationUpdate>, t: Throwable) {
+                Log.e("UpdateService_onFailure", t.message.toString())
             }
         })
     }
@@ -1471,11 +1475,13 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val termsCondition =
             navigationView.findViewById(R.id.termsandConditionTV) as AppCompatTextView
 
-        val mDetails = localStorage(this).completeCustomer
-        if (mDetails.image != null)
-            Picasso.get().load(mDetails.image).placeholder(R.drawable.dummy_user)
-                .error(R.drawable.dummy_user).into(mProfileImage)
-        mProfileName.text = mDetails.name
+        if (localStorage(this).completeCustomer != null) {
+            val mDetails = localStorage(this).completeCustomer
+            if (mDetails.image != null)
+                Picasso.get().load(mDetails.image).placeholder(R.drawable.dummy_user)
+                    .error(R.drawable.dummy_user).into(mProfileImage)
+            mProfileName.text = mDetails.name
+        }
 
         thumbSection.setOnClickListener {
             showProgressDialog("")
@@ -1493,20 +1499,25 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     destroyDialog()
                     if (response.isSuccessful) {
                         val reviewsData = response.body()
-                        if (reviewsData?.status == 1) {
-                            if (reviewsData.data!!.isNullOrEmpty()) {
-                                slidingRootNav?.closeMenu(true)
-                                Toast.makeText(
-                                    this@DashboardActivity,
-                                    resources.getString(R.string.no_reviews_found),
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            } else {
-                                slidingRootNav?.closeMenu(true)
-                                handler.postDelayed(
-                                    { openactivity(ReviewsActivity()) },
-                                    navigationDelay
-                                )
+                        if (response.code() == 401 && response.message() == "Unauthorized") {
+                            onSessionExpired()
+                        } else {
+                            if (reviewsData?.status == 1) {
+
+                                if (reviewsData.data!!.isNullOrEmpty()) {
+                                    slidingRootNav?.closeMenu(true)
+                                    Toast.makeText(
+                                        this@DashboardActivity,
+                                        resources.getString(R.string.no_reviews_found),
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                } else {
+                                    slidingRootNav?.closeMenu(true)
+                                    handler.postDelayed(
+                                        { openactivity(ReviewsActivity()) },
+                                        navigationDelay
+                                    )
+                                }
                             }
                         }
                     }
@@ -1978,25 +1989,27 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     }
 
     private fun initCalling() {
-        val user = localStorage(this).completeCustomer
+        if (localStorage(this).completeCustomer != null) {
+            val user = localStorage(this).completeCustomer
 
-        var callerSelfId: String = user.name
+            var callerSelfId: String = user.name
 
-        if (!user.lastname.isNullOrEmpty()) {
-            callerSelfId = callerSelfId + " " + user.lastname
-        }
-        if (!user.mobile.isNullOrEmpty()) {
-            callerSelfId = callerSelfId + "-" + user.mobile
-        }
+            if (!user.lastname.isNullOrEmpty()) {
+                callerSelfId = callerSelfId + " " + user.lastname
+            }
+            if (!user.mobile.isNullOrEmpty()) {
+                callerSelfId = callerSelfId + "-" + user.mobile
+            }
 
-        Log.e("MapTrackingActivity", "Sinch Self Id: " + callerSelfId)
+            Log.e("MapTrackingActivity", "Sinch Self Id: " + callerSelfId)
 
-        if (callerSelfId != sinchServiceInterface.userName) {
-            sinchServiceInterface.stopClient()
-        }
+            if (callerSelfId != sinchServiceInterface.userName) {
+                sinchServiceInterface.stopClient()
+            }
 
-        if (!sinchServiceInterface.isStarted) {
-            sinchServiceInterface.startClient(callerSelfId)
+            if (!sinchServiceInterface.isStarted) {
+                sinchServiceInterface.startClient(callerSelfId)
+            }
         }
     }
 
