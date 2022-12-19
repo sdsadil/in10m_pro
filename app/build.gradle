@@ -12,8 +12,8 @@ android {
         applicationId "com.in10mServiceMan"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 18
-        versionName "1.0.16"
+        versionCode 19
+        versionName "1.0.17"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
