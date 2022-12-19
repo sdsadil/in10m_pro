@@ -185,6 +185,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
 
         isStarted = true
         if (isVisiblee) {
+            Log.e("InProfile", "onCreateView_loadProfile")
             loadProfile()
 //            getPreServices()
         }
@@ -447,8 +448,12 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
         super.setUserVisibleHint(isVisibleToUser)
         isVisiblee = isVisibleToUser
         if (isVisiblee && isStarted) {
+            Log.e("InProfile", "setUserVisibleHint_loadProfile")
             loadProfile()
 //            getPreServices()
+        } else {
+            Log.e("InProfile", "setUserVisibleHint_Destroy")
+            destroyDialog()
         }
     }
 
