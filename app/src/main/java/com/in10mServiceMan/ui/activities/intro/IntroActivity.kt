@@ -1,24 +1,22 @@
 package com.in10mServiceMan.ui.activities.intro
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
-import android.os.Bundle
-import com.in10mServiceMan.R
 import android.os.Build
-import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
+import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.text.Html
 import android.widget.TextView
-import com.in10mServiceMan.ui.activities.BaseActivity
-import com.in10mServiceMan.ui.activities.enter_mobile_no.EnterPhoneNumberActivity
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
-import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.SharedPreferencesHelper.getBoolean
 import com.in10mServiceMan.utils.SharedPreferencesHelper.putBoolean
 import com.in10mServiceMan.utils.localStorage
@@ -64,11 +62,11 @@ class IntroActivity : In10mBaseActivity() {
         }
         button.setOnClickListener {
             putBoolean(this@IntroActivity, Constants.SharedPrefs.User.IS_LANG_ARB, false)
-            setLangFunc1()
+            setLangFunc2()
         }
         button1.setOnClickListener {
             putBoolean(this@IntroActivity, Constants.SharedPrefs.User.IS_LANG_ARB, true)
-            setLangFunc1()
+            setLangFunc2()
         }
 
         intro_view_pager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -78,7 +76,7 @@ class IntroActivity : In10mBaseActivity() {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int
+                positionOffsetPixels: Int,
             ) {
 
 
@@ -170,32 +168,42 @@ class IntroActivity : In10mBaseActivity() {
     }
 
 
-    fun setLangFunc1() {
+    fun setLangFunc2() {
         val isLangArabic = getBoolean(
             this@IntroActivity,
             Constants.SharedPrefs.User.IS_LANG_ARB, false
         )!!
         if (isLangArabic) {
-            setLanguage1(this, "ar")
+            setLanguage2(this, "ar")
         } else {
-            setLanguage1(this, "en")
+            setLanguage2(this, "en")
         }
     }
 
-    fun setLanguage1(c: Context, lang: String?) {
-        val localeNew = Locale(lang)
+    fun setLanguage2(context: Context, languageCode: String?) {
+        val localeNew = Locale(languageCode!!)
         Locale.setDefault(localeNew)
-        val res = c.resources
+        val res = context.resources
         val newConfig = Configuration(res.configuration)
         newConfig.locale = localeNew
         newConfig.setLayoutDirection(localeNew)
         res.updateConfiguration(newConfig, res.displayMetrics)
         newConfig.setLocale(localeNew)
-        c.createConfigurationContext(newConfig)
+        context.createConfigurationContext(newConfig)
+
+       /* val locale = Locale(languageCode!!)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            setSystemLocale(config, locale)
+        } else {
+            setSystemLocaleLegacy(config, locale)
+        }*/
 
         localStorage(this@IntroActivity).introDone = true
         startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity
         finishAffinity()
         overridePendingTransition(0, 0)
     }
+
 }
