@@ -3,76 +3,77 @@ package com.in10mServiceMan.ui.accound_edit
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.content.Intent
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import android.util.Log
-import android.view.*
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatImageView
-import com.in10mServiceMan.ui.activities.BaseFragment
-
-import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.profile.IProfileView
-import com.in10mServiceMan.ui.activities.profile.ImageUpdateResponse
-import com.in10mServiceMan.ui.activities.profile.ProfilePresenter
-import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
-import com.in10mServiceMan.ui.activities.services.ServicesResponse
-import com.in10mServiceMan.ui.activities.signup.State
-import com.in10mServiceMan.ui.activities.signup.StatesResponse
-import com.in10mServiceMan.ui.apis.APIClient
-import com.in10mServiceMan.utils.Constants
-import com.in10mServiceMan.utils.SharedPreferencesHelper
-import com.in10mServiceMan.utils.localStorage
-import com.in10mServiceMan.utils.spinnerAdapter
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.android.synthetic.main.fragment_profile.view.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.util.*
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-
 import android.net.Uri
-import androidx.core.content.FileProvider
-
 import android.os.Build
-import android.widget.*
+import android.os.Bundle
+import android.util.Log
+import android.view.*
+import android.widget.AdapterView
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatSpinner
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.amazonaws.mobile.client.AWSMobileClient
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
 import com.amazonaws.services.s3.AmazonS3Client
 import com.in10mServiceMan.BuildConfig
+import com.in10mServiceMan.R
 import com.in10mServiceMan.models.*
 import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
+import com.in10mServiceMan.ui.activities.BaseFragment
+import com.in10mServiceMan.ui.activities.profile.IProfileView
+import com.in10mServiceMan.ui.activities.profile.ImageUpdateResponse
+import com.in10mServiceMan.ui.activities.profile.ProfilePresenter
+import com.in10mServiceMan.ui.activities.profile.ServiceOfferAdapter
 import com.in10mServiceMan.ui.activities.services.ServiceData
+import com.in10mServiceMan.ui.activities.services.ServicesResponse
+import com.in10mServiceMan.ui.activities.signup.State
+import com.in10mServiceMan.ui.activities.signup.StatesResponse
+import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.listener.EditSubServicesListener
+import com.in10mServiceMan.utils.Constants
+import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.cropper.CropImage
 import com.in10mServiceMan.utils.cropper.CropImageView
-import kotlinx.android.synthetic.main.fragment_signup_details.*
+import com.in10mServiceMan.utils.localStorage
+import com.in10mServiceMan.utils.spinnerAdapter
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
+class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesListener {
 
+    private val mcontext: Context = context
     private var isStarted = false
     private var isVisiblee = false
     private var isNewImage: Boolean = false
     private val BUCKET_NAME: String = "in10mdevimages"
 
+    private var mCountryList: List<CountryPojoArray?>? = ArrayList()
     var country: String = ""
     var country_id: String = ""
     private var myUserId = 0
@@ -83,7 +84,8 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
     private var servicemanSelectedServiceAdapter: ServiceOfferAdapter? = null
     private var mStatesList: List<State?>? = null
     var state: String = ""
-    private var mCountryList: List<CountryPojoArray?>? = null
+
+    private val sharedPref = SharedPreferencesHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,146 +93,147 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-//        setDisable()
+        try {
+            //        setDisable()
 
-        view?.btnSaveProfile?.visibility = View.GONE
-        view?.btnEditProfile?.visibility = View.VISIBLE
-        view?.btnChangeImage?.visibility = View.GONE
-        view?.fullnameET?.isEnabled = false
-        view?.mobileET?.isEnabled = false
-        view?.edt_age?.isEnabled = false
-        view?.emailET?.isEnabled = false
-        view?.apartmentNameET1?.isEnabled = false
-        view?.streetNameET1?.isEnabled = false
-        view?.landMarkNameET1?.isEnabled = false
-        view?.stateNameET1?.isEnabled = false
-        view?.pinCodeET1?.isEnabled = false
+            view?.btnSaveProfile?.visibility = View.GONE
+            view?.btnEditProfile?.visibility = View.VISIBLE
+            view?.btnChangeImage?.visibility = View.GONE
+            view?.fullnameET?.isEnabled = false
+            view?.mobileET?.isEnabled = false
+            view?.edt_age?.isEnabled = false
+            view?.emailET?.isEnabled = false
+            view?.apartmentNameET1?.isEnabled = false
+            view?.streetNameET1?.isEnabled = false
+            view?.landMarkNameET1?.isEnabled = false
+            view?.stateNameET1?.isEnabled = false
+            view?.pinCodeET1?.isEnabled = false
 
-        view.tvGovernorate_EditProfLay.setOnClickListener {
-            showGovernorateDialog()
-        }
-        view.tvAddressType_EditProfLay.setOnClickListener {
-            openAddressTypePopUp()
-        }
-        view.btnChangeImage.setOnClickListener {
-            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
-                .setOutputCompressQuality(50)
-                .setFixAspectRatio(false)
-                .start(context!!, this)
-        }
-        view.btnEditProfile.setOnClickListener {
-            view.btnSaveProfile.visibility = View.VISIBLE
-            view.btnEditProfile.visibility = View.GONE
-            view.btnChangeImage.visibility = View.VISIBLE
-            view.fullnameET.isEnabled = true
-            view.mobileET.isEnabled = false
-            view.edt_age.isEnabled = true
-            view.emailET.isEnabled = true
-            view.apartmentNameET1.isEnabled = true
-            view.streetNameET1.isEnabled = true
-            view.landMarkNameET1.isEnabled = true
-            view.stateNameET1.visibility = View.GONE
-            view.txt_view_state.visibility = View.GONE
-            view.pinCodeET1.isEnabled = true
-        }
-
-        view.edt_age.setOnClickListener {
-            val cal = Calendar.getInstance()
-            val startDateYear = cal.get(Calendar.YEAR)
-            val startDateMonth = cal.get(Calendar.MONTH)
-            val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
-
-            val dpd_startdate = activity?.let { it1 ->
-                DatePickerDialog(
-                    it1,
-                    R.style.CalendarThemeOne,
-                    { v, myear, mmonth, mdayOfMonth ->
-                        val month = mmonth + 1
-                        view.edt_age.text =
-                            "$mdayOfMonth-$month-$myear"//"$myear-$month-$mdayOfMonth"
-                    },
-                    startDateYear,
-                    startDateMonth,
-                    startDateDay
-                )
+            view.tvGovernorate_EditProfLay.setOnClickListener {
+                showGovernorateDialog()
             }
-            // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
-            dpd_startdate!!.show()
-        }
-        val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
+            view.tvAddressType_EditProfLay.setOnClickListener {
+                openAddressTypePopUp()
+            }
+            view.btnChangeImage.setOnClickListener {
+                CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
+                    .setOutputCompressQuality(50)
+                    .setFixAspectRatio(false)
+                    .start(mcontext!!, this)
+            }
+            view.btnEditProfile.setOnClickListener {
+                view.btnSaveProfile.visibility = View.VISIBLE
+                view.btnEditProfile.visibility = View.GONE
+                view.btnChangeImage.visibility = View.VISIBLE
+                view.fullnameET.isEnabled = true
+                view.mobileET.isEnabled = false
+                view.edt_age.isEnabled = true
+                view.emailET.isEnabled = true
+                view.apartmentNameET1.isEnabled = true
+                view.streetNameET1.isEnabled = true
+                view.landMarkNameET1.isEnabled = true
+                view.stateNameET1.visibility = View.GONE
+                view.txt_view_state.visibility = View.GONE
+                view.pinCodeET1.isEnabled = true
+            }
 
-        myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long,
-            ) {
-                if (mStatesList != null) {
-                    state = myTypeSpinner.selectedItem.toString()
+            view.edt_age.setOnClickListener {
+                val cal = Calendar.getInstance()
+                val startDateYear = cal.get(Calendar.YEAR)
+                val startDateMonth = cal.get(Calendar.MONTH)
+                val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
+
+                val dpd_startdate = mcontext?.let { it1 ->
+                    DatePickerDialog(
+                        it1,
+                        R.style.CalendarThemeOne,
+                        { v, myear, mmonth, mdayOfMonth ->
+                            val month = mmonth + 1
+                            view.edt_age.text =
+                                "$mdayOfMonth-$month-$myear"//"$myear-$month-$mdayOfMonth"
+                        },
+                        startDateYear,
+                        startDateMonth,
+                        startDateDay
+                    )
                 }
+                // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
+                dpd_startdate!!.show()
             }
+            /* val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-            }
-        }
-
-        view.btnSaveProfile.setOnClickListener {
-            if (isNewImage) {
-                uploadImageToAWS()
-            } else {
-                updateProf(imageUri)
-            }
-        }
-
-        isStarted = true
-        if (isVisiblee) {
-            Log.e("InProfile", "onCreateView_loadProfile")
-            loadProfile()
-//            getPreServices()
-        }
-
-        val spCountry1_EditProfLay = view.findViewById(R.id.spCountry1_EditProfLay) as Spinner
-        spCountry1_EditProfLay.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
+           myTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
                     view: View,
                     position: Int,
                     id: Long,
                 ) {
-                    when {
-                        mCountryList != null -> {
-                            if (spCountry1_EditProfLay.selectedItem.toString() != context?.resources?.getString(
-                                    R.string.india
-                                )
-                            ) {
-                                country_id = mCountryList!![position]!!.phonecode.toString()
-                                country = spCountry1_EditProfLay.selectedItem.toString()
-                            }
-                        }
+                    if (mStatesList != null) {
+                        state = myTypeSpinner.selectedItem.toString()
                     }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
                 }
+            }*/
+
+            view.btnSaveProfile.setOnClickListener {
+                if (isNewImage) {
+                    uploadImageToAWS()
+                } else {
+                    updateProf(imageUri)
+                }
             }
 
-        /*  var cal = Calendar.getInstance()
-          val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-              cal.set(Calendar.YEAR, year)
-              cal.set(Calendar.MONTH, monthOfYear)
-              cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            isStarted = true
+            if (isVisiblee) {
+                loadProfile()
+                //            getPreServices()
+            }
 
-              val myFormat = "dd-MM-yyyy" // mention the format you need
-              val sdf = SimpleDateFormat(myFormat, Locale.US)
-              textView.text = sdf.format(cal.time)
-          }*/
+            val spCountry1_EditProfLay =
+                view.findViewById(R.id.spCountry1_EditProfLay) as AppCompatSpinner
+            spCountry1_EditProfLay.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View,
+                        position: Int,
+                        id: Long,
+                    ) {
+                        Log.e("InProfile", "onItemSelected")
+                        when {
+                            mCountryList != null -> {
+                                Log.e("InProfile", "mCountryList != Null")
+                                if (spCountry1_EditProfLay.selectedItem.toString() != mcontext?.resources?.getString(
+                                        R.string.india
+                                    )
+                                ) {
+                                    country_id = mCountryList!![position]!!.phonecode.toString()
+                                    country = spCountry1_EditProfLay.selectedItem.toString()
+                                }
+                            }
+                            else -> {
+                                Log.e("InProfile", "mCountryList == Null")
+                            }
+
+
+                        }
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>) {
+                    }
+                }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         return view
     }
 
     private fun showGovernorateDialog() {
-        val dialog = Dialog(activity!!)
+        val dialog = Dialog(mcontext!!)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.governorate_popup)
         val window = dialog.window
@@ -300,9 +303,9 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
         profilePicData: String,
     ) {
         val header =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val mServiceManId =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "")
 
         val userId = RequestBody.create(MediaType.parse("text/plain"), mServiceManId)
         var body: MultipartBody.Part? = null
@@ -342,7 +345,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
     private fun uploadWithTransferUtility(remote: String, filePath: String) {
 
         val localFile = File(filePath)
-        val txUtil = TransferUtility.builder().context(activity)
+        val txUtil = TransferUtility.builder().context(mcontext)
             .awsConfiguration(AWSMobileClient.getInstance().configuration)
             .s3Client(AmazonS3Client(AWSMobileClient.getInstance().credentialsProvider))
             .build()
@@ -383,12 +386,12 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
 
     private fun updateProf(imageUrl: String) {
         val mAuthToken = SharedPreferencesHelper.getString(
-            activity,
+            mcontext,
             Constants.SharedPrefs.User.AUTH_TOKEN,
             ""
         )
         val mServiceManId =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "")
 
         val email = view!!.emailET.text.toString()
         val mobile = view!!.mobileET.text.toString()
@@ -401,7 +404,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
         val state = view!!.tvGovernorate_EditProfLay.text.toString()
 
         rq.serviceproviderId = SharedPreferencesHelper.getString(
-            activity,
+            mcontext,
             Constants.SharedPrefs.User.USER_ID,
             "0"
         )
@@ -431,11 +434,11 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
 //        rq.serviceproviderCountryCode = country_id
 
         if (fullname.isEmpty()) {
-            showToastMsg(context!!.resources.getString(R.string.enter_the_name))
+            showToastMsg(mcontext.resources.getString(R.string.enter_the_name))
         } else if (mobile.isEmpty() || mobile.length != 8) {
-            showToastMsg(context!!.resources.getString(R.string.enter_valid_mobile_number))
+            showToastMsg(mcontext.resources.getString(R.string.enter_valid_mobile_number))
         } else if (dob.isEmpty()) {
-            showToastMsg(context!!.resources.getString(R.string.please_select_a_dob))
+            showToastMsg(mcontext.resources.getString(R.string.please_select_a_dob))
         } else {
             if (mAuthToken != null) {
                 showProgressDialog("")
@@ -448,11 +451,8 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
         super.setUserVisibleHint(isVisibleToUser)
         isVisiblee = isVisibleToUser
         if (isVisiblee && isStarted) {
-            Log.e("InProfile", "setUserVisibleHint_loadProfile")
             loadProfile()
-//            getPreServices()
         } else {
-            Log.e("InProfile", "setUserVisibleHint_Destroy")
             destroyDialog()
         }
     }
@@ -485,7 +485,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                 myStateList?.add(mStatesList?.get(i)?.name!!)
             }
         }
-        val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)
+        val adapter = spinnerAdapter(mcontext, R.layout.custom_state_spinner_list)
         myStateList?.let { adapter.addAll(it) }
         adapter.add("STATE")
         view!!.txt_view_state.adapter = adapter
@@ -496,11 +496,11 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
         showProgressDialog("")
         /*val isLoggedIn = localStorage(this@ProfileActivity).isLoggedIn*/
         val isLoggedIn: Boolean =
-            !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            !SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.AUTH_TOKEN, "")
                 .isNullOrEmpty() //localStorage(context).isLoggedIn
         if (isLoggedIn) {
             myUserId = SharedPreferencesHelper.getString(
-                activity,
+                mcontext,
                 Constants.SharedPrefs.User.USER_ID,
                 "0"
             )!!
@@ -516,7 +516,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                         val data = response.body()
                         if (data!!.data != null) {
                             profile = data.data
-                            localStorage(context).saveCompleteCustomer(profile)
+                            localStorage(mcontext).saveCompleteCustomer(profile)
 
                             rq.serviceproviderExperience = profile.experience
                             rq.serviceproviderWorkingAs = profile.workingAs
@@ -585,8 +585,8 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
     }
 
     fun bindOfferedServiceRecyclerView(body: ServicesResponse?) {
-        val linearLayoutManager = LinearLayoutManager(activity)
-        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, activity, this)
+        val linearLayoutManager = LinearLayoutManager(mcontext)
+        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, mcontext, this)
         view!!.recycler_view.layoutManager = linearLayoutManager
         view!!.recycler_view.adapter = servicemanSelectedServiceAdapter
         view!!.recycler_view.isNestedScrollingEnabled = false
@@ -594,10 +594,10 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
 
     private fun getPreServices() {
         APIClient.token =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall = APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
             "Bearer " + APIClient.token,
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")!!
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "0")!!
                 .toInt()
         )
         homeCall.enqueue(object : Callback<ServicesResponse> {
@@ -671,13 +671,13 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
     }
 
     fun showToastMsg(msg: String) {
-        Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
+        Toast.makeText(mcontext, msg, Toast.LENGTH_LONG).show()
     }
 
     var addressType = "1"
 
     private fun openAddressTypePopUp() {
-        val dialog = Dialog(context!!, android.R.style.Theme_Translucent_NoTitleBar)
+        val dialog = Dialog(mcontext, android.R.style.Theme_Translucent_NoTitleBar)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         val window = dialog.window
         dialog.setContentView(R.layout.addresstype_popup)
@@ -702,8 +702,8 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                 etAptOffNo_EditProfLay.setText("")
                 etAvenue_EditProfLay.setText("")
                 addressType = "1"
-                tvAddressType_EditProfLay.text = context!!.resources.getString(R.string.house)
-                etBuildingNo_EditProfLay.hint = context!!.resources.getString(R.string.house_no)
+                tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.house)
+                etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.house_no)
                 etFloorNo_EditProfLay.visibility = View.GONE
                 etAptOffNo_EditProfLay.visibility = View.GONE
             } else if (checkedId == R.id.rbApartment_AddressTypePopUp) {
@@ -712,9 +712,9 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                 etAptOffNo_EditProfLay.setText("")
                 etAvenue_EditProfLay.setText("")
                 addressType = "2"
-                tvAddressType_EditProfLay.text = context!!.resources.getString(R.string.apartment)
-                etBuildingNo_EditProfLay.hint = context!!.resources.getString(R.string.building_no)
-                etAptOffNo_EditProfLay.hint = context!!.resources.getString(R.string.apartment)
+                tvAddressType_EditProfLay.text = mcontext!!.resources.getString(R.string.apartment)
+                etBuildingNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.building_no)
+                etAptOffNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.apartment)
                 etFloorNo_EditProfLay.visibility = View.VISIBLE
                 etAptOffNo_EditProfLay.visibility = View.VISIBLE
             } else if (checkedId == R.id.rbOffice_AddressTypePopUp) {
@@ -723,9 +723,9 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                 etAptOffNo_EditProfLay.setText("")
                 etAvenue_EditProfLay.setText("")
                 addressType = "3"
-                tvAddressType_EditProfLay.text = context!!.resources.getString(R.string.office)
-                etBuildingNo_EditProfLay.hint = context!!.resources.getString(R.string.building_no)
-                etAptOffNo_EditProfLay.hint = context!!.resources.getString(R.string.office_no)
+                tvAddressType_EditProfLay.text = mcontext!!.resources.getString(R.string.office)
+                etBuildingNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.building_no)
+                etAptOffNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.office_no)
                 etFloorNo_EditProfLay.visibility = View.VISIBLE
                 etAptOffNo_EditProfLay.visibility = View.VISIBLE
             }
@@ -739,7 +739,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
         destroyDialog()
         if (mData.status == 1) {
             val mServiceManId =
-                SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "")
+                SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "")
             if (mServiceManId != null) {
                 mPresenter.getCompleteProfile(mServiceManId)
             }
@@ -765,7 +765,7 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
 
     override fun onCompleteProfileReceived(metaData: CustomerCompleteProfile) {
         if (metaData.status == 1) {
-            localStorage(activity).saveCompleteCustomer(metaData.data)
+            localStorage(mcontext).saveCompleteCustomer(metaData.data)
             activity?.finish()
         }
     }

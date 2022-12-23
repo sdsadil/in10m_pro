@@ -1,6 +1,7 @@
 package com.in10mServiceMan.ui.accound_edit
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,7 +34,8 @@ import retrofit2.Response
 /**
  * A simple [Fragment] subclass.
  */
-class Services : BaseFragment(), EditSubServicesListener {
+class Services(context: Context) : BaseFragment(), EditSubServicesListener {
+    private val mcontext: Context = context
     private var isStarted = false
     private var isVisiblee = false
 
@@ -50,7 +52,7 @@ class Services : BaseFragment(), EditSubServicesListener {
         val view = inflater.inflate(R.layout.fragment_services, container, false)
         view.btnAddServices.setOnClickListener {
             Constants.GlobalSettings.fromAccount = true
-            startActivity(Intent(activity, AvailableServices::class.java))
+            startActivity(Intent(mcontext, AvailableServices::class.java))
         }
         view.btnEditProfile_view_services.setOnClickListener {
             view.btnSaveProfile_view_services.visibility = View.VISIBLE
@@ -93,14 +95,18 @@ class Services : BaseFragment(), EditSubServicesListener {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         isVisiblee = isVisibleToUser
-        if (isVisiblee && isStarted) getPreServices()
+        if (isVisiblee && isStarted) {
+            if (isVisiblee && isStarted) getPreServices()
+        } else {
+            destroyDialog()
+        }
 
     }
 
     private fun updateProfile(services: String) {
         val userId =
             SharedPreferencesHelper.getString(
-                activity,
+                mcontext,
                 Constants.SharedPrefs.User.USER_ID,
                 "0"
             )!!.toInt()
@@ -116,7 +122,7 @@ class Services : BaseFragment(), EditSubServicesListener {
             ) {
                 destroyDialog()
                 if (response.isSuccessful) {
-                    Toast.makeText(activity, response.body()?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(mcontext, response.body()?.message, Toast.LENGTH_SHORT).show()
                     view!!.btnSaveProfile_view_services.visibility = View.GONE
                     view!!.btnEditProfile_view_services.visibility = View.VISIBLE
                     servicemanSelectedServiceAdapter?.setVisibleDelete(false)
@@ -133,9 +139,9 @@ class Services : BaseFragment(), EditSubServicesListener {
     private fun getPreServices() {
         showProgressDialog("")
         APIClient.token =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.AUTH_TOKEN, "")
         val homeCall =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "0")
                 ?.let {
                     APIClient.getApiInterface().getExistingServiceDetailsWithHeaderAndExperience(
                         "Bearer " + APIClient.token,
@@ -162,8 +168,8 @@ class Services : BaseFragment(), EditSubServicesListener {
     }
 
     fun bindOfferedServiceRecyclerView(body: ServicesResponse?) {
-        val linearLayoutManager = LinearLayoutManager(activity)
-        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, activity, this)
+        val linearLayoutManager = LinearLayoutManager(mcontext)
+        servicemanSelectedServiceAdapter = ServiceOfferAdapter(body?.data, mcontext, this)
         view!!.recycler_view_services.layoutManager = linearLayoutManager
         view!!.recycler_view_services.adapter = servicemanSelectedServiceAdapter
         view!!.recycler_view_services.isNestedScrollingEnabled = false
@@ -176,7 +182,7 @@ class Services : BaseFragment(), EditSubServicesListener {
     override fun onDeleteClick(position: Int, serviceData: ServiceData?) {
         showProgressDialog("")
         val homeCall =
-            SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.USER_ID, "0")
+            SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "0")
         val removeSubServicesModel = RequestRemoveServicesModel()
         removeSubServicesModel.servicemanId = homeCall?.toInt()
         removeSubServicesModel.service_id = serviceData?.serviceId

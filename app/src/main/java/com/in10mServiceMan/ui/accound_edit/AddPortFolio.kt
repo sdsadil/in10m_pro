@@ -1,6 +1,7 @@
 package com.in10mServiceMan.ui.accound_edit
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,7 +29,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class AddPortFolio : BaseFragment() {
+class AddPortFolio(context: Context) : BaseFragment() {
+    private val mcontext: Context = context
     val imageUriList: ArrayList<String> = ArrayList()
     val dummyimageUriList: ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
@@ -150,17 +152,19 @@ class AddPortFolio : BaseFragment() {
         isVisiblee = isVisibleToUser
         if (isVisiblee && isStarted) {
             loadProfile()
+        } else {
+            destroyDialog()
         }
     }
 
     private fun loadProfile() {
         showProgressDialog("")
         val isLoggedIn: Boolean =
-            !SharedPreferencesHelper.getString(activity, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+            !SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.AUTH_TOKEN, "")
                 .isNullOrEmpty()
         if (isLoggedIn) {
             val myUserId = SharedPreferencesHelper.getString(
-                activity,
+                mcontext,
                 Constants.SharedPrefs.User.USER_ID,
                 "0"
             )!!.toInt()
@@ -195,6 +199,6 @@ class AddPortFolio : BaseFragment() {
     }
 
     fun showToastMsg(msg: String) {
-        Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
+        Toast.makeText(mcontext, msg, Toast.LENGTH_LONG).show()
     }
 }

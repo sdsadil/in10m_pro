@@ -11,9 +11,11 @@ import com.in10mServiceMan.R
 import com.in10mServiceMan.utils.AppProgressBar
 import com.in10mServiceMan.utils.LoadingDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.in10mServiceMan.models.CountryPojoArray
 
 
 open class BaseFragment : Fragment() {
+
     private var mProgressDialog: LoadingDialog? = null
     var dialog: Dialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {

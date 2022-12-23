@@ -9,7 +9,7 @@ import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_my_account_edit.*
 
-class MyAccountEdit : In10mBaseActivity() {
+class MyAccountEdit() : In10mBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,11 +20,11 @@ class MyAccountEdit : In10mBaseActivity() {
 
         val adapter = ServiceHistoryViewpagerAdapter(supportFragmentManager)
         if (userType == 3) {
-            adapter.addFragment(Profile(), resources.getString(R.string.profile))
+            adapter.addFragment(Profile(this@MyAccountEdit), resources.getString(R.string.profile))
         } else {
-            adapter.addFragment(Profile(), resources.getString(R.string.profile))
-            adapter.addFragment(Services(), resources.getString(R.string.services))
-            adapter.addFragment(AddPortFolio(), resources.getString(R.string.my_work))
+            adapter.addFragment(Profile(this@MyAccountEdit), resources.getString(R.string.profile))
+            adapter.addFragment(Services(this@MyAccountEdit), resources.getString(R.string.services))
+            adapter.addFragment(AddPortFolio(this@MyAccountEdit), resources.getString(R.string.my_work))
 //            adapter.addFragment(Payment(), resources.getString(R.string.payment))
 //            adapter.addFragment(Estimates(), resources.getString(R.string.estimates))
         }
