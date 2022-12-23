@@ -551,7 +551,10 @@ class Profile : BaseFragment(), IProfileView, EditSubServicesListener {
                             rq.serviceproviderStreetName = profile.streetName
                             imageUri = profile.image
                             view!!.fullnameET.setText(profile.name.toString())
-                            view!!.tvGovernorate_EditProfLay.text = profile.state.toString()
+                            if (profile.state != null) {
+                                view!!.tvGovernorate_EditProfLay.text = profile.state.toString()
+                            } else
+                                view!!.tvGovernorate_EditProfLay.text = ""
                             view!!.mobileET.setText(profile.mobile.toString())
                             view!!.emailET.setText(if (profile.email == null) "" else profile.email)
                             view!!.apartmentNameET1.setText(if (profile.address1 == null) "" else profile.address1)

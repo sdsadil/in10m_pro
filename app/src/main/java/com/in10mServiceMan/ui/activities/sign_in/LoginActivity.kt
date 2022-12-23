@@ -4,30 +4,28 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import android.text.Html
-import android.view.LayoutInflater
-import android.widget.LinearLayout
-import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.signup.SignUpActivity
-import kotlinx.android.synthetic.main.activity_login.*
-import android.util.Patterns
 import android.text.TextUtils
+import android.util.Patterns
+import android.view.LayoutInflater
 import android.view.WindowManager
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatEditText
 import com.google.gson.Gson
+import com.in10mServiceMan.R
 import com.in10mServiceMan.models.CustomerCompleteProfile
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
-import com.in10mServiceMan.ui.activities.services.AvailableServices
 import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
+import com.in10mServiceMan.ui.activities.services.AvailableServices
+import com.in10mServiceMan.ui.activities.signup.SignUpActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
-import kotlinx.android.synthetic.main.activity_account_type.*
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : In10mBaseActivity(), ILoginView {

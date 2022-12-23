@@ -62,12 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         super.onCreate(savedInstanceState);
         bindService();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(
+        /*getWindow().addFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
-                        | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                         | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                         | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                        | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+                        | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);*/
 
         mContext = this;
         mProgressDialog = new LoadingDialog(this);
@@ -90,7 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
     protected void onResume() {
         super.onResume();
         hideKeyboard();
-        setLangFunc();
+//        setLangFunc();
         callDeviceTokenApi();
     }
 
@@ -216,7 +215,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
 
         llEnglish_LangPopUpLay.setOnClickListener(v -> {
             SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, false);
-            setLanguage(this, "en");
+//            setLanguage(this, "en");
             dialog.dismiss();
             finish();
             overridePendingTransition(0, 0);
@@ -225,7 +224,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         });
         llArabic_LangPopUpLay.setOnClickListener(v -> {
             SharedPreferencesHelper.INSTANCE.putBoolean(mContext, Constants.SharedPrefs.User.IS_LANG_ARB, true);
-            setLanguage(this, "ar");
+//            setLanguage(this, "ar");
             dialog.dismiss();
             finish();
             overridePendingTransition(0, 0);

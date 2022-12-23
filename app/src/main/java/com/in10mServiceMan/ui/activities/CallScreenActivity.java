@@ -13,6 +13,7 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.in10mServiceMan.ui.base.In10mBaseActivity;
 import com.sinch.android.rtc.AudioController;
 import com.sinch.android.rtc.PushPair;
 import com.sinch.android.rtc.calling.Call;
@@ -22,7 +23,7 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CallScreenActivity extends BaseActivity {
+public class CallScreenActivity extends In10mBaseActivity {
 
     static final String TAG = CallScreenActivity.class.getSimpleName();
 

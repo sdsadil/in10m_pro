@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
+
 import com.in10mServiceMan.ui.activities.sign_in.ILoginView
 import com.in10mServiceMan.ui.activities.sign_in.LinkSendResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginPresenter

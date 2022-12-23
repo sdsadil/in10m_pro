@@ -2,27 +2,23 @@ package com.in10mServiceMan.ui.activities.services
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.view.View
 import com.google.gson.Gson
+import com.in10mServiceMan.R
+import com.in10mServiceMan.models.AddServicePojo
 import com.in10mServiceMan.models.HomeService
 import com.in10mServiceMan.models.Service
-import com.in10mServiceMan.R
-import com.in10mServiceMan.db.WagonItem
-import com.in10mServiceMan.models.AddServicePojo
 import com.in10mServiceMan.ui.accound_edit.addService.IServiceInteractorListener
 import com.in10mServiceMan.ui.accound_edit.addService.ServiceInteractor
 import com.in10mServiceMan.ui.accound_edit.addService.ServiceResponse
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_registration.CompanySignupActivity
 import com.in10mServiceMan.ui.activities.signup.SignUpActivity
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_available_services.*
-import org.json.JSONArray
 
 class AvailableServices : In10mBaseActivity(), IServicesView, IServiceInteractorListener,
     ServicesAdapter.SelectedServiceCallback {

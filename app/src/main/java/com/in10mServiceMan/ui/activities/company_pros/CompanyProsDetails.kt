@@ -1,17 +1,16 @@
 package com.in10mServiceMan.ui.activities.company_pros
 
-import com.in10mServiceMan.ui.base.In10mBaseActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.company_pros.serviceman_details_API.IServicemanDetailsView
 import com.in10mServiceMan.ui.activities.company_pros.serviceman_details_API.ServicemanDetailsPresenter
 import com.in10mServiceMan.ui.activities.company_pros.serviceman_details_API.ServicemanDetailsResponse
 import com.in10mServiceMan.ui.activities.company_pros.serviceman_details_API.ServicemanDetailsReview
+import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import kotlinx.android.synthetic.main.activity_company_pros_details.*

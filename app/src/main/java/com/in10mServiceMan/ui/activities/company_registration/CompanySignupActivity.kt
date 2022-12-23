@@ -9,7 +9,6 @@ import com.google.gson.Gson
 import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
-import com.in10mServiceMan.ui.activities.BaseActivity
 import com.in10mServiceMan.ui.activities.sign_in.ILoginView
 import com.in10mServiceMan.ui.activities.sign_in.LinkSendResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginPresenter

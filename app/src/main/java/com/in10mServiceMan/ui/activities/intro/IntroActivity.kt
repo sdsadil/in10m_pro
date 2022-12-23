@@ -62,11 +62,19 @@ class IntroActivity : In10mBaseActivity() {
         }
         button.setOnClickListener {
             putBoolean(this@IntroActivity, Constants.SharedPrefs.User.IS_LANG_ARB, false)
-            setLangFunc2()
+//            setLanguage1(this, "en")
+            localStorage(this@IntroActivity).introDone = true
+            startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity
+            finishAffinity()
+            overridePendingTransition(0, 0)
         }
         button1.setOnClickListener {
             putBoolean(this@IntroActivity, Constants.SharedPrefs.User.IS_LANG_ARB, true)
-            setLangFunc2()
+//            setLanguage1(this, "ar")
+            localStorage(this@IntroActivity).introDone = true
+            startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity
+            finishAffinity()
+            overridePendingTransition(0, 0)
         }
 
         intro_view_pager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -191,14 +199,14 @@ class IntroActivity : In10mBaseActivity() {
         newConfig.setLocale(localeNew)
         context.createConfigurationContext(newConfig)
 
-       /* val locale = Locale(languageCode!!)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            setSystemLocale(config, locale)
-        } else {
-            setSystemLocaleLegacy(config, locale)
-        }*/
+        /* val locale = Locale(languageCode!!)
+         Locale.setDefault(locale)
+         val config = Configuration()
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+             setSystemLocale(config, locale)
+         } else {
+             setSystemLocaleLegacy(config, locale)
+         }*/
 
         localStorage(this@IntroActivity).introDone = true
         startActivity(Intent(this, LoginActivity::class.java))//EnterPhoneNumberActivity

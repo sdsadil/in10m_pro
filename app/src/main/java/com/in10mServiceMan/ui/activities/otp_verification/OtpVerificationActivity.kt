@@ -7,7 +7,7 @@ import com.in10mServiceMan.models.CustomerCompleteProfile
 import com.in10mServiceMan.models.RequestVerifyOTP
 import com.in10mServiceMan.models.ResponseVerifyMobile
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
+
 import com.in10mServiceMan.ui.activities.service_man_details.ServiceManDetailsActivity
 import com.in10mServiceMan.ui.activities.dashboard.DashboardActivity
 import com.in10mServiceMan.ui.apis.APIClient

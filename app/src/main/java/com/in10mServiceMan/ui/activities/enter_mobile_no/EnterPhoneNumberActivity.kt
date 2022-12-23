@@ -8,7 +8,7 @@ import com.google.gson.Gson
 import com.in10mServiceMan.models.RequestVerifyMobile
 import com.in10mServiceMan.models.ResponseVerifyMobile
 import com.in10mServiceMan.R
-import com.in10mServiceMan.ui.activities.BaseActivity
+
 import com.in10mServiceMan.ui.activities.otp_verification.OtpVerificationActivity
 import com.in10mServiceMan.ui.apis.APIClient
 import com.in10mServiceMan.ui.base.In10mBaseActivity
