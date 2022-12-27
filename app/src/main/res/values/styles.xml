@@ -100,7 +100,9 @@
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="fontFamily">@font/unineueregular</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveAlertButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PositiveAlertButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/PositiveAlertButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/PositiveAlertButtonStyle</item>
     </style>
 
     <style name="PositiveAlertButtonStyle">

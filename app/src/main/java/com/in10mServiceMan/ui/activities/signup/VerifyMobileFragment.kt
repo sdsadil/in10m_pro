@@ -61,9 +61,9 @@ class VerifyMobileFragment : BaseFragment() {
 //            (getString(R.string.code) + " " + replaceCentreFour(mobile.toString()))
         view.termsOfUseTV.text =
             Html.fromHtml(
-                getString(R.string.verify_1) + " " + "<font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_termscondition.html\"> " + getString(
+                getString(R.string.verify_1) + " " + "<font color=#4A90E2><u><a href=\"http://54.91.52.222/in10m_termscondition.html\"> " + getString(
                     R.string.verify_2
-                ) + "</a> </u></font> & <font color=#4A90E2><u><a href=\"http://3.81.20.120/in10m_privacypolicy.html\">" + getString(
+                ) + "</a> </u></font> & <font color=#4A90E2><u><a href=\"http://54.91.52.222/in10m_privacypolicy.html\">" + getString(
                     R.string.verify_3
                 ) + "</a></u></font> "
             )

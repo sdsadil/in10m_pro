@@ -108,6 +108,8 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
             view?.landMarkNameET1?.isEnabled = false
             view?.stateNameET1?.isEnabled = false
             view?.pinCodeET1?.isEnabled = false
+            view?.tvGovernorate_EditProfLay?.isEnabled = false
+            view?.spCountry1_EditProfLay?.isEnabled = false
 
             view.tvGovernorate_EditProfLay.setOnClickListener {
                 showGovernorateDialog()
@@ -119,7 +121,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 CropImage.activity().setGuidelines(CropImageView.Guidelines.ON)
                     .setOutputCompressQuality(50)
                     .setFixAspectRatio(false)
-                    .start(mcontext!!, this)
+                    .start(mcontext, this)
             }
             view.btnEditProfile.setOnClickListener {
                 view.btnSaveProfile.visibility = View.VISIBLE
@@ -135,6 +137,8 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 view.stateNameET1.visibility = View.GONE
                 view.txt_view_state.visibility = View.GONE
                 view.pinCodeET1.isEnabled = true
+                view?.tvGovernorate_EditProfLay?.isEnabled = true
+                view?.spCountry1_EditProfLay?.isEnabled = true
             }
 
             view.edt_age.setOnClickListener {
@@ -143,7 +147,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 val startDateMonth = cal.get(Calendar.MONTH)
                 val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
 
-                val dpd_startdate = mcontext?.let { it1 ->
+                val dpd_startdate = mcontext.let { it1 ->
                     DatePickerDialog(
                         it1,
                         R.style.CalendarThemeOne,
@@ -157,8 +161,10 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                         startDateDay
                     )
                 }
+                dpd_startdate.datePicker.maxDate = Date().time
+
                 // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
-                dpd_startdate!!.show()
+                dpd_startdate.show()
             }
             /* val myTypeSpinner = view.findViewById(R.id.txt_view_state) as Spinner
 
@@ -206,7 +212,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                         when {
                             mCountryList != null -> {
                                 Log.e("InProfile", "mCountryList != Null")
-                                if (spCountry1_EditProfLay.selectedItem.toString() != mcontext?.resources?.getString(
+                                if (spCountry1_EditProfLay.selectedItem.toString() != mcontext.resources?.getString(
                                         R.string.india
                                     )
                                 ) {
@@ -233,7 +239,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
     }
 
     private fun showGovernorateDialog() {
-        val dialog = Dialog(mcontext!!)
+        val dialog = Dialog(mcontext)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.governorate_popup)
         val window = dialog.window
@@ -712,9 +718,9 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 etAptOffNo_EditProfLay.setText("")
                 etAvenue_EditProfLay.setText("")
                 addressType = "2"
-                tvAddressType_EditProfLay.text = mcontext!!.resources.getString(R.string.apartment)
-                etBuildingNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.building_no)
-                etAptOffNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.apartment)
+                tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.apartment)
+                etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.building_no)
+                etAptOffNo_EditProfLay.hint = mcontext.resources.getString(R.string.apartment)
                 etFloorNo_EditProfLay.visibility = View.VISIBLE
                 etAptOffNo_EditProfLay.visibility = View.VISIBLE
             } else if (checkedId == R.id.rbOffice_AddressTypePopUp) {
@@ -723,9 +729,9 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 etAptOffNo_EditProfLay.setText("")
                 etAvenue_EditProfLay.setText("")
                 addressType = "3"
-                tvAddressType_EditProfLay.text = mcontext!!.resources.getString(R.string.office)
-                etBuildingNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.building_no)
-                etAptOffNo_EditProfLay.hint = mcontext!!.resources.getString(R.string.office_no)
+                tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.office)
+                etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.building_no)
+                etAptOffNo_EditProfLay.hint = mcontext.resources.getString(R.string.office_no)
                 etFloorNo_EditProfLay.visibility = View.VISIBLE
                 etAptOffNo_EditProfLay.visibility = View.VISIBLE
             }

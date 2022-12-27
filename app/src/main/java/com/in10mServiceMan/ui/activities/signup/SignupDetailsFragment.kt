@@ -224,6 +224,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 startDateMonth,
                 startDateDay
             )
+            dpd_startdate.datePicker.maxDate = Date().time
             // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
             dpd_startdate.show()
         }

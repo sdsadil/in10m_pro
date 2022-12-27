@@ -435,6 +435,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     imgBtnNavigate.visibility = View.INVISIBLE
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     currentWorkStatus = BookingStatus.Accepted
+                                    btnMaximizeRequestCV.visibility = View.GONE
                                 }
                                 BookingStatus.Arrived -> {
                                     setupRequest(it.key!!.toInt())
@@ -442,21 +443,45 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 //                                    updateToArrived(false)
 
                                     currentWorkStatus = BookingStatus.Arrived
-                                    imgBtnNavigate.visibility = View.GONE
-                                    ServiceManNameTOP.text =
-                                        resources.getString(R.string.you_have_reached)
 
-                                    llAccept_HomeBottomBtn.visibility = View.GONE
-                                    llCall_HomeBottomBtn.visibility = View.GONE
-                                    llArrived_HomeBottomBtn.visibility = View.GONE
-                                    arrivedLay.visibility = View.GONE
-                                    requestCV.visibility = View.VISIBLE
-                                    llCancel_HomeBottomBtn.visibility = View.GONE
-                                    tvTitle_MapTracking1.visibility = View.GONE
-                                    llEstimate_HomeBottomBtn.visibility = View.VISIBLE
+                                    if (SharedPreferencesHelper.getString(
+                                            this@DashboardActivity,
+                                            Constants.SharedPrefs.User.ESTIMATE_ACCEPTED,
+                                            "false"
+                                        ).toString() == "false"
+                                    ) {
+                                        llEstimate_HomeBottomBtn.visibility = View.VISIBLE
+                                        startfinishlay.visibility = View.GONE
+                                        imgBtnNavigate.visibility = View.GONE
+                                        ServiceManNameTOP.text =
+                                            resources.getString(R.string.you_have_reached)
+
+                                        llAccept_HomeBottomBtn.visibility = View.GONE
+                                        llCall_HomeBottomBtn.visibility = View.GONE
+                                        llArrived_HomeBottomBtn.visibility = View.GONE
+                                        arrivedLay.visibility = View.GONE
+                                        requestCV.visibility = View.VISIBLE
+                                        llCancel_HomeBottomBtn.visibility = View.GONE
+                                        tvTitle_MapTracking1.visibility = View.GONE
+                                    } else {
+                                        llEstimate_HomeBottomBtn.visibility = View.GONE
+                                        ivCall_MapTrackingLay.visibility = View.GONE
+                                        requestCV.visibility = View.GONE
+                                        selectedCV.visibility = View.GONE
+                                        startfinishlay.visibility = View.VISIBLE
+                                        tvWorkScope_StartServiceLay.text =
+                                            SharedPreferencesHelper.getString(
+                                                this@DashboardActivity,
+                                                Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+                                                ""
+                                            ).toString()
+                                        llStartService_StartServiceLay.visibility = View.VISIBLE
+                                        llFinishService_StartServiceLay.visibility = View.GONE
+                                        tvTitle_StartServiceLay.text = resources.getString(R.string.approved_estimate_for)
+                                    }
                                     ivCall_MapTrackingLay.visibility = View.VISIBLE
-                                    startfinishlay.visibility = View.GONE
 
+                                    btnMaximizeRequestCV.visibility = View.GONE
                                     btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
                                     request!!.status = BookingStatus.Arrived.toString()
                                     bookingAccpted = true
@@ -509,6 +534,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                             .putExtra("customerId", request!!.customer_id)
                                             .putExtra("tripCharge", estimationFee)
                                             .putExtra("serviceId", request!!.service_id)
+                                    )
+                                    SharedPreferencesHelper.putString(
+                                        this@DashboardActivity,
+                                        Constants.SharedPrefs.User.ESTIMATE_ACCEPTED,
+                                        "false"
                                     )
                                     overridePendingTransition(0, 0)
                                     requestCV.visibility = View.INVISIBLE
@@ -1019,6 +1049,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                             imgBtnNavigate.visibility = View.INVISIBLE
                             btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
 
+                            btnMaximizeRequestCV.visibility = View.GONE
                             mDatabaseCustomer.child("status")
                                 .setValue(BookingStatus.Accepted.toString())
                             mDatabaseCustomer.child("servicemen_image").setValue(servicemenImage)
@@ -1061,6 +1092,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         ivCall_MapTrackingLay.visibility = View.VISIBLE
                         startfinishlay.visibility = View.GONE
                         btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                        btnMaximizeRequestCV.visibility = View.GONE
 
                         request!!.status = BookingStatus.Arrived.toString()
                         bookingAccpted = true
@@ -1086,6 +1118,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val mBuilder = android.app.AlertDialog.Builder(this).setView(mDialogView)
         mAlertDialog = mBuilder.show()
         mAlertDialog!!.setCanceledOnTouchOutside(false)
+        mAlertDialog!!.setCancelable(false);
+
         mAlertDialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val button = mDialogView.findViewById(R.id.estimateServiceBtn) as ConstraintLayout
         val layoutInput = mDialogView.findViewById(R.id.layoutInput) as ConstraintLayout
@@ -1173,6 +1207,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         }
         mAlertDialog?.dismiss()
         if (acceptStatus == "true") {
+            SharedPreferencesHelper.putString(
+                this@DashboardActivity,
+                Constants.SharedPrefs.User.ESTIMATE_ACCEPTED,
+                "true"
+            )
             llEstimate_HomeBottomBtn.visibility = View.GONE
             ivCall_MapTrackingLay.visibility = View.GONE
 //            llStart_HomeBottomBtn.visibility = View.VISIBLE
@@ -1416,8 +1455,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
         val callServiceProviders = APIClient.getApiInterface().updateServiceManLocation(loc)
         callServiceProviders.enqueue(object : Callback<ServiceProviderLocationUpdate> {
-            override fun onResponse(call: Call<ServiceProviderLocationUpdate>, response: Response<ServiceProviderLocationUpdate>) {
-                if (response.code() == 401 && response.message() =="Unauthorized") {
+            override fun onResponse(
+                call: Call<ServiceProviderLocationUpdate>,
+                response: Response<ServiceProviderLocationUpdate>,
+            ) {
+                if (response.code() == 401 && response.message() == "Unauthorized") {
                     onSessionExpired()
                 }
             }
@@ -1779,7 +1821,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 freezCurrentLocation = true
                 if (bookingAccpted && bookingId != 0) {
                     requestCV.visibility = View.INVISIBLE
-                    btnMaximizeRequestCV.visibility = View.VISIBLE
+                    btnMaximizeRequestCV.visibility = View.INVISIBLE
                     selectedCV.visibility = View.INVISIBLE
                     imgBtnNavigate.visibility = View.INVISIBLE
                 }

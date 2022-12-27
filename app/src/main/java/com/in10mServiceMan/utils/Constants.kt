@@ -54,6 +54,7 @@ class Constants {
                 const val ACCOUNT_TYPE = "account_type"
                 const val ESTIMATE_AMOUNT = "estimate_amount"
                 const val ESTIMATE_DESCRIPTION = "estimate_desc"
+                const val ESTIMATE_ACCEPTED = "estimate_accepted"
 
                 const val SERVICES_PROVIDED = "services_provided"
                 const val SERVICES_PROVIDED_STRING = "services_provided_string"

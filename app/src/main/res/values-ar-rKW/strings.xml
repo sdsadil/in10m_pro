@@ -446,7 +446,7 @@
     <string name="crop_image_activity_title"></string>
     <string name="crop_image_menu_rotate_left">تدوير عكس اتجاه عقارب الساعة</string>
     <string name="crop_image_menu_rotate_right">استدارة</string>
-    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_crop">Save</string>
     <string name="crop_image_menu_flip">يواجه</string>
     <string name="crop_image_menu_flip_horizontally">الوجه أفقيا</string>
     <string name="crop_image_menu_flip_vertically">انعكاس عمودي</string>

@@ -110,8 +110,11 @@
                 android:layout_toEndOf="@+id/exp_year"
                 android:background="@drawable/et_bg"
                 android:gravity="center"
+                android:inputType="number"
+                android:maxLength="2"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
+                android:singleLine="true"
                 android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>
