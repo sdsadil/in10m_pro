@@ -49,7 +49,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public abstract class BaseActivity extends AppCompatActivity implements ServiceConnection {
 
     LoadingDialog mProgressDialog;
@@ -62,12 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         super.onCreate(savedInstanceState);
         bindService();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        /*getWindow().addFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-                        | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
-                        | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                        | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);*/
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mContext = this;
         mProgressDialog = new LoadingDialog(this);
     }

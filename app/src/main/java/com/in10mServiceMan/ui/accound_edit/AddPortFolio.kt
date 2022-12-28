@@ -63,11 +63,16 @@ class AddPortFolio(context: Context) : BaseFragment() {
             addPortFolio()
         }
 
-        isStarted = true
-        if (isVisiblee) {
-            loadProfile()
-        }
+//        isStarted = true
+//        if (isVisiblee) {
+//            loadProfile()
+//        }
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadProfile()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

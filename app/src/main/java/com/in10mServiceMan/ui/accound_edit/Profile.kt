@@ -72,6 +72,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
     private var isVisiblee = false
     private var isNewImage: Boolean = false
     private val BUCKET_NAME: String = "in10mdevimages"
+    var spCountry1_EditProfLay: AppCompatSpinner? = null
 
     private var mCountryList: List<CountryPojoArray?>? = ArrayList()
     var country: String = ""
@@ -147,20 +148,18 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 val startDateMonth = cal.get(Calendar.MONTH)
                 val startDateDay = cal.get(Calendar.DAY_OF_MONTH)
 
-                val dpd_startdate = mcontext.let { it1 ->
-                    DatePickerDialog(
-                        it1,
-                        R.style.CalendarThemeOne,
-                        { v, myear, mmonth, mdayOfMonth ->
-                            val month = mmonth + 1
-                            view.edt_age.text =
-                                "$mdayOfMonth-$month-$myear"//"$myear-$month-$mdayOfMonth"
-                        },
-                        startDateYear,
-                        startDateMonth,
-                        startDateDay
-                    )
-                }
+                val dpd_startdate = DatePickerDialog(
+                    mcontext,
+                    R.style.CalendarThemeOne,
+                    { v, myear, mmonth, mdayOfMonth ->
+                        val month = mmonth + 1
+                        view.edt_age.text =
+                            "$mdayOfMonth-$month-$myear"//"$myear-$month-$mdayOfMonth"
+                    },
+                    startDateYear,
+                    startDateMonth,
+                    startDateDay
+                )
                 dpd_startdate.datePicker.maxDate = Date().time
 
                 // dpd_startdate.datePicker.minDate = System.currentTimeMillis() - 1000
@@ -192,15 +191,14 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 }
             }
 
-            isStarted = true
-            if (isVisiblee) {
-                loadProfile()
+//            isStarted = true
+//            if (isVisiblee) {
+//                loadProfile()
                 //            getPreServices()
-            }
-
-            val spCountry1_EditProfLay =
-                view.findViewById(R.id.spCountry1_EditProfLay) as AppCompatSpinner
-            spCountry1_EditProfLay.onItemSelectedListener =
+//            }
+//
+            spCountry1_EditProfLay = view.findViewById(R.id.spCountry1_EditProfLay)
+            spCountry1_EditProfLay?.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(
                         parent: AdapterView<*>,
@@ -212,12 +210,12 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                         when {
                             mCountryList != null -> {
                                 Log.e("InProfile", "mCountryList != Null")
-                                if (spCountry1_EditProfLay.selectedItem.toString() != mcontext.resources?.getString(
+                                if (spCountry1_EditProfLay?.selectedItem.toString() != mcontext.resources?.getString(
                                         R.string.india
                                     )
                                 ) {
                                     country_id = mCountryList!![position]!!.phonecode.toString()
-                                    country = spCountry1_EditProfLay.selectedItem.toString()
+                                    country = spCountry1_EditProfLay?.selectedItem.toString()
                                 }
                             }
                             else -> {
@@ -238,12 +236,16 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadProfile()
+    }
     private fun showGovernorateDialog() {
         val dialog = Dialog(mcontext)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.governorate_popup)
         val window = dialog.window
-        Objects.requireNonNull(window)!!.setLayout(
+        Objects.requireNonNull(window)?.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT
         )
@@ -262,31 +264,31 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
             dialog.findViewById<AppCompatTextView>(R.id.tv6_GovernoratePopUp)
         val ivClose_GovernoratePopUp: AppCompatImageView =
             dialog.findViewById(R.id.ivClose_GovernoratePopUp)
-        tv1_GovernoratePopUp.setOnClickListener { v: View? ->
+        tv1_GovernoratePopUp.setOnClickListener {
             dialog.dismiss()
             view?.tvGovernorate_EditProfLay?.text = tv1_GovernoratePopUp.text.toString()
         }
-        tv2_GovernoratePopUp.setOnClickListener { v: View? ->
+        tv2_GovernoratePopUp.setOnClickListener {
             dialog.dismiss()
             view?.tvGovernorate_EditProfLay?.text = tv2_GovernoratePopUp.text.toString()
         }
-        tv3_GovernoratePopUp.setOnClickListener { v: View? ->
+        tv3_GovernoratePopUp.setOnClickListener {
             dialog.dismiss()
             view?.tvGovernorate_EditProfLay?.text = tv3_GovernoratePopUp.text.toString()
         }
-        tv4_GovernoratePopUp.setOnClickListener { v: View? ->
+        tv4_GovernoratePopUp.setOnClickListener {
             dialog.dismiss()
             view?.tvGovernorate_EditProfLay?.text = tv4_GovernoratePopUp.text.toString()
         }
-        tv5_GovernoratePopUp.setOnClickListener { v: View? ->
+        tv5_GovernoratePopUp.setOnClickListener {
             dialog.dismiss()
             view?.tvGovernorate_EditProfLay?.text = tv5_GovernoratePopUp.text.toString()
         }
-        tv6_GovernoratePopUp.setOnClickListener { v: View? ->
+        tv6_GovernoratePopUp.setOnClickListener {
             dialog.dismiss()
             view?.tvGovernorate_EditProfLay?.text = tv6_GovernoratePopUp.text.toString()
         }
-        ivClose_GovernoratePopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        ivClose_GovernoratePopUp.setOnClickListener { dialog.dismiss() }
         dialog.show()
     }
 
@@ -314,7 +316,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
             SharedPreferencesHelper.getString(mcontext, Constants.SharedPrefs.User.USER_ID, "")
 
         val userId = RequestBody.create(MediaType.parse("text/plain"), mServiceManId)
-        var body: MultipartBody.Part? = null
+        val body: MultipartBody.Part?
         val file = File(profilePicData)
         val reqFile = RequestBody.create(MediaType.parse("image/*"), file)
         body = MultipartBody.Part.createFormData("profile_picture", file.name, reqFile)
@@ -701,43 +703,50 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
             dialog.findViewById(R.id.ivClose_AddressPopUp)
         val btnContinue_AddressPopUp: AppCompatButton =
             dialog.findViewById(R.id.btnContinue_AddressPopUp)
-        rg_AddressTypePopUp.setOnCheckedChangeListener { group: RadioGroup?, checkedId: Int ->
-            if (checkedId == R.id.rbHouse_AddressTypePopUp) {
-                etBuildingNo_EditProfLay.setText("")
-                etFloorNo_EditProfLay.setText("")
-                etAptOffNo_EditProfLay.setText("")
-                etAvenue_EditProfLay.setText("")
-                addressType = "1"
-                tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.house)
-                etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.house_no)
-                etFloorNo_EditProfLay.visibility = View.GONE
-                etAptOffNo_EditProfLay.visibility = View.GONE
-            } else if (checkedId == R.id.rbApartment_AddressTypePopUp) {
-                etBuildingNo_EditProfLay.setText("")
-                etFloorNo_EditProfLay.setText("")
-                etAptOffNo_EditProfLay.setText("")
-                etAvenue_EditProfLay.setText("")
-                addressType = "2"
-                tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.apartment)
-                etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.building_no)
-                etAptOffNo_EditProfLay.hint = mcontext.resources.getString(R.string.apartment)
-                etFloorNo_EditProfLay.visibility = View.VISIBLE
-                etAptOffNo_EditProfLay.visibility = View.VISIBLE
-            } else if (checkedId == R.id.rbOffice_AddressTypePopUp) {
-                etBuildingNo_EditProfLay.setText("")
-                etFloorNo_EditProfLay.setText("")
-                etAptOffNo_EditProfLay.setText("")
-                etAvenue_EditProfLay.setText("")
-                addressType = "3"
-                tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.office)
-                etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.building_no)
-                etAptOffNo_EditProfLay.hint = mcontext.resources.getString(R.string.office_no)
-                etFloorNo_EditProfLay.visibility = View.VISIBLE
-                etAptOffNo_EditProfLay.visibility = View.VISIBLE
+        rg_AddressTypePopUp.setOnCheckedChangeListener { _: RadioGroup?, checkedId: Int ->
+            when (checkedId) {
+                R.id.rbHouse_AddressTypePopUp -> {
+                    etBuildingNo_EditProfLay.setText("")
+                    etFloorNo_EditProfLay.setText("")
+                    etAptOffNo_EditProfLay.setText("")
+                    etAvenue_EditProfLay.setText("")
+                    addressType = "1"
+                    tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.house)
+                    etBuildingNo_EditProfLay.hint = mcontext.resources.getString(R.string.house_no)
+                    etFloorNo_EditProfLay.visibility = View.GONE
+                    etAptOffNo_EditProfLay.visibility = View.GONE
+                }
+                R.id.rbApartment_AddressTypePopUp -> {
+                    etBuildingNo_EditProfLay.setText("")
+                    etFloorNo_EditProfLay.setText("")
+                    etAptOffNo_EditProfLay.setText("")
+                    etAvenue_EditProfLay.setText("")
+                    addressType = "2"
+                    tvAddressType_EditProfLay.text =
+                        mcontext.resources.getString(R.string.apartment)
+                    etBuildingNo_EditProfLay.hint =
+                        mcontext.resources.getString(R.string.building_no)
+                    etAptOffNo_EditProfLay.hint = mcontext.resources.getString(R.string.apartment)
+                    etFloorNo_EditProfLay.visibility = View.VISIBLE
+                    etAptOffNo_EditProfLay.visibility = View.VISIBLE
+                }
+                R.id.rbOffice_AddressTypePopUp -> {
+                    etBuildingNo_EditProfLay.setText("")
+                    etFloorNo_EditProfLay.setText("")
+                    etAptOffNo_EditProfLay.setText("")
+                    etAvenue_EditProfLay.setText("")
+                    addressType = "3"
+                    tvAddressType_EditProfLay.text = mcontext.resources.getString(R.string.office)
+                    etBuildingNo_EditProfLay.hint =
+                        mcontext.resources.getString(R.string.building_no)
+                    etAptOffNo_EditProfLay.hint = mcontext.resources.getString(R.string.office_no)
+                    etFloorNo_EditProfLay.visibility = View.VISIBLE
+                    etAptOffNo_EditProfLay.visibility = View.VISIBLE
+                }
             }
         }
-        ivClose_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
-        btnContinue_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        ivClose_AddressPopUp.setOnClickListener { dialog.dismiss() }
+        btnContinue_AddressPopUp.setOnClickListener { dialog.dismiss() }
         dialog.show()
     }
 
@@ -797,7 +806,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
         val getImage: File = context.externalCacheDir!!
         outputFileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             FileProvider.getUriForFile(
-                context, BuildConfig.APPLICATION_ID.toString() + ".provider",
+                context, BuildConfig.APPLICATION_ID + ".provider",
                 File(getImage.path, "pickImageResult.jpeg")
             )
         } else {
@@ -833,18 +842,18 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                 mCountryListDummy.add(mCountryList?.get(i)?.name!!)
             }
         }
-        val adapter = spinnerAdapter(this.context, R.layout.custom_state_spinner_list)
+        val adapter = spinnerAdapter(mcontext, R.layout.custom_state_spinner_list)
         adapter.addAll(mCountryListDummy)
-        adapter.add(context?.resources?.getString(R.string.india))
-        spCountry1_EditProfLay.adapter = adapter
-        spCountry1_EditProfLay.setSelection(adapter.count)
+        adapter.add(mcontext.resources?.getString(R.string.india))
+        spCountry1_EditProfLay?.adapter = adapter
+        spCountry1_EditProfLay?.setSelection(adapter.count)
 
         for (i in 0 until mCountryList!!.size) {
             when (mCountryList!![i]?.name) {
                 profile.country -> {
                     country_id = mCountryList!![i]!!.phonecode.toString()
                     country = mCountryList!![i]!!.name.toString()
-                    view!!.spCountry1_EditProfLay.setSelection(i)
+                    spCountry1_EditProfLay?.setSelection(i)
                 }
             }
         }

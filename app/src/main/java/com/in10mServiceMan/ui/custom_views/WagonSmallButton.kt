@@ -10,10 +10,9 @@ import kotlinx.android.synthetic.main.wagon_button.view.*
 /**
  * Created by Rohit on 24/03/18.
  */
-class WagonSmallButton(context: Context?, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
+class WagonSmallButton(context: Context?, attrs: AttributeSet?) : ConstraintLayout(context!!, attrs) {
 
     init {
-
         View.inflate(context, R.layout.wagon_small_button, this)
         if (!isInEditMode) {
             val arr = context?.obtainStyledAttributes(attrs, R.styleable.WagonButton)

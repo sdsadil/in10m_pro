@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.wagon_button.view.*
 /**
  * Created by Rohit on 24/03/18.
  */
-class WagonButton(context: Context?, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
+class WagonButton(context: Context?, attrs: AttributeSet?) : ConstraintLayout(context!!, attrs) {
 
     init {
 

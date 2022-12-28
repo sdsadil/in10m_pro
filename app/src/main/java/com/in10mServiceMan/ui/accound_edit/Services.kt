@@ -80,10 +80,15 @@ class Services(context: Context) : BaseFragment(), EditSubServicesListener {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        getPreServices()
+    }
     override fun onStart() {
         super.onStart()
-        isStarted = true
-        if (isVisiblee) getPreServices()
+//        isStarted = true
+//        if (isVisiblee)
+//            getPreServices()
 
     }
 
