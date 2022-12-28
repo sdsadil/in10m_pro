@@ -2200,7 +2200,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     override fun logout() {
         try {
             val builder =
-                AlertDialog.Builder(this@DashboardActivity, R.style.AlertDialogDanger)
+                AlertDialog.Builder(this@DashboardActivity, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
             builder.setTitle(resources.getString(R.string.log_out))
             builder.setMessage(resources.getString(R.string.desc_logout))
             builder.setPositiveButton(
