@@ -76,10 +76,10 @@ public class ServicemanBAsicDetailsFragment extends Fragment implements View.OnC
 
                     CompleteProfile profile = response.body().getData();
 
-                    rq.setServiceproviderExperience(profile.getExperience());
-                    if (profile.getExperience() != null && !profile.getExperience().isEmpty()) {
-                        edtTotalExperiance.setText(profile.getExperience());
-                        TotalExperiance = profile.getExperience();
+                    rq.setServiceproviderExperience(profile.getTotalExperience());
+                    if (profile.getTotalExperience() != null && !profile.getTotalExperience().isEmpty()) {
+                        edtTotalExperiance.setText(profile.getTotalExperience());
+                        TotalExperiance = profile.getTotalExperience();
                     }
                     rq.setServiceproviderWorkingAs(profile.getWorkingAs());
                     workingAs = profile.getWorkingAs();

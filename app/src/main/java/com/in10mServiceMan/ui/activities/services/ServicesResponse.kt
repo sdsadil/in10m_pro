@@ -9,28 +9,30 @@ data class ServicesResponse(
         @SerializedName("message")
         val message: String?,
         @SerializedName("status")
-        val status: Int?
+        val status: Int?,
 )
 
 data class ServiceData(
         @SerializedName("certification")
-        val certification: Int?=0,
+        val certification: Int? = 0,
         @SerializedName("experience")
-        var experience: Int?=0,
+        var experience: Int? = 0,
+        @SerializedName("total_experience")
+        var totalExperience: Int? = 0,
         @SerializedName("service_ar_name")
-        val serviceArName: String?="",
+        val serviceArName: String? = "",
         @SerializedName("ar_name")
-        val arName: String?="",
+        val arName: String? = "",
         @SerializedName("service_color")
-        val serviceColor: String?="",
+        val serviceColor: String? = "",
         @SerializedName("service_icon")
-        val serviceIcon: String?="",
+        val serviceIcon: String? = "",
         @SerializedName("service_id")
-        val serviceId: Int?=0,
+        val serviceId: Int? = 0,
         @SerializedName("service_name")
-        val serviceName: String?="",
+        val serviceName: String? = "",
         @SerializedName("service_status")
-        val serviceStatus: Int?=0,
+        val serviceStatus: Int? = 0,
         @SerializedName("sub_service")
-        val subService: List<Any?>?
+        val subService: List<Any?>?,
 )

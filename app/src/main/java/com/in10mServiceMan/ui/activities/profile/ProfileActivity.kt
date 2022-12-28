@@ -328,7 +328,7 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
                 rq.serviceproviderPincode = profile.pincode
                 rq.serviceproviderWorkingAs = profile.workingAs
                 rq.serviceproviderExperience =
-                    profile.experience//edit_text_total_eperiance.text.toString()
+                    profile.totalExperience//edit_text_total_eperiance.text.toString()
                 rq.serviceproviderDob = dob
                 rq.serviceproviderCity = profile.city
                 rq.serviceproviderCountry = profile.country
@@ -596,9 +596,9 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
                         if (data!!.data != null) {
                             profile = data.data
 
-                            rq.serviceproviderExperience = profile.experience
-                            if (profile.experience != null) edit_text_total_eperiance.setText(
-                                profile.experience.toString()
+                            rq.serviceproviderExperience = profile.totalExperience
+                            if (profile.totalExperience != null) edit_text_total_eperiance.setText(
+                                profile.totalExperience.toString()
                             )
                             rq.serviceproviderWorkingAs = profile.workingAs
                             txt_view_working_as.text = profile.workingAs

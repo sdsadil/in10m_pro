@@ -191,7 +191,7 @@ public class ServiceManDetailsActivity extends AppCompatActivity implements OnDa
     private void updateProfile() {
         CompleteProfile profile = new localStorage(this).getCompleteCustomer();
         RequestUpdateServiceMan rq = new RequestUpdateServiceMan();
-        rq.setServiceproviderExperience(profile.getExperience());
+        rq.setServiceproviderExperience(profile.getTotalExperience());
         rq.setServiceproviderWorkingAs(profile.getWorkingAs());
         rq.setServiceproviderId(profile.getId().toString());
         rq.setServiceproviderName(profile.getName());

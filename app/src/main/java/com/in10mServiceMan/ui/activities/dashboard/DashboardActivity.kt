@@ -1717,6 +1717,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         data?.let { LocationSettingsStates.fromIntent(it) }
         when (requestCode) {
             REQUEST_CHECK_SETTINGS -> {

@@ -70,7 +70,7 @@ class Services(context: Context) : BaseFragment(), EditSubServicesListener {
                 val addServicePojo = AddServicePojo()
                 addServicePojo.certificate = ""
                 addServicePojo.service_id = serviceList[i].serviceId.toString()
-                addServicePojo.total_experience = serviceList[i].experience.toString()
+                addServicePojo.total_experience = serviceList[i].totalExperience.toString()
                 addServiceList.add(addServicePojo)
             }
             val services = Gson().toJson(addServiceList)

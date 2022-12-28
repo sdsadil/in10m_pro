@@ -194,7 +194,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
 //            isStarted = true
 //            if (isVisiblee) {
 //                loadProfile()
-                //            getPreServices()
+            //            getPreServices()
 //            }
 //
             spCountry1_EditProfLay = view.findViewById(R.id.spCountry1_EditProfLay)
@@ -240,6 +240,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
         super.onResume()
         loadProfile()
     }
+
     private fun showGovernorateDialog() {
         val dialog = Dialog(mcontext)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -427,7 +428,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
         rq.serviceproviderPincode = pincode
         rq.serviceproviderWorkingAs = profile.workingAs
         rq.serviceproviderExperience =
-            profile.experience//edit_text_total_eperiance.text.toString()
+            profile.totalExperience//edit_text_total_eperiance.text.toString()
         rq.serviceproviderDob = dob
         rq.serviceproviderCity = city
         rq.serviceproviderCountry = profile.country
@@ -526,7 +527,7 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
                             profile = data.data
                             localStorage(mcontext).saveCompleteCustomer(profile)
 
-                            rq.serviceproviderExperience = profile.experience
+                            rq.serviceproviderExperience = profile.totalExperience
                             rq.serviceproviderWorkingAs = profile.workingAs
                             view!!.txt_view_working_as.text = profile.workingAs
                             rq.serviceproviderId = profile.id!!.toString()

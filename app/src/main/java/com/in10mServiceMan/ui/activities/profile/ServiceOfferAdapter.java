@@ -78,7 +78,7 @@ public class ServiceOfferAdapter extends RecyclerView.Adapter<ServiceOfferAdapte
         Drawable mDrawable = ContextCompat.getDrawable(context, R.drawable.r_circle).getConstantState().newDrawable().mutate();//holder.ImageViewColor.getDrawable();
         mDrawable.setColorFilter(new PorterDuffColorFilter(Color.parseColor(serviceData.getServiceColor()), PorterDuff.Mode.SRC_IN));
         holder.ImageViewColor.setImageDrawable(mDrawable);
-        holder.textViewYearExperience.setText(String.valueOf(serviceData.getExperience()));
+        holder.textViewYearExperience.setText(String.valueOf(serviceData.getTotalExperience()));
 
         holder.imgCrossIcon.setOnClickListener(view -> {
             editSubServicesListener.onDeleteClick(position, serviceData);
@@ -100,7 +100,7 @@ public class ServiceOfferAdapter extends RecyclerView.Adapter<ServiceOfferAdapte
             public void afterTextChanged(Editable s) {
                 if (!s.toString().equals("")) {
                     int exp = Integer.parseInt(s.toString());
-                    selectedServiceModelArrayList.get(holder.getAdapterPosition()).setExperience(exp);
+                    selectedServiceModelArrayList.get(holder.getAdapterPosition()).setTotalExperience(exp);
                 }
             }
         });

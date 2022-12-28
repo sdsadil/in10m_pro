@@ -100,6 +100,9 @@ public class CompleteProfile {
     @SerializedName("experience")
     @Expose
     private String experience;
+    @SerializedName("total_experience")
+    @Expose
+    private String totalExperience;
     @SerializedName("profile_pictures")
     @Expose
     private ArrayList<ProfilePicturesArray> profilePictures;
@@ -352,5 +355,13 @@ public class CompleteProfile {
 
     public void setProfilePictures(ArrayList<ProfilePicturesArray> profilePictures) {
         this.profilePictures = profilePictures;
+    }
+
+    public String getTotalExperience() {
+        return totalExperience;
+    }
+
+    public void setTotalExperience(String totalExperience) {
+        this.totalExperience = totalExperience;
     }
 }
