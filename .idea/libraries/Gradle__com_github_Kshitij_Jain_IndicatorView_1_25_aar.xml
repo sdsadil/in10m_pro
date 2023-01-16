@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.Kshitij-Jain:IndicatorView:1.25@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/916b14364ba0333b5ebb38e4254ab138/jetified-IndicatorView-1.25/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/916b14364ba0333b5ebb38e4254ab138/jetified-IndicatorView-1.25/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/916b14364ba0333b5ebb38e4254ab138/jetified-IndicatorView-1.25/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e672c3933fb4bf68a5580ef2fd6e24a5/jetified-IndicatorView-1.25/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e672c3933fb4bf68a5580ef2fd6e24a5/jetified-IndicatorView-1.25/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e672c3933fb4bf68a5580ef2fd6e24a5/jetified-IndicatorView-1.25/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

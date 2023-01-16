@@ -591,6 +591,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             override fun onCancelled(error: DatabaseError) {
                 error.toException()
             }
+
         })
 
         llAccept_HomeBottomBtn.setOnClickListener {
