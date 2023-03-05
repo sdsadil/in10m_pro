@@ -334,7 +334,7 @@ class InvoiceActivity : In10mBaseActivity() {
                             request.processingFee = response.body()!!.data!!.processingFee!!
                         else
                             request.processingFee = 0.0
-                        request.service_man_id = userId
+                        request.service_man_id = userId?.toInt()
                         if (response.body()!!.data!!.tax != null)
                             request.tax = response.body()!!.data!!.tax!!.toDouble()
                         else

@@ -91,7 +91,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout21"
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
@@ -102,8 +102,9 @@
 
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:padding="@dimen/_4sdp"
                     android:src="@drawable/ic_marker"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/serviceManIV" />
@@ -170,14 +171,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout31">
 
             </View>
+
             <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/tvTitle_MapTracking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
                 android:text="@string/service_requested"
                 android:textAllCaps="false"
                 android:textSize="14sp"

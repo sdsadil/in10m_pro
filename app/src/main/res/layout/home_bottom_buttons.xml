@@ -42,7 +42,7 @@
             android:paddingBottom="@dimen/_6sdp"
             android:text="@string/reject"
             android:textAllCaps="true"
-            android:textColor="@color/danger"
+            android:textColor="#EF5350"
             android:textSize="15sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -58,6 +58,7 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center"
+        android:minHeight="48dp"
         android:orientation="horizontal"
         android:paddingStart="25dp"
         android:paddingTop="5dp"

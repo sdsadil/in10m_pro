@@ -11,15 +11,15 @@ import android.graphics.drawable.ColorDrawable
 import android.location.Location
 import android.media.MediaPlayer
 import android.os.*
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AppCompatEditText
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.*
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -30,10 +30,10 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.firebase.database.*
 import com.google.gson.JsonElement
+import com.in10mServiceMan.R
 import com.in10mServiceMan.enums.BookingStatus
 import com.in10mServiceMan.models.*
 import com.in10mServiceMan.models.viewmodels.CommonApiResponse
-import com.in10mServiceMan.R
 import com.in10mServiceMan.ui.activities.BackButtonHandler
 import com.in10mServiceMan.ui.activities.CallScreenActivity
 import com.in10mServiceMan.ui.activities.MenuNavigation
@@ -44,8 +44,10 @@ import com.in10mServiceMan.ui.activities.contact_us.ContactUs
 import com.in10mServiceMan.ui.activities.earnings.EarningsActivity
 import com.in10mServiceMan.ui.activities.home.NavigationAdapter
 import com.in10mServiceMan.ui.activities.my_bookings.service_history.ServiceHistoryActivity
-import com.in10mServiceMan.ui.activities.payment.InvoiceActivity
+import com.in10mServiceMan.ui.activities.payment.PaymentInitilizeResponse
+import com.in10mServiceMan.ui.activities.payment.PaymentRequestClass
 import com.in10mServiceMan.ui.activities.privacy_policy.PrivacyPolicyActivity
+import com.in10mServiceMan.ui.activities.rating.CustomerRating
 import com.in10mServiceMan.ui.activities.rating.ReviewsActivity
 import com.in10mServiceMan.ui.activities.rating.ReviewsResponse
 import com.in10mServiceMan.ui.activities.sign_in.LoginActivity
@@ -73,12 +75,12 @@ import com.squareup.picasso.Picasso
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_invoice.*
 import kotlinx.android.synthetic.main.activity_map_tracking.*
 import kotlinx.android.synthetic.main.arrived_lay.*
 import kotlinx.android.synthetic.main.drawyer_layout.*
 import kotlinx.android.synthetic.main.home_bottom_buttons.*
 import kotlinx.android.synthetic.main.home_bottom_buttons.btnDirection_HomeBottomBtn
-import kotlinx.android.synthetic.main.home_bottom_buttons.llArrived_HomeBottomBtn
 import kotlinx.android.synthetic.main.startservice_lay.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -124,6 +126,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     var userid = 0
     lateinit var mDatabase: DatabaseReference//Serviceman node
     lateinit var mDatabaseCustomer: DatabaseReference
+
+    lateinit var mDatabasePayment: DatabaseReference
+    lateinit var dbServiceMan: DatabaseReference
+
     var request: firebaseRequestModel? = null
     var freeEstimate = 1
     var estimationFee = 0.0
@@ -477,7 +483,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                             ).toString()
                                         llStartService_StartServiceLay.visibility = View.VISIBLE
                                         llFinishService_StartServiceLay.visibility = View.GONE
-                                        tvTitle_StartServiceLay.text = resources.getString(R.string.approved_estimate_for)
+                                        tvTitle_StartServiceLay.text =
+                                            resources.getString(R.string.approved_estimate_for)
                                     }
                                     ivCall_MapTrackingLay.visibility = View.VISIBLE
 
@@ -496,6 +503,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llCall_HomeBottomBtn.visibility = View.VISIBLE
                                     llAccept_HomeBottomBtn.visibility = View.GONE
                                     requestCV.visibility = View.GONE
+                                    requestCV1.visibility = View.GONE
                                     selectedCV.visibility = View.GONE
                                     startfinishlay.visibility = View.VISIBLE
                                     llStartService_StartServiceLay.visibility = View.GONE
@@ -526,7 +534,16 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     mDatabase.child(bookingId.toString()).child("status")
                                         .setValue(BookingStatus.Complete.toString())//Serviceman status update
                                     isJobDone = true
-                                    startActivity(
+                                    SharedPreferencesHelper.putString(
+                                        this@DashboardActivity,
+                                        Constants.SharedPrefs.User.ESTIMATE_ACCEPTED,
+                                        "false"
+                                    )
+                                    makePaymentInitialize(request!!.booking_id.toString(),
+                                        request!!.customer_id,
+                                        estimationFee,
+                                        request!!.service_id)
+                                    /*startActivity(
                                         Intent(
                                             this@DashboardActivity,
                                             InvoiceActivity::class.java
@@ -535,13 +552,17 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                             .putExtra("tripCharge", estimationFee)
                                             .putExtra("serviceId", request!!.service_id)
                                     )
+                                    makePaymentInitialize(request!!.booking_id.toString(),
+                                        request!!.customer_id,
+                                        estimationFee,
+                                        request!!.service_id)
                                     SharedPreferencesHelper.putString(
                                         this@DashboardActivity,
                                         Constants.SharedPrefs.User.ESTIMATE_ACCEPTED,
                                         "false"
                                     )
-                                    overridePendingTransition(0, 0)
-                                    requestCV.visibility = View.INVISIBLE
+                                    overridePendingTransition(0, 0)*/
+                                    /*requestCV.visibility = View.INVISIBLE
                                     DutyChangeImage.visibility = View.VISIBLE
                                     bookingAccpted = false
                                     bookingId = 0
@@ -571,7 +592,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                     llElapsedTimerTV_StartServiceLay.visibility = View.GONE
                                     tvWorkScope_StartServiceLay.visibility = View.GONE
                                     //changeStatusOfServiceMan()
-                                    map?.clear()
+                                    map?.clear()*/
 
 
                                 }
@@ -602,7 +623,11 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             updateToArrived()
         }
         llArrived_HomeBottomBtn1.setOnClickListener {
-            updateToArrived()
+//            updateToArrived()
+
+            //New Update on 04-03-2023
+            estimateDb()
+            updateTOStart()
         }
 
         loadDashboardCount()
@@ -1119,7 +1144,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val mBuilder = android.app.AlertDialog.Builder(this).setView(mDialogView)
         mAlertDialog = mBuilder.show()
         mAlertDialog!!.setCanceledOnTouchOutside(false)
-        mAlertDialog!!.setCancelable(false);
+        mAlertDialog!!.setCancelable(false)
 
         mAlertDialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val button = mDialogView.findViewById(R.id.estimateServiceBtn) as ConstraintLayout
@@ -1250,6 +1275,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     destroyDialog()
                     if (response.isSuccessful) {
                         tvTitle_StartServiceLay.text = resources.getString(R.string.job_in_progress)
+                        arrivedLay.visibility = View.GONE
                         requestCV.visibility = View.GONE
                         selectedCV.visibility = View.GONE
                         startfinishlay.visibility = View.VISIBLE
@@ -1276,6 +1302,37 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             })
         }
 
+    }
+
+    fun estimateDb() {
+        val estimateFreeKey = "freeEstimate"
+        val estimateFeeKey = "estimationFee"
+        val estimateAMTKey = "estimate_amount"
+        val estimateScopeKey = "work_scope"
+        val estimateAcceptKey = "estimate_accepted"
+
+        mDatabase.child(bookingId.toString()).child(estimateFreeKey)
+            .setValue(freeEstimate)
+        mDatabase.child(bookingId.toString()).child(estimateFeeKey)
+            .setValue(estimationFee)
+
+        mDatabaseCustomer.child(estimateFreeKey).setValue(freeEstimate)
+        mDatabaseCustomer.child(estimateFeeKey).setValue(estimationFee)
+
+        mDatabase.child(bookingId.toString()).child(estimateAMTKey).setValue("1")
+        mDatabase.child(bookingId.toString()).child(estimateScopeKey).setValue("scope")
+        mDatabaseCustomer.child(estimateAMTKey).setValue("1")
+        mDatabaseCustomer.child(estimateScopeKey).setValue("scope")
+        SharedPreferencesHelper.putString(
+            this@DashboardActivity,
+            Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
+            "1"
+        )
+        SharedPreferencesHelper.putString(
+            this@DashboardActivity,
+            Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+            "scope"
+        )
     }
 
     private fun serviceDone1(showMsg: Boolean = true) {
@@ -1312,7 +1369,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         isJobDone = true
 
                         //mDatabase.child(bookingId.toString()).setValue(null)
-                        startActivity(
+                        /*startActivity(
                             Intent(
                                 this@DashboardActivity,
                                 InvoiceActivity::class.java
@@ -1322,9 +1379,10 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                 .putExtra("serviceId", serviceId)
                         )
                         overridePendingTransition(0, 0)
-
+*/
+                        makePaymentInitialize(myBookingId!!, customerID, estimationFee, serviceId)
                         //finish()
-                        requestCV.visibility = View.INVISIBLE
+                        /*requestCV.visibility = View.INVISIBLE
                         DutyChangeImage.visibility = View.VISIBLE
                         bookingAccpted = false
                         bookingId = 0
@@ -1352,7 +1410,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                         llElapsedTimerTV_StartServiceLay.visibility = View.VISIBLE
                         tvWorkScope_StartServiceLay.visibility = View.GONE
                         //changeStatusOfServiceMan()
-                        map?.clear()
+                        map?.clear()*/
                     }
                 }
 
@@ -2202,7 +2260,8 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     override fun logout() {
         try {
             val builder =
-                AlertDialog.Builder(this@DashboardActivity, R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
+                AlertDialog.Builder(this@DashboardActivity,
+                    R.style.MyThemeOverlay_MaterialComponents_MaterialAlertDialog)
             builder.setTitle(resources.getString(R.string.log_out))
             builder.setMessage(resources.getString(R.string.desc_logout))
             builder.setPositiveButton(
@@ -2240,5 +2299,228 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             },
             navigationDelay
         )
+    }
+
+    private fun makePaymentInitialize(
+        myBookingId: String,
+        customerID: String?,
+        estimationFee: Double,
+        serviceId: String?,
+    ) {
+        showProgressDialog("")
+        val header =
+            SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.AUTH_TOKEN, "")
+        val userId = SharedPreferencesHelper.getString(this, Constants.SharedPrefs.User.USER_ID, "")
+        var totalAmount = "1"
+        val workDescription = "workDescription"
+        val paymentType = "1"
+
+        val callServiceProviders = APIClient.getApiInterface()
+            .paymentInitilize(header,
+                myBookingId,
+                totalAmount,
+                paymentType,
+                userId,
+                workDescription)
+
+        val request = PaymentRequestClass()
+
+        callServiceProviders.enqueue(object : Callback<PaymentInitilizeResponse> {
+            override fun onResponse(
+                call: Call<PaymentInitilizeResponse>,
+                response: Response<PaymentInitilizeResponse>,
+            ) {
+
+                if (response.isSuccessful) {
+                    if (response.body()?.status == 1) {
+                        request.booking_Id = myBookingId
+                        if (response.body()!!.data!!.applicationFee != null)
+                            request.applicationFee = response.body()!!.data!!.applicationFee!!
+                        else
+                            request.applicationFee = 0.0
+                        if (response.body()!!.data!!.feePercent != null)
+                            request.fee_percent = response.body()!!.data!!.feePercent!!
+                        else
+                            request.fee_percent = ""
+                        // request.total_amount = totalAmount
+                        request.customer_id = customerID
+                        request.pay_status = false
+                        request.accepted_status = true
+                        request.editing_status = false
+                        request.work_scope = workDescription
+                        if (response.body()!!.data!!.serviceFee != null)
+                            request.service_amount =
+                                response.body()!!.data!!.servicemanServiceAmount
+                        else
+                            request.service_amount = 0.0
+                        request.payment_type = paymentType.toInt()
+                        if (response.body()!!.data!!.processingFee != null)
+                            request.processingFee = response.body()!!.data!!.processingFee!!
+                        else
+                            request.processingFee = 0.0
+                        request.service_man_id = userId?.toInt()
+                        if (response.body()!!.data!!.tax != null)
+                            request.tax = response.body()!!.data!!.tax!!.toDouble()
+                        else
+                            request.tax = 0.0
+                        if (response.body()!!.data!!.taxPercent != null)
+                            request.tax_percent = response.body()!!.data!!.taxPercent!!
+                        else
+                            request.tax_percent = 0.0
+                        if (response.body()!!.data!!.totalAmount != null) {
+                            request.total_amount = response.body()!!.data!!.totalAmount.toString()
+                            totalAmount = response.body()!!.data!!.totalAmount.toString()
+                        } else
+                            request.total_amount = ""
+
+
+                        val paymentNodePath = "payments/$customerID"//"payments/$bookingId"
+                        mDatabasePayment =
+                            FirebaseDatabase.getInstance().getReference(paymentNodePath)
+
+                        val serviceManNodePath = "bookings/service_men/$userid"
+                        dbServiceMan =
+                            FirebaseDatabase.getInstance().getReference(serviceManNodePath)
+
+                        try {
+                            mDatabasePayment.child(myBookingId).setValue(null)
+                            mDatabasePayment.child(myBookingId).setValue(request)
+                        } catch (e: java.lang.Exception) {
+                            e.printStackTrace()
+                        }
+
+                        checkPayment(myBookingId, customerID, serviceId, paymentType)
+
+                        /*SharedPreferencesHelper.putString(
+                            this@DashboardActivity,
+                            Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
+                            ""
+                        )
+                        SharedPreferencesHelper.putString(
+                            this@DashboardActivity,
+                            Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+                            ""
+                        )
+                        startActivity(
+                            Intent(this@DashboardActivity, CustomerRating::class.java).putExtra(
+                                "bookingId",
+                                myBookingId
+                            )
+                                .putExtra("customerId", customerID)
+                                .putExtra("serviceId", serviceId)
+                        )*/
+                    } else {
+                        ShowToast(response.body()?.message!!)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<PaymentInitilizeResponse>, t: Throwable) {
+                destroyDialog()
+                t.message?.let { Log.i("eeeERRRO", it) }
+                Log.i("eeeERRRO", t.localizedMessage)
+            }
+        })
+    }
+
+    fun checkPayment(
+        bookingId: String,
+        customerId: String?,
+        serviceId: String?,
+        paymentSelected: String,
+    ) {
+        mDatabasePayment.ref.addChildEventListener(object : ChildEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+                val data = p0.getValue(PaymentRequestClass::class.java)
+                if (data?.booking_Id == bookingId) {
+
+                    if (!data.accepted_status) {
+                        Toast.makeText(
+                            this@DashboardActivity,
+                            "Customer has requested for a re-quote. Please update amount and generate new invoice",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else if (data.pay_status == true) {
+                        destroyDialog()
+                        requestCV.visibility = View.INVISIBLE
+                        DutyChangeImage.visibility = View.VISIBLE
+                        bookingAccpted = false
+                        isJobDone = true
+                        removeDestinationMarker()
+                        if (mapss != null)
+                            mapss!!.removePolyLine()
+                        freezCurrentLocation = false
+                        loadDashboardCount()
+                        val user = localStorage(this@DashboardActivity).completeCustomer
+                        if (user != null) ServiceManNameTOP.text =
+                            (resources.getString(R.string.hello) + " " + user.name)
+                        selectedCV.visibility = View.VISIBLE
+
+                        llAccept_HomeBottomBtn.visibility = View.VISIBLE
+                        llCall_HomeBottomBtn.visibility = View.GONE
+                        llArrived_HomeBottomBtn.visibility = View.GONE
+                        arrivedLay.visibility = View.GONE
+                        startfinishlay.visibility = View.GONE
+                        llEnd_HomeBottomBtn.visibility = View.GONE
+                        imgBtnNavigate.visibility = View.GONE
+                        btnCancel_HomeBottomBtn.text = getString(R.string.cancel)
+                        llCancel_HomeBottomBtn.isEnabled = false
+
+                        llElapsedTimerTV_StartServiceLay.visibility = View.VISIBLE
+                        tvWorkScope_StartServiceLay.visibility = View.GONE
+                        //changeStatusOfServiceMan()
+                        map?.clear()
+
+                        mDatabasePayment.child(bookingId).removeValue()
+                        dbServiceMan.child(bookingId).removeValue()
+
+                        SharedPreferencesHelper.putString(
+                            this@DashboardActivity,
+                            Constants.SharedPrefs.User.ESTIMATE_AMOUNT,
+                            ""
+                        )
+                        SharedPreferencesHelper.putString(
+                            this@DashboardActivity,
+                            Constants.SharedPrefs.User.ESTIMATE_DESCRIPTION,
+                            ""
+                        )
+                        startActivity(
+                            Intent(this@DashboardActivity, CustomerRating::class.java).putExtra(
+                                "bookingId",
+                                bookingId
+                            )
+                                .putExtra("customerId", customerId)
+                                .putExtra("serviceId", serviceId)
+                        )
+                        overridePendingTransition(0, 0)
+                    }
+                }
+            }
+
+            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+                try {
+                    val data = p0.getValue(PaymentRequestClass::class.java)
+                    if (data?.booking_Id == bookingId) {
+                        /*mAlertDialog?.cancel()*/
+                        Log.d("remove response", data.booking_Id!!)
+                    }
+                } catch (e: java.lang.Exception) {
+                    e.printStackTrace()
+                }
+            }
+
+        })
     }
 }

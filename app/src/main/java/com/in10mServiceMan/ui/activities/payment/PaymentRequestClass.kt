@@ -12,7 +12,7 @@ class PaymentRequestClass {
 
     @SerializedName("service_man_id")
     @Expose
-    var service_man_id: String? = null
+    var service_man_id: Int? = null
 
     @SerializedName("cash_amount")
     @Expose
