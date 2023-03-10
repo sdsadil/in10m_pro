@@ -26,9 +26,7 @@
             android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@id/cons_bg"
             app:layout_constraintStart_toStartOf="@id/cons_bg"
-            app:layout_constraintTop_toTopOf="@+id/cons_bg">
-
-        </View>
+            app:layout_constraintTop_toTopOf="@+id/cons_bg"/>
 
         <ImageView
             android:id="@+id/serviceIconIV"
@@ -37,10 +35,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/icon_plumbing"
-            app:layout_constraintBottom_toBottomOf="@+id/cons_bg"
-            app:layout_constraintStart_toStartOf="@+id/cons_bg"
-            app:layout_constraintTop_toTopOf="@+id/cons_bg" />
+            app:layout_constraintBottom_toBottomOf="@+id/colorView"
+            app:layout_constraintStart_toStartOf="@+id/colorView"
+            app:layout_constraintTop_toTopOf="@+id/colorView" />
 
         <com.in10mServiceMan.widgets.textview.CustomBoldTextView
             android:id="@+id/tvItem"
@@ -52,14 +49,13 @@
             android:singleLine="true"
             android:layout_marginBottom="8dp"
             android:paddingEnd="20dp"
-            android:text="Water purification / Softening/cleaning"
             android:textAllCaps="true"
             android:textColor="@color/greyShade"
             android:textSize="14sp"
             android:maxLines="1"
-            app:layout_constraintBottom_toBottomOf="@id/cons_bg"
+            app:layout_constraintBottom_toBottomOf="@id/colorView"
             app:layout_constraintStart_toEndOf="@+id/serviceIconIV"
-            app:layout_constraintTop_toTopOf="@id/cons_bg" />
+            app:layout_constraintTop_toTopOf="@id/colorView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

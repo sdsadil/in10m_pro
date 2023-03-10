@@ -13,7 +13,7 @@
     <color name="accept_button">#455a64</color>
     <color name="decline_button">#f4f4f4</color>
     <color name="text_colour_light">#607D8B</color>
-
+    <color name="grey2">#9B9898</color>
     <color name="blueText">#0091EA</color>
     <color name="colorSecondaryDark">#607D8B</color>
 

@@ -6,21 +6,19 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AlertDialog
-import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.places.AutocompleteFilter
-
 import com.in10mServiceMan.R
 import com.in10mServiceMan.models.CountryPojo
 import com.in10mServiceMan.models.CountryPojoArray
@@ -37,7 +35,6 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
 import java.util.*
-import kotlin.collections.ArrayList
 
 class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedListener,
     GoogleApiClient.ConnectionCallbacks {
@@ -45,12 +42,12 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
     var state: String = ""
     var city: String = ""
     var country: String = ""
-    var country_id: String = ""
+    var countryId: String = ""
 
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mPlaceArrayAdapter: PlaceArrayAdapter? = null
     private var mStatesList: List<State?>? = null
-    var filter: AutocompleteFilter? = null
+    private var filter: AutocompleteFilter? = null
 
     private var mCountryList: List<CountryPojoArray?>? = null
 
@@ -88,8 +85,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             }
         }
 
-        val spCountry1_SignUpProfLay = view.findViewById(R.id.spCountry1_SignUpProfLay) as Spinner
-        spCountry1_SignUpProfLay.onItemSelectedListener =
+        val spcountry1Signupproflay = view.findViewById(R.id.spCountry1_SignUpProfLay) as Spinner
+        spcountry1Signupproflay.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
@@ -99,12 +96,12 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 ) {
                     when {
                         mCountryList != null -> {
-                            if (spCountry1_SignUpProfLay.selectedItem.toString() != context?.resources?.getString(
+                            if (spcountry1Signupproflay.selectedItem.toString() != context?.resources?.getString(
                                     R.string.india
                                 )
                             ) {
-                                country_id = mCountryList!![position]!!.phonecode.toString()
-                                country = spCountry1_SignUpProfLay.selectedItem.toString()
+                                countryId = mCountryList!![position]!!.phonecode.toString()
+                                country = spcountry1Signupproflay.selectedItem.toString()
                             }
                         }
                     }
@@ -130,16 +127,16 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                 view.personalDetailsLastName.text.toString().trim().isEmpty() -> {
                     showErrorMsg(resources.getString(R.string.please_enter_last_name))
                 }
-                view.personalDetailsLastDOB.text.toString().trim().isEmpty() -> {
+                view.personalDetailsDOB1.text.toString().trim().isEmpty() -> {
                     showErrorMsg(resources.getString(R.string.select_your_dob))
                 }
-                ageCalculator(view.personalDetailsLastDOB.text.toString()) < 13 -> {
+                ageCalculator(view.personalDetailsDOB1.text.toString()) < 13 -> {
                     showErrorMsg(resources.getString(R.string.age_must_be_greater_than))
                 }
                 country.trim().isEmpty() -> {
                     showErrorMsg(resources.getString(R.string.select_your_country))
                 }
-                country.equals(context?.resources?.getString(R.string.india)) -> {
+                country == context?.resources?.getString(R.string.india) -> {
                     showErrorMsg(resources.getString(R.string.select_your_country))
                 }
                 else -> {
@@ -156,17 +153,14 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.STREET, ""
-//                        view.etStreet_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.SUITE, ""
-//                        view.etAreaName_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.CITY, ""
-//                        view.etBlock_SignUpProfLay.text.toString().trim()
                     )
                     SharedPreferencesHelper.putString(
                         this.context!!,
@@ -192,13 +186,13 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
                     SharedPreferencesHelper.putString(
                         this.context!!,
                         Constants.SharedPrefs.User.USER_COUNTRY_ID,
-                        country_id
+                        countryId
                     )
                     displayAlertDialog()
                 }
             }
         }
-        view.personalDetailsLastDOB.setOnClickListener()
+        view.personalDetailsDOB1.setOnClickListener()
         {
             val cal = Calendar.getInstance()
             val startDateYear = cal.get(Calendar.YEAR)
@@ -208,10 +202,10 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             val dpd_startdate = DatePickerDialog(
                 this.context!!,
                 R.style.CalendarThemeOne,
-                { v, myear, mmonth, mdayOfMonth ->
+                { _, myear, mmonth, mdayOfMonth ->
                     val month = mmonth + 1
 
-                    view.personalDetailsLastDOB.text =
+                    view.personalDetailsDOB1.text =
                         "$month-$mdayOfMonth-$myear"//"$myear-$month-$mdayOfMonth"
                     SharedPreferencesHelper.putString(
                         this.context!!,
@@ -345,11 +339,10 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
         val age = diff1.years
         val months = diff1.months
         val days = diff1.days
-        Log.d("age", "$age $months $days")
         return age
     }
 
-    var addressType = "1"
+    private var addressType = "1"
 
     private fun openAddressTypePopUp() {
         val dialog = Dialog(context!!, android.R.style.Theme_Translucent_NoTitleBar)
@@ -370,45 +363,49 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             dialog.findViewById(R.id.ivClose_AddressPopUp)
         val btnContinue_AddressPopUp: AppCompatButton =
             dialog.findViewById(R.id.btnContinue_AddressPopUp)
-        rg_AddressTypePopUp.setOnCheckedChangeListener { group: RadioGroup?, checkedId: Int ->
-            if (checkedId == R.id.rbHouse_AddressTypePopUp) {
-                etBuildingNo_SignUpProfLay.setText("")
-                etFloorNo_SignUpProfLay.setText("")
-                etAptOffNo_SignUpProfLay.setText("")
-                etAvenue_SignUpProfLay.setText("")
-                addressType = "1"
-                tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.house)
-                etBuildingNo_SignUpProfLay.hint = context!!.resources.getString(R.string.house_no)
-                etFloorNo_SignUpProfLay.visibility = View.GONE
-                etAptOffNo_SignUpProfLay.visibility = View.GONE
-            } else if (checkedId == R.id.rbApartment_AddressTypePopUp) {
-                etBuildingNo_SignUpProfLay.setText("")
-                etFloorNo_SignUpProfLay.setText("")
-                etAptOffNo_SignUpProfLay.setText("")
-                etAvenue_SignUpProfLay.setText("")
-                addressType = "2"
-                tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.apartment)
-                etBuildingNo_SignUpProfLay.hint =
-                    context!!.resources.getString(R.string.building_no)
-                etAptOffNo_SignUpProfLay.hint = context!!.resources.getString(R.string.apartment)
-                etFloorNo_SignUpProfLay.visibility = View.VISIBLE
-                etAptOffNo_SignUpProfLay.visibility = View.VISIBLE
-            } else if (checkedId == R.id.rbOffice_AddressTypePopUp) {
-                etBuildingNo_SignUpProfLay.setText("")
-                etFloorNo_SignUpProfLay.setText("")
-                etAptOffNo_SignUpProfLay.setText("")
-                etAvenue_SignUpProfLay.setText("")
-                addressType = "3"
-                tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.office)
-                etBuildingNo_SignUpProfLay.hint =
-                    context!!.resources.getString(R.string.building_no)
-                etAptOffNo_SignUpProfLay.hint = context!!.resources.getString(R.string.office_no)
-                etFloorNo_SignUpProfLay.visibility = View.VISIBLE
-                etAptOffNo_SignUpProfLay.visibility = View.VISIBLE
+        rg_AddressTypePopUp.setOnCheckedChangeListener { _: RadioGroup?, checkedId: Int ->
+            when (checkedId) {
+                R.id.rbHouse_AddressTypePopUp -> {
+                    etBuildingNo_SignUpProfLay.setText("")
+                    etFloorNo_SignUpProfLay.setText("")
+                    etAptOffNo_SignUpProfLay.setText("")
+                    etAvenue_SignUpProfLay.setText("")
+                    addressType = "1"
+                    tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.house)
+                    etBuildingNo_SignUpProfLay.hint = context!!.resources.getString(R.string.house_no)
+                    etFloorNo_SignUpProfLay.visibility = View.GONE
+                    etAptOffNo_SignUpProfLay.visibility = View.GONE
+                }
+                R.id.rbApartment_AddressTypePopUp -> {
+                    etBuildingNo_SignUpProfLay.setText("")
+                    etFloorNo_SignUpProfLay.setText("")
+                    etAptOffNo_SignUpProfLay.setText("")
+                    etAvenue_SignUpProfLay.setText("")
+                    addressType = "2"
+                    tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.apartment)
+                    etBuildingNo_SignUpProfLay.hint =
+                        context!!.resources.getString(R.string.building_no)
+                    etAptOffNo_SignUpProfLay.hint = context!!.resources.getString(R.string.apartment)
+                    etFloorNo_SignUpProfLay.visibility = View.VISIBLE
+                    etAptOffNo_SignUpProfLay.visibility = View.VISIBLE
+                }
+                R.id.rbOffice_AddressTypePopUp -> {
+                    etBuildingNo_SignUpProfLay.setText("")
+                    etFloorNo_SignUpProfLay.setText("")
+                    etAptOffNo_SignUpProfLay.setText("")
+                    etAvenue_SignUpProfLay.setText("")
+                    addressType = "3"
+                    tvAddressType_SignUpProfLay.text = context!!.resources.getString(R.string.office)
+                    etBuildingNo_SignUpProfLay.hint =
+                        context!!.resources.getString(R.string.building_no)
+                    etAptOffNo_SignUpProfLay.hint = context!!.resources.getString(R.string.office_no)
+                    etFloorNo_SignUpProfLay.visibility = View.VISIBLE
+                    etAptOffNo_SignUpProfLay.visibility = View.VISIBLE
+                }
             }
         }
-        ivClose_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
-        btnContinue_AddressPopUp.setOnClickListener { v: View? -> dialog.dismiss() }
+        ivClose_AddressPopUp.setOnClickListener { dialog.dismiss() }
+        btnContinue_AddressPopUp.setOnClickListener { dialog.dismiss() }
         dialog.show()
     }
 
@@ -443,22 +440,22 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             WindowManager.LayoutParams.MATCH_PARENT
         )
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        val tv1_GovernoratePopUp =
+        val tv1Governoratepopup =
             dialog.findViewById<AppCompatTextView>(R.id.tv1_GovernoratePopUp)
-        val tv2_GovernoratePopUp =
+        val tv2Governoratepopup =
             dialog.findViewById<AppCompatTextView>(R.id.tv2_GovernoratePopUp)
-        val tv3_GovernoratePopUp =
+        val tv3Governoratepopup =
             dialog.findViewById<AppCompatTextView>(R.id.tv3_GovernoratePopUp)
-        val tv4_GovernoratePopUp =
+        val tv4Governoratepopup =
             dialog.findViewById<AppCompatTextView>(R.id.tv4_GovernoratePopUp)
-        val tv5_GovernoratePopUp =
+        val tv5Governoratepopup =
             dialog.findViewById<AppCompatTextView>(R.id.tv5_GovernoratePopUp)
-        val tv6_GovernoratePopUp =
+        val tv6Governoratepopup =
             dialog.findViewById<AppCompatTextView>(R.id.tv6_GovernoratePopUp)
-        val ivClose_GovernoratePopUp: AppCompatImageView =
+        val ivcloseGovernoratepopup: AppCompatImageView =
             dialog.findViewById(R.id.ivClose_GovernoratePopUp)
-        tv1_GovernoratePopUp.setOnClickListener { v: View? ->
-            view?.etGovernorate_SignUpProfLay?.text = tv1_GovernoratePopUp.text.toString()
+        tv1Governoratepopup.setOnClickListener {
+            view?.etGovernorate_SignUpProfLay?.text = tv1Governoratepopup.text.toString()
             SharedPreferencesHelper.putString(
                 activity,
                 Constants.SharedPrefs.User.STATE,
@@ -466,8 +463,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             )
             dialog.dismiss()
         }
-        tv2_GovernoratePopUp.setOnClickListener { v: View? ->
-            view?.etGovernorate_SignUpProfLay?.text = tv2_GovernoratePopUp.text.toString()
+        tv2Governoratepopup.setOnClickListener {
+            view?.etGovernorate_SignUpProfLay?.text = tv2Governoratepopup.text.toString()
             SharedPreferencesHelper.putString(
                 activity,
                 Constants.SharedPrefs.User.STATE,
@@ -475,8 +472,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             )
             dialog.dismiss()
         }
-        tv3_GovernoratePopUp.setOnClickListener { v: View? ->
-            view?.etGovernorate_SignUpProfLay?.text = tv3_GovernoratePopUp.text.toString()
+        tv3Governoratepopup.setOnClickListener {
+            view?.etGovernorate_SignUpProfLay?.text = tv3Governoratepopup.text.toString()
             SharedPreferencesHelper.putString(
                 activity,
                 Constants.SharedPrefs.User.STATE,
@@ -484,8 +481,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             )
             dialog.dismiss()
         }
-        tv4_GovernoratePopUp.setOnClickListener { v: View? ->
-            view?.etGovernorate_SignUpProfLay?.text = tv4_GovernoratePopUp.text.toString()
+        tv4Governoratepopup.setOnClickListener {
+            view?.etGovernorate_SignUpProfLay?.text = tv4Governoratepopup.text.toString()
             SharedPreferencesHelper.putString(
                 activity,
                 Constants.SharedPrefs.User.STATE,
@@ -493,8 +490,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             )
             dialog.dismiss()
         }
-        tv5_GovernoratePopUp.setOnClickListener { v: View? ->
-            view?.etGovernorate_SignUpProfLay?.text = tv5_GovernoratePopUp.text.toString()
+        tv5Governoratepopup.setOnClickListener {
+            view?.etGovernorate_SignUpProfLay?.text = tv5Governoratepopup.text.toString()
             SharedPreferencesHelper.putString(
                 activity,
                 Constants.SharedPrefs.User.STATE,
@@ -502,8 +499,8 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             )
             dialog.dismiss()
         }
-        tv6_GovernoratePopUp.setOnClickListener { v: View? ->
-            view?.etGovernorate_SignUpProfLay?.text = tv6_GovernoratePopUp.text.toString()
+        tv6Governoratepopup.setOnClickListener {
+            view?.etGovernorate_SignUpProfLay?.text = tv6Governoratepopup.text.toString()
             SharedPreferencesHelper.putString(
                 activity,
                 Constants.SharedPrefs.User.STATE,
@@ -511,7 +508,7 @@ class SignupDetailsFragment : Fragment(), GoogleApiClient.OnConnectionFailedList
             )
             dialog.dismiss()
         }
-        ivClose_GovernoratePopUp.setOnClickListener { v: View? ->
+        ivcloseGovernoratepopup.setOnClickListener {
             dialog.dismiss()
         }
         dialog.show()

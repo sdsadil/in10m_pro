@@ -6,6 +6,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Html
 import android.text.TextUtils
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -13,6 +15,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatEditText
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.in10mServiceMan.R
 import com.in10mServiceMan.models.CustomerCompleteProfile
@@ -25,6 +28,7 @@ import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.utils.Constants
 import com.in10mServiceMan.utils.SharedPreferencesHelper
 import com.in10mServiceMan.utils.localStorage
+import kotlinx.android.synthetic.main.activity_company_pros_details.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -48,7 +52,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
             SharedPreferencesHelper.putString(this, Constants.SharedPrefs.User.ACCOUNT_TYPE, "1")
             SharedPreferencesHelper.putInt(this, Constants.SharedPrefs.User.PERSON_TYPE, 2)
             startActivity(Intent(this, AvailableServices::class.java))
-            overridePendingTransition(0,0)
+            overridePendingTransition(0, 0)
         }
         tvChooseLang_LoginLay.setOnClickListener {
             languageChangeDialogView()
@@ -64,6 +68,21 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                     usernameLoginET.text.toString(),
                     passwordLoginET.text.toString()
                 )
+            }
+        }
+
+        ivTogglePswd_LoginLay.setOnClickListener {
+            if (passwordLoginET.transformationMethod
+                    .equals(PasswordTransformationMethod.getInstance())
+            ) {
+                Glide.with(this).load(R.drawable.ic_password_hide).into(ivTogglePswd_LoginLay)
+                passwordLoginET.transformationMethod =
+                    HideReturnsTransformationMethod.getInstance()
+            } else {
+                Glide.with(this).load(R.drawable.ic_password_show).into(ivTogglePswd_LoginLay)
+                passwordLoginET.transformationMethod =
+                    PasswordTransformationMethod.getInstance()
+
             }
         }
     }
@@ -111,7 +130,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "1")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     2 -> {
                         startActivity(
@@ -120,7 +139,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "2")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     3 -> {
                         startActivity(
@@ -129,12 +148,12 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "3")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                 }
             } else if (user == 3) {
@@ -147,7 +166,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "1")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     2 -> {
                         startActivity(
@@ -156,7 +175,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "2")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     3 -> {
                         startActivity(
@@ -165,12 +184,12 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 CompanySignupActivity::class.java
                             ).putExtra("step", "3")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                 }
             } else {
@@ -182,7 +201,7 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 SignUpActivity::class.java
                             ).putExtra("step", "1")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     2 -> {
                         startActivity(
@@ -191,18 +210,18 @@ class LoginActivity : In10mBaseActivity(), ILoginView {
                                 SignUpActivity::class.java
                             ).putExtra("step", "2")
                         )
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                     3 -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                         //startActivity(Intent(this@LoginActivity, SignUpActivity::class.java).putExtra("step", "3"))
                     }
                     else -> {
                         localStorage(this).saveCompleteCustomer(metaData.data)
                         startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
-                        overridePendingTransition(0,0)
+                        overridePendingTransition(0, 0)
                     }
                 }
             }

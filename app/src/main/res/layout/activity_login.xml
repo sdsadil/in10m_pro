@@ -48,7 +48,7 @@
     <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
         android:id="@+id/usernameLoginET"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/_45sdp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="@dimen/_200sdp"
         android:layout_marginEnd="38dp"
@@ -71,24 +71,45 @@
         app:layout_constraintTop_toTopOf="parent" />
     <!--</com.google.android.material.textfield.TextInputLayout>-->
 
-    <!--<com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordLoginTIL"
+    <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
+        android:id="@+id/passwordLoginET"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_45sdp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="38dp"
         android:background="@color/colorLight"
-        android:paddingStart="10dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="24dp"
-        android:paddingBottom="4dp"
-        android:theme="@style/EditTextHint"
+        android:gravity="center|start"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:longClickable="false"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingTop="10dp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingBottom="10dp"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textAppearance="@style/EditTextHint"
+        android:textCursorDrawable="@null"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/usernameLoginET"
         app:layout_constraintStart_toStartOf="@+id/usernameLoginET"
-        app:layout_constraintTop_toBottomOf="@+id/usernameLoginET">-->
+        app:layout_constraintTop_toBottomOf="@+id/usernameLoginET" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivTogglePswd_LoginLay"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_password_show"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordLoginET"
+        app:layout_constraintEnd_toEndOf="@+id/passwordLoginET"
+        app:layout_constraintTop_toTopOf="@+id/passwordLoginET" />
+
+    <!--<com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPasswordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,7 +125,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="38dp"
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="38dp"
             android:background="@color/colorLight"
             android:gravity="center|start"
@@ -118,7 +138,7 @@
             android:textCursorDrawable="@null"
             android:textSize="14sp"
             app:fontFamily="@font/unineuebook" />
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>-->
 
     <LinearLayout
         android:id="@+id/loginClickLL"
@@ -131,7 +151,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@id/usernameLoginET"
         app:layout_constraintStart_toStartOf="@+id/usernameLoginET"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordLayout">
+        app:layout_constraintTop_toBottomOf="@+id/passwordLoginET">
 
         <ImageView
             android:layout_width="14dp"

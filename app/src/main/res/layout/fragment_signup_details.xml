@@ -9,14 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/signUpPhaseDetailsOkTickIV"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
-            android:src="@drawable/darktickbubble"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/personalDetailsHeader"
@@ -76,7 +68,6 @@
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsDOB1" />
 
-
         <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/personalDetailsFirstName"
             android:layout_width="match_parent"
@@ -96,7 +87,6 @@
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsLegal" />
@@ -119,12 +109,12 @@
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsFirstName" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/personalDetailsDOB1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -132,10 +122,30 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@color/colorLight"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
+            android:drawablePadding="@dimen/_10sdp"
+            android:gravity="center|start"
+            android:hint="@string/date_of_birth_caps"
+            android:inputType="text"
             android:paddingStart="10dp"
             android:paddingTop="8dp"
             android:paddingEnd="10dp"
             android:paddingBottom="4dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsdob" />
+
+        <!--<com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/personalDetailsDOB1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@color/colorLight"
             android:theme="@style/CalendarTheme"
             app:hintTextAppearance="@style/EditTextHint"
             app:layout_constraintEnd_toEndOf="parent"
@@ -145,12 +155,11 @@
             <com.in10mServiceMan.widgets.textview.CustomBookTextView
                 android:id="@+id/personalDetailsLastDOB"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/colorLight"
                 android:drawableEnd="@drawable/ic_arrow_drop_down"
                 android:gravity="center|start"
                 android:hint="@string/date_of_birth_caps"
-                android:paddingTop="10dp"
                 android:paddingBottom="4dp"
                 android:textAlignment="viewStart"
                 android:textAllCaps="true"
@@ -159,69 +168,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv11" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/personalDetailsCompanyTIL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorLight"
-            android:paddingStart="@dimen/personaldetail_frag_field_padding"
-            android:paddingTop="8dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="4dp"
-            android:theme="@style/EditTextHint"
-            android:visibility="gone"
-            app:hintTextAppearance="@style/EditTextHint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyDetailsTV">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/personalDetailsCompanyET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorLight"
-                android:hint="Company Name"
-                android:inputType="date"
-                android:paddingTop="4dp"
-                android:paddingBottom="8dp"
-                android:textAllCaps="true"
-                android:textColorHint="@color/colorPrimary"
-                android:textSize="15sp"
-                app:fontFamily="@font/unineuebook"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv11" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-            android:id="@+id/etAreaName_SignUpProfLay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:background="@color/colorLight"
-            android:gravity="center|start"
-            android:hint="@string/area_name"
-            android:inputType="text"
-            android:paddingStart="10dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="4dp"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textColor"
-            android:textSize="15sp"
-            android:theme="@style/EditTextHint"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
+        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/tvAddressType_SignUpProfLay"
@@ -246,57 +193,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etAreaName_SignUpProfLay" />
-
-        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-            android:id="@+id/etBlock_SignUpProfLay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:background="@color/colorLight"
-            android:drawablePadding="@dimen/_10sdp"
-            android:gravity="center|start"
-            android:hint="@string/block"
-            android:inputType="number"
-            android:paddingStart="10dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="4dp"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textColor"
-            android:textSize="14sp"
-            android:theme="@style/EditTextHint"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddressType_SignUpProfLay" />
-
-        <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
-            android:id="@+id/etStreet_SignUpProfLay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:background="@color/colorLight"
-            android:drawablePadding="@dimen/_10sdp"
-            android:gravity="center|start"
-            android:hint="@string/street"
-            android:inputType="text"
-            android:paddingStart="10dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="4dp"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textColor"
-            android:textSize="14sp"
-            android:theme="@style/EditTextHint"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etBlock_SignUpProfLay" />
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
 
         <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/etBuildingNo_SignUpProfLay"
@@ -317,11 +214,11 @@
             android:textAlignment="viewStart"
             android:textColor="@color/textColor"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etStreet_SignUpProfLay" />
+            app:layout_constraintTop_toBottomOf="@+id/tvAddressType_SignUpProfLay" />
 
         <com.in10mServiceMan.widgets.edittext.CustomBookEditTextView
             android:id="@+id/etAvenue_SignUpProfLay"
@@ -342,7 +239,7 @@
             android:textAlignment="viewStart"
             android:textColor="@color/textColor"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -367,7 +264,7 @@
             android:textAlignment="viewStart"
             android:textColor="@color/textColor"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -392,7 +289,7 @@
             android:textAlignment="viewStart"
             android:textColor="@color/textColor"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -407,7 +304,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/personalDetailsDOB1"
-            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyTIL" />
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsCompanyDetailsTV" />
 
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/etGovernorate_SignUpProfLay"
@@ -431,7 +328,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etAptOffNo_SignUpProfLay" />
+            app:layout_constraintTop_toBottomOf="@+id/personalDetailsHomeAddress" />
 
         <com.in10mServiceMan.widgets.textview.CustomRegularTextView
             android:id="@+id/tvTitleCountry_SignUpProfLay"
@@ -459,7 +356,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleCountry_SignUpProfLay" />
 
-
         <com.in10mServiceMan.widgets.textview.CustomBookTextView
             android:id="@+id/tvTitleCountry1_SignUpProfLay"
             android:layout_width="match_parent"
@@ -473,7 +369,6 @@
             android:gravity="center|start"
             android:hint="@string/india"
             android:inputType="text"
-            android:visibility="gone"
             android:paddingStart="10dp"
             android:paddingTop="8dp"
             android:paddingEnd="10dp"
@@ -481,6 +376,7 @@
             android:textAlignment="viewStart"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleCountry_SignUpProfLay" />
@@ -501,7 +397,7 @@
             android:paddingBottom="4dp"
             android:textAllCaps="true"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -523,7 +419,7 @@
             android:paddingBottom="4dp"
             android:textAllCaps="true"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -545,7 +441,7 @@
             android:paddingBottom="4dp"
             android:textAllCaps="true"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -568,7 +464,7 @@
             android:paddingBottom="4dp"
             android:textAllCaps="true"
             android:textSize="14sp"
-            android:theme="@style/EditTextHint"
+
             android:visibility="gone"
             app:fontFamily="@font/unineuebook"
             app:layout_constraintEnd_toEndOf="parent"
@@ -590,6 +486,14 @@
             app:layout_constraintTop_toBottomOf="@+id/personalDetailsStreetAddress"
             tools:ignore="RtlSymmetry" />
 
+        <ImageView
+            android:id="@+id/signUpPhaseDetailsOkTickIV"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:src="@drawable/darktickbubble"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
