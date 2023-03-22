@@ -2,17 +2,10 @@ package com.in10mServiceMan.ui.activities;
 
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in10mServiceMan.R;
-
-import java.util.List;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import com.in10mServiceMan.ui.base.In10mBaseActivity;
 import com.sinch.android.rtc.AudioController;
 import com.sinch.android.rtc.PushPair;
@@ -20,6 +13,11 @@ import com.sinch.android.rtc.calling.Call;
 import com.sinch.android.rtc.calling.CallEndCause;
 import com.sinch.android.rtc.calling.CallListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,10 +39,9 @@ public class CallScreenActivity extends In10mBaseActivity {
     private String customername = "";
 
     private class UpdateCallDurationTask extends TimerTask {
-
         @Override
         public void run() {
-            CallScreenActivity.this.runOnUiThread(() -> updateCallDuration());
+            CallScreenActivity.this.runOnUiThread(CallScreenActivity.this::updateCallDuration);
         }
     }
 
@@ -52,19 +49,23 @@ public class CallScreenActivity extends In10mBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_screen);
-        mAudioPlayer = new AudioPlayer(this);
+        try {
+            mAudioPlayer = new AudioPlayer(this);
 
-        mCallDuration = (TextView) findViewById(R.id.callDuration);
-        mCallerName = (TextView) findViewById(R.id.callerName);
-        // mCallState = (TextView) findViewById(R.id.callState);
-        ImageView endCallButton = (ImageView) findViewById(R.id.endCallIV);
+            mCallDuration = (TextView) findViewById(R.id.callDuration);
+            mCallerName = (TextView) findViewById(R.id.callerName);
+            // mCallState = (TextView) findViewById(R.id.callState);
+            ImageView endCallButton = (ImageView) findViewById(R.id.endCallIV);
 
 
-        endCallButton.setOnClickListener(v -> endCall());
+            endCallButton.setOnClickListener(v -> endCall());
 
-        mCallId = getIntent().getStringExtra(SinchService.CALL_ID);
-        mProfilePic = getIntent().getStringExtra("profile_image");
-        customername = getIntent().getStringExtra("customer_name");
+            mCallId = getIntent().getStringExtra(SinchService.CALL_ID);
+            mProfilePic = getIntent().getStringExtra("profile_image");
+            customername = getIntent().getStringExtra("customer_name");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -73,20 +74,14 @@ public class CallScreenActivity extends In10mBaseActivity {
         if (call != null) {
             call.addCallListener(new SinchCallListener());
             String cid = call.getRemoteUserId();
-            Log.i("eeeCallID", cid);
             String[] callerId = cid.split("-");
             /*mCallerName.setText(callerId[0]);*/
             mCallerName.setText(customername);
 
             CircleImageView serviceManIVR = (CircleImageView) findViewById(R.id.serviceManIVR);
-//            if (callerId.length > 1)
-//                Picasso.get().load(UserImage + callerId[1]).placeholder(R.drawable.dummy_user).fit().into(serviceManIVR);
             if (mProfilePic != null)
                 Picasso.get().load(mProfilePic).error(R.drawable.user_dummy_avatar).placeholder(R.drawable.user_dummy_avatar).into(serviceManIVR);
-
-            // mCallState.setText(call.getState().toString());
         } else {
-            Log.e(TAG, "Started with invalid callId, aborting.");
             finish();
         }
     }
@@ -140,7 +135,6 @@ public class CallScreenActivity extends In10mBaseActivity {
         @Override
         public void onCallEnded(Call call) {
             CallEndCause cause = call.getDetails().getEndCause();
-            Log.d(TAG, "Call ended. Reason: " + cause.toString());
             mAudioPlayer.stopProgressTone();
             setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
             String endMsg = "Call ended: " + call.getDetails().toString();
@@ -150,7 +144,6 @@ public class CallScreenActivity extends In10mBaseActivity {
 
         @Override
         public void onCallEstablished(Call call) {
-            Log.d(TAG, "Call established");
             mAudioPlayer.stopProgressTone();
             // mCallState.setText(call.getState().toString());
             setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
@@ -160,7 +153,6 @@ public class CallScreenActivity extends In10mBaseActivity {
 
         @Override
         public void onCallProgressing(Call call) {
-            Log.d(TAG, "Call progressing");
             mAudioPlayer.playProgressTone();
         }
 

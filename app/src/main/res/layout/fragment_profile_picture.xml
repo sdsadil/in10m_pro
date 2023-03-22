@@ -78,6 +78,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewLine" />
 
+        <com.in10mServiceMan.widgets.textview.CustomRegularTextView
+            android:id="@+id/tvconfirmCivilId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="38dp"
+            android:text="@string/this_wont_be_seen_by_other_users_and_for_confirming_indentity_only"
+            android:textColor="@color/danger"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCivilId" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clCivilFront"
             android:layout_width="match_parent"
@@ -86,7 +100,7 @@
             android:layout_marginEnd="38dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCivilId">
+            app:layout_constraintTop_toBottomOf="@+id/tvconfirmCivilId">
 
             <com.in10mServiceMan.widgets.textview.CustomRegularTextView
                 android:id="@+id/tvFrontCivil"
@@ -104,8 +118,8 @@
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:scaleType="fitCenter"
                 android:padding="@dimen/_5sdp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/id_card_placeholder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,8 +141,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="38dp"
-            android:layout_marginEnd="38dp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="38dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clCivilFront">
@@ -149,12 +163,12 @@
                 android:layout_width="@dimen/_125sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:scaleType="fitCenter"
                 android:padding="@dimen/_5sdp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/id_card_placeholder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivBackCivilIDcamera"

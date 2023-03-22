@@ -37,7 +37,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87cb163dce3fca515ae33495b9a1213f/constraintlayout-2.0.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d4d7f733799fa8d956aa434544dc2ad9/jetified-appintro-v4.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/65c0d8f5171362a3ddfc5a537dc624dc/jetified-simplearcloader-1.0.3-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70b357d40ef7acbca096ea982009b687/jetified-OneSignal-4.8.4-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dbfe4fc1f98707278ccb6847c937c972/jetified-OneSignal-4.8.5-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2e24eab59d582a5ec3d13866fe986d7c/jetified-swipe-button-0.8.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/66e1c95b5473c9eeeb4c50369cbc730e/jetified-IndicatorView-1.25-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-2/files-2.1/42a7fc693bd4a783afe4e1565db31d94/jetified-mapbox-android-navigation-0.42.6-api.jar</arg>
@@ -319,7 +319,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.constraintlayout:constraintlayout:2.0.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.apl-devs:appintro:v4.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.leo.simplearcloader:simplearcloader:1.0.3@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.onesignal:OneSignal:4.8.4@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.onesignal:OneSignal:4.8.5@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.ebanx:swipe-button:0.8.3@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.Kshitij-Jain:IndicatorView:1.25@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.mapbox.mapboxsdk:mapbox-android-navigation:0.42.6@aar" level="project" />

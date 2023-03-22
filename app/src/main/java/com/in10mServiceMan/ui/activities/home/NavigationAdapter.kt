@@ -45,6 +45,11 @@ class NavigationAdapter(val context: Context, var navigationCallbacks: Navigatio
         if (userType == 2) {
             holder.itemView.navtitleTV?.text =
                 context.resources.getStringArray(R.array.nav_titles)[position]
+            if (position == 2) {
+                holder.itemView.navtitleTV.setTextColor(context.resources.getColor(R.color.danger))
+            } else {
+                holder.itemView.navtitleTV.setTextColor(context.resources.getColor(R.color.colorAccent))
+            }
         } else if (userType == 3) {
             holder.itemView.navtitleTV?.text =
                 context.resources.getStringArray(R.array.nav_title)[position]

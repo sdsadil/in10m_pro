@@ -15,6 +15,7 @@
     <string name="service_history">Service History</string>
     <string name="my_bookings">أوامر العمل الخاصة بي</string>
     <string name="my_earnings">تحصيلاتي</string>
+    <string name="pay_subcrption">اشتراك الدفع</string>
     <string name="about">عن التطبيق</string>
     <string name="privacy">سياسة الخصوصية</string>
     <string name="contact">اتصل بنا</string>
@@ -479,10 +480,12 @@
     <string name="click_when_work_is_finish">تم إنجاز العمل</string>
     <string name="send_invoice">أرسل الفاتورة</string>
     <string name="waiting_for_the_customer">في انتظار الزبون</string>
-    <string name="enter_your_review_here">Enter your review here</string>
-    <string name="my_work">My Works</string>
-    <string name="add_your_portfolio">Add your works</string>
-    <string name="add_civil_id_picture">Add Civil ID picture</string>
-    <string name="front">Front</string>
-    <string name="back">Back</string>
+    <string name="enter_your_review_here">أدخل رأيك هنا</string>
+    <string name="my_work">أعمالي</string>
+    <string name="add_your_portfolio">أضف أعمالك</string>
+    <string name="add_civil_id_picture">إضافة صورة البطاقة المدنية</string>
+    <string name="front">أمام</string>
+    <string name="back">خلف</string>
+    <string name="this_wont_be_seen_by_other_users_and_for_confirming_indentity_only">صور البطاقة سرية لن يتمكن المستخدمين من
+مشاهدتها هي للتحقق من هوية المستخدم فقط</string>
 </resources>

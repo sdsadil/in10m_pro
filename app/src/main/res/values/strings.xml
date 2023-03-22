@@ -20,7 +20,8 @@
     <string name="company_pros">Company Pros</string>
     <string name="service_history">Service History</string>
     <string name="my_bookings">My Orders</string>
-    <string name="my_earnings">Earnings</string>M
+    <string name="my_earnings">Earnings</string>
+    <string name="pay_subcrption">Pay Subscription</string>
     <string name="about">About the app</string>
     <string name="privacy">Privacy &amp; Policy</string>
     <string name="contact">Contact us</string>
@@ -55,7 +56,7 @@
     <string-array name="nav_titles">
         <item>@string/my_account</item>
         <item>@string/my_bookings</item>
-        <item>@string/my_earnings</item>
+        <item>@string/pay_subcrption</item>
         <item>@string/about</item>
         <item>@string/privacy</item>
         <item>@string/contact</item>
@@ -67,7 +68,7 @@
         <item>@string/my_account</item>
         <item>@string/company_pros</item>
         <item>@string/my_bookings</item>
-        <item>@string/my_earnings</item>
+        <item>@string/pay_subcrption</item>
         <item>@string/about</item>
         <item>@string/privacy</item>
         <item>@string/contact</item>
@@ -513,4 +514,5 @@
     <string name="add_civil_id_picture">Add Civil ID picture</string>
     <string name="front">Front</string>
     <string name="back">Back</string>
+    <string name="this_wont_be_seen_by_other_users_and_for_confirming_indentity_only">This wont be seen by other users and for confirming indentity only</string>
 </resources>

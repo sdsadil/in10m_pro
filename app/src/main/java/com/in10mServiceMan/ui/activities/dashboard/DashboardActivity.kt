@@ -11,7 +11,6 @@ import android.graphics.drawable.ColorDrawable
 import android.location.Location
 import android.media.MediaPlayer
 import android.os.*
-import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -41,7 +40,6 @@ import com.in10mServiceMan.ui.activities.SinchService
 import com.in10mServiceMan.ui.activities.about.AboutActivity
 import com.in10mServiceMan.ui.activities.company_pros.CompanyPros
 import com.in10mServiceMan.ui.activities.contact_us.ContactUs
-import com.in10mServiceMan.ui.activities.earnings.EarningsActivity
 import com.in10mServiceMan.ui.activities.home.NavigationAdapter
 import com.in10mServiceMan.ui.activities.my_bookings.service_history.ServiceHistoryActivity
 import com.in10mServiceMan.ui.activities.payment.PaymentInitilizeResponse
@@ -115,13 +113,13 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     var mCurrLocationMarker: Marker? = null
     private var destinationMarker: Marker? = null
     var map: GoogleMap? = null
-    var map2: GoogleMap? = null
+    private var map2: GoogleMap? = null
 
     /*var serviceManList = Dummy.getServiceManList()*/
     var userLocation = LatLng(29.374009, 47.976461)
     var destinationLocation = LatLng(29.374009, 47.976461)
     var mapss: Mapss? = null
-    val REQUEST_CHECK_SETTINGS = 1
+    private val REQUEST_CHECK_SETTINGS = 1
     var currentStatus = 1
     var userid = 0
     lateinit var mDatabase: DatabaseReference//Serviceman node
@@ -138,31 +136,31 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
     private lateinit var locationCallback: LocationCallback
     var freezCurrentLocation = false
     var dbUpdated = false
-    internal lateinit var buttonHandler: BackButtonHandler
-    var showingDashBoard = false
+    private lateinit var buttonHandler: BackButtonHandler
+    private var showingDashBoard = false
     var myBookingId: String? = ""
     var customerID: String? = ""
     var serviceId: String? = ""
 
-    lateinit var destinationPosition: Point
-    lateinit var orginPosition: Point
+    private lateinit var destinationPosition: Point
+    private lateinit var orginPosition: Point
     private var currentRoute: DirectionsRoute? = null
-    val completeProfilePresenter = CompleteProfilePresenter(this)
+    private val completeProfilePresenter = CompleteProfilePresenter(this)
 
     var sec = 0
     var min = 0
     var hr = 0
-    var timer: CountDownTimer? = null
-    var mSavedState: Bundle? = null
-    var canceledByTheUser = false
+    private var timer: CountDownTimer? = null
+    private var mSavedState: Bundle? = null
+    private var canceledByTheUser = false
     var isJobDone = false
     var customerProfile = CompleteProfile()
-    var mAlertDialog: android.app.AlertDialog? = null
+    private var mAlertDialog: android.app.AlertDialog? = null
 
-    lateinit var estimateAcceptKeyRef: DatabaseReference
-    lateinit var estimateAcceptKeyListener: ValueEventListener
+    private lateinit var estimateAcceptKeyRef: DatabaseReference
+    private lateinit var estimateAcceptKeyListener: ValueEventListener
 
-    lateinit var userNameTVM: TextView
+    private lateinit var userNameTVM: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -407,7 +405,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                             try {
                                 stts = request?.status!!.toInt()
                             } catch (ex: java.lang.Exception) {
-
+                                ex.printStackTrace()
                             }
                             when (stts) {
                                 BookingStatus.Customer_Canceled -> {
@@ -610,7 +608,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             }
 
             override fun onCancelled(error: DatabaseError) {
-                error.toException()
+                error.message
             }
 
         })
@@ -685,8 +683,9 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 serviceRequestedTV1.text = request!!.service_name
             }
         }
-        subServiceRequestedTV.text = "Sub service : ${request!!.sub_service_name}"
-        subserviceRequestedTV1.text = "Sub service : ${request!!.sub_service_name}"
+        val cName = "${getString(R.string.sub_service)} ${request!!.sub_service_name}"
+        subServiceRequestedTV.text = cName
+        subserviceRequestedTV1.text = cName
         llCancel_HomeBottomBtn.setTag(R.string.request_id, key.toString())
         llAccept_HomeBottomBtn.setTag(R.string.request_id2, key.toString())
         btnCancel_HomeBottomBtn.text = getString(R.string.reject)
@@ -701,7 +700,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         try {
             serviceID = service_id!!.toInt()
         } catch (ex: Exception) {
-
+            ex.printStackTrace()
         }
         if (serviceID != 0) {
             val callServicProviders = APIClient.getApiInterface().getServiceDetails(serviceID)
@@ -734,9 +733,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
     private fun makeUserFree() {
         mDatabase.child(bookingId.toString()).setValue(null)
-        if (mDatabase.child(bookingId.toString()) != null) {
-            mDatabase.child(bookingId.toString()).removeValue()
-        }
+        mDatabase.child(bookingId.toString()).removeValue()
         request = null
         requestCV.visibility = View.INVISIBLE
         DutyChangeImage.visibility = View.VISIBLE
@@ -818,6 +815,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                                 //  freeEstimate=0
                                 //  estimationFee=5.0
                             } catch (ex: java.lang.Exception) {
+                                ex.printStackTrace()
                             }
                         }
                     }
@@ -1304,7 +1302,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
     }
 
-    fun estimateDb() {
+    private fun estimateDb() {
         val estimateFreeKey = "freeEstimate"
         val estimateFeeKey = "estimationFee"
         val estimateAMTKey = "estimate_amount"
@@ -1441,7 +1439,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val callServiceProviders = APIClient.getApiInterface().updateServiceWorkingStatus(loc)
         callServiceProviders.enqueue(object : Callback<JsonElement> {
             override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
-                Log.e("WorkingStatus", response.body().toString())
             }
 
             override fun onFailure(call: Call<JsonElement>, t: Throwable) {
@@ -1625,7 +1622,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
                 override fun onFailure(call: Call<ReviewsResponse>, t: Throwable) {
                     destroyDialog()
-                    Log.d("error Response", t.localizedMessage)
                 }
             })
         }
@@ -1732,7 +1728,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         fusedLocationClient.removeLocationUpdates(locationCallback)
     }
 
-    internal fun checkLocationServices() {
+    private fun checkLocationServices() {
         val mLocationRequest = LocationRequest.create()
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
             .setInterval((20 * 1000).toLong())
@@ -1938,7 +1934,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                     } else if (response.body()!!.routes().size < 1) {
                         return
                     }
-                    currentRoute = response.body()!!.routes().get(0)
+                    currentRoute = response.body()!!.routes()[0]
 
                     val simulateRoute = false
                     val options = NavigationLauncherOptions.builder()
@@ -1957,7 +1953,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 }
 
                 override fun onFailure(call: Call<DirectionsResponse>, throwable: Throwable) {
-                    Log.e("Error: ", throwable.message + "")
+
                 }
             })
     }
@@ -1994,7 +1990,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             }
 
             override fun onFinish() {
-                Log.d("Timer status", "Completed")
             }
         }.start()
     }
@@ -2046,7 +2041,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             bannerCard_HO.visibility = View.GONE
             ServiceManNameTOP.text =
                 (resources.getString(R.string.hello) + " " + mPost.data.name)
-            userNameTVM.text = mPost.data.name.toString()
+            userNameTVM.text = mPost.data.name
 
             /*when {
                 mPost.data.privacy_policy_accept == 0 -> {
@@ -2102,7 +2097,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
                 callerSelfId = callerSelfId + "-" + user.mobile
             }
 
-            Log.e("MapTrackingActivity", "Sinch Self Id: " + callerSelfId)
 
             if (callerSelfId != sinchServiceInterface.userName) {
                 sinchServiceInterface.stopClient()
@@ -2155,8 +2149,6 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
         val callServiceProviders = APIClient.getApiInterface().saveDeviceId(requestUpdateDeviceUser)
         callServiceProviders.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful)
-                    Log.d("Response from backend", response.body().toString())
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -2276,18 +2268,20 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             }
             builder.show()
         } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
     override fun myEarnings() {
-        slidingRootNav?.closeMenu(true)
-        handler.postDelayed(
-            {
-                startActivity(Intent(this, EarningsActivity::class.java))
-                overridePendingTransition(0, 0)
-            },
-            navigationDelay
-        )
+        //Disabled for Pay Subscription
+        /*slidingRootNav?.closeMenu(true)
+              handler.postDelayed(
+                  {
+                      startActivity(Intent(this, EarningsActivity::class.java))
+                      overridePendingTransition(0, 0)
+                  },
+                  navigationDelay
+              )*/
     }
 
     override fun companyPros() {
@@ -2417,8 +2411,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
 
             override fun onFailure(call: Call<PaymentInitilizeResponse>, t: Throwable) {
                 destroyDialog()
-                t.message?.let { Log.i("eeeERRRO", it) }
-                Log.i("eeeERRRO", t.localizedMessage)
+
             }
         })
     }
@@ -2512,10 +2505,7 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             override fun onChildRemoved(p0: DataSnapshot) {
                 try {
                     val data = p0.getValue(PaymentRequestClass::class.java)
-                    if (data?.booking_Id == bookingId) {
-                        /*mAlertDialog?.cancel()*/
-                        Log.d("remove response", data.booking_Id!!)
-                    }
+
                 } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                 }

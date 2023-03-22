@@ -20,9 +20,14 @@ import kotlinx.android.synthetic.main.booking_list_item.view.*
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 
-class BookingsAdapter(var context: Context, var bookingList: List<ServiceHistoryData>, var v: BookingHistoryInterface) : RecyclerView.Adapter<BookingsAdapter.BookingVH>() {
+class BookingsAdapter(
+    var context: Context,
+    var bookingList: List<ServiceHistoryData>,
+    var v: BookingHistoryInterface,
+) : RecyclerView.Adapter<BookingsAdapter.BookingVH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingVH {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.booking_list_item, parent, false)
+        val v =
+            LayoutInflater.from(parent.context).inflate(R.layout.booking_list_item, parent, false)
         return BookingVH(v)
     }
 
@@ -36,30 +41,34 @@ class BookingsAdapter(var context: Context, var bookingList: List<ServiceHistory
 
         val img = booking.customer_image
         if (img != "")
-            Picasso.get().load(img).placeholder(R.drawable.user_dummy_avatar).fit().into(holder.itemView.serviceManIV)
+            Picasso.get().load(img).placeholder(R.drawable.user_dummy_avatar).fit()
+                .into(holder.itemView.serviceManIV)
         /*holder.itemView.thumbsUpTV.text = booking.customerDetails[0].totalTumbsUp.toString()
         holder.itemView.thumbsDownTV.text = booking.customerDetails[0].totalTumbsDown.toString()*/
 
         //"${booking.services!![0]} - ${getStatusText(booking.serviceStatus!!)}"
-        holder.itemView.workCategoryTV.text = "${booking.services[0]} -"
+        holder.itemView.workCategoryTV.text = "${booking.services[0]}"
         holder.itemView.workStatusTV.text = getStatusText(booking.service_status)
         holder.itemView.textView26.text = mDateFormatConverter(booking.service_date.toString())
-        if (booking.price != 0.0)
-            holder.itemView.textViewTIME.text = ("KD " + doubleFormatter(booking.price))
-        else
-            holder.itemView.textViewTIME.text = context.resources.getString(R.string.kd_0_000)
+        /*   if (booking.price != 0.0)
+             holder.itemView.textViewTIME.text = ("KD " + doubleFormatter(booking.price))
+         else
+             holder.itemView.textViewTIME.text = context.resources.getString(R.string.kd_0_000)
 
         holder.itemView.setOnClickListener {
-            SharedPreferencesHelper.putInt(context, Constants.SharedPrefs.User.COMMON_ID, bookingList[position].booking_id)
-            v.adapterTransaction()
-        }
+              SharedPreferencesHelper.putInt(context, Constants.SharedPrefs.User.COMMON_ID, bookingList[position].booking_id)
+              v.adapterTransaction()
+          }*/
 
         holder.itemView.locationDetailsTV.text = booking.address
 
         val serviceColor = booking.service_color
 
-        val mDrawable = ContextCompat.getDrawable(context, R.drawable.r_circle)!!.constantState!!.newDrawable().mutate()//holder.ImageViewColor.getDrawable();
-        mDrawable.colorFilter = PorterDuffColorFilter(Color.parseColor(serviceColor), PorterDuff.Mode.SRC_IN)
+        val mDrawable =
+            ContextCompat.getDrawable(context, R.drawable.r_circle)!!.constantState!!.newDrawable()
+                .mutate()//holder.ImageViewColor.getDrawable();
+        mDrawable.colorFilter =
+            PorterDuffColorFilter(Color.parseColor(serviceColor), PorterDuff.Mode.SRC_IN)
         holder.itemView.view4.setImageDrawable(mDrawable)
     }
 
