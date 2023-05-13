@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:background="@color/colorAccent"
+   >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCountry"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Extra Help"
+        android:layout_toLeftOf="@+id/tvRight"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+       />
+    <ImageView
+        android:id="@+id/tvRight"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_alignParentTop="true"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:tint="@color/green"
+        android:src="@drawable/ic_check"
+        android:layout_alignParentEnd="true"
+        tools:ignore="UseAppTint" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lineBg"
+        android:layout_below="@+id/tvCountry"></View>
+
+
+</RelativeLayout>
