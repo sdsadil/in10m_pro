@@ -18,7 +18,7 @@ import com.in10mServiceMan.models.CustomerCompleteProfileAfterUpdate;
 import com.in10mServiceMan.models.RequestUpdateServiceMan;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.BackButtonHandler;
-import com.in10mServiceMan.ui.apis.AmazonUploadTask;
+//import com.in10mServiceMan.ui.apis.AmazonUploadTask;
 import com.in10mServiceMan.ui.apis.APIClient;
 import com.in10mServiceMan.ui.fragments.service_man_details_fragments.SerivemanProfilePicFragment;
 import com.in10mServiceMan.ui.fragments.service_man_details_fragments.ServicemanBAsicDetailsFragment;
@@ -163,29 +163,29 @@ public class ServiceManDetailsActivity extends AppCompatActivity implements OnDa
     }
 
     private void uploadImages(String mFilePath, String mName, String mEmail) {
-        if (mFilePath != null) {
-            ArrayList<String> myList = new ArrayList<String>(Arrays.asList(mFilePath.split(",")));
-            AmazonUploadTask amazonUploadTask = new AmazonUploadTask(myList, new AmazonUploadTask.AmazonUploadTaskListener() {
-                @Override
-                public void uploadTaskFailed(@NotNull String mMessage) {
-
-                    loadingDialog.destroyDialog();
-                }
-
-                @Override
-                public void uploadTaskSuccess(@NotNull ArrayList<String> mUrlList, @NotNull HashMap<String, String> mUrlHashMap) {
-                    mImageUploadPath = mUrlList.get(0);
-                    updateProfile();
-                }
-
-                @Override
-                public void uploadTaskProgress(int mCurrentUploadIndex, int mSize) {
-
-                }
-            }, "profileimage", mEmail);
-
-            amazonUploadTask.execute();
-        }
+//        if (mFilePath != null) {
+//            ArrayList<String> myList = new ArrayList<String>(Arrays.asList(mFilePath.split(",")));
+//            AmazonUploadTask amazonUploadTask = new AmazonUploadTask(myList, new AmazonUploadTask.AmazonUploadTaskListener() {
+//                @Override
+//                public void uploadTaskFailed(@NotNull String mMessage) {
+//
+//                    loadingDialog.destroyDialog();
+//                }
+//
+//                @Override
+//                public void uploadTaskSuccess(@NotNull ArrayList<String> mUrlList, @NotNull HashMap<String, String> mUrlHashMap) {
+//                    mImageUploadPath = mUrlList.get(0);
+//                    updateProfile();
+//                }
+//
+//                @Override
+//                public void uploadTaskProgress(int mCurrentUploadIndex, int mSize) {
+//
+//                }
+//            }, "profileimage", mEmail);
+//
+//            amazonUploadTask.execute();
+//        }
     }
 
     private void updateProfile() {

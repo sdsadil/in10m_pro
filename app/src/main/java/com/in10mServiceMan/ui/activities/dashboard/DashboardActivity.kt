@@ -65,8 +65,7 @@ import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute
-import com.onesignal.OSDeviceState
-import com.onesignal.OneSignal
+//import com.onesignal.OSDeviceState
 import com.sinch.android.rtc.MissingPermissionException
 import com.sinch.android.rtc.SinchError
 import com.squareup.picasso.Picasso
@@ -2134,27 +2133,27 @@ class DashboardActivity : In10mBaseActivity(), NavigationAdapter.NavigationCallb
             })
         }*/
 
-        val device: OSDeviceState? = OneSignal.getDeviceState()
-        val userId: String = device!!.userId
+//        val device: OSDeviceState? = OneSignal.getDeviceState()
+//        val userId: String = device!!.userId
 //        val registrationId: String = device.emailUserId
-        val registrationId: String = device.userId
+//        val registrationId: String = device.userId
 
-        var text = "OneSignal UserID:\n$userId\n\n"
-        text += "Google Registration Id:\n$registrationId"
-        val requestUpdateDeviceUser = RequestUpdateDeviceUser()
-        requestUpdateDeviceUser.userId = userid
-        requestUpdateDeviceUser.status = 1
-        requestUpdateDeviceUser.deviceId = userId
+//        var text = "OneSignal UserID:\n$userId\n\n"
+//        text += "Google Registration Id:\n$registrationId"
+//        val requestUpdateDeviceUser = RequestUpdateDeviceUser()
+//        requestUpdateDeviceUser.userId = userid
+//        requestUpdateDeviceUser.status = 1
+//        requestUpdateDeviceUser.deviceId = userId
+//
+//        val callServiceProviders = APIClient.getApiInterface().saveDeviceId(requestUpdateDeviceUser)
+//        callServiceProviders.enqueue(object : Callback<Void> {
+//            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+//            }
 
-        val callServiceProviders = APIClient.getApiInterface().saveDeviceId(requestUpdateDeviceUser)
-        callServiceProviders.enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-
-            }
-        })
+//            override fun onFailure(call: Call<Void>, t: Throwable) {
+//
+//            }
+//        })
 
     }
 

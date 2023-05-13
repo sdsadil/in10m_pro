@@ -81,16 +81,16 @@ class ServicesAdapter(
                 selectedServiceCallback?.selectService(service)
                 holder.itemView?.tvItem?.setTextColor(Color.parseColor("#000000"))
                 //holder.itemView?.ad_bg.setBackgroundColor(Color.parseColor(service.serviceColor))
-                holder.itemView?.cons_bg.setBackgroundColor(Color.parseColor(service.serviceColor))
+                holder.itemView?.cons_bg!!.setBackgroundColor(Color.parseColor(service.serviceColor))
                 //holder.itemView?.ad_bg.alpha = 0.3f
-                holder.itemView?.cons_bg.alpha = 0.3f
+                holder.itemView?.cons_bg!!.alpha = 0.3f
                 isClicked = true
             } else {
                 isClicked = false
                 selectedServiceCallback?.removeSelectedService(service)
                 holder.itemView?.tvItem?.setTextColor(Color.parseColor("#7F8081"))
                 //holder.itemView?.ad_bg.setBackgroundColor(Color.parseColor("#ffffff"))
-                holder.itemView?.cons_bg.setBackgroundColor(Color.parseColor("#ffffff"))
+                holder.itemView?.cons_bg!!.setBackgroundColor(Color.parseColor("#ffffff"))
             }
         }
     }

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.amazonaws.mobile.client.AWSMobileClient;
+//import com.amazonaws.mobile.client.AWSMobileClient;
 import com.in10mServiceMan.models.CompleteProfile;
 import com.in10mServiceMan.R;
 import com.in10mServiceMan.ui.activities.profile.ProfileCompletedActivity;
@@ -66,7 +66,7 @@ public class SerivemanProfilePicFragment extends Fragment implements View.OnClic
         return v;
     }
     private void initAmazonAWS() {
-        AWSMobileClient.getInstance().initialize(mContext).execute();
+//        AWSMobileClient.getInstance().initialize(mContext).execute();
     }
     public static SerivemanProfilePicFragment newInstance(String text) {
 

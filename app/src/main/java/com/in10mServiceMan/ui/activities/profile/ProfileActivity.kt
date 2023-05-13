@@ -19,14 +19,13 @@ import retrofit2.Response
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
-import com.amazonaws.mobile.client.AWSMobileClient
 import com.in10mServiceMan.models.viewmodels.ServiceWithSubService
 import com.in10mServiceMan.ui.activities.profile_services.ProfileServices
 import com.in10mServiceMan.ui.activities.services.ServiceData
 import com.in10mServiceMan.ui.activities.services.ServicesActivity
 import com.in10mServiceMan.ui.activities.services.ServicesResponse
 import com.in10mServiceMan.ui.activities.sub_services.SubServicesActivity
-import com.in10mServiceMan.ui.apis.AmazonUploadTask
+//import com.in10mServiceMan.ui.apis.AmazonUploadTask
 import com.in10mServiceMan.ui.base.In10mBaseActivity
 import com.in10mServiceMan.ui.interfaces.EditTextValuePass
 import com.in10mServiceMan.ui.listener.EditSubServicesListener
@@ -173,38 +172,38 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun uploadImages(mFilePath: String?, mName: String, mEmail: String) {
-        if (mFilePath != null) {
-
-            var mAmazonUploadTask = AmazonUploadTask(
-                arrayListOf(mFilePath),
-                object : AmazonUploadTask.AmazonUploadTaskListener {
-                    override fun uploadTaskProgress(mCurrentUploadIndex: Int, mSize: Int) {
-
-                    }
-
-                    override fun uploadTaskFailed(mMessage: String) {
-                        destroyDialog()
-                        Toast.makeText(
-                            this@ProfileActivity,
-                            "Failed to upload images",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    override fun uploadTaskSuccess(
-                        mUrlList: ArrayList<String>,
-                        mUrlHashMap: HashMap<String, String>
-                    ) {
-                        destroyDialog()
-                        mImageUploadPath = mUrlList.get(0)
-                        rq.serviceproviderImage = mImageUploadPath
-                    }
-                },
-                Constants.Bucket.USER_FOLDER,
-                mEmail
-            )
-            mAmazonUploadTask.execute()
-        }
+//        if (mFilePath != null) {
+//
+//            var mAmazonUploadTask = AmazonUploadTask(
+//                arrayListOf(mFilePath),
+//                object : AmazonUploadTask.AmazonUploadTaskListener {
+//                    override fun uploadTaskProgress(mCurrentUploadIndex: Int, mSize: Int) {
+//
+//                    }
+//
+//                    override fun uploadTaskFailed(mMessage: String) {
+//                        destroyDialog()
+//                        Toast.makeText(
+//                            this@ProfileActivity,
+//                            "Failed to upload images",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//
+//                    override fun uploadTaskSuccess(
+//                        mUrlList: ArrayList<String>,
+//                        mUrlHashMap: HashMap<String, String>
+//                    ) {
+//                        destroyDialog()
+//                        mImageUploadPath = mUrlList.get(0)
+//                        rq.serviceproviderImage = mImageUploadPath
+//                    }
+//                },
+//                Constants.Bucket.USER_FOLDER,
+//                mEmail
+//            )
+//            mAmazonUploadTask.execute()
+//        }
     }
 
     var profile: CompleteProfile = CompleteProfile()
@@ -561,12 +560,12 @@ class ProfileActivity : In10mBaseActivity(), ImageFetcher.OnImageAddedCallback,
     }
 
     private fun initAmazonAWS() {
-        AWSMobileClient.getInstance().initialize(this) {
-            Log.d(
-                "eeeYourMainActivity",
-                "AWSMobileClient is instantiated and you are connected to AWS!"
-            )
-        }.execute()
+//        AWSMobileClient.getInstance().initialize(this) {
+//            Log.d(
+//                "eeeYourMainActivity",
+//                "AWSMobileClient is instantiated and you are connected to AWS!"
+//            )
+//        }.execute()
     }
 
     private fun somethingWentWrong(msg: String = "Something went wrong") {

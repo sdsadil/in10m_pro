@@ -22,11 +22,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.amazonaws.mobile.client.AWSMobileClient
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferState
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility
-import com.amazonaws.services.s3.AmazonS3Client
+//import com.amazonaws.mobile.client.AWSMobileClient
 import com.in10mServiceMan.BuildConfig
 import com.in10mServiceMan.R
 import com.in10mServiceMan.models.*
@@ -351,47 +347,47 @@ class Profile(context: Context) : BaseFragment(), IProfileView, EditSubServicesL
         }
     }
 
-    private fun uploadWithTransferUtility(remote: String, filePath: String) {
-
-        val localFile = File(filePath)
-        val txUtil = TransferUtility.builder().context(mcontext)
-            .awsConfiguration(AWSMobileClient.getInstance().configuration)
-            .s3Client(AmazonS3Client(AWSMobileClient.getInstance().credentialsProvider))
-            .build()
-
-        val fileKey: String =
-            profile.id.toString() + "_" + System.currentTimeMillis() + localFile.name
-
-        val txObserver = txUtil.upload(remote, fileKey, localFile)
-
-        txObserver.setTransferListener(object : TransferListener {
-            override fun onStateChanged(id: Int, state: TransferState) {
-                if (state == TransferState.COMPLETED) {
-                    // Handle a completed upload
-                    state.declaringClass.getResource(state.name)
-                    Log.e(
-                        "uploadWithTransfer",
-                        "URL : " + "https://" + txObserver.bucket + ".s3.amazonaws.com/" + fileKey
-                    )
-                    val finalUrl: String =
-                        "https://" + txObserver.bucket + ".s3.amazonaws.com/" + fileKey
-                    isNewImage = false
-                    updateProf(finalUrl)
-
-                    //txObserver.bucket
-                }
-            }
-
-            override fun onProgressChanged(id: Int, current: Long, total: Long) {
-                /*val done = (((current / total) * 100.0) as Float) as Int
-                Log.d(TAG, "AWS ID: $id, percent done = $done")*/
-            }
-
-            override fun onError(id: Int, ex: Exception) {
-                // Handle errors
-            }
-        })
-    }
+//    private fun uploadWithTransferUtility(remote: String, filePath: String) {
+//
+//        val localFile = File(filePath)
+//        val txUtil = TransferUtility.builder().context(mcontext)
+//            .awsConfiguration(AWSMobileClient.getInstance().configuration)
+//            .s3Client(AmazonS3Client(AWSMobileClient.getInstance().credentialsProvider))
+//            .build()
+//
+//        val fileKey: String =
+//            profile.id.toString() + "_" + System.currentTimeMillis() + localFile.name
+//
+//        val txObserver = txUtil.upload(remote, fileKey, localFile)
+//
+//        txObserver.setTransferListener(object : TransferListener {
+//            override fun onStateChanged(id: Int, state: TransferState) {
+//                if (state == TransferState.COMPLETED) {
+//                    // Handle a completed upload
+//                    state.declaringClass.getResource(state.name)
+//                    Log.e(
+//                        "uploadWithTransfer",
+//                        "URL : " + "https://" + txObserver.bucket + ".s3.amazonaws.com/" + fileKey
+//                    )
+//                    val finalUrl: String =
+//                        "https://" + txObserver.bucket + ".s3.amazonaws.com/" + fileKey
+//                    isNewImage = false
+//                    updateProf(finalUrl)
+//
+//                    //txObserver.bucket
+//                }
+//            }
+//
+//            override fun onProgressChanged(id: Int, current: Long, total: Long) {
+//                /*val done = (((current / total) * 100.0) as Float) as Int
+//                Log.d(TAG, "AWS ID: $id, percent done = $done")*/
+//            }
+//
+//            override fun onError(id: Int, ex: Exception) {
+//                // Handle errors
+//            }
+//        })
+//    }
 
     private fun updateProf(imageUrl: String) {
         val mAuthToken = SharedPreferencesHelper.getString(
