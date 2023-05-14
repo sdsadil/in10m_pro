@@ -104,7 +104,7 @@ class BottomSheatDialog: BottomSheetDialogFragment(),CountryAdapter.CountrySelec
         savedInstanceState: Bundle?
     ): View? {
         super.onCreate(savedInstanceState)
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogStyle)
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.AlertDialogCustom)
         var view = inflater.inflate(R.layout.bottom_sheat_dialog, container, false)
       //  getDialog()!!.getWindow()!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
