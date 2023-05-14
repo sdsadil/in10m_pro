@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.reinaldoarrosi:maskededittext:1.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/1220a88f90dad45a4e1daeb28013e8e3/jetified-maskededittext-1.1.0/res" />
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/1220a88f90dad45a4e1daeb28013e8e3/jetified-maskededittext-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/1220a88f90dad45a4e1daeb28013e8e3/jetified-maskededittext-1.1.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/modules-2/files-2.1/com.github.reinaldoarrosi/maskededittext/1.1.0/e931fff6d1307c0dd0582ae45c726bfdf0f056e4/maskededittext-1.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/modules-2/files-2.1/com.github.reinaldoarrosi/maskededittext/1.1.0/6391c0c86b337e9f2ab3f003c2c22198d263e62f/maskededittext-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

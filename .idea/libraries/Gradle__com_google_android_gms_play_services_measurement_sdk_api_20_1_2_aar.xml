@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.gms:play-services-measurement-sdk-api:20.1.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/d087fa9b18501579a72bb37f22ee06fd/jetified-play-services-measurement-sdk-api-20.1.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/d087fa9b18501579a72bb37f22ee06fd/jetified-play-services-measurement-sdk-api-20.1.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/modules-2/files-2.1/com.google.android.gms/play-services-measurement-sdk-api/20.1.2/ace98f39b262c59be4be4d52b871d1ba5dfff723/play-services-measurement-sdk-api-20.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

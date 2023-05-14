@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.gms:play-services-tasks:18.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/4a8fe4fd19b0633aeefc4e301c73f54a/jetified-play-services-tasks-18.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/4a8fe4fd19b0633aeefc4e301c73f54a/jetified-play-services-tasks-18.0.2/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/modules-2/files-2.1/com.google.android.gms/play-services-tasks/18.0.2/8cb34c1c7ea9ed5e4b284932740bb7d64257c35d/play-services-tasks-18.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

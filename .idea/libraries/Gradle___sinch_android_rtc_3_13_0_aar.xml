@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :sinch-android-rtc:3.13.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/71841450d9d0400eb334c2e8583517ea/jetified-sinch-android-rtc-3.13.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/71841450d9d0400eb334c2e8583517ea/jetified-sinch-android-rtc-3.13.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

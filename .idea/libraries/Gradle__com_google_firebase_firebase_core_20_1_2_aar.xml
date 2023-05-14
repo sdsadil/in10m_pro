@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-core:20.1.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/f9d1862b082bb5b2476bfc4653fd79a0/jetified-firebase-core-20.1.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/f9d1862b082bb5b2476bfc4653fd79a0/jetified-firebase-core-20.1.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/modules-2/files-2.1/com.google.firebase/firebase-core/20.1.2/ace98f39b262c59be4be4d52b871d1ba5dfff723/firebase-core-20.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

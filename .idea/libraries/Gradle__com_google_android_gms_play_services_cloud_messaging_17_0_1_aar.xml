@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.gms:play-services-cloud-messaging:17.0.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/2f14763f73ed2efa1b7a0ec876692875/jetified-play-services-cloud-messaging-17.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/transforms-2/files-2.1/2f14763f73ed2efa1b7a0ec876692875/jetified-play-services-cloud-messaging-17.0.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Documents/MagicPrint-ECommerce-App-Android-master/caches/modules-2/files-2.1/com.google.android.gms/play-services-cloud-messaging/17.0.1/5b54e40c89bf1882a551b10312acdf03dcf34e82/play-services-cloud-messaging-17.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
